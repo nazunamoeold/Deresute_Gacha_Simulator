@@ -95,6 +95,7 @@ public class main extends JFrame {
 		yunchago.addActionListener(new gachaaction());
 		yungumgo.addActionListener(new gachaaction());
 		searchbtn.addActionListener(new gachaaction());
+		exit.addActionListener(new gachaaction());
 		
 		result.setEditable(false);
 		
@@ -122,13 +123,16 @@ public class main extends JFrame {
 				StringBuffer gachatext = new StringBuffer();
 				for(int i=0; i<9; i++){
 				gachatext.append(g.ReturnToGUILimited(user, 0).Valueof()+"\n");
-				}gachatext.append(g.ReturnToGUILimited(user, 1).Valueof()+"\n");
+				}gachatext.append(g.ReturnToGUILimited(user, 1).Valueof());
 				String gacharesult=gachatext.toString();
 				result.setText(result.getText()+gacharesult);
 				break;}
 			case"연금단챠":{break;}
 			case"검색":{break;}
-			}
+			case"종료":{int result =JOptionPane.showConfirmDialog(a, "종료하시겠습니까?","종료",JOptionPane.YES_OPTION);
+			if(result ==JOptionPane.YES_OPTION){
+			System.exit(0);}
+			}}
 		}
 	}
 	

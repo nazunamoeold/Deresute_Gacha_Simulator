@@ -320,6 +320,42 @@ public class Gacha{
 			String temp=scanner.nextLine();
 		}
 		
+		public Card ReturnToGUILimited(User user, int i){
+			Random random = new Random();
+			int temp;
+			
+			if(i==0){temp=random.nextInt(999);
+   			if(temp<=user.SSRp){return this.SSRadd(user, user.TypeGachaSetting);}
+   				else if(temp<=user.SRp){return this.SRadd(user);}
+   				else if(temp<=user.Rp){return this.Radd(user);} 	
+   				else {return null;}}
+			else if(i==1){temp=random.nextInt(114);
+				if(temp<=user.SSRp){return this.SSRadd(user, user.TypeGachaSetting);}
+				else if(temp<=user.SRp){return this.SRadd(user);}
+				else {return null;}}
+			else {return null;}
+		}
+		
+		public Card ReturnToGUIUnlimited(User user, int i){
+			Random random = new Random();
+			int temp;
+			temp=random.nextInt(999);
+			if(i==0){temp=random.nextInt(999);
+				if(temp<=user.LSSRp){return this.LSSRadd(user, user.TypeGachaSetting);}
+				else if(temp<=user.SSRp){return this.SSRadd(user, user.TypeGachaSetting);}
+				else if(temp<=user.LSRp){return this.LSRadd(user);}
+   				else if(temp<=user.SRp){return this.SRadd(user);}
+   				else if(temp<=user.Rp){return this.Radd(user);} 	
+   				else {return null;}}
+			else if(i==1){temp=random.nextInt(114);
+				if(temp<=user.LSSRp){return this.LSSRadd(user, user.TypeGachaSetting);}
+				else if(temp<=user.SSRp){return this.SSRadd(user, user.TypeGachaSetting);}
+				else if(temp<=user.LSRp){return this.LSRadd(user);}
+				else if(temp<=user.SRp){return this.SRadd(user);}
+				else {return null;}}
+			else {return null;}
+		}
+		
 		public void unlimited(User user, int i, int y){
 			Random random = new Random();
 			int temp;
