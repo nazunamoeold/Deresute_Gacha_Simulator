@@ -31,7 +31,7 @@ public class main extends JFrame {
 		setTitle("데레스테 가챠 시뮬레이터");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JLabel Title = new JLabel (" 데레스테 가챠 시뮬레이터 v2.0 beta1");
+		JLabel Title = new JLabel (" 데레스테 가챠 시뮬레이터 v2.0 beta 2");
 		titlebar.setLayout(new BorderLayout(50,50));
 		titlebar.add(Title,BorderLayout.WEST);
 		titlebar.add(exit,BorderLayout.EAST);
@@ -76,9 +76,9 @@ public class main extends JFrame {
 		yunchago.setSize(110,30);
 		yungumgo.setSize(110,30);
 		jewelstat.setSize(110,20);
-		scrollPane.setSize(365,120);
-		search.setSize(300,20);
-		searchbtn.setSize(65,20);
+		scrollPane.setSize(365,185);
+		search.setSize(240,20);
+		searchbtn.setSize(65,18);
 		limited.setSize(110,20);
 		gachatitle.setSize(365,20);
 		
@@ -87,10 +87,10 @@ public class main extends JFrame {
 		yungumgo.setLocation(5,75);
 		jewelstat.setLocation(5,115);
 		scrollPane.setLocation(120,25);
-		search.setLocation(120,150);
-		searchbtn.setLocation(420,150);
+		search.setLocation(180,5);
+		searchbtn.setLocation(420,5);
 		limited.setLocation(5,140);
-		gachatitle.setLocation(120,5);
+		gachatitle.setLocation(120,3);
 		
 		gachago.setFont(mainfont);
 		yunchago.setFont(mainfont);
@@ -114,7 +114,7 @@ public class main extends JFrame {
 		tab.setFont(mainfont);
 		a.add(tab,BorderLayout.CENTER);
 		
-		setSize(500,270);
+		setSize(500,310);
 		setVisible(true);
 		setResizable(false);
 	}
@@ -133,7 +133,7 @@ public class main extends JFrame {
 				break;}
 			case"연챠":{
 				result.setText("");
-				user.jewel=-250;
+				user.jewel=-2500;
 				StringBuffer gachatext = new StringBuffer();
 				for(int i=0; i<9; i++){
 				gachatext.append(g.ReturnToGUILimited(user, 0).Valueof()+"\n");
@@ -154,6 +154,14 @@ public class main extends JFrame {
 			if(result ==JOptionPane.YES_OPTION){
 			System.exit(0);}
 			}}
+		}
+	}
+	
+	public class limitedconfigbutton implements ItemListener{
+		public void itemStateChanged(ItemEvent e) {
+			if(e.getStateChange() ==ItemEvent.DESELECTED){
+				user.limited=true;
+			} else {user.limited=false;}
 		}
 	}
 	
