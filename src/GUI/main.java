@@ -8,6 +8,11 @@ public class main extends JFrame {
 	JPanel gacha = new JPanel();
 	JPanel money = new JPanel();
 	JPanel info = new JPanel();
+	JPanel titlebar = new JPanel();
+	
+	JButton exit = new JButton("Á¾·á");
+
+	
 	Container a = getContentPane();
 	main(){
 
@@ -15,9 +20,12 @@ public class main extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JLabel Title = new JLabel ("µ¥·¹½ºÅ× °¡Ã­ ½Ã¹Ä·¹ÀÌÅÍ v2.0 beta1");
-		Title.setFont(new Font("¸¼Àº °íµñ",0,30));
+		titlebar.setLayout(new BorderLayout(50,50));
+		titlebar.add(Title,BorderLayout.WEST);
+		titlebar.add(exit,BorderLayout.EAST);
+		Title.setFont(new Font("¸¼Àº °íµñ",0,25));
 		a.setLayout(new BorderLayout(5,5));
-		a.add(Title,BorderLayout.NORTH);
+		a.add(titlebar,BorderLayout.NORTH);
 		
 		JTabbedPane tab = new JTabbedPane();
 		tab.add(money,"°ú±Ý");
