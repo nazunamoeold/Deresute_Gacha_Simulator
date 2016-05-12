@@ -21,7 +21,7 @@ public class User{
 	    public String name;
 	    public int gameid;
 		
-	    public boolean limited=false;
+	    public boolean limited;
 	    public String limit;
 	    
 	    public ArrayList<Card> SSR = new ArrayList<Card>();

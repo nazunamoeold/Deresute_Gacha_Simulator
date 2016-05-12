@@ -3,7 +3,6 @@ public class SSRCardLimited extends Card {
 	public Card ssrinfo (int k){
 		Card[] ssrinfo=new Card [super.SSRCardLimitednumber];
 		
-
 		ssrinfo[0] = new Card();
 		ssrinfo[0].type="passion";
 		ssrinfo[0].name="[해피 휩] 아카기 미리아 ";

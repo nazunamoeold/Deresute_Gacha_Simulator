@@ -20,7 +20,7 @@ public class Card {
 	public final int SSRCardnumber = 25;
 	public final int SRCardnumber = 49;
 	public final int RCardnumber= 66;
-	public final int SRCardLimitednumber = 10;
+	public final int SRCardLimitednumber = 9;
 	public final int SSRCardLimitednumber = 16;
 	
 //	public int life;

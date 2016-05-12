@@ -25,7 +25,7 @@ public class main extends JFrame {
 	User user = new User();
 	Container a = getContentPane();
 	main(){
-		
+		user.limited=false;
 		Font mainfont = new Font("¸¼Àº °íµñ",0,15);
 		Font mainfont2 = new Font("¸¼Àº °íµñ",0,13);
 		setTitle("µ¥·¹½ºÅ× °¡Ã­ ½Ã¹Ä·¹ÀÌÅÍ");
@@ -108,6 +108,7 @@ public class main extends JFrame {
 		yungumgo.addActionListener(new gachaaction());
 		searchbtn.addActionListener(new gachaaction());
 		exit.addActionListener(new gachaaction());
+		limited.addItemListener(new limitedconfigbutton());
 		
 		result.setEditable(false);
 		
@@ -127,7 +128,8 @@ public class main extends JFrame {
 				result.setText("");
 				user.jewel=-250;
 				StringBuffer gachatext = new StringBuffer();
-				gachatext.append(g.ReturnToGUILimited(user, 0).Valueof()+"\n");
+				if(user.limited){gachatext.append(g.ReturnToGUIUnlimited(user, 0).Valueof()+"\n");}
+				else {gachatext.append(g.ReturnToGUIUnlimited(user, 0).Valueof()+"\n");}
 				String gacharesult=gachatext.toString();
 				result.setText(result.getText()+gacharesult);
 				break;}
@@ -135,9 +137,15 @@ public class main extends JFrame {
 				result.setText("");
 				user.jewel=-2500;
 				StringBuffer gachatext = new StringBuffer();
+				if(user.limited){
 				for(int i=0; i<9; i++){
-				gachatext.append(g.ReturnToGUILimited(user, 0).Valueof()+"\n");
-				}gachatext.append(g.ReturnToGUILimited(user, 1).Valueof());
+					gachatext.append(g.ReturnToGUIUnlimited(user, 0).Valueof()+"\n");
+					}gachatext.append(g.ReturnToGUIUnlimited(user, 1).Valueof());
+					System.out.println("ÇÑÁ¤³ª¿È¤·");
+				} else {for(int i=0; i<9; i++){
+					gachatext.append(g.ReturnToGUILimited(user, 0).Valueof()+"\n");
+					}gachatext.append(g.ReturnToGUILimited(user, 1).Valueof());System.out.println("ÇÑÁ¤³ª¿È¤¤");
+				}
 				String gacharesult=gachatext.toString();
 				result.setText(result.getText()+gacharesult);
 				break;}
@@ -145,7 +153,8 @@ public class main extends JFrame {
 				result.setText("");
 				user.jewel=-60;
 				StringBuffer gachatext = new StringBuffer();
-				gachatext.append(g.ReturnToGUILimited(user, 0).Valueof()+"\n");
+				if(user.limited){gachatext.append(g.ReturnToGUIUnlimited(user, 0).Valueof()+"\n");}
+				else {gachatext.append(g.ReturnToGUIUnlimited(user, 0).Valueof()+"\n");}
 				String gacharesult=gachatext.toString();
 				result.setText(result.getText()+gacharesult);
 				break;}
@@ -160,12 +169,13 @@ public class main extends JFrame {
 	public class limitedconfigbutton implements ItemListener{
 		public void itemStateChanged(ItemEvent e) {
 			if(e.getStateChange() ==ItemEvent.DESELECTED){
-				user.limited=true;
-			} else {user.limited=false;}
+				user.limited=false;
+			} else {user.limited=true;}
 		}
 	}
 	
 	public static void main(String[] args){
+		
 		new main();
 	}
 }

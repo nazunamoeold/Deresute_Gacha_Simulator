@@ -1,6 +1,4 @@
 package Database;
-
-
 public class SRCardLimited extends Card {
 	public Card srinfo(int k){
 		Card[] srinfo = new Card [super.SRCardLimitednumber];
@@ -44,10 +42,6 @@ public class SRCardLimited extends Card {
 		srinfo[8] = new Card();
 		srinfo[8].type="passion";
 		srinfo[8].name="[알레그로 기분] 마츠야마 쿠미코  ";
-		
-//		srinfo[8] = new Card();
-//		srinfo[8].type="passion";
-//		srinfo[8].name="[하이파이☆데이즈] 류자키 카오루 ";	
 
 		for(int i=0; i<super.SRCardLimitednumber; i++){
 			srinfo[i].lev="SR";
