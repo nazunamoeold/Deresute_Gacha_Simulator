@@ -14,7 +14,10 @@ public class main extends JFrame {
 	JPanel money = new JPanel();
 	JPanel info = new JPanel();
 	JPanel titlebar = new JPanel();
-
+	
+	Gacha g = new Gacha();
+	
+	JTextArea result = new JTextArea(30,10);
 	
 	JButton exit = new JButton("Á¾·á");
 	User user = new User();
@@ -50,7 +53,7 @@ public class main extends JFrame {
 		JButton gachago = new JButton("´ÜÃ­");
 		JButton yunchago = new JButton("¿¬Ã­");
 		JButton yungumgo = new JButton("¿¬±Ý´ÜÃ­");
-		JTextArea result = new JTextArea(30,10);
+		
 		JButton searchbtn = new JButton("°Ë»ö");
 	    JScrollPane scrollPane = new JScrollPane(result);
 	    JTextField search = new JTextField(20);
@@ -107,8 +110,22 @@ public class main extends JFrame {
 		public void actionPerformed(ActionEvent e){
 			String menu = e.getActionCommand();
 			switch(menu){
-			case"´ÜÃ­":{break;}
-			case"¿¬Ã­":{break;}
+			case"´ÜÃ­":{
+				result.setText("°¡Ã­ °á°ú\n");
+				StringBuffer gachatext = new StringBuffer();
+				gachatext.append(g.ReturnToGUILimited(user, 0).Valueof()+"\n");
+				String gacharesult=gachatext.toString();
+				result.setText(result.getText()+gacharesult);
+				break;}
+			case"¿¬Ã­":{
+				result.setText("°¡Ã­ °á°ú\n");
+				StringBuffer gachatext = new StringBuffer();
+				for(int i=0; i<9; i++){
+				gachatext.append(g.ReturnToGUILimited(user, 0).Valueof()+"\n");
+				}gachatext.append(g.ReturnToGUILimited(user, 1).Valueof()+"\n");
+				String gacharesult=gachatext.toString();
+				result.setText(result.getText()+gacharesult);
+				break;}
 			case"¿¬±Ý´ÜÃ­":{break;}
 			case"°Ë»ö":{break;}
 			}
