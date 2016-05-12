@@ -71,8 +71,8 @@ public class main extends JFrame {
 		yunchago.setSize(110,30);
 		yungumgo.setSize(110,30);
 		jewelstat.setSize(110,20);
-		scrollPane.setSize(265,100);
-		search.setSize(200,20);
+		scrollPane.setSize(365,140);
+		search.setSize(300,20);
 		searchbtn.setSize(65,20);
 		
 		gachago.setLocation(5,5);
@@ -80,8 +80,8 @@ public class main extends JFrame {
 		yungumgo.setLocation(5,75);
 		jewelstat.setLocation(5,110);
 		scrollPane.setLocation(120,5);
-		search.setLocation(120,110);
-		searchbtn.setLocation(320,110);
+		search.setLocation(120,150);
+		searchbtn.setLocation(420,150);
 		
 		gachago.setFont(mainfont);
 		yunchago.setFont(mainfont);
@@ -102,7 +102,7 @@ public class main extends JFrame {
 		tab.setFont(mainfont);
 		a.add(tab,BorderLayout.CENTER);
 		
-		setSize(400,240);
+		setSize(500,270);
 		setVisible(true);
 		setResizable(false);
 	}
