@@ -112,6 +112,7 @@ public class main extends JFrame {
 			String menu = e.getActionCommand();
 			switch(menu){
 			case"단챠":{
+				user.jewel=-250;
 				result.setText("가챠 결과\n");
 				StringBuffer gachatext = new StringBuffer();
 				gachatext.append(g.ReturnToGUILimited(user, 0).Valueof()+"\n");
@@ -119,6 +120,7 @@ public class main extends JFrame {
 				result.setText(result.getText()+gacharesult);
 				break;}
 			case"연챠":{
+				user.jewel=-250;
 				result.setText("가챠 결과\n");
 				StringBuffer gachatext = new StringBuffer();
 				for(int i=0; i<9; i++){
@@ -127,7 +129,14 @@ public class main extends JFrame {
 				String gacharesult=gachatext.toString();
 				result.setText(result.getText()+gacharesult);
 				break;}
-			case"연금단챠":{break;}
+			case"연금단챠":{
+				user.jewel=-60;
+				result.setText("가챠 결과\n");
+				StringBuffer gachatext = new StringBuffer();
+				gachatext.append(g.ReturnToGUILimited(user, 0).Valueof()+"\n");
+				String gacharesult=gachatext.toString();
+				result.setText(result.getText()+gacharesult);
+				break;}
 			case"검색":{break;}
 			case"종료":{int result =JOptionPane.showConfirmDialog(a, "종료하시겠습니까?","종료",JOptionPane.YES_OPTION);
 			if(result ==JOptionPane.YES_OPTION){
