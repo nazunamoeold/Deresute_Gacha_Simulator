@@ -1,6 +1,8 @@
 package GUI;
 
 import java.awt.*;
+import java.awt.event.*;
+
 import javax.swing.*;
 import Database.*;
 import GachaChargeMenu.*;
@@ -86,6 +88,11 @@ public class main extends JFrame {
 		search.setFont(mainfont);
 		searchbtn.setFont(mainfont);
 		
+		gachago.addActionListener(new gachaaction());
+		yunchago.addActionListener(new gachaaction());
+		yungumgo.addActionListener(new gachaaction());
+		searchbtn.addActionListener(new gachaaction());
+		
 		result.setEditable(false);
 		
 		tab.setFont(mainfont);
@@ -95,6 +102,19 @@ public class main extends JFrame {
 		setVisible(true);
 		setResizable(false);
 	}
+	
+	public class gachaaction implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			String menu = e.getActionCommand();
+			switch(menu){
+			case"´ÜÃ­":{break;}
+			case"¿¬Ã­":{break;}
+			case"¿¬±Ý´ÜÃ­":{break;}
+			case"°Ë»ö":{break;}
+			}
+		}
+	}
+	
 	public static void main(String[] args){
 		new main();
 	}
