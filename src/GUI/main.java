@@ -15,6 +15,8 @@ public class main extends JFrame {
 	JPanel info = new JPanel();
 	JPanel titlebar = new JPanel();
 	
+	JRadioButton limited = new JRadioButton("한정 카드");
+	
 	Gacha g = new Gacha();
 	
 	JTextArea result = new JTextArea(30,10);
@@ -66,6 +68,7 @@ public class main extends JFrame {
 		gacha.add(scrollPane);
 		gacha.add(search);
 		gacha.add(searchbtn);
+		gacha.add(limited);
 		
 		gachago.setSize(110,30);
 		yunchago.setSize(110,30);
@@ -74,14 +77,16 @@ public class main extends JFrame {
 		scrollPane.setSize(365,140);
 		search.setSize(300,20);
 		searchbtn.setSize(65,20);
+		limited.setSize(110,20);
 		
 		gachago.setLocation(5,5);
 		yunchago.setLocation(5,40);
 		yungumgo.setLocation(5,75);
-		jewelstat.setLocation(5,110);
+		jewelstat.setLocation(5,115);
 		scrollPane.setLocation(120,5);
 		search.setLocation(120,150);
 		searchbtn.setLocation(420,150);
+		limited.setLocation(5,140);
 		
 		gachago.setFont(mainfont);
 		yunchago.setFont(mainfont);
@@ -90,6 +95,7 @@ public class main extends JFrame {
 		scrollPane.setFont(mainfont);
 		search.setFont(mainfont);
 		searchbtn.setFont(mainfont);
+		limited.setFont(mainfont);
 		
 		gachago.addActionListener(new gachaaction());
 		yunchago.addActionListener(new gachaaction());
