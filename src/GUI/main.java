@@ -27,6 +27,7 @@ public class main extends JFrame {
 	main(){
 		
 		Font mainfont = new Font("¸¼Àº °íµñ",0,15);
+		Font mainfont2 = new Font("¸¼Àº °íµñ",0,13);
 		setTitle("µ¥·¹½ºÅ× °¡Ã­ ½Ã¹Ä·¹ÀÌÅÍ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -55,8 +56,8 @@ public class main extends JFrame {
 		JButton gachago = new JButton("´ÜÃ­");
 		JButton yunchago = new JButton("¿¬Ã­");
 		JButton yungumgo = new JButton("¿¬±Ý´ÜÃ­");
-		
 		JButton searchbtn = new JButton("°Ë»ö");
+		JLabel gachatitle = new JLabel("°¡Ã­ °á°ú");
 	    JScrollPane scrollPane = new JScrollPane(result);
 	    JTextField search = new JTextField(20);
 		
@@ -69,24 +70,27 @@ public class main extends JFrame {
 		gacha.add(search);
 		gacha.add(searchbtn);
 		gacha.add(limited);
+		gacha.add(gachatitle);
 		
 		gachago.setSize(110,30);
 		yunchago.setSize(110,30);
 		yungumgo.setSize(110,30);
 		jewelstat.setSize(110,20);
-		scrollPane.setSize(365,140);
+		scrollPane.setSize(365,120);
 		search.setSize(300,20);
 		searchbtn.setSize(65,20);
 		limited.setSize(110,20);
+		gachatitle.setSize(365,20);
 		
 		gachago.setLocation(5,5);
 		yunchago.setLocation(5,40);
 		yungumgo.setLocation(5,75);
 		jewelstat.setLocation(5,115);
-		scrollPane.setLocation(120,5);
+		scrollPane.setLocation(120,25);
 		search.setLocation(120,150);
 		searchbtn.setLocation(420,150);
 		limited.setLocation(5,140);
+		gachatitle.setLocation(120,5);
 		
 		gachago.setFont(mainfont);
 		yunchago.setFont(mainfont);
@@ -94,8 +98,10 @@ public class main extends JFrame {
 		jewelstat.setFont(mainfont);
 		scrollPane.setFont(mainfont);
 		search.setFont(mainfont);
-		searchbtn.setFont(mainfont);
+		searchbtn.setFont(mainfont2);
 		limited.setFont(mainfont);
+		gachatitle.setFont(mainfont2);
+		
 		
 		gachago.addActionListener(new gachaaction());
 		yunchago.addActionListener(new gachaaction());
@@ -118,16 +124,16 @@ public class main extends JFrame {
 			String menu = e.getActionCommand();
 			switch(menu){
 			case"´ÜÃ­":{
+				result.setText("");
 				user.jewel=-250;
-				result.setText("°¡Ã­ °á°ú\n");
 				StringBuffer gachatext = new StringBuffer();
 				gachatext.append(g.ReturnToGUILimited(user, 0).Valueof()+"\n");
 				String gacharesult=gachatext.toString();
 				result.setText(result.getText()+gacharesult);
 				break;}
 			case"¿¬Ã­":{
+				result.setText("");
 				user.jewel=-250;
-				result.setText("°¡Ã­ °á°ú\n");
 				StringBuffer gachatext = new StringBuffer();
 				for(int i=0; i<9; i++){
 				gachatext.append(g.ReturnToGUILimited(user, 0).Valueof()+"\n");
@@ -136,8 +142,8 @@ public class main extends JFrame {
 				result.setText(result.getText()+gacharesult);
 				break;}
 			case"¿¬±Ý´ÜÃ­":{
+				result.setText("");
 				user.jewel=-60;
-				result.setText("°¡Ã­ °á°ú\n");
 				StringBuffer gachatext = new StringBuffer();
 				gachatext.append(g.ReturnToGUILimited(user, 0).Valueof()+"\n");
 				String gacharesult=gachatext.toString();
