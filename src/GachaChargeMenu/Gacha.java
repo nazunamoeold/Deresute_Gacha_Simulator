@@ -12,7 +12,6 @@ public class Gacha{
 	
 
 	int tempCardNumber[] = new int[5];
-    ArrayList<Card> tempGachaCard = new ArrayList<Card>();
     Scanner scanner = new Scanner(System.in);
     Card card = new Card();
     SSRCard ssr = new SSRCard();
@@ -159,8 +158,8 @@ public class Gacha{
 		    System.out.println("뽑은 카드");
 	    	for(int k=0; k<5; k++){
 	    		tempCardNumber[k]=0;}
-	    	if(user.limited){this.unlimited(user, tempGachaCard, i,y);}
-	    	if(!user.limited){this.limited(user, tempGachaCard, i,y);}
+	    	if(user.limited){this.unlimited(user, i,y);}
+	    	if(!user.limited){this.limited(user,i,y);}
 	    	System.out.println();
 		    System.out.println("결과 발표");
 		    if(!(tempCardNumber[0]==0)){System.out.println("SSR : "+tempCardNumber[0]);}
@@ -168,7 +167,6 @@ public class Gacha{
 		    if(!(tempCardNumber[2]==0)){System.out.println("R : "+tempCardNumber[2]);}
 		    if(!(tempCardNumber[3]==0)){System.out.println("한정 SSR : "+tempCardNumber[3]);}
 		    if(!(tempCardNumber[4]==0)){System.out.println("한정 SR : "+tempCardNumber[4]);}
-		    Iterator<Card> type= tempGachaCard.iterator();
 		    System.out.println();
 		    if(cute!=0){System.out.println("큐트 : "+cute);}
 		    if(cool!=0){System.out.println("쿨 : "+cool);}
@@ -329,7 +327,7 @@ public class Gacha{
 			String temp=scanner.nextLine();
 		}
 		
-		public ArrayList<Card> unlimited(User user, ArrayList<Card> cardlist, int i, int y){
+		public void unlimited(User user, int i, int y){
 			Random random = new Random();
 			int temp;
 			int x=1;
@@ -351,11 +349,10 @@ public class Gacha{
     			else if(temp<=user.SRp){System.out.println(this.SRadd(user).Valueof());}
     			x++;}
 //			TXTSave.GachaResultSave(tempGachaCard, i, tempCardNumber[0], tempCardNumber[1], tempCardNumber[2], tempCardNumber[3], tempCardNumber[4]);
-			}    
-			return tempGachaCard;					
+			}    				
 		}
 		
-		public ArrayList<Card> limited(User user, ArrayList<Card> cardlist, int i, int y){
+		public void limited(User user, int i, int y){
 			Random random = new Random();
 			int temp;
 			int x=1;
@@ -371,8 +368,7 @@ public class Gacha{
     			else if(temp<=user.SRp){System.out.println(this.SRadd(user).Valueof());}
     		x++;}
 //    		TXTSave.GachaResultSave(tempGachaCard, i, tempCardNumber[0], tempCardNumber[1], tempCardNumber[2], tempCardNumber[3], tempCardNumber[4]);
-		}	
-    	return tempGachaCard;	
+		}		
 
     }
 	   	public Card LSSRadd(User user, int j){
@@ -384,28 +380,24 @@ public class Gacha{
     		lssr.ssrinfo(k);
     		if(j==0){
     			k = random.nextInt(card.SSRCardLimitednumber);
-        		tempGachaCard.add(lssr.ssrinfo(k));
         		user.SSR.add(lssr.ssrinfo(k));
         		this.typecount(user, lssr.ssrinfo(k));
         		returncard=lssr.ssrinfo(k);
     		}
     		else if(j==1){
     			k = random.nextInt(card.CuteSSRLimitedList().size());
-    			tempGachaCard.add(card.CuteSSRLimitedList().get(k));
         		user.SSR.add(card.CuteSSRLimitedList().get(k));
         		cute++;user.cute++;
         		returncard=card.CuteSSRLimitedList().get(k);
     		}
     		else if(j==2){
     			k = random.nextInt(card.CoolSSRLimitedList().size());
-    			tempGachaCard.add(card.CoolSSRLimitedList().get(k));
         		user.SSR.add(card.CoolSSRLimitedList().get(k));
         		cool++;user.cool++;
         		returncard=card.CoolSSRLimitedList().get(k);
     		}
     		else if(j==3){
     			k = random.nextInt(card.PassionSSRLimitedList().size());
-    			tempGachaCard.add(card.PassionSSRLimitedList().get(k));
         		user.SSR.add(card.PassionSSRLimitedList().get(k));
         		passion++;user.passion++;
         		returncard=card.PassionSSRLimitedList().get(k);
@@ -419,28 +411,24 @@ public class Gacha{
     		++user.SSRNumber;
     		if(j==0){
     			k = random.nextInt(card.SSRCardnumber);
-        		tempGachaCard.add(ssr.ssrinfo(k));
         		this.typecount(user, ssr.ssrinfo(k));
         		user.SSR.add(ssr.ssrinfo(k));
         		returncard=ssr.ssrinfo(k);
     		}
     		else if(j==1){
     			k = random.nextInt(card.CuteSSRList().size());
-    			tempGachaCard.add(card.CuteSSRList().get(k));
         		user.SSR.add(card.CuteSSRList().get(k));
         		cute++;user.cute++;
         		returncard=card.CuteSSRList().get(k);
     		}
     		else if(j==2){
     			k = random.nextInt(card.CoolSSRList().size());
-    			tempGachaCard.add(card.CoolSSRList().get(k));
         		user.SSR.add(card.CoolSSRList().get(k));
         		cool++;user.cool++;
         		returncard=card.CoolSSRList().get(k);
     		}
     		else if(j==3){
     			k = random.nextInt(card.PassionSSRList().size());
-    			tempGachaCard.add(card.PassionSSRList().get(k));
         		user.SSR.add(card.PassionSSRList().get(k));
         		passion++;user.passion++;
         		returncard=card.PassionSSRList().get(k);
@@ -453,8 +441,7 @@ public class Gacha{
     		lsr.srinfo(k);
     		++user.LSRNumber;
     		k = random.nextInt(card.SRCardLimitednumber);
-    		tempGachaCard.add(lsr.srinfo(k));
-    		this.typecount(user, lsr.srinfo(k));
+       		this.typecount(user, lsr.srinfo(k));
     		user.LSR.add(lsr.srinfo(k));
     		returncard=lsr.srinfo(k);
     		return returncard;
@@ -466,7 +453,6 @@ public class Gacha{
     		sr.srinfo(k);
     		++user.SRNumber;
     		k = random.nextInt(sr.SRCardnumber);
-    		tempGachaCard.add(sr.srinfo(k));
     		this.typecount(user, sr.srinfo(k));
     		user.SR.add(sr.srinfo(k));
     		returncard=sr.srinfo(k);
@@ -478,7 +464,6 @@ public class Gacha{
     		tempCardNumber[2]++; 
     		++user.RNumber;
     		k = random.nextInt(r.RCardnumber);
-    		tempGachaCard.add(r.rinfo(k));
     		this.typecount(user, r.rinfo(k));
     		user.R.add(r.rinfo(k));
     		returncard=r.rinfo(k);
@@ -505,8 +490,8 @@ public class Gacha{
 	    	this.checkjewel(user, 250);
 	    	
 	    	do{if(this.checkjeweladv(user, 250)==false){System.out.println("SSR을 뽑진 못했지만 쥬엘이 부족합니다!");break;}user.GachausedJewel+=250;user.jewel-=250;user.Gacha++;
-	    	if(user.limited){this.unlimited(user, tempGachaCard, 1,0);}
-    		if(!user.limited){this.limited(user, tempGachaCard, 1,0);}
+	    	if(user.limited){this.unlimited(user, 1,0);}
+    		if(!user.limited){this.limited(user, 1,0);}
     		if(tempCardNumber[0]==1){break;}if(tempCardNumber[3]==1){break;}}while(true);
 	    	
 	    	System.out.println();
@@ -517,7 +502,6 @@ public class Gacha{
 		    if(!(tempCardNumber[3]==0)){System.out.println("한정 SSR : "+tempCardNumber[3]);}
 		    if(!(tempCardNumber[4]==0)){System.out.println("한정 SR : "+tempCardNumber[4]);}
 		    if(tempCardNumber[0]==0){}
-		    Iterator<Card> type= tempGachaCard.iterator();
 		    System.out.println();
 		    if(cute!=0){System.out.println("큐트 : "+cute);}
 		    if(cool!=0){System.out.println("쿨 : "+cool);}
