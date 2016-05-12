@@ -507,15 +507,4 @@ public class Gacha{
     	   	}
     	   	return true;   	
     	}
-    	
-    	
-    	
-    	public void debugshow(User user){
-     		for(int l=0; l<user.LSSR.size(); l++){
-     			ArrayList<Card> LSSR = new ArrayList<Card>();
-     			System.out.println(LSSR.get(l).Valueof());
-     		}
-
-    	}
-
 }			
