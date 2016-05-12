@@ -20,7 +20,7 @@ public class Gacha{
     RCard r = new RCard();
     SSRCardLimited lssr = new SSRCardLimited();
     SRCardLimited lsr = new SRCardLimited();
-    
+    Card returncard = null;
 	int cute=0;
 	int cool=0;
 	int passion=0;
@@ -161,9 +161,6 @@ public class Gacha{
 	    		tempCardNumber[k]=0;}
 	    	if(user.limited){this.unlimited(user, tempGachaCard, i,y);}
 	    	if(!user.limited){this.limited(user, tempGachaCard, i,y);}
-			
-
-			
 	    	System.out.println();
 		    System.out.println("결과 발표");
 		    if(!(tempCardNumber[0]==0)){System.out.println("SSR : "+tempCardNumber[0]);}
@@ -340,20 +337,18 @@ public class Gacha{
 			
 			for(int j=0; j<i; j++){
     			temp=random.nextInt(999);
-    			if(temp<=user.LSSRp){this.LSSRadd(user, user.TypeGachaSetting);}
-    			else if(temp<=user.SSRp){this.SSRadd(user, user.TypeGachaSetting);}
-    			else if(temp<=user.LSRp){this.LSRadd(user);}
-    			else if(temp<=user.SRp){this.SRadd(user);}
-    			else if(temp<=user.Rp){this.Radd(user);
-    				}    	
-    			
+    			if(temp<=user.LSSRp){System.out.println(this.LSSRadd(user, user.TypeGachaSetting).Valueof());}
+    			else if(temp<=user.SSRp){System.out.println(this.SSRadd(user, user.TypeGachaSetting).Valueof());}
+    			else if(temp<=user.LSRp){System.out.println(this.LSRadd(user).Valueof());}
+    			else if(temp<=user.SRp){System.out.println(this.SRadd(user).Valueof());}
+    			else if(temp<=user.Rp){System.out.println(this.Radd(user).Valueof());}    	
     		if(j==((9*x)-1)&&y==1){
     			j++;
     			temp=random.nextInt(user.SRp);
-    			if(temp<=user.LSSRp){this.LSSRadd(user, user.TypeGachaSetting);}
-    			else if(temp<=user.SSRp){this.SSRadd(user, user.TypeGachaSetting);}
-    			else if(temp<=user.LSRp){this.LSRadd(user);}
-    			else if(temp<=user.SRp){this.SRadd(user);}
+    			if(temp<=user.LSSRp){System.out.println(this.LSSRadd(user, user.TypeGachaSetting).Valueof());}
+    			else if(temp<=user.SSRp){System.out.println(this.SSRadd(user, user.TypeGachaSetting).Valueof());}
+    			else if(temp<=user.LSRp){System.out.println(this.LSRadd(user).Valueof());}
+    			else if(temp<=user.SRp){System.out.println(this.SRadd(user).Valueof());}
     			x++;}
 //			TXTSave.GachaResultSave(tempGachaCard, i, tempCardNumber[0], tempCardNumber[1], tempCardNumber[2], tempCardNumber[3], tempCardNumber[4]);
 			}    
@@ -366,21 +361,22 @@ public class Gacha{
 			int x=1;
     		for(int j=0; j<i; j++){
     			temp=random.nextInt(999);
-    			if(temp<=user.SSRp){this.SSRadd(user, user.TypeGachaSetting);}
-    			else if(temp<=user.SRp){this.SRadd(user);}
-    			else if(temp<=user.Rp){this.Radd(user);} 	
+    			if(temp<=user.SSRp){System.out.println(this.SSRadd(user, user.TypeGachaSetting).Valueof());}
+    			else if(temp<=user.SRp){System.out.println(this.SRadd(user).Valueof());}
+    			else if(temp<=user.Rp){System.out.println(this.Radd(user).Valueof());} 	
     		if(j==((9*x)-1)&&y==1){
     			j++;
     			temp=random.nextInt(user.SRp);
-    			if(temp<=user.SSRp){this.SSRadd(user,user.TypeGachaSetting);}
-    			else if(temp<=user.SRp){this.SRadd(user);}
+    			if(temp<=user.SSRp){System.out.println(this.SSRadd(user,user.TypeGachaSetting).Valueof());}
+    			else if(temp<=user.SRp){System.out.println(this.SRadd(user).Valueof());}
     		x++;}
 //    		TXTSave.GachaResultSave(tempGachaCard, i, tempCardNumber[0], tempCardNumber[1], tempCardNumber[2], tempCardNumber[3], tempCardNumber[4]);
 		}	
     	return tempGachaCard;	
 
     }
-	   	public void LSSRadd(User user, int j){
+	   	public Card LSSRadd(User user, int j){
+	   		
     		Random random = new Random();
     		int k=0;
     		tempCardNumber[3]++; 
@@ -391,33 +387,31 @@ public class Gacha{
         		tempGachaCard.add(lssr.ssrinfo(k));
         		user.SSR.add(lssr.ssrinfo(k));
         		this.typecount(user, lssr.ssrinfo(k));
-        		System.out.println(lssr.ssrinfo(k).Valueof());
+        		returncard=lssr.ssrinfo(k);
     		}
     		else if(j==1){
     			k = random.nextInt(card.CuteSSRLimitedList().size());
     			tempGachaCard.add(card.CuteSSRLimitedList().get(k));
         		user.SSR.add(card.CuteSSRLimitedList().get(k));
-        		System.out.println(card.CuteSSRLimitedList().get(k).Valueof());
         		cute++;user.cute++;
+        		returncard=card.CuteSSRLimitedList().get(k);
     		}
     		else if(j==2){
     			k = random.nextInt(card.CoolSSRLimitedList().size());
     			tempGachaCard.add(card.CoolSSRLimitedList().get(k));
         		user.SSR.add(card.CoolSSRLimitedList().get(k));
-        		System.out.println(card.CoolSSRLimitedList().get(k).Valueof());
         		cool++;user.cool++;
+        		returncard=card.CoolSSRLimitedList().get(k);
     		}
     		else if(j==3){
     			k = random.nextInt(card.PassionSSRLimitedList().size());
     			tempGachaCard.add(card.PassionSSRLimitedList().get(k));
         		user.SSR.add(card.PassionSSRLimitedList().get(k));
-        		System.out.println(card.PassionSSRLimitedList().get(k).Valueof());
         		passion++;user.passion++;
-    		}
-//    		System.out.print("SSRCard Added");
-
+        		returncard=card.PassionSSRLimitedList().get(k);
+    		}  return returncard;
     	}
-    	public void SSRadd(User user, int j){
+    	public Card SSRadd(User user, int j){
     		Random random = new Random();
     		int k = 0;
     		tempCardNumber[0]++; 
@@ -428,33 +422,31 @@ public class Gacha{
         		tempGachaCard.add(ssr.ssrinfo(k));
         		this.typecount(user, ssr.ssrinfo(k));
         		user.SSR.add(ssr.ssrinfo(k));
-        		System.out.println(ssr.ssrinfo(k).Valueof());
+        		returncard=ssr.ssrinfo(k);
     		}
     		else if(j==1){
     			k = random.nextInt(card.CuteSSRList().size());
     			tempGachaCard.add(card.CuteSSRList().get(k));
         		user.SSR.add(card.CuteSSRList().get(k));
-        		System.out.println(card.CuteSSRList().get(k).Valueof());
         		cute++;user.cute++;
+        		returncard=card.CuteSSRList().get(k);
     		}
     		else if(j==2){
     			k = random.nextInt(card.CoolSSRList().size());
     			tempGachaCard.add(card.CoolSSRList().get(k));
         		user.SSR.add(card.CoolSSRList().get(k));
-        		System.out.println(card.CoolSSRList().get(k).Valueof());
         		cool++;user.cool++;
+        		returncard=card.CoolSSRList().get(k);
     		}
     		else if(j==3){
     			k = random.nextInt(card.PassionSSRList().size());
     			tempGachaCard.add(card.PassionSSRList().get(k));
         		user.SSR.add(card.PassionSSRList().get(k));
-        		System.out.println(card.PassionSSRList().get(k).Valueof());
         		passion++;user.passion++;
-    		}
-//    		System.out.print("SSRCard Added");
-
+        		returncard=card.PassionSSRList().get(k);
+    		}return returncard;
     	}
-    	public void LSRadd(User user){
+    	public Card LSRadd(User user){
     		Random random = new Random();
     		int k = 0;
     		tempCardNumber[4]++;
@@ -464,10 +456,10 @@ public class Gacha{
     		tempGachaCard.add(lsr.srinfo(k));
     		this.typecount(user, lsr.srinfo(k));
     		user.LSR.add(lsr.srinfo(k));
-//    		System.out.print("LSRCard Added");
-    		System.out.println(lsr.srinfo(k).Valueof());
+    		returncard=lsr.srinfo(k);
+    		return returncard;
     	}
-    	public void SRadd(User user){
+    	public Card SRadd(User user){
     		Random random = new Random();
     		int k=0;
     		tempCardNumber[1]++;
@@ -477,10 +469,10 @@ public class Gacha{
     		tempGachaCard.add(sr.srinfo(k));
     		this.typecount(user, sr.srinfo(k));
     		user.SR.add(sr.srinfo(k));
-//    		System.out.print("SRCard Added");
-    		System.out.println(sr.srinfo(k).Valueof());
+    		returncard=sr.srinfo(k);
+    		return returncard;
     	}
-    	public void Radd(User user){
+    	public Card Radd(User user){
     		Random random = new Random();
     		int k=0;
     		tempCardNumber[2]++; 
@@ -489,8 +481,8 @@ public class Gacha{
     		tempGachaCard.add(r.rinfo(k));
     		this.typecount(user, r.rinfo(k));
     		user.R.add(r.rinfo(k));
-//    		System.out.print("RCard Added");
-    		System.out.println(r.rinfo(k).Valueof());
+    		returncard=r.rinfo(k);
+    		return returncard;
     	}
     	
     	public void typecount(User user, Card card){
