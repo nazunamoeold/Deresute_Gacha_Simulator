@@ -28,13 +28,6 @@ public class Gacha{
 	public String txt="Yes";
 	public int FCard=0;
 
-        private void Probabilityreset(User user){
-        	user.LSSRp=8;
-        	user.SSRp=14;
-        	user.LSRp=74;
-        	user.SRp =114;
-        	user.Rp=999;
-        }
 	    
 	    public void Probability(User user){
 	    	
