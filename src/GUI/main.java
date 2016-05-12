@@ -2,6 +2,9 @@ package GUI;
 
 import java.awt.*;
 import javax.swing.*;
+import Database.*;
+import GachaChargeMenu.*;
+import Menu.*;
 
 public class main extends JFrame {
 	
@@ -11,11 +14,11 @@ public class main extends JFrame {
 	JPanel titlebar = new JPanel();
 	
 	JButton exit = new JButton("Á¾·á");
-
-	
+	User user = new User();
 	Container a = getContentPane();
 	main(){
-
+		
+		Font mainfont = new Font("¸¼Àº °íµñ",0,15);
 		setTitle("µ¥·¹½ºÅ× °¡Ã­ ½Ã¹Ä·¹ÀÌÅÍ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -23,10 +26,11 @@ public class main extends JFrame {
 		titlebar.setLayout(new BorderLayout(50,50));
 		titlebar.add(Title,BorderLayout.WEST);
 		titlebar.add(exit,BorderLayout.EAST);
-		Title.setFont(new Font("¸¼Àº °íµñ",0,25));
+		Title.setFont(new Font("¸¼Àº °íµñ",0,18));
 		a.setLayout(new BorderLayout(5,5));
 		a.add(titlebar,BorderLayout.NORTH);
-		
+		exit.setFont(mainfont);
+
 		JTabbedPane tab = new JTabbedPane();
 		tab.add(money,"°ú±Ý");
 		tab.add(gacha,"°¡Ã­");
@@ -36,31 +40,26 @@ public class main extends JFrame {
 		gacha.setLayout(null);
 		info.setLayout(null);
 		
-		JLabel gachatitle = new JLabel("°¡Ã­ ¸Þ´º");
-		JLabel moneytitle = new JLabel("°ú±Ý ¸Þ´º");
-		JLabel infotitle = new JLabel("Á¤º¸ ¸Þ´º");
+		//°¡Ã­ ¸Þ´º Ç×¸ñ
+		JButton gachago = new JButton("´ÜÃ­");
+		JButton yunchago = new JButton("¿¬Ã­");
+		String jewel ="ÇöÀç Áê¿¤ : ";
+		JLabel jewelstat = new JLabel(jewel+user.jewel);
+		gacha.setLayout(null);
+		gacha.add(gachago);
+		gacha.add(yunchago);
+		gacha.add(jewelstat);
 		
-		Font title = new Font("¸¼Àº °íµñ",0,25);
-		gachatitle.setFont(title);
-		moneytitle.setFont(title);
-		infotitle.setFont(title);
+		gachago.setSize(110,30);
+		yunchago.setSize(110,30);
+		jewelstat.setSize(110,30);
 		
-		gacha.add(gachatitle);
-		gachatitle.setSize(110,30);
-		gachatitle.setLocation(345,10);
+		gachago.setLocation(100,100);
 		
-		money.add(moneytitle);
-		moneytitle.setSize(110,30);
-		moneytitle.setLocation(345,10);
-		
-		info.add(infotitle);
-		infotitle.setSize(110,30);
-		infotitle.setLocation(345,10);
-		
-		tab.setFont(new Font("¸¼Àº °íµñ",0,20));
+		tab.setFont(mainfont);
 		a.add(tab,BorderLayout.CENTER);
 		
-		setSize(800,500);
+		setSize(400,250);
 		setVisible(true);
 		setResizable(false);
 	}
