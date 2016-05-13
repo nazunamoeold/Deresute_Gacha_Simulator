@@ -141,10 +141,9 @@ public class main extends JFrame {
 				for(int i=0; i<9; i++){
 					gachatext.append(g.ReturnToGUIUnlimited(user, 0).Valueof()+"\n");
 					}gachatext.append(g.ReturnToGUIUnlimited(user, 1).Valueof());
-					System.out.println("ÇÑÁ¤³ª¿È¤·");
 				} else {for(int i=0; i<9; i++){
 					gachatext.append(g.ReturnToGUILimited(user, 0).Valueof()+"\n");
-					}gachatext.append(g.ReturnToGUILimited(user, 1).Valueof());System.out.println("ÇÑÁ¤³ª¿È¤¤");
+					}gachatext.append(g.ReturnToGUILimited(user, 1).Valueof());
 				}
 				String gacharesult=gachatext.toString();
 				result.setText(result.getText()+gacharesult);
