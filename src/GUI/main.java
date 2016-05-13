@@ -77,7 +77,7 @@ public class main extends JFrame {
 		yunchago.setSize(110,30);
 		yungumgo.setSize(110,30);
 		jewelstat.setSize(110,20);
-		scrollPane.setSize(365,185);
+		scrollPane.setSize(365,180);
 		search.setSize(240,20);
 		searchbtn.setSize(65,18);
 		limited.setSize(110,20);
@@ -102,7 +102,7 @@ public class main extends JFrame {
 		searchbtn.setFont(mainfont2);
 		limited.setFont(mainfont);
 		gachatitle.setFont(mainfont2);
-		
+	
 		
 		gachago.addActionListener(new gachaaction());
 		yunchago.addActionListener(new gachaaction());
@@ -137,8 +137,10 @@ public class main extends JFrame {
 					resultcard=g.ReturnToGUIUnlimited(user, 0);
 					gachatext.append(resultcard.Valueof()+"\n");
 					resulttemp.add(resultcard);}
+
 				String gacharesult=gachatext.toString();
 				result.setText(result.getText()+gacharesult);
+				
 				break;}
 			case"¿¬Ã­":{
 				result.setText("");
@@ -150,14 +152,14 @@ public class main extends JFrame {
 					gachatext.append(resultcard.Valueof()+"\n");
 					resulttemp.add(resultcard);
 					}resultcard=g.ReturnToGUIUnlimited(user, 1);
-					gachatext.append(resultcard.Valueof()+"\n");
+					gachatext.append(resultcard.Valueof());
 					resulttemp.add(resultcard);
 				} else {for(int i=0; i<9; i++){
 					resultcard=g.ReturnToGUILimited(user, 0);
 					gachatext.append(resultcard.Valueof()+"\n");
 					resulttemp.add(resultcard);
 					}resultcard=g.ReturnToGUILimited(user, 1);
-					gachatext.append(resultcard.Valueof()+"\n");
+					gachatext.append(resultcard.Valueof());
 					resulttemp.add(resultcard);
 				}
 				String gacharesult=gachatext.toString();
