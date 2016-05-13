@@ -21,7 +21,7 @@ public class main extends JFrame {
 	Card resultcard = new Card();
 	Gacha g = new Gacha();
 	Iterator<Card> search = resulttemp.iterator();
-	JTextArea result = new JTextArea(30,10);
+	JTextArea result = new JTextArea(9,10);
     JTextField searchtable = new JTextField(20);
 	JButton exit = new JButton("종료");
 	User user = new User();
@@ -30,6 +30,7 @@ public class main extends JFrame {
 	JRadioButton cool = new JRadioButton("Cool");
 	JRadioButton passion = new JRadioButton("Passion");
 	JRadioButton alltype = new JRadioButton("All");
+	
 	main(){
 		user.limited=false;
 		Font mainfont = new Font("맑은 고딕",0,15);
@@ -65,9 +66,9 @@ public class main extends JFrame {
 		JButton yunchago = new JButton("연챠");
 		JButton yungumgo = new JButton("연금");
 		JButton searchbtn = new JButton("검색");
+		JButton infinite = new JButton("무한");
 		JLabel gachatitle = new JLabel("가챠 결과");
 	    JScrollPane scrollPane = new JScrollPane(result);
-
 		
 		gacha.setLayout(null);
 		gacha.add(gachago);
@@ -84,13 +85,14 @@ public class main extends JFrame {
 		gacha.add(passion);
 		gacha.add(alltype);
 		gacha.add(typegacha);
+		gacha.add(infinite);
 		
-		gachago.setSize(60,30);
-		yunchago.setSize(60,30);
-		yungumgo.setSize(60,30);
+		gachago.setSize(64,30);
+		yunchago.setSize(64,30);
+		yungumgo.setSize(64,30);
 		jewelstat.setSize(110,20);
-		scrollPane.setSize(360,180);
-		searchtable.setSize(232,20);
+		scrollPane.setSize(352,185);
+		searchtable.setSize(224,20);
 		searchbtn.setSize(65,18);
 		limited.setSize(110,20);
 		gachatitle.setSize(365,20);
@@ -99,40 +101,44 @@ public class main extends JFrame {
 		passion.setSize(110,20);
 		typegacha.setSize(110,20);
 		alltype.setSize(60,20);
+		infinite.setSize(64,30);
 		
 		gachago.setLocation(2,2);
-		yunchago.setLocation(64,2);
+		yunchago.setLocation(68,2);
 		yungumgo.setLocation(2,34);
 		jewelstat.setLocation(2,69);
-		scrollPane.setLocation(128,25);
-		searchtable.setLocation(188,2);
+		scrollPane.setLocation(136,25);
+		searchtable.setLocation(196,2);
 		searchbtn.setLocation(420,2);
 		limited.setLocation(2,91);
-		gachatitle.setLocation(128,3);
-		cute.setLocation(2,137);
-		cool.setLocation(2,159);
-		passion.setLocation(2,181);
-		typegacha.setLocation(2,115);
-		alltype.setLocation(62,137);
+		gachatitle.setLocation(136,0);
+		cute.setLocation(2,142);
+		cool.setLocation(2,164);
+		passion.setLocation(2,186);
+		typegacha.setLocation(2,120);
+		alltype.setLocation(62,142);
+		infinite.setLocation(68,34);
 		
 		gachago.setFont(mainfont2);
 		yunchago.setFont(mainfont2);
 		yungumgo.setFont(mainfont2);
 		jewelstat.setFont(mainfont);
 		scrollPane.setFont(mainfont);
-		searchtable.setFont(mainfont);
+		searchtable.setFont(mainfont2);
 		searchbtn.setFont(mainfont2);
-		limited.setFont(mainfont);
+		limited.setFont(mainfont2);
 		gachatitle.setFont(mainfont2);
-		cute.setFont(mainfont);
-		cool.setFont(mainfont);
-		passion.setFont(mainfont);
+		cute.setFont(mainfont2);
+		cool.setFont(mainfont2);
+		passion.setFont(mainfont2);
 		typegacha.setFont(mainfont);
-		alltype.setFont(mainfont);
+		alltype.setFont(mainfont2);
+		infinite.setFont(mainfont2);
 		
 		gachago.addActionListener(new gachaaction());
 		yunchago.addActionListener(new gachaaction());
 		yungumgo.addActionListener(new gachaaction());
+		infinite.addActionListener(new gachaaction());
 		searchbtn.addActionListener(new gachaaction());
 		exit.addActionListener(new gachaaction());
 		limited.addItemListener(new limitedconfigbutton());
@@ -147,7 +153,7 @@ public class main extends JFrame {
 		tab.setFont(mainfont);
 		a.add(tab,BorderLayout.CENTER);
 		
-		setSize(500,310);
+		setSize(500,315);
 		setVisible(true);
 		setResizable(false);
 	}
@@ -228,6 +234,42 @@ public class main extends JFrame {
 				}if(count==0){JOptionPane.showMessageDialog(a,"검색 결과가 없습니다.","검색 결과",JOptionPane.INFORMATION_MESSAGE);}else{
 				JOptionPane.showMessageDialog(a,searchresult,"검색 결과",JOptionPane.INFORMATION_MESSAGE);
 				}break;}break;}
+			case"무한":{
+				int count=0;
+				resulttemp.clear();
+				result.setText("");
+				StringBuffer gachatext = new StringBuffer();
+				do{
+					user.jewel=-250;
+					if(user.limited){
+						resultcard=g.ReturnToGUIUnlimited(user, 0);
+						if(resultcard.lev.equals("SSR")){gachatext.append(resultcard.Valueof());}
+						else{gachatext.append(resultcard.Valueof()+"\n");}
+						gachatext.append(resultcard.Valueof()+"\n");
+						resulttemp.add(resultcard);
+						count++;
+						String gacharesult=gachatext.toString();
+						if(resultcard.lev.equals("SSR")){
+							result.setText(result.getText()+gacharesult);
+							break;
+							}
+						}
+					else {
+						resultcard=g.ReturnToGUILimited(user, 0);
+						if(resultcard.lev.equals("SSR")){gachatext.append(resultcard.Valueof());}
+						else{gachatext.append(resultcard.Valueof()+"\n");}
+						resulttemp.add(resultcard);
+						count++;
+						String gacharesult=gachatext.toString();
+						if(resultcard.lev.equals("SSR")){				
+							result.setText(result.getText()+gacharesult);
+							break;
+						}
+					}
+				}while(true);
+				JOptionPane.showMessageDialog(a,count+"번 만에 SSR이 나왔습니다.","무한 가챠",JOptionPane.INFORMATION_MESSAGE);
+				break;
+			}
 			case"종료":{int result =JOptionPane.showConfirmDialog(a, "종료하시겠습니까?","종료",JOptionPane.YES_OPTION);
 			if(result ==JOptionPane.YES_OPTION){
 			System.exit(0);}
