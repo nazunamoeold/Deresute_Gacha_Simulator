@@ -37,7 +37,7 @@ public class main extends JFrame {
 		setTitle("데레스테 가챠 시뮬레이터");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JLabel Title = new JLabel (" 데레스테 가챠 시뮬레이터 v2.0.0 beta 2");
+		JLabel Title = new JLabel (" 데레스테 가챠 시뮬레이터 v2.0.0 beta 3");
 		titlebar.setLayout(new BorderLayout(50,50));
 		titlebar.add(Title,BorderLayout.WEST);
 		titlebar.add(exit,BorderLayout.EAST);
@@ -141,6 +141,7 @@ public class main extends JFrame {
 		passion.addItemListener(new typebutton());
 		alltype.addItemListener(new typebutton());
 		
+		alltype.setSelected(true);
 		result.setEditable(false);
 		
 		tab.setFont(mainfont);
