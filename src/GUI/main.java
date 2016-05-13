@@ -136,6 +136,10 @@ public class main extends JFrame {
 		searchbtn.addActionListener(new gachaaction());
 		exit.addActionListener(new gachaaction());
 		limited.addItemListener(new limitedconfigbutton());
+		cute.addItemListener(new typebutton());
+		cool.addItemListener(new typebutton());
+		passion.addItemListener(new typebutton());
+		alltype.addItemListener(new typebutton());
 		
 		result.setEditable(false);
 		
@@ -232,12 +236,62 @@ public class main extends JFrame {
 	
 	public class limitedconfigbutton implements ItemListener{
 		public void itemStateChanged(ItemEvent e) {
-			if(e.getStateChange() ==ItemEvent.DESELECTED){
-				user.limited=false;
+			if(e.getStateChange() ==ItemEvent.SELECTED){
+				
 			} else {user.limited=true;}
 		}
 	}
 	
+	public class typebutton implements ItemListener{
+		public void itemStateChanged(ItemEvent e) {
+			AbstractButton sel = (AbstractButton)e.getItemSelectable();
+			switch(sel.getText()){
+			case"Cute":{
+				user.TypeGachaSetting=1;
+				if(e.getStateChange()==ItemEvent.SELECTED){
+					cool.setEnabled(false);
+					passion.setEnabled(false);
+					alltype.setEnabled(false);}
+				else if(e.getStateChange()==ItemEvent.DESELECTED){
+					cool.setEnabled(true);
+					passion.setEnabled(true);
+					alltype.setEnabled(true);}
+				break;}
+			case"Cool":{
+				user.TypeGachaSetting=2;
+				if(e.getStateChange()==ItemEvent.SELECTED){
+					cute.setEnabled(false);
+					passion.setEnabled(false);
+					alltype.setEnabled(false);}
+				else if(e.getStateChange()==ItemEvent.DESELECTED){
+					cute.setEnabled(true);
+					passion.setEnabled(true);
+					alltype.setEnabled(true);}break;}
+			case"Passion":{
+				user.TypeGachaSetting=3;
+				if(e.getStateChange()==ItemEvent.SELECTED){
+					cool.setEnabled(false);
+					cute.setEnabled(false);
+					alltype.setEnabled(false);}
+				else if(e.getStateChange()==ItemEvent.DESELECTED){
+					cool.setEnabled(true);
+					cute.setEnabled(true);
+					alltype.setEnabled(true);}break;}
+			case"All":{
+				if(e.getStateChange()==ItemEvent.SELECTED){
+					user.TypeGachaSetting=0;
+					cool.setEnabled(false);
+					passion.setEnabled(false);
+					cute.setEnabled(false);}
+				else if(e.getStateChange()==ItemEvent.DESELECTED){
+					cool.setEnabled(true);
+					passion.setEnabled(true);
+					cute.setEnabled(true);}break;}
+			}
+		}
+	}
+
+
 	public static void main(String[] args){
 		
 		new main();
