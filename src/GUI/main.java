@@ -203,7 +203,7 @@ public class main extends JFrame {
 				String gacharesult=gachatext.toString();
 				result.setText(result.getText()+gacharesult);
 				break;}
-			case"연금단챠":{
+			case"연금":{
 				resulttemp.clear();
 				result.setText("");
 				user.jewel=-60;
