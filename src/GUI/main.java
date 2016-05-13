@@ -3,6 +3,7 @@ package GUI;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.*;
 import Database.*;
@@ -19,9 +20,9 @@ public class main extends JFrame {
 	JRadioButton limited = new JRadioButton("한정 카드");
 	Card resultcard = new Card();
 	Gacha g = new Gacha();
-	
+	Iterator<Card> search = resulttemp.iterator();
 	JTextArea result = new JTextArea(30,10);
-	
+    JTextField searchtable = new JTextField(20);
 	JButton exit = new JButton("종료");
 	User user = new User();
 	Container a = getContentPane();
@@ -60,7 +61,7 @@ public class main extends JFrame {
 		JButton searchbtn = new JButton("검색");
 		JLabel gachatitle = new JLabel("가챠 결과");
 	    JScrollPane scrollPane = new JScrollPane(result);
-	    JTextField search = new JTextField(20);
+
 		
 		gacha.setLayout(null);
 		gacha.add(gachago);
@@ -68,7 +69,7 @@ public class main extends JFrame {
 		gacha.add(jewelstat);
 		gacha.add(yungumgo);
 		gacha.add(scrollPane);
-		gacha.add(search);
+		gacha.add(searchtable);
 		gacha.add(searchbtn);
 		gacha.add(limited);
 		gacha.add(gachatitle);
@@ -78,7 +79,7 @@ public class main extends JFrame {
 		yungumgo.setSize(110,30);
 		jewelstat.setSize(110,20);
 		scrollPane.setSize(365,180);
-		search.setSize(240,20);
+		searchtable.setSize(240,20);
 		searchbtn.setSize(65,18);
 		limited.setSize(110,20);
 		gachatitle.setSize(365,20);
@@ -88,7 +89,7 @@ public class main extends JFrame {
 		yungumgo.setLocation(5,75);
 		jewelstat.setLocation(5,115);
 		scrollPane.setLocation(120,25);
-		search.setLocation(180,5);
+		searchtable.setLocation(180,5);
 		searchbtn.setLocation(420,5);
 		limited.setLocation(5,140);
 		gachatitle.setLocation(120,3);
@@ -98,7 +99,7 @@ public class main extends JFrame {
 		yungumgo.setFont(mainfont);
 		jewelstat.setFont(mainfont);
 		scrollPane.setFont(mainfont);
-		search.setFont(mainfont);
+		searchtable.setFont(mainfont);
 		searchbtn.setFont(mainfont2);
 		limited.setFont(mainfont);
 		gachatitle.setFont(mainfont2);
@@ -126,6 +127,7 @@ public class main extends JFrame {
 			String menu = e.getActionCommand();
 			switch(menu){
 			case"단챠":{
+				resulttemp.clear();
 				result.setText("");
 				user.jewel=-250;
 				StringBuffer gachatext = new StringBuffer();
@@ -143,6 +145,7 @@ public class main extends JFrame {
 				
 				break;}
 			case"연챠":{
+				resulttemp.clear();
 				result.setText("");
 				user.jewel=-2500;
 				StringBuffer gachatext = new StringBuffer();
@@ -166,6 +169,7 @@ public class main extends JFrame {
 				result.setText(result.getText()+gacharesult);
 				break;}
 			case"연금단챠":{
+				resulttemp.clear();
 				result.setText("");
 				user.jewel=-60;
 				StringBuffer gachatext = new StringBuffer();
@@ -180,7 +184,21 @@ public class main extends JFrame {
 				String gacharesult=gachatext.toString();
 				result.setText(result.getText()+gacharesult);
 				break;}
-			case"검색":{break;}
+			case"검색":{
+				int count=0;
+				if(resulttemp.isEmpty()){}else{
+				String searchtext = searchtable.getText();
+				String searchresult = "";
+				StringBuffer searchbuffer = new StringBuffer(searchresult);
+				for(int i=0;i<resulttemp.size();i++){
+					if(resulttemp.get(i).name.contains(searchtext)){
+						count++;
+						searchbuffer.append(resulttemp.get(i).Valueof()+"\n");
+					}String countshow = "검색 결과 "+count+"개\n";
+					searchresult = countshow+searchbuffer.toString();
+				}if(count==0){JOptionPane.showMessageDialog(a,"검색 결과가 없습니다.","검색 결과",JOptionPane.INFORMATION_MESSAGE);}else{
+				JOptionPane.showMessageDialog(a,searchresult,"검색 결과",JOptionPane.INFORMATION_MESSAGE);
+				}break;}break;}
 			case"종료":{int result =JOptionPane.showConfirmDialog(a, "종료하시겠습니까?","종료",JOptionPane.YES_OPTION);
 			if(result ==JOptionPane.YES_OPTION){
 			System.exit(0);}
