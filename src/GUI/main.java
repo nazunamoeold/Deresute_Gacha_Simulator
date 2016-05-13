@@ -2,6 +2,7 @@ package GUI;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 import javax.swing.*;
 import Database.*;
@@ -14,9 +15,9 @@ public class main extends JFrame {
 	JPanel money = new JPanel();
 	JPanel info = new JPanel();
 	JPanel titlebar = new JPanel();
-	
+	ArrayList<Card> resulttemp = new ArrayList<Card>();
 	JRadioButton limited = new JRadioButton("한정 카드");
-	
+	Card resultcard = new Card();
 	Gacha g = new Gacha();
 	
 	JTextArea result = new JTextArea(30,10);
@@ -128,8 +129,14 @@ public class main extends JFrame {
 				result.setText("");
 				user.jewel=-250;
 				StringBuffer gachatext = new StringBuffer();
-				if(user.limited){gachatext.append(g.ReturnToGUIUnlimited(user, 0).Valueof()+"\n");}
-				else {gachatext.append(g.ReturnToGUIUnlimited(user, 0).Valueof()+"\n");}
+				if(user.limited){
+					resultcard=g.ReturnToGUILimited(user, 0);
+					gachatext.append(resultcard.Valueof()+"\n");
+					resulttemp.add(resultcard);}
+				else {
+					resultcard=g.ReturnToGUIUnlimited(user, 0);
+					gachatext.append(resultcard.Valueof()+"\n");
+					resulttemp.add(resultcard);}
 				String gacharesult=gachatext.toString();
 				result.setText(result.getText()+gacharesult);
 				break;}
@@ -139,11 +146,19 @@ public class main extends JFrame {
 				StringBuffer gachatext = new StringBuffer();
 				if(user.limited){
 				for(int i=0; i<9; i++){
-					gachatext.append(g.ReturnToGUIUnlimited(user, 0).Valueof()+"\n");
-					}gachatext.append(g.ReturnToGUIUnlimited(user, 1).Valueof());
+					resultcard=g.ReturnToGUIUnlimited(user, 0);
+					gachatext.append(resultcard.Valueof()+"\n");
+					resulttemp.add(resultcard);
+					}resultcard=g.ReturnToGUIUnlimited(user, 1);
+					gachatext.append(resultcard.Valueof()+"\n");
+					resulttemp.add(resultcard);
 				} else {for(int i=0; i<9; i++){
-					gachatext.append(g.ReturnToGUILimited(user, 0).Valueof()+"\n");
-					}gachatext.append(g.ReturnToGUILimited(user, 1).Valueof());
+					resultcard=g.ReturnToGUILimited(user, 0);
+					gachatext.append(resultcard.Valueof()+"\n");
+					resulttemp.add(resultcard);
+					}resultcard=g.ReturnToGUILimited(user, 1);
+					gachatext.append(resultcard.Valueof()+"\n");
+					resulttemp.add(resultcard);
 				}
 				String gacharesult=gachatext.toString();
 				result.setText(result.getText()+gacharesult);
@@ -152,8 +167,14 @@ public class main extends JFrame {
 				result.setText("");
 				user.jewel=-60;
 				StringBuffer gachatext = new StringBuffer();
-				if(user.limited){gachatext.append(g.ReturnToGUIUnlimited(user, 0).Valueof()+"\n");}
-				else {gachatext.append(g.ReturnToGUIUnlimited(user, 0).Valueof()+"\n");}
+				if(user.limited){
+					resultcard=g.ReturnToGUILimited(user, 0);
+					gachatext.append(resultcard.Valueof()+"\n");
+					resulttemp.add(resultcard);}
+				else {
+					resultcard=g.ReturnToGUIUnlimited(user, 0);
+					gachatext.append(resultcard.Valueof()+"\n");
+					resulttemp.add(resultcard);}
 				String gacharesult=gachatext.toString();
 				result.setText(result.getText()+gacharesult);
 				break;}
