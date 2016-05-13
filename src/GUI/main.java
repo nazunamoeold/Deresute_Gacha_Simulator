@@ -161,11 +161,11 @@ public class main extends JFrame {
 				user.jewel=-250;
 				StringBuffer gachatext = new StringBuffer();
 				if(user.limited){
-					resultcard=g.ReturnToGUILimited(user, 0);
+					resultcard=g.ReturnToGUIUnlimited(user, 0);
 					gachatext.append(resultcard.Valueof()+"\n");
 					resulttemp.add(resultcard);}
 				else {
-					resultcard=g.ReturnToGUIUnlimited(user, 0);
+					resultcard=g.ReturnToGUILimited(user, 0);
 					gachatext.append(resultcard.Valueof()+"\n");
 					resulttemp.add(resultcard);}
 				String gacharesult=gachatext.toString();
@@ -236,8 +236,8 @@ public class main extends JFrame {
 	
 	public class limitedconfigbutton implements ItemListener{
 		public void itemStateChanged(ItemEvent e) {
-			if(e.getStateChange() ==ItemEvent.SELECTED){
-				
+			if(e.getStateChange() ==ItemEvent.DESELECTED){
+				user.limited=false;
 			} else {user.limited=true;}
 		}
 	}
