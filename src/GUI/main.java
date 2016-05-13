@@ -26,6 +26,10 @@ public class main extends JFrame {
 	JButton exit = new JButton("Á¾·á");
 	User user = new User();
 	Container a = getContentPane();
+	JRadioButton cute = new JRadioButton("Cute");
+	JRadioButton cool = new JRadioButton("Cool");
+	JRadioButton passion = new JRadioButton("Passion");
+	JRadioButton alltype = new JRadioButton("All");
 	main(){
 		user.limited=false;
 		Font mainfont = new Font("¸¼Àº °íµñ",0,15);
@@ -49,6 +53,8 @@ public class main extends JFrame {
 		
 		String jewel ="Áê¿¤ : ";
 		JLabel jewelstat = new JLabel(jewel+user.jewel);
+		JLabel typegacha = new JLabel("¼Ó¼ºº° °¡Ã­");
+		
 		
 		money.setLayout(null);
 		gacha.setLayout(null);
@@ -57,7 +63,7 @@ public class main extends JFrame {
 		//°¡Ã­ ¸Þ´º Ç×¸ñ
 		JButton gachago = new JButton("´ÜÃ­");
 		JButton yunchago = new JButton("¿¬Ã­");
-		JButton yungumgo = new JButton("¿¬±Ý´ÜÃ­");
+		JButton yungumgo = new JButton("¿¬±Ý");
 		JButton searchbtn = new JButton("°Ë»ö");
 		JLabel gachatitle = new JLabel("°¡Ã­ °á°ú");
 	    JScrollPane scrollPane = new JScrollPane(result);
@@ -73,37 +79,56 @@ public class main extends JFrame {
 		gacha.add(searchbtn);
 		gacha.add(limited);
 		gacha.add(gachatitle);
+		gacha.add(cute);
+		gacha.add(cool);
+		gacha.add(passion);
+		gacha.add(alltype);
+		gacha.add(typegacha);
 		
-		gachago.setSize(110,30);
-		yunchago.setSize(110,30);
-		yungumgo.setSize(110,30);
+		gachago.setSize(60,30);
+		yunchago.setSize(60,30);
+		yungumgo.setSize(60,30);
 		jewelstat.setSize(110,20);
-		scrollPane.setSize(365,180);
-		searchtable.setSize(240,20);
+		scrollPane.setSize(360,180);
+		searchtable.setSize(232,20);
 		searchbtn.setSize(65,18);
 		limited.setSize(110,20);
 		gachatitle.setSize(365,20);
+		cute.setSize(60,20);
+		cool.setSize(110,20);
+		passion.setSize(110,20);
+		typegacha.setSize(110,20);
+		alltype.setSize(60,20);
 		
-		gachago.setLocation(5,5);
-		yunchago.setLocation(5,40);
-		yungumgo.setLocation(5,75);
-		jewelstat.setLocation(5,115);
-		scrollPane.setLocation(120,25);
-		searchtable.setLocation(180,5);
-		searchbtn.setLocation(420,5);
-		limited.setLocation(5,140);
-		gachatitle.setLocation(120,3);
+		gachago.setLocation(2,2);
+		yunchago.setLocation(64,2);
+		yungumgo.setLocation(2,34);
+		jewelstat.setLocation(2,69);
+		scrollPane.setLocation(128,25);
+		searchtable.setLocation(188,2);
+		searchbtn.setLocation(420,2);
+		limited.setLocation(2,91);
+		gachatitle.setLocation(128,3);
+		cute.setLocation(2,137);
+		cool.setLocation(2,159);
+		passion.setLocation(2,181);
+		typegacha.setLocation(2,115);
+		alltype.setLocation(62,137);
 		
-		gachago.setFont(mainfont);
-		yunchago.setFont(mainfont);
-		yungumgo.setFont(mainfont);
+		gachago.setFont(mainfont2);
+		yunchago.setFont(mainfont2);
+		yungumgo.setFont(mainfont2);
 		jewelstat.setFont(mainfont);
 		scrollPane.setFont(mainfont);
 		searchtable.setFont(mainfont);
 		searchbtn.setFont(mainfont2);
 		limited.setFont(mainfont);
 		gachatitle.setFont(mainfont2);
-	
+		cute.setFont(mainfont);
+		cool.setFont(mainfont);
+		passion.setFont(mainfont);
+		typegacha.setFont(mainfont);
+		alltype.setFont(mainfont);
 		
 		gachago.addActionListener(new gachaaction());
 		yunchago.addActionListener(new gachaaction());
@@ -139,7 +164,6 @@ public class main extends JFrame {
 					resultcard=g.ReturnToGUIUnlimited(user, 0);
 					gachatext.append(resultcard.Valueof()+"\n");
 					resulttemp.add(resultcard);}
-
 				String gacharesult=gachatext.toString();
 				result.setText(result.getText()+gacharesult);
 				
