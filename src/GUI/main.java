@@ -2,9 +2,12 @@ package GUI;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import Database.*;
 import GachaChargeMenu.*;
@@ -32,12 +35,15 @@ public class main extends JFrame {
 	JRadioButton alltype = new JRadioButton("All");
 	
 	main(){
+		Image moneyimage =null;
 		user.limited=false;
 		Font mainfont = new Font("¸¼Àº °íµñ",0,15);
 		Font mainfont2 = new Font("¸¼Àº °íµñ",0,13);
 		setTitle("µ¥·¹½ºÅ× °¡Ã­ ½Ã¹Ä·¹ÀÌÅÍ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		try{File sourceimage = new File("cihiro.jpg");
+		moneyimage = ImageIO.read(sourceimage);}
+		catch(IOException e){}
 		JLabel Title = new JLabel (" µ¥·¹½ºÅ× °¡Ã­ ½Ã¹Ä·¹ÀÌÅÍ v2.0.0 beta 3");
 		titlebar.setLayout(new BorderLayout(50,50));
 		titlebar.add(Title,BorderLayout.WEST);
@@ -54,12 +60,31 @@ public class main extends JFrame {
 		
 		String jewel ="Áê¿¤ : ";
 		JLabel jewelstat = new JLabel(jewel+user.jewel);
+		JLabel jewelstat2 = new JLabel(jewel+user.jewel);
 		JLabel typegacha = new JLabel("¼Ó¼ºº° °¡Ã­");
-		
 		
 		money.setLayout(null);
 		gacha.setLayout(null);
 		info.setLayout(null);
+		
+		//°ú±Ý ¸Þ´º Ç×¸ñ
+		JLabel moneyimagee = new JLabel(new ImageIcon(moneyimage));
+		JButton yengacha = new JButton("¿£È­·Î °áÁ¦ÇÏ±â");
+		
+		money.add(jewelstat2);
+		money.add(moneyimagee);
+		money.add(yengacha);
+		
+		moneyimagee.setLocation(5,5);
+		jewelstat2.setLocation(15,175);
+		yengacha.setLocation(260,5);
+		
+		moneyimagee.setSize(250,160);
+		jewelstat2.setSize(100,30);
+		yengacha.setSize(225,30);
+		
+		jewelstat2.setFont(mainfont);
+		yengacha.setFont(mainfont);
 		
 		//°¡Ã­ ¸Þ´º Ç×¸ñ
 		JButton gachago = new JButton("´ÜÃ­");
