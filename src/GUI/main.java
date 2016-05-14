@@ -41,7 +41,7 @@ public class main extends JFrame {
 		Font mainfont2 = new Font("맑은 고딕",0,13);
 		setTitle("데레스테 가챠 시뮬레이터");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		try{File sourceimage = new File("cihiro.jpg");
+		try{File sourceimage = new File("deresute_2.0.0_beta3_lib\\cihiro.jpg");
 		moneyimage = ImageIO.read(sourceimage);}
 		catch(IOException e){}
 		JLabel Title = new JLabel (" 데레스테 가챠 시뮬레이터 v2.0.0 beta 3");
