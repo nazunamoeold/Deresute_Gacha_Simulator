@@ -13,8 +13,7 @@ import Database.*;
 import GachaChargeMenu.*;
 import Menu.*;
 
-public class main extends JFrame {
-	
+public class MainMenu extends JFrame {
 	JPanel gacha = new JPanel();
 	JPanel money = new JPanel();
 	JPanel info = new JPanel();
@@ -34,7 +33,7 @@ public class main extends JFrame {
 	JRadioButton passion = new JRadioButton("Passion");
 	JRadioButton alltype = new JRadioButton("All");
 	
-	main(){
+	MainMenu(){
 		Image moneyimage =null;
 		user.limited=false;
 		Font mainfont = new Font("맑은 고딕",0,15);
@@ -44,7 +43,7 @@ public class main extends JFrame {
 		try{File sourceimage = new File("cihiro");
 		moneyimage = ImageIO.read(sourceimage);}
 		catch(IOException e){}
-		JLabel Title = new JLabel (" 데레스테 가챠 시뮬레이터 v2.0.0 beta 3");
+		JLabel Title = new JLabel (" 데레스테 가챠 시뮬레이터 v2.0.0 Beta 4");
 		titlebar.setLayout(new BorderLayout(50,50));
 		titlebar.add(Title,BorderLayout.WEST);
 		titlebar.add(exit,BorderLayout.EAST);
@@ -85,6 +84,8 @@ public class main extends JFrame {
 		
 		jewelstat2.setFont(mainfont);
 		yengacha.setFont(mainfont);
+		
+		yengacha.addActionListener(new moneylistener());
 		
 		//가챠 메뉴 항목
 		JButton gachago = new JButton("단챠");
@@ -359,9 +360,34 @@ public class main extends JFrame {
 		}
 	}
 
-
-	public static void main(String[] args){
-		
-		new main();
+	public class moneylistener implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			switch(e.getActionCommand()){
+			case"엔화로 결제하기":{
+				String yen;
+				int yencharge;
+				do{
+				yen=JOptionPane.showInputDialog(a,"충전할 엔을 입력하세요");
+				try{
+					if(yen.equals("")){
+						break;
+					}
+					else{
+						try{yencharge=Integer.valueOf(yen);}
+						catch(NumberFormatException i){
+							JOptionPane.showMessageDialog(a,"잘못 입력하셨습니다. 정수를 입력하세요"," 에러 발생",JOptionPane.ERROR_MESSAGE);
+							continue;
+						}
+						user.yen+=yencharge;
+					}
+				}catch(Exception a){
+					break;
+				}break;
+			}while(true);
+			}
+			default:{}
+			}
+		}
 	}
-}
+
+	public static void main(String[] args){new MainMenu();}}
