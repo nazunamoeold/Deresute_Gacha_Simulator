@@ -567,9 +567,9 @@ public class MainMenu extends JFrame {
 		JTextField SSRP = new JTextField(4);
 		JTextField SRP = new JTextField(4);
 		JTextField RP = new JTextField(4);
-		
+		JLabel prostat = new JLabel();
+		Double tempR = 100-(user.tempSSR+user.tempSR);
 		ProbabilityInfo(){
-			
 			Font info2 = new Font("맑은 고딕",0,14);
 			
 			Gacha g = new Gacha();
@@ -605,8 +605,8 @@ public class MainMenu extends JFrame {
 				}
 			});
 			// title 
-			Double tempR = 100-(user.tempSSR+user.tempSR);
-			JLabel prostat = new JLabel("현재 확률  SSR : "+user.tempSSR+"  SR : "+user.tempSR+"  R : "+tempR);
+			
+			prostat.setText("현재 확률  SSR : "+user.tempSSR+"  SR : "+user.tempSR+"  R : "+tempR);
 			JLabel warning = new JLabel("SSR 확률을 99% 이상으로 설정하지 마세요");
 			JLabel SSR = new JLabel("SSR");
 			JLabel SR = new JLabel("SR");
@@ -614,7 +614,7 @@ public class MainMenu extends JFrame {
 			
 			JButton OK = new JButton("저장");
 			
-			
+			RP.setEditable(false);
 			String [] prolist ={"선택 안 함","기본 설정값","신데페스"};
 			ArrayList<String> prolistarray = new ArrayList<String>();
 			for(int i=0; i<prolist.length;i++){
@@ -685,8 +685,16 @@ public class MainMenu extends JFrame {
 				Double rp=0.0;
 				try{ssrp=Double.parseDouble(SSRP.getText());
 				srp=Double.parseDouble(SRP.getText());
+				if(ssrp+srp>=100){
+					this.showerror();
+					SSRP.setText("");
+					SRP.setText("");
+					RP.setText("");
+				}else{
+				RP.setText(String.valueOf(100-(ssrp+srp)));
 				rp=Double.parseDouble(RP.getText());
-				g.ProbabilityChangeGUI(user, ssrp, srp, rp);}
+				g.ProbabilityChangeGUI(user, ssrp, srp);
+				prostat.setText("현재 확률  SSR : "+user.tempSSR+"  SR : "+user.tempSR+"  R : "+g.ProbabilityShowGUI(user, 2));}}
 				catch(NumberFormatException a){
 					this.showerror();
 					SSRP.setText("");

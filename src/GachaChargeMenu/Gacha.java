@@ -28,19 +28,20 @@ public class Gacha{
 	public String txt="Yes";
 	public int FCard=0;
 		
-	public void ProbabilityChangeGUI(User user, Double ssrp, Double srp, Double rp){
+	public void ProbabilityChangeGUI(User user, Double ssrp, Double srp){
+		user.tempSSR=ssrp;
+		user.tempSR=srp;
 		user.SSRp=(int) (999*(ssrp*0.01));
 		user.LSSRp=(int) (user.SSRp/7*4);
 	    user.SRp=(int) (999*(srp*0.01));
 		user.LSRp=(int) (user.SRp/7*4);
-		user.Rp=(int) (999*(rp*0.01));
 		}
 	
 		public Double ProbabilityShowGUI(User user, int i){
 			switch(i){
 			case 0:{return user.tempSSR;}
 			case 1:{return user.tempSR;}
-			case 2:{return 100-(user.tempSSR+user.tempSSR);}
+			case 2:{return 100-(user.tempSSR+user.tempSR);}
 			default:{}
 			}
 			return null;
