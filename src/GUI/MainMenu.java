@@ -17,56 +17,82 @@ public class MainMenu extends JFrame {
 
 	String jewel ="Áê¿¤ : ";
 	String yen = "µ· : ";
+	
 	JPanel gacha = new JPanel();
 	JPanel money = new JPanel();
 	JPanel info = new JPanel();
 	JPanel titlebar = new JPanel();
+	
+	JLabel jewelstat = new JLabel();
+	JLabel jewelstat2 = new JLabel();
+	JLabel moneystat = new JLabel();
+	
 	ArrayList<Card> resulttemp = new ArrayList<Card>();
+	
 	JRadioButton limited = new JRadioButton("ÇÑÁ¤");
 	JRadioButton nojewel = new JRadioButton("³ëÁê¿¤");	
+	
 	Card resultcard = new Card();
+	
 	Gacha g = new Gacha();
+	
 	Iterator<Card> search = resulttemp.iterator();
+	
 	JTextArea result = new JTextArea(9,10);
-    JTextField searchtable = new JTextField(20);
+    
+	JTextField searchtable = new JTextField(20);
+	
 	JButton exit = new JButton("Á¾·á");
+	
 	User user = new User();
+	
 	Container a = getContentPane();
+	
 	JRadioButton cute = new JRadioButton("Cute");
 	JRadioButton cool = new JRadioButton("Cool");
 	JRadioButton passion = new JRadioButton("Passion");
 	JRadioButton alltype = new JRadioButton("All");
+	
 	boolean nojewelset;
-	JLabel moneystat = new JLabel();
+	
 	JComboBox jewellist = new JComboBox();
 	String select="";
+	
 	ArrayList<String> jewels2 = new ArrayList<String>();
 	String [] jewels ={"¼±ÅÃ ¾ÈÇÔ","A: Áê¿¤ 60°³ - 120¿£","B: Áê¿¤ 360°³ - 480¿£",
 			"C: Áê¿¤ 760°³ - 960¿£","D: Áê¿¤ 1300°³ - 1600¿£","E: Áê¿¤ 2650°³ - 3200¿£",
 			"F: Áê¿¤ 4200°³ - 5000¿£","G: Áê¿¤ 8400°³ - 9800¿£"};
-	JLabel jewelstat = new JLabel();
-	JLabel jewelstat2 = new JLabel();
+	
+	
 	MainMenu(){
 		nojewelset=false;
-		// °øÅë Ç×¸ñ
 		Image moneyimage =null;
+		
 		user.limited=false;
+		
 		Font mainfont = new Font("¸¼Àº °íµñ",0,15);
 		Font mainfont2 = new Font("¸¼Àº °íµñ",0,13);
+		
 		setTitle("µ¥·¹½ºÅ× °¡Ã­ ½Ã¹Ä·¹ÀÌÅÍ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		try{File sourceimage = new File("cihiro");
 		moneyimage = ImageIO.read(sourceimage);}
 		catch(IOException e){}
-		JLabel Title = new JLabel (" µ¥·¹½ºÅ× °¡Ã­ ½Ã¹Ä·¹ÀÌÅÍ v2.0.0 Beta 4");
+		JLabel Title = new JLabel (" µ¥·¹½ºÅ× °¡Ã­ ½Ã¹Ä·¹ÀÌÅÍ v2.0.0 Beta 5");
 		titlebar.setLayout(new BorderLayout(50,50));
 		titlebar.add(Title,BorderLayout.WEST);
 		titlebar.add(exit,BorderLayout.EAST);
+		
 		Title.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,18));
+		
 		a.setLayout(new BorderLayout(5,5));
+		
 		a.add(titlebar,BorderLayout.NORTH);
+		
 		exit.setFont(mainfont);
 		JTabbedPane tab = new JTabbedPane();
+		
 		tab.add(money,"°ú±Ý");
 		tab.add(gacha,"°¡Ã­");
 		tab.add(info,"Á¤º¸");
