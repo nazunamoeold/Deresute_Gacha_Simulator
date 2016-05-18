@@ -63,6 +63,7 @@ public class MainMenu extends JFrame {
 			"C: Áê¿¤ 760°³ - 960¿£","D: Áê¿¤ 1300°³ - 1600¿£","E: Áê¿¤ 2650°³ - 3200¿£",
 			"F: Áê¿¤ 4200°³ - 5000¿£","G: Áê¿¤ 8400°³ - 9800¿£"};
 	
+
 	
 	MainMenu(){
 		nojewelset=false;
@@ -244,6 +245,7 @@ public class MainMenu extends JFrame {
 		passion.addItemListener(new typebutton());
 		alltype.addItemListener(new typebutton());
 		nojewel.addItemListener(new nojewelbutton());
+		hawkryul.addActionListener(new gachaaction());
 		
 		alltype.setSelected(true);
 		result.setEditable(false);
@@ -406,6 +408,10 @@ public class MainMenu extends JFrame {
 				}while(true);
 				break;}else{this.showerror();break;}
 			}
+			case"È®·ü Á¶Á¤":{
+				new ProbabilityInfo();
+				break;
+			}
 			case"Á¾·á":{int result =JOptionPane.showConfirmDialog(a, "Á¾·áÇÏ½Ã°Ú½À´Ï±î?","Á¾·á",JOptionPane.YES_OPTION);
 			if(result ==JOptionPane.YES_OPTION){
 			System.exit(0);}
@@ -556,5 +562,7 @@ public class MainMenu extends JFrame {
 			} else {nojewelset=false;}
 		}
 	}
+	
 
 	public static void main(String[] args){new MainMenu();}}
+
