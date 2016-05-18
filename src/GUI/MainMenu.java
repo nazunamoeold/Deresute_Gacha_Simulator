@@ -18,14 +18,14 @@ public class MainMenu extends JFrame {
 	String jewel ="Áê¿¤ : ";
 	String yen = "µ· : ";
 	
+	JLabel moneystat3 = new JLabel();
+	JLabel jewelstat3 = new JLabel();
+	
 	JPanel gacha = new JPanel();
 	JPanel money = new JPanel();
 	JPanel info = new JPanel();
 	JPanel titlebar = new JPanel();
-	
-	JLabel jewelstat = new JLabel();
-	JLabel jewelstat2 = new JLabel();
-	JLabel moneystat = new JLabel();
+	JPanel statbar = new JPanel();
 	
 	ArrayList<Card> resulttemp = new ArrayList<Card>();
 	
@@ -89,6 +89,7 @@ public class MainMenu extends JFrame {
 		a.setLayout(new BorderLayout(5,5));
 		
 		a.add(titlebar,BorderLayout.NORTH);
+		a.add(statbar, BorderLayout.SOUTH);
 		
 		exit.setFont(mainfont);
 		JTabbedPane tab = new JTabbedPane();
@@ -100,14 +101,24 @@ public class MainMenu extends JFrame {
 		money.setLayout(null);
 		gacha.setLayout(null);
 		info.setLayout(null);
+		statbar.setLayout(new GridLayout(1,3,5,5));
 		
-		//°ú±Ý ¸Þ´º Ç×¸ñ
-		jewelstat2.setText(jewel+user.jewel);
+		// »óÅÂ¹Ù Ç×¸ñ
+		moneystat3.setText(yen+user.yen);
+		jewelstat3.setText("Áê¿¤ : "+user.jewel);
+		
+		statbar.add(jewelstat3);
+		statbar.add(moneystat3);
+		
+		jewelstat3.setFont(mainfont);
+		moneystat3.setFont(mainfont);
+		
+		// °ú±Ý ¸Þ´º Ç×¸ñ
 		JLabel moneyimagee = new JLabel(new ImageIcon(moneyimage));
-		moneystat.setText(yen+user.yen);
 
 		JButton yengacha = new JButton("¿£È­·Î °áÁ¦");
 		JButton jewelcharge = new JButton("Áê¿¤ ÃæÀü");
+		
 		
 		for(int i=0; i<jewels.length; i++){
 			jewels2.add(jewels[i]);
@@ -115,32 +126,24 @@ public class MainMenu extends JFrame {
 		
 		jewellist = new JComboBox(jewels);
 		
-		money.add(jewelstat2);
 		money.add(moneyimagee);
 		money.add(yengacha);
 		money.add(jewelcharge);
 		money.add(jewellist);
-		money.add(moneystat);
 		
 		moneyimagee.setLocation(5,5);
-		jewelstat2.setLocation(15,163);
 		yengacha.setLocation(260,5);
 		jewelcharge.setLocation(260,75);
 		jewellist.setLocation(260,40);
-		moneystat.setLocation(15,183);
 		
 		moneyimagee.setSize(250,160);
-		jewelstat2.setSize(100,30);
 		yengacha.setSize(225,30);
 		jewelcharge.setSize(225,30);
 		jewellist.setSize(225,30);
-		moneystat.setSize(100,30);
-		
-		jewelstat2.setFont(mainfont);
+
 		yengacha.setFont(mainfont);
 		jewelcharge.setFont(mainfont);
 		jewellist.setFont(mainfont);
-		moneystat.setFont(mainfont);
 		
 		yengacha.addActionListener(new moneylistener());
 		jewelcharge.addActionListener(new moneylistener());
@@ -148,7 +151,6 @@ public class MainMenu extends JFrame {
 		jewelcharge.addActionListener(new jewelcharge());
 		
 		//°¡Ã­ ¸Þ´º Ç×¸ñ
-		jewelstat.setText(jewel+user.jewel);
 		JLabel typegacha = new JLabel("¼Ó¼ºº° °¡Ã­");
 		JLabel gachatitle = new JLabel("°¡Ã­ °á°ú");
 		
@@ -163,7 +165,6 @@ public class MainMenu extends JFrame {
 		gacha.setLayout(null);
 		gacha.add(gachago);
 		gacha.add(yunchago);
-		gacha.add(jewelstat);
 		gacha.add(yungumgo);
 		gacha.add(scrollPane);
 		gacha.add(searchtable);
@@ -181,7 +182,6 @@ public class MainMenu extends JFrame {
 		gachago.setSize(64,30);
 		yunchago.setSize(64,30);
 		yungumgo.setSize(64,30);
-		jewelstat.setSize(110,20);
 		scrollPane.setSize(352,185);
 		searchtable.setSize(224,20);
 		searchbtn.setSize(65,18);
@@ -198,7 +198,6 @@ public class MainMenu extends JFrame {
 		gachago.setLocation(2,2);
 		yunchago.setLocation(68,2);
 		yungumgo.setLocation(2,34);
-		jewelstat.setLocation(2,69);
 		scrollPane.setLocation(136,25);
 		searchtable.setLocation(196,2);
 		searchbtn.setLocation(420,2);
@@ -215,7 +214,6 @@ public class MainMenu extends JFrame {
 		gachago.setFont(mainfont2);
 		yunchago.setFont(mainfont2);
 		yungumgo.setFont(mainfont2);
-		jewelstat.setFont(mainfont);
 		scrollPane.setFont(mainfont);
 		searchtable.setFont(mainfont2);
 		searchbtn.setFont(mainfont2);
@@ -248,7 +246,7 @@ public class MainMenu extends JFrame {
 		tab.setFont(mainfont);
 		a.add(tab,BorderLayout.CENTER);
 		
-		setSize(500,315);
+		setSize(500,345);
 		setVisible(true);
 		setResizable(false);
 	}
@@ -270,9 +268,8 @@ public class MainMenu extends JFrame {
 		}
 		
 		public void refresh(){
-			moneystat.setText(yen+user.yen);
-			jewelstat2.setText("Áê¿¤ : "+user.jewel);
-			jewelstat.setText("Áê¿¤ : "+user.jewel);
+			moneystat3.setText("µ· : "+user.yen);
+			jewelstat3.setText("Áê¿¤ : "+user.jewel);
 		}
 		
 		public void actionPerformed(ActionEvent e){
@@ -487,7 +484,7 @@ public class MainMenu extends JFrame {
 							continue;
 						}
 						user.yen+=yencharge;
-						moneystat.setText("µ· : "+user.yen);
+						moneystat3.setText("µ· : "+user.yen);
 					}
 				}catch(Exception a){
 					break;
@@ -511,9 +508,8 @@ public class MainMenu extends JFrame {
 	
 	public class jewelcharge implements ActionListener{
 		public void refresh(){
-			moneystat.setText(yen+user.yen);
-			jewelstat2.setText("Áê¿¤ : "+user.jewel);
-			jewelstat.setText("Áê¿¤ : "+user.jewel);
+			moneystat3.setText("µ· : "+user.yen);
+			jewelstat3.setText("Áê¿¤ : "+user.jewel);
 		}
 		
 		public void checkmoney (User user, int money, int jewel){
