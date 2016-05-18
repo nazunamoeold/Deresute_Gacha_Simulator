@@ -23,7 +23,7 @@ public class MainMenu extends JFrame {
 	JPanel titlebar = new JPanel();
 	ArrayList<Card> resulttemp = new ArrayList<Card>();
 	JRadioButton limited = new JRadioButton("ÇÑÁ¤");
-	JRadioButton nojewel = new JRadioButton("¹«ÇÑ");	
+	JRadioButton nojewel = new JRadioButton("³ëÁê¿¤");	
 	Card resultcard = new Card();
 	Gacha g = new Gacha();
 	Iterator<Card> search = resulttemp.iterator();
@@ -167,7 +167,7 @@ public class MainMenu extends JFrame {
 		typegacha.setSize(110,20);
 		alltype.setSize(60,20);
 		infinite.setSize(64,30);
-		nojewel.setSize(60,20);
+		nojewel.setSize(65,20);
 		
 		gachago.setLocation(2,2);
 		yunchago.setLocation(68,2);
