@@ -28,6 +28,16 @@ public class Gacha{
 	public String txt="Yes";
 	public int FCard=0;
 
+	
+		public Double ProbabilityShowGUI(User user, int i){
+			switch(i){
+			case 0:{return user.tempSSR;}
+			case 1:{return user.tempSR;}
+			case 2:{return 100-(user.tempSSR+user.tempSSR);}
+			default:{}
+			}
+			return null;
+		}
 	    
 	    public void Probability(User user){
 	    	
