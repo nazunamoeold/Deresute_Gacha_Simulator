@@ -27,7 +27,14 @@ public class Gacha{
     public boolean TXT=true;
 	public String txt="Yes";
 	public int FCard=0;
-
+		
+	public void ProbabilityChangeGUI(User user, Double ssrp, Double srp, Double rp){
+		user.SSRp=(int) (999*(ssrp*0.01));
+		user.LSSRp=(int) (user.SSRp/7*4);
+	    user.SRp=(int) (999*(srp*0.01));
+		user.LSRp=(int) (user.SRp/7*4);
+		user.Rp=(int) (999*(rp*0.01));
+		}
 	
 		public Double ProbabilityShowGUI(User user, int i){
 			switch(i){

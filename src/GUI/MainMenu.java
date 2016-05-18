@@ -523,7 +523,7 @@ public class MainMenu extends JFrame {
 			jewelstat3.setText("쥬엘 : "+user.jewel);
 		}
 		
-		public void checkmoney (User user, int money, int jewel){
+		public void checkmoney (User user, int jewel, int money){
 			if(user.yen<money){
 				JOptionPane.showMessageDialog(a, "돈이 부족합니다"," 충전 요망",JOptionPane.ERROR_MESSAGE);
 			} else{
@@ -667,11 +667,33 @@ public class MainMenu extends JFrame {
 			OK.setFont(info2);
 			prolists.setFont(info2);
 			
+			OK.addActionListener(new OKaction());
+			
 			setSize(300,200);
 			setResizable(false);
 			setVisible(true);	
 		}
+		
+		public class OKaction implements ActionListener{
+			
+			public void showerror(){
+				JOptionPane.showMessageDialog(a, "잘못 입력하셨습니다"," 잘못 입력",JOptionPane.ERROR_MESSAGE);
+			}
+			public void actionPerformed(ActionEvent e) {
+				Double ssrp=0.0;
+				Double srp=0.0;
+				Double rp=0.0;
+				try{ssrp=Double.parseDouble(SSRP.getText());
+				srp=Double.parseDouble(SRP.getText());
+				rp=Double.parseDouble(RP.getText());
+				g.ProbabilityChangeGUI(user, ssrp, srp, rp);}
+				catch(NumberFormatException a){
+					this.showerror();
+					SSRP.setText("");
+					SRP.setText("");
+					RP.setText("");
+				}
+			}
+		}
 	}
-
 	public static void main(String[] args){new MainMenu();}}
-
