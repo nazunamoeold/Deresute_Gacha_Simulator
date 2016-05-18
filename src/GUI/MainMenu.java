@@ -360,19 +360,20 @@ public class MainMenu extends JFrame {
 				JOptionPane.showMessageDialog(a,searchresult,"검색 결과",JOptionPane.INFORMATION_MESSAGE);
 				}break;}break;}
 			case"무한":{
+				int warn=0;
 				int count=0;
 				resulttemp.clear();
 				result.setText("");
 				StringBuffer gachatext = new StringBuffer();
 				if(this.checkjewel(user, 250)){
 				do{
+					
 					if(!nojewelset){user.jewel-=250;}
 					this.refresh();
 					if(user.limited){
 						resultcard=g.ReturnToGUIUnlimited(user, 0);
 						if(resultcard.lev.equals("SSR")){gachatext.append(resultcard.Valueof());}
 						else{gachatext.append(resultcard.Valueof()+"\n");}
-						gachatext.append(resultcard.Valueof()+"\n");
 						resulttemp.add(resultcard);
 						count++;
 						String gacharesult=gachatext.toString();
@@ -511,6 +512,7 @@ public class MainMenu extends JFrame {
 	
 	public class listaction implements ActionListener{
 		public void actionPerformed(ActionEvent e){
+			ProbabilityInfo p = new ProbabilityInfo();
 			if(e.getSource()==jewellist){
 				select = (String)jewellist.getSelectedItem();
 			}
@@ -569,6 +571,32 @@ public class MainMenu extends JFrame {
 		JTextField RP = new JTextField(4);
 		JLabel prostat = new JLabel();
 		Double tempR = 100-(user.tempSSR+user.tempSR);
+		JComboBox prolists = new JComboBox();
+		
+		public class prolistaction implements ItemListener{
+			public void itemStateChanged(ItemEvent e) {
+				String item=e.getItem().toString();
+				switch(item){
+				case"사용자 설정":{
+					SSRP.setText("");
+					SRP.setText("");
+					RP.setText("");
+					break;
+				}
+				case"기본 설정값":{
+					SSRP.setText("1.5");
+					SRP.setText("10.0");
+					break;
+				}
+				case"신데페스":{
+					SSRP.setText("3.0");
+					SRP.setText("10.0");
+					break;
+				}
+				}
+			}
+		}
+		
 		ProbabilityInfo(){
 			Font info2 = new Font("맑은 고딕",0,14);
 			
@@ -615,13 +643,14 @@ public class MainMenu extends JFrame {
 			JButton OK = new JButton("저장");
 			
 			RP.setEditable(false);
-			String [] prolist ={"선택 안 함","기본 설정값","신데페스"};
+			String [] prolist ={"사용자 설정","기본 설정값","신데페스"};
 			ArrayList<String> prolistarray = new ArrayList<String>();
 			for(int i=0; i<prolist.length;i++){
 				prolistarray.add(prolist[i]);
 			}
 			
-			JComboBox prolists = new JComboBox(prolist);
+			prolists = new JComboBox(prolist);
+			prolists.addItemListener(new prolistaction());
 
 			info.add(prostat);
 			info.add(warning);
@@ -675,7 +704,7 @@ public class MainMenu extends JFrame {
 		}
 		
 		public class OKaction implements ActionListener{
-			
+				
 			public void showerror(){
 				JOptionPane.showMessageDialog(a, "잘못 입력하셨습니다"," 잘못 입력",JOptionPane.ERROR_MESSAGE);
 			}
@@ -704,4 +733,5 @@ public class MainMenu extends JFrame {
 			}
 		}
 	}
+	
 	public static void main(String[] args){new MainMenu();}}
