@@ -159,6 +159,7 @@ public class MainMenu extends JFrame {
 		JButton yungumgo = new JButton("연금");
 		JButton searchbtn = new JButton("검색");
 		JButton infinite = new JButton("무한");
+		JButton hawkryul = new JButton("확률 조정");
 		
 	    JScrollPane scrollPane = new JScrollPane(result);
 		
@@ -178,6 +179,7 @@ public class MainMenu extends JFrame {
 		gacha.add(typegacha);
 		gacha.add(infinite);
 		gacha.add(nojewel);
+		gacha.add(hawkryul);
 		
 		gachago.setSize(64,30);
 		yunchago.setSize(64,30);
@@ -194,6 +196,7 @@ public class MainMenu extends JFrame {
 		alltype.setSize(60,20);
 		infinite.setSize(64,30);
 		nojewel.setSize(65,20);
+		hawkryul.setSize(130,26);
 		
 		gachago.setLocation(2,2);
 		yunchago.setLocation(68,2);
@@ -201,7 +204,7 @@ public class MainMenu extends JFrame {
 		scrollPane.setLocation(136,25);
 		searchtable.setLocation(196,2);
 		searchbtn.setLocation(420,2);
-		limited.setLocation(2,91);
+		limited.setLocation(2,95);
 		gachatitle.setLocation(136,0);
 		cute.setLocation(2,142);
 		cool.setLocation(2,164);
@@ -209,7 +212,8 @@ public class MainMenu extends JFrame {
 		typegacha.setLocation(2,120);
 		alltype.setLocation(62,142);
 		infinite.setLocation(68,34);
-		nojewel.setLocation(62,91);
+		nojewel.setLocation(62,95);
+		hawkryul.setLocation(2,66);
 		
 		gachago.setFont(mainfont2);
 		yunchago.setFont(mainfont2);
@@ -226,6 +230,7 @@ public class MainMenu extends JFrame {
 		alltype.setFont(mainfont2);
 		infinite.setFont(mainfont2);
 		nojewel.setFont(mainfont2);
+		hawkryul.setFont(mainfont2);
 		
 		gachago.addActionListener(new gachaaction());
 		yunchago.addActionListener(new gachaaction());
