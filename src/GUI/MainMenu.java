@@ -14,6 +14,8 @@ import GachaChargeMenu.*;
 import Menu.*;
 
 public class MainMenu extends JFrame {
+	String jewel ="Áê¿¤ : ";
+	String yen = "µ· : ";
 	JPanel gacha = new JPanel();
 	JPanel money = new JPanel();
 	JPanel info = new JPanel();
@@ -32,8 +34,18 @@ public class MainMenu extends JFrame {
 	JRadioButton cool = new JRadioButton("Cool");
 	JRadioButton passion = new JRadioButton("Passion");
 	JRadioButton alltype = new JRadioButton("All");
-	
+	JLabel moneystat = new JLabel();
+	JComboBox jewellist = new JComboBox();
+	String select="";
+	ArrayList<String> jewels2 = new ArrayList<String>();
+	String [] jewels ={"¼±ÅÃ ¾ÈÇÔ","A: Áê¿¤ 60°³ - 120¿£","B: Áê¿¤ 360°³ - 480¿£",
+			"C: Áê¿¤ 760°³ - 960¿£","D: Áê¿¤ 1300°³ - 1600¿£","E: Áê¿¤ 2650°³ - 3200¿£",
+			"F: Áê¿¤ 4200°³ - 5000¿£","G: Áê¿¤ 8400°³ - 9800¿£"};
+	JLabel jewelstat = new JLabel();
+	JLabel jewelstat2 = new JLabel();
 	MainMenu(){
+		
+		// °øÅë Ç×¸ñ
 		Image moneyimage =null;
 		user.limited=false;
 		Font mainfont = new Font("¸¼Àº °íµñ",0,15);
@@ -51,49 +63,73 @@ public class MainMenu extends JFrame {
 		a.setLayout(new BorderLayout(5,5));
 		a.add(titlebar,BorderLayout.NORTH);
 		exit.setFont(mainfont);
-
 		JTabbedPane tab = new JTabbedPane();
 		tab.add(money,"°ú±Ý");
 		tab.add(gacha,"°¡Ã­");
 		tab.add(info,"Á¤º¸");
-		
-		String jewel ="Áê¿¤ : ";
-		JLabel jewelstat = new JLabel(jewel+user.jewel);
-		JLabel jewelstat2 = new JLabel(jewel+user.jewel);
-		JLabel typegacha = new JLabel("¼Ó¼ºº° °¡Ã­");
+	
 		
 		money.setLayout(null);
 		gacha.setLayout(null);
 		info.setLayout(null);
 		
 		//°ú±Ý ¸Þ´º Ç×¸ñ
+		jewelstat2.setText(jewel+user.jewel);
 		JLabel moneyimagee = new JLabel(new ImageIcon(moneyimage));
-		JButton yengacha = new JButton("¿£È­·Î °áÁ¦ÇÏ±â");
+		moneystat.setText(yen+user.yen);
+
+		JButton yengacha = new JButton("¿£È­·Î °áÁ¦");
+		JButton jewelcharge = new JButton("Áê¿¤ ÃæÀü");
+		
+		for(int i=0; i<jewels.length; i++){
+			jewels2.add(jewels[i]);
+		}
+		
+		jewellist = new JComboBox(jewels);
 		
 		money.add(jewelstat2);
 		money.add(moneyimagee);
 		money.add(yengacha);
+		money.add(jewelcharge);
+		money.add(jewellist);
+		money.add(moneystat);
 		
 		moneyimagee.setLocation(5,5);
-		jewelstat2.setLocation(15,175);
+		jewelstat2.setLocation(15,173);
 		yengacha.setLocation(260,5);
+		jewelcharge.setLocation(260,75);
+		jewellist.setLocation(260,40);
+		moneystat.setLocation(100,173);
 		
 		moneyimagee.setSize(250,160);
 		jewelstat2.setSize(100,30);
 		yengacha.setSize(225,30);
+		jewelcharge.setSize(225,30);
+		jewellist.setSize(225,30);
+		moneystat.setSize(100,30);
 		
 		jewelstat2.setFont(mainfont);
 		yengacha.setFont(mainfont);
+		jewelcharge.setFont(mainfont);
+		jewellist.setFont(mainfont);
+		moneystat.setFont(mainfont);
 		
 		yengacha.addActionListener(new moneylistener());
+		jewelcharge.addActionListener(new moneylistener());
+		jewellist.addActionListener(new listaction());
+		jewelcharge.addActionListener(new jewelcharge());
 		
 		//°¡Ã­ ¸Þ´º Ç×¸ñ
+		jewelstat.setText(jewel+user.jewel);
+		JLabel typegacha = new JLabel("¼Ó¼ºº° °¡Ã­");
+		JLabel gachatitle = new JLabel("°¡Ã­ °á°ú");
+		
 		JButton gachago = new JButton("´ÜÃ­");
 		JButton yunchago = new JButton("¿¬Ã­");
 		JButton yungumgo = new JButton("¿¬±Ý");
 		JButton searchbtn = new JButton("°Ë»ö");
 		JButton infinite = new JButton("¹«ÇÑ");
-		JLabel gachatitle = new JLabel("°¡Ã­ °á°ú");
+		
 	    JScrollPane scrollPane = new JScrollPane(result);
 		
 		gacha.setLayout(null);
@@ -184,14 +220,35 @@ public class MainMenu extends JFrame {
 		setResizable(false);
 	}
 	
+
+	
 	public class gachaaction implements ActionListener{
+		
+		public void showerror(){
+			JOptionPane.showMessageDialog(a, "Áê¿¤ÀÌ ºÎÁ·ÇÕ´Ï´Ù"," Áê¿¤ ºÎÁ·",JOptionPane.ERROR_MESSAGE);
+		}
+		
+		public boolean checkjewel(User user, int jewel){
+			if(user.jewel<jewel){
+				return false;
+			}else if(user.jewel>=jewel) {return true;}
+			return true;
+		}
+		
+		public void refresh(){
+			moneystat.setText(yen+user.yen);
+			jewelstat2.setText("Áê¿¤ : "+user.jewel);
+			jewelstat.setText("Áê¿¤ : "+user.jewel);
+		}
+		
 		public void actionPerformed(ActionEvent e){
 			String menu = e.getActionCommand();
 			switch(menu){
 			case"´ÜÃ­":{
+				if(this.checkjewel(user, 250)){
 				resulttemp.clear();
 				result.setText("");
-				user.jewel=-250;
+				user.jewel-=250;
 				StringBuffer gachatext = new StringBuffer();
 				if(user.limited){
 					resultcard=g.ReturnToGUIUnlimited(user, 0);
@@ -203,12 +260,13 @@ public class MainMenu extends JFrame {
 					resulttemp.add(resultcard);}
 				String gacharesult=gachatext.toString();
 				result.setText(result.getText()+gacharesult);
-				
-				break;}
+				this.refresh();
+				break;}else{this.showerror();break;}}
 			case"¿¬Ã­":{
+				if(this.checkjewel(user, 2500)){
 				resulttemp.clear();
 				result.setText("");
-				user.jewel=-2500;
+				user.jewel-=2500;
 				StringBuffer gachatext = new StringBuffer();
 				if(user.limited){
 				for(int i=0; i<9; i++){
@@ -228,11 +286,13 @@ public class MainMenu extends JFrame {
 				}
 				String gacharesult=gachatext.toString();
 				result.setText(result.getText()+gacharesult);
-				break;}
+				this.refresh();
+				break;}else{this.showerror();break;}}
 			case"¿¬±Ý":{
+				if(this.checkjewel(user, 60)){
 				resulttemp.clear();
 				result.setText("");
-				user.jewel=-60;
+				user.jewel-=60;
 				StringBuffer gachatext = new StringBuffer();
 				if(user.limited){
 					resultcard=g.ReturnToGUILimited(user, 0);
@@ -244,7 +304,8 @@ public class MainMenu extends JFrame {
 					resulttemp.add(resultcard);}
 				String gacharesult=gachatext.toString();
 				result.setText(result.getText()+gacharesult);
-				break;}
+				this.refresh();
+				break;}else{this.showerror();break;}}
 			case"°Ë»ö":{
 				int count=0;
 				if(resulttemp.isEmpty()){}else{
@@ -265,8 +326,10 @@ public class MainMenu extends JFrame {
 				resulttemp.clear();
 				result.setText("");
 				StringBuffer gachatext = new StringBuffer();
+				if(this.checkjewel(user, 250)){
 				do{
-					user.jewel=-250;
+					user.jewel-=250;
+					this.refresh();
 					if(user.limited){
 						resultcard=g.ReturnToGUIUnlimited(user, 0);
 						if(resultcard.lev.equals("SSR")){gachatext.append(resultcard.Valueof());}
@@ -275,8 +338,14 @@ public class MainMenu extends JFrame {
 						resulttemp.add(resultcard);
 						count++;
 						String gacharesult=gachatext.toString();
+						if(!this.checkjewel(user, 250)){
+							JOptionPane.showMessageDialog(a, "SSRÀ» »ÌÁö ¸øÇßÁö¸¸ Áê¿¤ÀÌ ºÎÁ·ÇÕ´Ï´Ù", " ¿¡·¯", JOptionPane.ERROR_MESSAGE);
+							result.setText(result.getText()+gacharesult);
+							break;
+						}
 						if(resultcard.lev.equals("SSR")){
 							result.setText(result.getText()+gacharesult);
+							JOptionPane.showMessageDialog(a,count+"¹ø ¸¸¿¡ SSRÀÌ ³ª¿Ô½À´Ï´Ù.","¹«ÇÑ °¡Ã­",JOptionPane.INFORMATION_MESSAGE);
 							break;
 							}
 						}
@@ -287,14 +356,19 @@ public class MainMenu extends JFrame {
 						resulttemp.add(resultcard);
 						count++;
 						String gacharesult=gachatext.toString();
+						if(!this.checkjewel(user, 250)){
+							JOptionPane.showMessageDialog(a, "SSRÀ» »ÌÁö ¸øÇßÁö¸¸ Áê¿¤ÀÌ ºÎÁ·ÇÕ´Ï´Ù", " ¿¡·¯", JOptionPane.ERROR_MESSAGE);
+							result.setText(result.getText()+gacharesult);
+							break;
+						}
 						if(resultcard.lev.equals("SSR")){				
 							result.setText(result.getText()+gacharesult);
+							JOptionPane.showMessageDialog(a,count+"¹ø ¸¸¿¡ SSRÀÌ ³ª¿Ô½À´Ï´Ù.","¹«ÇÑ °¡Ã­",JOptionPane.INFORMATION_MESSAGE);
 							break;
 						}
 					}
 				}while(true);
-				JOptionPane.showMessageDialog(a,count+"¹ø ¸¸¿¡ SSRÀÌ ³ª¿Ô½À´Ï´Ù.","¹«ÇÑ °¡Ã­",JOptionPane.INFORMATION_MESSAGE);
-				break;
+				break;}else{this.showerror();break;}
 			}
 			case"Á¾·á":{int result =JOptionPane.showConfirmDialog(a, "Á¾·áÇÏ½Ã°Ú½À´Ï±î?","Á¾·á",JOptionPane.YES_OPTION);
 			if(result ==JOptionPane.YES_OPTION){
@@ -363,7 +437,7 @@ public class MainMenu extends JFrame {
 	public class moneylistener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			switch(e.getActionCommand()){
-			case"¿£È­·Î °áÁ¦ÇÏ±â":{
+			case"¿£È­·Î °áÁ¦":{
 				String yen;
 				int yencharge;
 				do{
@@ -379,15 +453,67 @@ public class MainMenu extends JFrame {
 							continue;
 						}
 						user.yen+=yencharge;
+						moneystat.setText("µ· : "+user.yen);
 					}
 				}catch(Exception a){
 					break;
 				}break;
-			}while(true);
+			}while(true);break;
+			}
+			case"Áê¿¤ ÃæÀüÇÏ±â":{
 			}
 			default:{}
 			}
 		}
 	}
+	
+	public class listaction implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			if(e.getSource()==jewellist){
+				select = (String)jewellist.getSelectedItem();
+			}
+		}
+	}
+	
+	public class jewelcharge implements ActionListener{
+		public void refresh(){
+			moneystat.setText(yen+user.yen);
+			jewelstat2.setText("Áê¿¤ : "+user.jewel);
+			jewelstat.setText("Áê¿¤ : "+user.jewel);
+		}
+		
+		public void checkmoney (User user, int money, int jewel){
+			if(user.yen<money){
+				JOptionPane.showMessageDialog(a, "µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù"," ÃæÀü ¿ä¸Á",JOptionPane.ERROR_MESSAGE);
+			} else{
+				user.jewel+=jewel;
+				user.yen-=money;
+				this.refresh();
+				}
+		}
+		public void actionPerformed(ActionEvent e){
+			String jewelselect=(String)jewellist.getSelectedItem();
+			if(jewelselect==jewels2.get(0)){
+				JOptionPane.showMessageDialog(a, "±¸ÀÔÇÒ Áê¿¤À» ¼±ÅÃÇØÁÖ¼¼¿ä"," °í¸£½Ã¿À",JOptionPane.INFORMATION_MESSAGE);
+			}else if(jewelselect==jewels2.get(1)){
+				this.checkmoney(user, 120, 60);
+			}else if(jewelselect==jewels2.get(2)){
+				this.checkmoney(user, 360, 480);
+			}else if(jewelselect==jewels2.get(3)){
+				this.checkmoney(user, 760, 960);
+			}else if(jewelselect==jewels2.get(4)){
+				this.checkmoney(user, 1300, 1600);
+			}else if(jewelselect==jewels2.get(5)){
+				this.checkmoney(user, 2650, 3200);
+			}else if(jewelselect==jewels2.get(6)){
+				this.checkmoney(user, 4200, 5000);
+			}else if(jewelselect==jewels2.get(7)){
+				this.checkmoney(user, 8400, 9800);
+			}
+			
+		}
+	}
+	
+
 
 	public static void main(String[] args){new MainMenu();}}
