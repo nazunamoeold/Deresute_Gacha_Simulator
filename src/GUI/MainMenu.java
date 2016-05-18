@@ -14,6 +14,7 @@ import GachaChargeMenu.*;
 import Menu.*;
 
 public class MainMenu extends JFrame {
+
 	String jewel ="Áê¿¤ : ";
 	String yen = "µ· : ";
 	JPanel gacha = new JPanel();
@@ -21,7 +22,8 @@ public class MainMenu extends JFrame {
 	JPanel info = new JPanel();
 	JPanel titlebar = new JPanel();
 	ArrayList<Card> resulttemp = new ArrayList<Card>();
-	JRadioButton limited = new JRadioButton("ÇÑÁ¤ Ä«µå");
+	JRadioButton limited = new JRadioButton("ÇÑÁ¤");
+	JRadioButton nojewel = new JRadioButton("¹«ÇÑ");	
 	Card resultcard = new Card();
 	Gacha g = new Gacha();
 	Iterator<Card> search = resulttemp.iterator();
@@ -34,6 +36,7 @@ public class MainMenu extends JFrame {
 	JRadioButton cool = new JRadioButton("Cool");
 	JRadioButton passion = new JRadioButton("Passion");
 	JRadioButton alltype = new JRadioButton("All");
+	boolean nojewelset;
 	JLabel moneystat = new JLabel();
 	JComboBox jewellist = new JComboBox();
 	String select="";
@@ -44,7 +47,7 @@ public class MainMenu extends JFrame {
 	JLabel jewelstat = new JLabel();
 	JLabel jewelstat2 = new JLabel();
 	MainMenu(){
-		
+		nojewelset=false;
 		// °øÅë Ç×¸ñ
 		Image moneyimage =null;
 		user.limited=false;
@@ -68,7 +71,6 @@ public class MainMenu extends JFrame {
 		tab.add(gacha,"°¡Ã­");
 		tab.add(info,"Á¤º¸");
 	
-		
 		money.setLayout(null);
 		gacha.setLayout(null);
 		info.setLayout(null);
@@ -95,11 +97,11 @@ public class MainMenu extends JFrame {
 		money.add(moneystat);
 		
 		moneyimagee.setLocation(5,5);
-		jewelstat2.setLocation(15,173);
+		jewelstat2.setLocation(15,163);
 		yengacha.setLocation(260,5);
 		jewelcharge.setLocation(260,75);
 		jewellist.setLocation(260,40);
-		moneystat.setLocation(100,173);
+		moneystat.setLocation(15,183);
 		
 		moneyimagee.setSize(250,160);
 		jewelstat2.setSize(100,30);
@@ -148,6 +150,7 @@ public class MainMenu extends JFrame {
 		gacha.add(alltype);
 		gacha.add(typegacha);
 		gacha.add(infinite);
+		gacha.add(nojewel);
 		
 		gachago.setSize(64,30);
 		yunchago.setSize(64,30);
@@ -156,7 +159,7 @@ public class MainMenu extends JFrame {
 		scrollPane.setSize(352,185);
 		searchtable.setSize(224,20);
 		searchbtn.setSize(65,18);
-		limited.setSize(110,20);
+		limited.setSize(60,20);
 		gachatitle.setSize(365,20);
 		cute.setSize(60,20);
 		cool.setSize(110,20);
@@ -164,6 +167,7 @@ public class MainMenu extends JFrame {
 		typegacha.setSize(110,20);
 		alltype.setSize(60,20);
 		infinite.setSize(64,30);
+		nojewel.setSize(60,20);
 		
 		gachago.setLocation(2,2);
 		yunchago.setLocation(68,2);
@@ -180,6 +184,7 @@ public class MainMenu extends JFrame {
 		typegacha.setLocation(2,120);
 		alltype.setLocation(62,142);
 		infinite.setLocation(68,34);
+		nojewel.setLocation(62,91);
 		
 		gachago.setFont(mainfont2);
 		yunchago.setFont(mainfont2);
@@ -196,6 +201,7 @@ public class MainMenu extends JFrame {
 		typegacha.setFont(mainfont);
 		alltype.setFont(mainfont2);
 		infinite.setFont(mainfont2);
+		nojewel.setFont(mainfont2);
 		
 		gachago.addActionListener(new gachaaction());
 		yunchago.addActionListener(new gachaaction());
@@ -208,6 +214,7 @@ public class MainMenu extends JFrame {
 		cool.addItemListener(new typebutton());
 		passion.addItemListener(new typebutton());
 		alltype.addItemListener(new typebutton());
+		nojewel.addItemListener(new nojewelbutton());
 		
 		alltype.setSelected(true);
 		result.setEditable(false);
@@ -229,10 +236,11 @@ public class MainMenu extends JFrame {
 		}
 		
 		public boolean checkjewel(User user, int jewel){
+			if(nojewelset){return true;}else{
 			if(user.jewel<jewel){
 				return false;
 			}else if(user.jewel>=jewel) {return true;}
-			return true;
+			return true;}
 		}
 		
 		public void refresh(){
@@ -248,7 +256,7 @@ public class MainMenu extends JFrame {
 				if(this.checkjewel(user, 250)){
 				resulttemp.clear();
 				result.setText("");
-				user.jewel-=250;
+				if(!nojewelset){user.jewel-=250;}
 				StringBuffer gachatext = new StringBuffer();
 				if(user.limited){
 					resultcard=g.ReturnToGUIUnlimited(user, 0);
@@ -266,7 +274,7 @@ public class MainMenu extends JFrame {
 				if(this.checkjewel(user, 2500)){
 				resulttemp.clear();
 				result.setText("");
-				user.jewel-=2500;
+				if(!nojewelset){user.jewel-=2500;}
 				StringBuffer gachatext = new StringBuffer();
 				if(user.limited){
 				for(int i=0; i<9; i++){
@@ -292,7 +300,7 @@ public class MainMenu extends JFrame {
 				if(this.checkjewel(user, 60)){
 				resulttemp.clear();
 				result.setText("");
-				user.jewel-=60;
+				if(!nojewelset){user.jewel-=60;}
 				StringBuffer gachatext = new StringBuffer();
 				if(user.limited){
 					resultcard=g.ReturnToGUILimited(user, 0);
@@ -328,7 +336,7 @@ public class MainMenu extends JFrame {
 				StringBuffer gachatext = new StringBuffer();
 				if(this.checkjewel(user, 250)){
 				do{
-					user.jewel-=250;
+					if(!nojewelset){user.jewel-=250;}
 					this.refresh();
 					if(user.limited){
 						resultcard=g.ReturnToGUIUnlimited(user, 0);
@@ -514,6 +522,12 @@ public class MainMenu extends JFrame {
 		}
 	}
 	
-
+	public class nojewelbutton implements ItemListener{
+		public void itemStateChanged(ItemEvent e) {
+			if(e.getStateChange() ==ItemEvent.SELECTED){
+				nojewelset=true;
+			} else {nojewelset=false;}
+		}
+	}
 
 	public static void main(String[] args){new MainMenu();}}
