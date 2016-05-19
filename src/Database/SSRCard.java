@@ -94,15 +94,19 @@ public class SSRCard extends Card {
 		
 		ssrinfo[22]=new Card();
 		ssrinfo[22].type="passion";
-		ssrinfo[22].name="[꿈꾸는 프린세스] 키타 히나코 ";
+		ssrinfo[22].name="[꿈꾸는 프린세스] 키타 히나코";
 		
 		ssrinfo[23]=new Card();
 		ssrinfo[23].type="cute";
-		ssrinfo[23].name="[따뜻한 하트] 이가라시 쿄코 ";
+		ssrinfo[23].name="[따뜻한 하트] 이가라시 쿄코";
 		
 		ssrinfo[24]=new Card();
 		ssrinfo[24].type="cool";
-		ssrinfo[24].name="[전율의 밤] 시라사카 코우메  ";
+		ssrinfo[24].name="[전율의 밤] 시라사카 코우메";
+		
+		ssrinfo[25]=new Card();
+		ssrinfo[25].type="cool";
+		ssrinfo[25].name="[애비뉴 모드] 미야모토 프레데리카 ";
 		
 		for(int i=0; i<super.SSRCardnumber; i++){
 			ssrinfo[i].lev="SSR"; 

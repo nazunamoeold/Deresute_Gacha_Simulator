@@ -193,11 +193,15 @@ public class SRCard extends Card {
 		
 		srinfo[47] = new Card();
 		srinfo[47].type="cool";
-		srinfo[47].name="[꼬마 스테이지] 와키야마 타마미 ";
+		srinfo[47].name="[꼬마 스테이지] 와키야마 타마미";
 		
 		srinfo[48] = new Card();
 		srinfo[48].type="cute";
-		srinfo[48].name="[꽃밭의 봄바람] 사이온지 코토카  ";
+		srinfo[48].name="[꽃밭의 봄바람] 사이온지 코토카";
+		
+		srinfo[49] = new Card();
+		srinfo[49].type="passion";
+		srinfo[49].name="[고민할 나이] 야구치 미우";
 		
 		for(int i=0; i<super.SRCardnumber; i++){
 			srinfo[i].lev="SR";
