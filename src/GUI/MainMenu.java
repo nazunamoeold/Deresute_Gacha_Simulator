@@ -80,7 +80,7 @@ public class MainMenu extends JFrame {
 		try{File sourceimage = new File("cihiro");
 		moneyimage = ImageIO.read(sourceimage);}
 		catch(IOException e){}
-		JLabel Title = new JLabel (" 데레스테 가챠 시뮬레이터 v2.0.0 Beta 5");
+		JLabel Title = new JLabel (" 데레스테 가챠 시뮬레이터 v2.0.0 Beta 5.3");
 		titlebar.setLayout(new BorderLayout(50,50));
 		titlebar.add(Title,BorderLayout.WEST);
 		titlebar.add(exit,BorderLayout.EAST);
