@@ -106,7 +106,7 @@ public class SSRCard extends Card {
 		
 		ssrinfo[25]=new Card();
 		ssrinfo[25].type="cool";
-		ssrinfo[25].name="[애비뉴 모드] 미야모토 프레데리카 ";
+		ssrinfo[25].name="[애비뉴 모드] 미야모토 프레데리카";
 		
 		for(int i=0; i<super.SSRCardnumber; i++){
 			ssrinfo[i].lev="SSR"; 
