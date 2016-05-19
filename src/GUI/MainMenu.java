@@ -635,7 +635,9 @@ public class MainMenu extends JFrame {
 			// title 
 			
 			prostat.setText("현재 확률  SSR : "+user.tempSSR+"  SR : "+user.tempSR+"  R : "+tempR);
-			JLabel warning = new JLabel("SSR 확률을 99% 이상으로 설정하지 마세요");
+			JLabel warning = new JLabel("    SSR+SR확률을 100 이상으로 하거나");
+			JLabel warning2 = new JLabel("   둘중 하나를 100으로 설정하지 마세요");
+			
 			JLabel SSR = new JLabel("SSR");
 			JLabel SR = new JLabel("SR");
 			JLabel R = new JLabel("R");
@@ -654,6 +656,7 @@ public class MainMenu extends JFrame {
 
 			info.add(prostat);
 			info.add(warning);
+			info.add(warning2);
 			info.add(SSR);
 			info.add(SR);
 			info.add(R);
@@ -665,6 +668,7 @@ public class MainMenu extends JFrame {
 			
 			prostat.setSize(300,40);
 			warning.setSize(300,80);
+			warning2.setSize(300,80);
 			SSR.setSize(30,15);
 			SR.setSize(30,15);
 			R.setSize(30,15);
@@ -675,7 +679,8 @@ public class MainMenu extends JFrame {
 			prolists.setSize(95,20);
 			
 			prostat.setLocation(20,0);
-			warning.setLocation(10,10);
+			warning.setLocation(10,2);
+			warning2.setLocation(10,19);
 			SSR.setLocation(14,70);
 			SR.setLocation(74,70);
 			R.setLocation(134,70);
@@ -695,6 +700,7 @@ public class MainMenu extends JFrame {
 			RP.setFont(info2);
 			OK.setFont(info2);
 			prolists.setFont(info2);
+			warning2.setFont(info2);
 			
 			OK.addActionListener(new OKaction());
 			
