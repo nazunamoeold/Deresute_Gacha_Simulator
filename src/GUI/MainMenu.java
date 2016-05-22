@@ -84,7 +84,7 @@ public class MainMenu extends JFrame {
 		setTitle("데레스테 가챠 시뮬레이터");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		try{File sourceimage = new File("cihiro");
+		try{File sourceimage = new File("image/cihiro");
 		moneyimage = ImageIO.read(sourceimage);}
 		catch(IOException e){}
 		JLabel Title = new JLabel (" 데레스테 가챠 시뮬레이터 v2.0.0 Beta 5.3");
