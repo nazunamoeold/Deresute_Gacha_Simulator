@@ -246,12 +246,30 @@ public class MainMenu extends JFrame {
 		alltype.addItemListener(new typebutton());
 		nojewel.addItemListener(new nojewelbutton());
 		hawkryul.addActionListener(new gachaaction());
-		
+	
 		alltype.setSelected(true);
 		result.setEditable(false);
 		
 		tab.setFont(mainfont);
 		a.add(tab,BorderLayout.CENTER);
+		
+		
+		// 정보 메뉴 항목
+		info.setLayout(null);
+		JLabel username = new JLabel("프로듀서 이름 : ");
+		JLabel gameid = new JLabel("게임 ID : ");
+		
+		info.add(username);
+		info.add(gameid);
+		
+		username.setLocation(153,3);
+		gameid.setLocation(153,25);
+		
+	    username.setSize(210,18);
+	    gameid.setSize(210,18);
+		
+		username.setFont(mainfont);
+		gameid.setFont(mainfont);
 		
 		setSize(500,345);
 		setVisible(true);

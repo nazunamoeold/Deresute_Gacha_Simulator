@@ -18,7 +18,7 @@ public class User{
 	    public int usedjewel;
 	    public int usedgiftcard;
 		
-	    public String name;
+	    public String name="";
 	    public int gameid;
 		
 	    public boolean limited;
