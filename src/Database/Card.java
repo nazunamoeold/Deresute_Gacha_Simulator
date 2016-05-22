@@ -1,5 +1,6 @@
 package Database;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -31,6 +32,14 @@ public class Card {
 //	
 //	public String CenterSkill;
 //	public String Skill;
+	
+	public String ImagePath;
+	public File CardImage = new File(ImagePath);
+	
+	public File getImage(String path){
+		File returnimage = new File(path);
+		return returnimage;
+	}
 	public String Valueof() {
 		return "[" + this.getlev() + "] [" + this.gettype() + "] " + this.getname() ;
 	}
