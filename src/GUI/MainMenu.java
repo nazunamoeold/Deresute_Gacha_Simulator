@@ -63,7 +63,8 @@ public class MainMenu extends JFrame {
 			"C: Áê¿¤ 760°³ - 960¿£","D: Áê¿¤ 1300°³ - 1600¿£","E: Áê¿¤ 2650°³ - 3200¿£",
 			"F: Áê¿¤ 4200°³ - 5000¿£","G: Áê¿¤ 8400°³ - 9800¿£"};
 	
-
+	JLabel usedjewel = new JLabel("»ç¿ëÇÑ Áê¿¤ : "+user.usedjewel);
+	JLabel usedyen = new JLabel("»ç¿ëÇÑ µ· : "+user.usedyen);
 	
 	MainMenu(){
 		nojewelset=false;
@@ -256,20 +257,19 @@ public class MainMenu extends JFrame {
 		
 		// Á¤º¸ ¸Þ´º Ç×¸ñ
 		info.setLayout(null);
-		JLabel username = new JLabel("ÇÁ·Îµà¼­ ÀÌ¸§ : ");
-		JLabel gameid = new JLabel("°ÔÀÓ ID : ");
 		
-		info.add(username);
-		info.add(gameid);
 		
-		username.setLocation(153,3);
-		gameid.setLocation(153,25);
+		info.add(usedjewel);
+		info.add(usedyen);
 		
-	    username.setSize(210,18);
-	    gameid.setSize(210,18);
+		usedjewel.setLocation(153,3);
+		usedyen.setLocation(153,25);
 		
-		username.setFont(mainfont);
-		gameid.setFont(mainfont);
+	    usedjewel.setSize(210,18);
+	    usedyen.setSize(210,18);
+		
+		usedjewel.setFont(mainfont);
+		usedyen.setFont(mainfont);
 		
 		setSize(500,345);
 		setVisible(true);
@@ -288,13 +288,14 @@ public class MainMenu extends JFrame {
 			if(nojewelset){return true;}else{
 			if(user.jewel<jewel){
 				return false;
-			}else if(user.jewel>=jewel) {return true;}
+			}else if(user.jewel>=jewel) {user.usedjewel+=jewel;return true;}
 			return true;}
 		}
 		
 		public void refresh(){
 			moneystat3.setText("µ· : "+user.yen);
 			jewelstat3.setText("Áê¿¤ : "+user.jewel);
+			usedjewel.setText("»ç¿ëÇÑ Áê¿¤ : "+user.usedjewel);
 		}
 		
 		public void actionPerformed(ActionEvent e){
@@ -514,14 +515,14 @@ public class MainMenu extends JFrame {
 							continue;
 						}
 						user.yen+=yencharge;
+						user.usedyen+=yencharge;
 						moneystat3.setText("µ· : "+user.yen);
+						usedyen.setText("»ç¿ëÇÑ µ· : "+user.usedyen);
 					}
 				}catch(Exception a){
 					break;
 				}break;
 			}while(true);break;
-			}
-			case"Áê¿¤ ÃæÀüÇÏ±â":{
 			}
 			default:{}
 			}
@@ -530,7 +531,6 @@ public class MainMenu extends JFrame {
 	
 	public class listaction implements ActionListener{
 		public void actionPerformed(ActionEvent e){
-			ProbabilityInfo p = new ProbabilityInfo();
 			if(e.getSource()==jewellist){
 				select = (String)jewellist.getSelectedItem();
 			}
