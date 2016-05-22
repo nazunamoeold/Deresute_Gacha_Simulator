@@ -65,6 +65,12 @@ public class MainMenu extends JFrame {
 	
 	JLabel usedjewel = new JLabel("»ç¿ëÇÑ Áê¿¤ : "+user.usedjewel);
 	JLabel usedyen = new JLabel("»ç¿ëÇÑ µ· : "+user.usedyen);
+	JLabel SSRInfo = new JLabel("SSR : "+user.SSRNumber);
+	JLabel SRInfo = new JLabel("SR : "+user.SRNumber);
+	JLabel RInfo = new JLabel("R : "+user.RNumber);
+	JLabel CuteInfo = new JLabel("Cute : "+user.cute);
+	JLabel CoolInfo = new JLabel("Cool : "+user.cool);
+	JLabel PassionInfo = new JLabel("Passion : "+user.passion);
 	
 	MainMenu(){
 		nojewelset=false;
@@ -256,20 +262,49 @@ public class MainMenu extends JFrame {
 		
 		
 		// Á¤º¸ ¸Þ´º Ç×¸ñ
-		info.setLayout(null);
+		JLabel cardinfo = new JLabel("¼ÒÁö Ä«µå Á¤º¸");
 		
+		info.setLayout(null);
 		
 		info.add(usedjewel);
 		info.add(usedyen);
+		info.add(cardinfo);
+		info.add(SSRInfo);
+		info.add(SRInfo);
+		info.add(RInfo);
+		info.add(CuteInfo);
+		info.add(CoolInfo);
+		info.add(PassionInfo);
 		
-		usedjewel.setLocation(153,3);
-		usedyen.setLocation(153,25);
+		usedjewel.setLocation(123,3);
+		usedyen.setLocation(123,25);
+		cardinfo.setLocation(123,53);
+		SSRInfo.setLocation(123,80);
+		SRInfo.setLocation(123,100);
+		RInfo.setLocation(123,120);
+		CuteInfo.setLocation(123,140);
+		CoolInfo.setLocation(123,160);
+		PassionInfo.setLocation(123,180);
 		
 	    usedjewel.setSize(210,18);
 	    usedyen.setSize(210,18);
+	    cardinfo.setSize(140,20);
+	    SSRInfo.setSize(90,18);
+	    SRInfo.setSize(90,18);
+	    RInfo.setSize(90,18);
+	    CuteInfo.setSize(980,18);
+	    CoolInfo.setSize(90,18);
+	    PassionInfo.setSize(90,18);
 		
 		usedjewel.setFont(mainfont);
 		usedyen.setFont(mainfont);
+		cardinfo.setFont(new Font(("¸¼Àº °íµñ"),Font.BOLD,20));
+		SSRInfo.setFont(mainfont);
+		SRInfo.setFont(mainfont);
+		RInfo.setFont(mainfont);
+		CuteInfo.setFont(mainfont);
+		CoolInfo.setFont(mainfont);
+		PassionInfo.setFont(mainfont);
 		
 		setSize(500,345);
 		setVisible(true);
@@ -296,6 +331,12 @@ public class MainMenu extends JFrame {
 			moneystat3.setText("µ· : "+user.yen);
 			jewelstat3.setText("Áê¿¤ : "+user.jewel);
 			usedjewel.setText("»ç¿ëÇÑ Áê¿¤ : "+user.usedjewel);
+			SSRInfo.setText("SSR : "+user.SSRNumber);
+			SRInfo.setText("SR : "+user.SRNumber);
+			RInfo.setText("R : "+user.RNumber);
+			CuteInfo.setText("Cute : "+user.cute);
+			CoolInfo.setText("Cool : "+user.cool);
+			PassionInfo.setText("Passion : "+user.passion);
 		}
 		
 		public void actionPerformed(ActionEvent e){
