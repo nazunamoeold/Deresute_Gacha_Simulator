@@ -15,6 +15,8 @@ import Menu.*;
 
 public class MainMenu extends JFrame {
 
+	JLabel fcardimage = new JLabel();
+	
 	String jewel ="쥬엘 : ";
 	String yen = "돈 : ";
 	
@@ -75,6 +77,7 @@ public class MainMenu extends JFrame {
 	MainMenu(){
 		nojewelset=false;
 		Image moneyimage =null;
+		Image debugimage =null;
 		
 		user.limited=false;
 		
@@ -87,6 +90,11 @@ public class MainMenu extends JFrame {
 		try{File sourceimage = new File("image/moneymenu/cihiro");
 		moneyimage = ImageIO.read(sourceimage);}
 		catch(IOException e){}
+		try{File sourceimage2 = new File("image/cardimage/asukassr-before");
+		debugimage = ImageIO.read(sourceimage2);}
+		catch(IOException e){}
+		
+		
 		JLabel Title = new JLabel (" 데레스테 가챠 시뮬레이터 v2.0.0 Beta 5.3");
 		titlebar.setLayout(new BorderLayout(50,50));
 		titlebar.add(Title,BorderLayout.WEST);
@@ -262,6 +270,8 @@ public class MainMenu extends JFrame {
 		
 		
 		// 정보 메뉴 항목
+		fcardimage = new JLabel(new ImageIcon(debugimage));
+
 		JLabel cardinfo = new JLabel("소지 카드 정보");
 		
 		info.setLayout(null);
@@ -275,6 +285,7 @@ public class MainMenu extends JFrame {
 		info.add(CuteInfo);
 		info.add(CoolInfo);
 		info.add(PassionInfo);
+		info.add(fcardimage);
 		
 		usedjewel.setLocation(123,3);
 		usedyen.setLocation(123,25);
@@ -285,6 +296,7 @@ public class MainMenu extends JFrame {
 		CuteInfo.setLocation(123,140);
 		CoolInfo.setLocation(123,160);
 		PassionInfo.setLocation(123,180);
+		fcardimage.setLocation(3,3);
 		
 	    usedjewel.setSize(210,18);
 	    usedyen.setSize(210,18);
@@ -295,6 +307,7 @@ public class MainMenu extends JFrame {
 	    CuteInfo.setSize(980,18);
 	    CoolInfo.setSize(90,18);
 	    PassionInfo.setSize(90,18);
+	    fcardimage.setSize(116,116);
 		
 		usedjewel.setFont(mainfont);
 		usedyen.setFont(mainfont);
@@ -305,6 +318,7 @@ public class MainMenu extends JFrame {
 		CuteInfo.setFont(mainfont);
 		CoolInfo.setFont(mainfont);
 		PassionInfo.setFont(mainfont);
+		
 		
 		setSize(500,345);
 		setVisible(true);

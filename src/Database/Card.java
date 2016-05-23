@@ -122,6 +122,7 @@ public class Card {
 		return PassionSSR;
 	}
 	
+	
 	public void SearchIdol(User user){
 		SSRCard SSRCard = new SSRCard();
         SRCard SRCard = new SRCard();
