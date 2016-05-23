@@ -63,52 +63,43 @@ public class Card {
 	}
 	
 	public ArrayList<Card> CuteSSRList() {
-		for(int i=0; i<SSRCardnumber; i++){
-			if(SSRCard.ssrinfo(i).gettype().equals("cute")){CuteSSR.add(SSRCard.ssrinfo(i));}
-		}
-		for(int i=0; i<SSRCardLimitednumber; i++){
-			if(SSRCardLimited.ssrinfo(i).gettype().equals("cute")){CuteSSR.add(SSRCardLimited.ssrinfo(i));}
+		for(int i=0; i<this.UnitedLimitedCard.size(); i++){
+			if(this.UnitedLimitedCard.get(i).gettype().equals("cute")){CuteSSR.add(this.UnitedLimitedCard.get(i));}
 		}
 		return CuteSSR;
 	}
 	
 	public ArrayList<Card> CuteSSRLimitedList() {
-		for(int i=0; i<SSRCardnumber; i++){
-			if(SSRCard.ssrinfo(i).gettype().equals("cute")){CuteSSR.add(SSRCard.ssrinfo(i));}
+		for(int i=0; i<this.UnitedCard.size(); i++){
+			if(this.UnitedCard.get(i).gettype().equals("cute")){CuteSSR.add(this.UnitedCard.get(i));}
 		}
 		return CuteSSR;
 	}
 	
 	public ArrayList<Card> CoolSSRList() {
-		for(int i=0; i<SSRCardnumber; i++){
-			if(SSRCard.ssrinfo(i).gettype().equals("cool")){CoolSSR.add(SSRCard.ssrinfo(i));}
-		}
-		for(int i=0; i<SSRCardLimitednumber; i++){
-			if(SSRCardLimited.ssrinfo(i).gettype().equals("cool")){CoolSSR.add(SSRCardLimited.ssrinfo(i));}
+		for(int i=0; i<this.UnitedLimitedCard.size(); i++){
+			if(this.UnitedLimitedCard.get(i).gettype().equals("cool")){CoolSSR.add(this.UnitedCard.get(i));}
 		}
 		return CoolSSR;
 	}
 	
 	public ArrayList<Card> CoolSSRLimitedList() {
-		for(int i=0; i<SSRCardnumber; i++){
-			if(SSRCard.ssrinfo(i).gettype().equals("cool")){CoolSSR.add(SSRCard.ssrinfo(i));}
+		for(int i=0; i<this.UnitedCard.size(); i++){
+			if(this.UnitedCard.get(i).gettype().equals("cool")){CoolSSR.add(this.UnitedCard.get(i));}
 		}
 		return CoolSSR;
 	}
 	
 	public ArrayList<Card> PassionSSRList() {
-		for(int i=0; i<SSRCardnumber; i++){
-			if(SSRCard.ssrinfo(i).gettype().equals("passion")){PassionSSR.add(SSRCard.ssrinfo(i));}
-		}
-		for(int i=0; i<SSRCardLimitednumber; i++){
-			if(SSRCardLimited.ssrinfo(i).gettype().equals("passion")){PassionSSR.add(SSRCardLimited.ssrinfo(i));}
+		for(int i=0; i<this.UnitedLimitedCard.size(); i++){
+			if(this.UnitedLimitedCard.get(i).gettype().equals("passion")){PassionSSR.add(this.UnitedLimitedCard.get(i));}
 		}
 		return PassionSSR;
 	}
 	
 	public ArrayList<Card> PassionSSRLimitedList() {
-		for(int i=0; i<SSRCardnumber; i++){
-			if(SSRCard.ssrinfo(i).gettype().equals("passion")){PassionSSR.add(SSRCard.ssrinfo(i));}
+		for(int i=0; i<this.UnitedCard.size(); i++){
+			if(this.UnitedCard.get(i).gettype().equals("passion")){PassionSSR.add(this.UnitedCard.get(i));}
 		}
 		return PassionSSR;
 	}
