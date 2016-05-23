@@ -33,8 +33,8 @@ public class Card {
 //	public String CenterSkill;
 //	public String Skill;
 	
-	public String ImagePath;
-	public File CardImage = new File(ImagePath);
+//	public String ImagePath;
+//	public File CardImage = new File(ImagePath);
 	
 	public File getImage(String path){
 		File returnimage = new File(path);
