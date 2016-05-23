@@ -13,11 +13,7 @@ public class Card {
 	ArrayList<Card> CoolSSR = new ArrayList<Card>();
 	ArrayList<Card> PassionSSR = new ArrayList<Card>();
 	
-	SSRCard SSRCard = new SSRCard();
-	SRCard SRCard = new SRCard();
-	RCard RCard = new RCard();
-	SSRCardLimited SSRCardLimited = new SSRCardLimited();
-	SRCardLimited SRCardLimited = new SRCardLimited();
+
 	
 	ArrayList<Card> UnitedLimitedCard = new ArrayList<Card>();
 	ArrayList<Card> UnitedCard = new ArrayList<Card>();
@@ -105,6 +101,10 @@ public class Card {
 	}
 	
 	public ArrayList<Card> UnitedCardList(){
+		SSRCard SSRCard = new SSRCard();
+		SRCard SRCard = new SRCard();
+		RCard RCard = new RCard();
+
 		for(int i=0; i<SSRCardnumber; i++){UnitedCard.add(SSRCard.ssrinfo(i));}
 		for(int i=0; i<SRCardnumber; i++){UnitedCard.add(SRCard.srinfo(i));}
 		for(int i=0; i<RCardnumber; i++){UnitedCard.add(RCard.rinfo(i));}
@@ -112,6 +112,8 @@ public class Card {
 	}
 	
 	public ArrayList<Card> UnitedLimitedCardList(){
+		SSRCardLimited SSRCardLimited = new SSRCardLimited();
+		SRCardLimited SRCardLimited = new SRCardLimited();
 		UnitedLimitedCard.addAll(UnitedCard);
 		for(int i=0; i<SSRCardLimitednumber; i++){UnitedLimitedCard.add(SSRCardLimited.ssrinfo(i));}
 		for(int i=0; i<SRCardLimitednumber; i++){UnitedLimitedCard.add(SRCardLimited.srinfo(i));}
