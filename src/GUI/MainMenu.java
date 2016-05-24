@@ -275,6 +275,9 @@ public class MainMenu extends JFrame {
 
 		JLabel cardinfo = new JLabel("소지 카드 정보");
 		JLabel fcardtitle = new JLabel("선호 아이돌");
+		JButton reset = new JButton("카드 초기화");
+		JButton resetjewel = new JButton("쥬엘 초기화");
+		JButton resetyen = new JButton("돈 초기화");
 		
 		info.setLayout(null);
 		
@@ -289,6 +292,9 @@ public class MainMenu extends JFrame {
 		info.add(PassionInfo);
 		info.add(fcardimage);
 		info.add(fcardtitle);
+		info.add(reset);
+		info.add(resetjewel);
+		info.add(resetyen);
 		
 		usedjewel.setLocation(123,3);
 		usedyen.setLocation(123,25);
@@ -301,6 +307,9 @@ public class MainMenu extends JFrame {
 		PassionInfo.setLocation(123,180);
 		fcardimage.setLocation(3,23);
 		fcardtitle.setLocation(3,3);
+		reset.setLocation(3,140);
+		resetjewel.setLocation(3,163);
+		resetyen.setLocation(3,186);
 		
 	    usedjewel.setSize(210,18);
 	    usedyen.setSize(210,18);
@@ -313,6 +322,9 @@ public class MainMenu extends JFrame {
 	    PassionInfo.setSize(90,18);
 	    fcardimage.setSize(116,116);
 	    fcardtitle.setSize(116,20);
+	    reset.setSize(116,20);
+	    resetjewel.setSize(116,20);
+	    resetyen.setSize(116,20);
 		
 		usedjewel.setFont(mainfont);
 		usedyen.setFont(mainfont);
@@ -324,6 +336,43 @@ public class MainMenu extends JFrame {
 		CoolInfo.setFont(mainfont);
 		PassionInfo.setFont(mainfont);
 		fcardtitle.setFont(mainfont);
+		reset.setFont(mainfont);
+		resetjewel.setFont(mainfont);
+		resetyen.setFont(mainfont);
+		
+		reset.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				int result =JOptionPane.showConfirmDialog(a, "정말 초기화합니까?"," 초기화",JOptionPane.YES_OPTION);
+				if(result ==JOptionPane.YES_OPTION){
+				user.cardreset();
+				SSRInfo.setText("SSR : "+user.SSRNumber);
+				SRInfo.setText("SR : "+user.SRNumber);
+				RInfo.setText("R : "+user.RNumber);
+				CuteInfo.setText("Cute : "+user.cute);
+				CoolInfo.setText("Cool : "+user.cool);
+				PassionInfo.setText("Passion : "+user.passion);}
+			}
+		});
+		
+		resetjewel.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				int result =JOptionPane.showConfirmDialog(a, "정말 초기화합니까?"," 초기화",JOptionPane.YES_OPTION);
+				if(result ==JOptionPane.YES_OPTION){
+				user.jewelreset();
+				jewelstat3.setText("쥬엘 : "+user.jewel);
+				}
+			}
+		});
+		
+		resetyen.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				int result =JOptionPane.showConfirmDialog(a, "정말 초기화합니까?"," 초기화",JOptionPane.YES_OPTION);
+				if(result ==JOptionPane.YES_OPTION){
+				user.moneyreset();
+				moneystat3.setText("돈 : "+user.yen);
+				}
+			}
+		});
 		
 		setSize(500,345);
 		setVisible(true);

@@ -260,6 +260,30 @@ public class User{
 			temp=scanner.nextLine();
 		}
 		
+		public void cardreset(){
+			SSR.clear();
+			R.clear();
+			SR.clear();
+			LSSR.clear();
+			LSR.clear();
+			cute=0;
+			cool=0;
+			passion=0;
+			SSRNumber=0;
+			SRNumber=0;
+			RNumber=0;
+			LSSRNumber=0;
+			LSRNumber=0;
+		}
+		
+		public void jewelreset(){
+			jewel=0;
+		}
+		
+		public void moneyreset(){
+			yen=0;
+		}
+		
 		public void reinput(User user){
 		    Scanner scanner = new Scanner(System.in);
 //		    System.out.println("프로듀서 이름을 한글로 할 수 있습니다.");
