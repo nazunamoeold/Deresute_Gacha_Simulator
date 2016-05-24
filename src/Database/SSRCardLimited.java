@@ -1,7 +1,10 @@
 package Database;
 public class SSRCardLimited extends Card {
+	Card[] ssrinfo=new Card [super.SSRCardLimitednumber];
+	public Card[] ssrinforeturn(){
+		return ssrinfo;
+	}
 	public Card ssrinfo (int k){
-		Card[] ssrinfo=new Card [super.SSRCardLimitednumber];
 		
 		ssrinfo[0] = new Card();
 		ssrinfo[0].type="passion";

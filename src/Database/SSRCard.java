@@ -1,7 +1,11 @@
 package Database;
 public class SSRCard extends Card {
+	Card[] ssrinfo = new Card [super.SSRCardnumber];
+	public Card[] ssrinforeturn(){
+		return ssrinfo;
+	}
 	public Card ssrinfo(int k){
-		Card[] ssrinfo = new Card [super.SSRCardnumber];
+		
 
 		ssrinfo[0]=new Card();
 		ssrinfo[0].type="cute";

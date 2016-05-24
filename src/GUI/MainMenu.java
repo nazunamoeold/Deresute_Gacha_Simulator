@@ -75,6 +75,7 @@ public class MainMenu extends JFrame {
 	JLabel PassionInfo = new JLabel("Passion : "+user.passion);
 	
 	MainMenu(){
+
 		nojewelset=false;
 		Image moneyimage =null;
 		Image debugimage =null;

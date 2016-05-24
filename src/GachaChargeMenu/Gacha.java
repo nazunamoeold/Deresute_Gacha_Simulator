@@ -341,7 +341,6 @@ public class Gacha{
 		public Card ReturnToGUILimited(User user, int i){
 			Random random = new Random();
 			int temp;
-			
 			if(i==0){temp=random.nextInt(999);
    			if(temp<=user.SSRp){return this.SSRadd(user, user.TypeGachaSetting);}
    				else if(temp<=user.SRp){return this.SRadd(user);}
@@ -419,7 +418,6 @@ public class Gacha{
 
     }
 	   	public Card LSSRadd(User user, int j){
-	   		
     		Random random = new Random();
     		int k=0;
     		tempCardNumber[3]++; 

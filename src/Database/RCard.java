@@ -1,8 +1,10 @@
 package Database;
 public class RCard extends Card {
-
+	Card[] rinfo = new Card [super.RCardnumber];
+	public Card[] rinforeturn(){
+		return rinfo;
+	}
 	public Card rinfo(int k){
-		Card[] rinfo = new Card [super.RCardnumber];
 		rinfo[0] = new Card();
 		rinfo[0].type="cool";
 		rinfo[0].name="미즈노 미도리";

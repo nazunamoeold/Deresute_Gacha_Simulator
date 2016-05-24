@@ -1,8 +1,11 @@
 package Database;
 public class SRCard extends Card {
+	Card[] srinfo = new Card [super.SRCardnumber];
+	public Card[] srinforeturn(){
+		return srinfo;
+	}
 	public Card srinfo(int k){
-		Card[] srinfo = new Card [super.SRCardnumber];
-	
+		
 		srinfo[0] = new Card();
 		srinfo[0].type="cute";
 		srinfo[0].name="[¼½½Ã Ä¹] ¸¶¿¡Ä«¿Í ¹ÌÄí";
