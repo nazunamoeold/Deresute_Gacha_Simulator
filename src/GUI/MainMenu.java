@@ -274,6 +274,7 @@ public class MainMenu extends JFrame {
 		fcardimage = new JLabel(new ImageIcon(debugimage));
 
 		JLabel cardinfo = new JLabel("소지 카드 정보");
+		JLabel fcardtitle = new JLabel("선호 아이돌");
 		
 		info.setLayout(null);
 		
@@ -287,6 +288,7 @@ public class MainMenu extends JFrame {
 		info.add(CoolInfo);
 		info.add(PassionInfo);
 		info.add(fcardimage);
+		info.add(fcardtitle);
 		
 		usedjewel.setLocation(123,3);
 		usedyen.setLocation(123,25);
@@ -297,7 +299,8 @@ public class MainMenu extends JFrame {
 		CuteInfo.setLocation(123,140);
 		CoolInfo.setLocation(123,160);
 		PassionInfo.setLocation(123,180);
-		fcardimage.setLocation(3,3);
+		fcardimage.setLocation(3,23);
+		fcardtitle.setLocation(3,3);
 		
 	    usedjewel.setSize(210,18);
 	    usedyen.setSize(210,18);
@@ -309,6 +312,7 @@ public class MainMenu extends JFrame {
 	    CoolInfo.setSize(90,18);
 	    PassionInfo.setSize(90,18);
 	    fcardimage.setSize(116,116);
+	    fcardtitle.setSize(116,20);
 		
 		usedjewel.setFont(mainfont);
 		usedyen.setFont(mainfont);
@@ -319,7 +323,7 @@ public class MainMenu extends JFrame {
 		CuteInfo.setFont(mainfont);
 		CoolInfo.setFont(mainfont);
 		PassionInfo.setFont(mainfont);
-		
+		fcardtitle.setFont(mainfont);
 		
 		setSize(500,345);
 		setVisible(true);
