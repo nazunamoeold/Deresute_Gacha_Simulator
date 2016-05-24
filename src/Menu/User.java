@@ -305,4 +305,104 @@ public class User{
 			
 		}
 		
+		public ArrayList<Card> usercardshow(User user, String type, String lev){
+			ArrayList<Card> filteredlist = new ArrayList<Card>();
+			switch(lev){
+			case"SSR":{
+				switch(type){
+				case"cute":{
+					for(int i=0; i<SSR.size(); i++){
+						if(SSR.get(i).gettype().equals("cute")){
+							filteredlist.add(SSR.get(i));
+						}
+						
+					}
+					return filteredlist;
+				}
+				case"cool":{
+					for(int i=0; i<SSR.size(); i++){
+						if(SSR.get(i).gettype().equals("cool")){
+							filteredlist.add(SSR.get(i));
+						}
+						
+					}
+					return filteredlist;
+				}
+				case"passion":{
+					for(int i=0; i<SSR.size(); i++){
+						if(SSR.get(i).gettype().equals("passion")){
+							filteredlist.add(SSR.get(i));
+						}
+					}
+					return filteredlist;
+					}
+				
+				}
+			}
+			case"SR":{
+				switch(type){
+				case"cute":{
+					for(int i=0; i<SR.size(); i++){
+						if(SR.get(i).gettype().equals("cute")){
+							filteredlist.add(SR.get(i));
+						}
+						
+					}
+					return filteredlist;
+				}
+				case"cool":{
+					for(int i=0; i<SR.size(); i++){
+						if(SR.get(i).gettype().equals("cool")){
+							filteredlist.add(SR.get(i));
+						}
+						
+					}
+					return filteredlist;
+				}
+				case"passion":{
+					for(int i=0; i<SR.size(); i++){
+						if(SR.get(i).gettype().equals("passion")){
+							filteredlist.add(SR.get(i));
+						}
+					}
+					return filteredlist;
+					}
+				
+				}
+			}
+			case"R":{
+				switch(type){
+				case"cute":{
+					for(int i=0; i<R.size(); i++){
+						if(R.get(i).gettype().equals("cute")){
+							filteredlist.add(R.get(i));
+						}
+						
+					}
+					return filteredlist;
+				}
+				case"cool":{
+					for(int i=0; i<R.size(); i++){
+						if(R.get(i).gettype().equals("cool")){
+							filteredlist.add(R.get(i));
+						}
+						
+					}
+					return filteredlist;
+				}
+				case"passion":{
+					for(int i=0; i<R.size(); i++){
+						if(R.get(i).gettype().equals("passion")){
+							filteredlist.add(R.get(i));
+						}
+					}
+					return filteredlist;
+					}
+				
+				}
+			}
+			default:{return null;}
+			}
+		}
+		
 }

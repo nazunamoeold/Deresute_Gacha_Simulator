@@ -32,7 +32,10 @@ public class MainMenu extends JFrame {
 	ArrayList<Card> resulttemp = new ArrayList<Card>();
 	
 	JRadioButton limited = new JRadioButton("«—¡§");
-	JRadioButton nojewel = new JRadioButton("≥Î¡Íø§");	
+	JRadioButton nojewel = new JRadioButton("≥Î¡Íø§");
+	
+	String cardlog="";
+	StringBuffer cardlogbuffer = new StringBuffer(cardlog);
 	
 	JRadioButton filterssr = new JRadioButton("");
 	JRadioButton filtersr = new JRadioButton("");	
@@ -82,6 +85,7 @@ public class MainMenu extends JFrame {
 	JLabel CuteInfo = new JLabel("Cute : "+user.cute);
 	JLabel CoolInfo = new JLabel("Cool : "+user.cool);
 	JLabel PassionInfo = new JLabel("Passion : "+user.passion);
+
 	
 	MainMenu(){
 
@@ -374,17 +378,20 @@ public class MainMenu extends JFrame {
 		
 		usercard.setEditable(false);
 		
+		
 		reset.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				int result =JOptionPane.showConfirmDialog(a, "¡§∏ª √ ±‚»≠«’¥œ±Ó?"," √ ±‚»≠",JOptionPane.YES_OPTION);
 				if(result ==JOptionPane.YES_OPTION){
+				ArrayList<Card> empty = new ArrayList<Card>();
 				user.cardreset();
 				SSRInfo.setText("SSR : "+user.SSRNumber);
 				SRInfo.setText("SR : "+user.SRNumber);
 				RInfo.setText("R : "+user.RNumber);
 				CuteInfo.setText("Cute : "+user.cute);
 				CoolInfo.setText("Cool : "+user.cool);
-				PassionInfo.setText("Passion : "+user.passion);}
+				PassionInfo.setText("Passion : "+user.passion);
+				usercard.setText("");}
 			}
 		});
 		
@@ -411,9 +418,9 @@ public class MainMenu extends JFrame {
 		setSize(500,345);
 		setVisible(true);
 		setResizable(false);
+		
 	}
 	
-
 	
 	public class gachaaction implements ActionListener{
 		
@@ -439,6 +446,20 @@ public class MainMenu extends JFrame {
 			CuteInfo.setText("Cute : "+user.cute);
 			CoolInfo.setText("Cool : "+user.cool);
 			PassionInfo.setText("Passion : "+user.passion);
+			usercard.setText("");
+			cardlogbuffer=new StringBuffer("");
+			for(int i=0; i<user.SSR.size();i++){
+				cardlogbuffer.append(user.SSR.get(i).Valueof()+"\n");
+			}
+			for(int i=0; i<user.SR.size();i++){
+				cardlogbuffer.append(user.SR.get(i).Valueof()+"\n");
+			}
+			for(int i=0; i<user.R.size();i++){
+				cardlogbuffer.append(user.R.get(i).Valueof()+"\n");
+			}
+			cardlog=cardlogbuffer.toString();
+			usercard.setText(cardlog);
+			
 		}
 		
 		public void actionPerformed(ActionEvent e){
