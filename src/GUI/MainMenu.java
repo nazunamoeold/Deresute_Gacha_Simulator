@@ -34,6 +34,13 @@ public class MainMenu extends JFrame {
 	JRadioButton limited = new JRadioButton("«—¡§");
 	JRadioButton nojewel = new JRadioButton("≥Î¡Íø§");	
 	
+	JRadioButton filterssr = new JRadioButton("");
+	JRadioButton filtersr = new JRadioButton("");	
+	JRadioButton filterr = new JRadioButton("");
+	JRadioButton filtercute = new JRadioButton("");	
+	JRadioButton filtercool = new JRadioButton("");
+	JRadioButton filterpassion = new JRadioButton("");	
+	
 	Card resultcard = new Card();
 	
 	Gacha g = new Gacha();
@@ -41,6 +48,8 @@ public class MainMenu extends JFrame {
 	Iterator<Card> search = resulttemp.iterator();
 	
 	JTextArea result = new JTextArea(9,10);
+	
+	JTextArea usercard = new JTextArea(9,10);
     
 	JTextField searchtable = new JTextField(20);
 	
@@ -279,6 +288,8 @@ public class MainMenu extends JFrame {
 		JButton resetjewel = new JButton("¡Íø§ √ ±‚»≠");
 		JButton resetyen = new JButton("µ∑ √ ±‚»≠");
 		
+	    JScrollPane scrollPaneu = new JScrollPane(usercard);
+		
 		info.setLayout(null);
 		
 		info.add(usedjewel);
@@ -295,21 +306,35 @@ public class MainMenu extends JFrame {
 		info.add(reset);
 		info.add(resetjewel);
 		info.add(resetyen);
+		info.add(scrollPaneu);
+		info.add(filterssr);
+		info.add(filtersr);
+		info.add(filterr);
+		info.add(filtercute);
+		info.add(filtercool);
+		info.add(filterpassion);
 		
 		usedjewel.setLocation(123,3);
 		usedyen.setLocation(123,25);
 		cardinfo.setLocation(123,53);
-		SSRInfo.setLocation(123,80);
-		SRInfo.setLocation(123,100);
-		RInfo.setLocation(123,120);
-		CuteInfo.setLocation(123,140);
-		CoolInfo.setLocation(123,160);
-		PassionInfo.setLocation(123,180);
+		SSRInfo.setLocation(143,80);
+		SRInfo.setLocation(143,100);
+		RInfo.setLocation(143,120);
+		CuteInfo.setLocation(143,140);
+		CoolInfo.setLocation(143,160);
+		PassionInfo.setLocation(143,180);
 		fcardimage.setLocation(3,23);
 		fcardtitle.setLocation(3,3);
 		reset.setLocation(3,140);
 		resetjewel.setLocation(3,163);
 		resetyen.setLocation(3,186);
+		scrollPaneu.setLocation(270,30);
+		filterssr.setLocation(123,80);
+		filtersr.setLocation(123,100);
+		filterr.setLocation(123,120);
+		filtercute.setLocation(123,140);
+		filtercool.setLocation(123,160);
+		filterpassion.setLocation(123,180);
 		
 	    usedjewel.setSize(210,18);
 	    usedyen.setSize(210,18);
@@ -325,6 +350,13 @@ public class MainMenu extends JFrame {
 	    reset.setSize(116,20);
 	    resetjewel.setSize(116,20);
 	    resetyen.setSize(116,20);
+	    scrollPaneu.setSize(215,180);
+	    filterssr.setSize(20,20);
+	    filtersr.setSize(20,20);
+	    filterr.setSize(20,20);
+	    filtercute.setSize(20,20);
+	    filtercool.setSize(20,20);
+	    filterpassion.setSize(20,20);
 		
 		usedjewel.setFont(mainfont);
 		usedyen.setFont(mainfont);
@@ -339,6 +371,8 @@ public class MainMenu extends JFrame {
 		reset.setFont(mainfont);
 		resetjewel.setFont(mainfont);
 		resetyen.setFont(mainfont);
+		
+		usercard.setEditable(false);
 		
 		reset.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
