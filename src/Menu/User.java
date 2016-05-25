@@ -315,18 +315,14 @@ public class User{
 						if(SSR.get(i).gettype().equals("cute")){
 							filteredlist.add(SSR.get(i));
 						}
-						
 					}
-					return filteredlist;
 				}
 				case"cool":{
 					for(int i=0; i<SSR.size(); i++){
 						if(SSR.get(i).gettype().equals("cool")){
 							filteredlist.add(SSR.get(i));
 						}
-						
 					}
-					return filteredlist;
 				}
 				case"passion":{
 					for(int i=0; i<SSR.size(); i++){
@@ -334,10 +330,13 @@ public class User{
 							filteredlist.add(SSR.get(i));
 						}
 					}
-					return filteredlist;
-					}
-				
 				}
+				case"all":{
+					for(int i=0; i<SR.size(); i++){
+						filteredlist.add(SR.get(i));
+					}
+				}
+				}return filteredlist;
 			}
 			case"SR":{
 				switch(type){
@@ -345,19 +344,15 @@ public class User{
 					for(int i=0; i<SR.size(); i++){
 						if(SR.get(i).gettype().equals("cute")){
 							filteredlist.add(SR.get(i));
-						}
-						
+						}	
 					}
-					return filteredlist;
 				}
 				case"cool":{
 					for(int i=0; i<SR.size(); i++){
 						if(SR.get(i).gettype().equals("cool")){
 							filteredlist.add(SR.get(i));
 						}
-						
 					}
-					return filteredlist;
 				}
 				case"passion":{
 					for(int i=0; i<SR.size(); i++){
@@ -365,10 +360,13 @@ public class User{
 							filteredlist.add(SR.get(i));
 						}
 					}
-					return filteredlist;
 					}
-				
-				}
+				case"all":{
+					for(int i=0; i<SR.size(); i++){
+						filteredlist.add(SR.get(i));
+					}
+					}
+				}return filteredlist;
 			}
 			case"R":{
 				switch(type){
@@ -377,18 +375,14 @@ public class User{
 						if(R.get(i).gettype().equals("cute")){
 							filteredlist.add(R.get(i));
 						}
-						
 					}
-					return filteredlist;
 				}
 				case"cool":{
 					for(int i=0; i<R.size(); i++){
 						if(R.get(i).gettype().equals("cool")){
 							filteredlist.add(R.get(i));
-						}
-						
+						}	
 					}
-					return filteredlist;
 				}
 				case"passion":{
 					for(int i=0; i<R.size(); i++){
@@ -396,10 +390,43 @@ public class User{
 							filteredlist.add(R.get(i));
 						}
 					}
-					return filteredlist;
 					}
-				
+				case"all":{
+					for(int i=0; i<SR.size(); i++){
+						filteredlist.add(SR.get(i));
+					}
+					}
+				}return filteredlist;
+			}
+			case"All":{
+				switch(type){
+				case"cute":{
+					for(int i=0; i<SR.size(); i++){
+						if(SR.get(i).gettype().equals("cute")){
+							filteredlist.add(SR.get(i));
+						}	
+					}
 				}
+				case"cool":{
+					for(int i=0; i<SR.size(); i++){
+						if(SR.get(i).gettype().equals("cool")){
+							filteredlist.add(SR.get(i));
+						}
+					}
+				}
+				case"passion":{
+					for(int i=0; i<SR.size(); i++){
+						if(SR.get(i).gettype().equals("passion")){
+							filteredlist.add(SR.get(i));
+						}
+					}
+					}
+				case"all":{
+					for(int i=0; i<SR.size(); i++){
+						filteredlist.add(SR.get(i));
+					}
+					}
+				}return filteredlist;
 			}
 			default:{return null;}
 			}
