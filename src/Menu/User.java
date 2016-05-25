@@ -317,85 +317,34 @@ public class User{
 			
 		}
 		
-		public ArrayList<Card> usercardshow(String lev,String type){
-			switch(lev){
-			case"SSR":{
-				switch(type){
-				case"cute":{
-					for(int i=0; i<SSR.size(); i++){
-						if(SSR.get(i).gettype().equals("cute")){
-							listssrcute.add(SSR.get(i));
-						}
-					}return listssrcute;
+		public int returncards(String lev, String type){
+			int returns=0;
+			switch(type){
+			case"cute":{
+				switch(lev){
+				case"SSR":{returns+=listssrcute.size();break;}
+				case"SR":{returns+=listsrcute.size();break;}
+				case"R":{returns+=listrcute.size();break;}
 				}
-				case"cool":{
-					for(int i=0; i<SSR.size(); i++){
-						if(SSR.get(i).gettype().equals("cool")){
-							listssrcool.add(SSR.get(i));
-						}
-					}return listssrcool;
+				break;
 				}
-				case"passion":{
-					for(int i=0; i<SSR.size(); i++){
-						if(SSR.get(i).gettype().equals("passion")){
-							listssrpassion.add(SSR.get(i));
-						}
-					}return listssrpassion;
+			case"cool":{
+				switch(lev){
+				case"SSR":{returns+=listssrcool.size();break;}
+				case"SR":{returns+=listsrcool.size();break;}
+				case"R":{returns+=listrcool.size();break;}
 				}
+				break;
 				}
-			}
-			case"SR":{
-				switch(type){
-				case"cute":{
-					for(int i=0; i<SR.size(); i++){
-						if(SR.get(i).gettype().equals("cute")){
-							listsrcute.add(SR.get(i));
-						}	
-					}return listsrcute;
+			case"passion":{
+				switch(lev){
+				case"SSR":{returns+=listssrpassion.size();break;}
+				case"SR":{returns+=listsrpassion.size();break;}
+				case"R":{returns+=listrpassion.size();break;}
 				}
-				case"cool":{
-					for(int i=0; i<SR.size(); i++){
-						if(SR.get(i).gettype().equals("cool")){
-							listsrcool.add(SR.get(i));
-						}
-					}return listsrcool;
+				break;
 				}
-				case"passion":{
-					for(int i=0; i<SR.size(); i++){
-						if(SR.get(i).gettype().equals("passion")){
-							listsrpassion.add(SR.get(i));
-						}
-					}return listsrpassion;
-					}
-				}
-			}
-			case"R":{
-				switch(type){
-				case"cute":{
-					for(int i=0; i<R.size(); i++){
-						if(R.get(i).gettype().equals("cute")){
-							filteredlist.add(R.get(i));
-						}
-					}return filteredlist;
-				}
-				case"cool":{
-					for(int i=0; i<R.size(); i++){
-						if(R.get(i).gettype().equals("cool")){
-							filteredlist.add(R.get(i));
-						}	
-					}return filteredlist;
-				}
-				case"passion":{
-					for(int i=0; i<R.size(); i++){
-						if(R.get(i).gettype().equals("passion")){
-							filteredlist.add(R.get(i));
-						}
-					}return filteredlist;
-				}
-				}
-			}
-			default:{return filteredlist;}
+			}return returns;
 			}
 		}
-		
-}
+

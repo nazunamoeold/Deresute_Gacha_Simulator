@@ -373,6 +373,35 @@ public class Gacha{
 			else {return null;}
 		}
 		
+		public void counttype(User user,Card card){
+			switch(card.type){
+			case"cute":{
+				switch(card.lev){
+				case"SSR":{user.listssrcute.add(card);break;}
+				case"SR":{user.listsrcute.add(card);break;}
+				case"R":{user.listrcute.add(card);break;}
+				}
+				break;
+				}
+			case"cool":{
+				switch(card.lev){
+				case"SSR":{user.listssrcool.add(card);break;}
+				case"SR":{user.listsrcool.add(card);break;}
+				case"R":{user.listrcool.add(card);break;}
+				}
+				break;
+				}
+			case"passion":{
+				switch(card.lev){
+				case"SSR":{user.listssrpassion.add(card);break;}
+				case"SR":{user.listsrpassion.add(card);break;}
+				case"R":{user.listrpassion.add(card);break;}
+				}
+				break;
+				}
+			}
+		}
+		
 		public void unlimited(User user, int i, int y){
 			Random random = new Random();
 			int temp;
@@ -446,7 +475,8 @@ public class Gacha{
         		user.SSR.add(card.PassionSSRLimitedList().get(k));
         		passion++;user.passion++;
         		returncard=card.PassionSSRLimitedList().get(k);
-    		}  return returncard;
+    		}this.counttype(user, returncard); 
+    		return returncard;
     	}
     	public Card SSRadd(User user, int j){
     		Random random = new Random();
@@ -477,7 +507,8 @@ public class Gacha{
         		user.SSR.add(card.PassionSSRList().get(k));
         		passion++;user.passion++;
         		returncard=card.PassionSSRList().get(k);
-    		}return returncard;
+    		}this.counttype(user, returncard); 
+    		return returncard;
     	}
     	public Card LSRadd(User user){
     		Random random = new Random();
@@ -489,6 +520,7 @@ public class Gacha{
        		this.typecount(user, lsr.srinfo(k));
     		user.LSR.add(lsr.srinfo(k));
     		returncard=lsr.srinfo(k);
+    		this.counttype(user, returncard); 
     		return returncard;
     	}
     	public Card SRadd(User user){
@@ -501,6 +533,7 @@ public class Gacha{
     		this.typecount(user, sr.srinfo(k));
     		user.SR.add(sr.srinfo(k));
     		returncard=sr.srinfo(k);
+    		this.counttype(user, returncard); 
     		return returncard;
     	}
     	public Card Radd(User user){
@@ -512,6 +545,7 @@ public class Gacha{
     		this.typecount(user, r.rinfo(k));
     		user.R.add(r.rinfo(k));
     		returncard=r.rinfo(k);
+    		this.counttype(user, returncard); 
     		return returncard;
     	}
     	
