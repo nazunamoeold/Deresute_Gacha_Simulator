@@ -67,6 +67,8 @@ public class MainMenu extends JFrame {
 	JRadioButton passion = new JRadioButton("Passion");
 	JRadioButton alltype = new JRadioButton("All");
 	
+	ArrayList<Card> filter = new ArrayList<Card>();
+	
 	boolean nojewelset;
 	
 	JComboBox jewellist = new JComboBox();
@@ -310,7 +312,7 @@ public class MainMenu extends JFrame {
 		info.add(reset);
 		info.add(resetjewel);
 		info.add(resetyen);
-		info.add(scrollPaneu);
+//		info.add(scrollPaneu);
 		info.add(filterssr);
 		info.add(filtersr);
 		info.add(filterr);
@@ -397,6 +399,7 @@ public class MainMenu extends JFrame {
 				CuteInfo.setText("Cute : "+user.cute);
 				CoolInfo.setText("Cool : "+user.cool);
 				PassionInfo.setText("Passion : "+user.passion);
+				cardlogbuffer=new StringBuffer("");
 				usercard.setText("");}
 			}
 		});
@@ -476,15 +479,61 @@ public class MainMenu extends JFrame {
 			CuteInfo.setText("Cute : "+user.cute);
 			CoolInfo.setText("Cool : "+user.cool);
 			PassionInfo.setText("Passion : "+user.passion);
-			usercard.setText("");
-			cardlogbuffer=new StringBuffer("");
-			for(int i=0; i<user.SSR.size(); i++){
+			cardlog="";
+			cardlogbuffer=new StringBuffer(cardlog);
+			for(int i=0; i<user.usercardshow("SSR", "all").size(); i++){
 				cardlogbuffer.append(user.SSR.get(i).Valueof()+"\n");
+//			if(!user.usercardshow("SSR", "cute").isEmpty()){
+////				for(int i=0; i<user.usercardshow("R", "cute").size(); i++){
+//				cardlogbuffer.append(user.usercardshow("SSR", "cute").get(user.usercardshow("SSR", "cute").size()-1).Valueof()+"\n");
+//				System.out.println("SSRCute");
+////				}
+//			}
+//			if(!user.usercardshow("SSR", "cool").isEmpty()){
+////				for(int i=0; i<user.usercardshow("R", "cool").size(); i++){
+//				System.out.println("SSRCool");cardlogbuffer.append(user.usercardshow("SSR", "cool").get(user.usercardshow("SSR", "cute").size()-1).Valueof()+"\n");
+////					}
+//			}
+//			if(!user.usercardshow("SSR", "passion").isEmpty()){
+////				for(int i=0; i<user.usercardshow("R", "passion").size(); i++){
+//				System.out.println("SSRpassion");cardlogbuffer.append(user.usercardshow("SSR", "passion").get(user.usercardshow("SSR", "cute").size()-1).Valueof()+"\n");
+////					}
+//			}
 			}
-			for(int i=0; i<user.SR.size(); i++){
+			for(int i=0; i<user.usercardshow("SR", "all").size(); i++){
 				cardlogbuffer.append(user.SR.get(i).Valueof()+"\n");
-			}
-			for(int i=0; i<user.R.size(); i++){
+//			if(!user.usercardshow("SR", "cute").isEmpty()){
+////					for(int i=0; i<user.usercardshow("R", "cute").size(); i++){
+//					System.out.println("SRCute");cardlogbuffer.append(user.usercardshow("SR", "cute").get(user.usercardshow("SR", "cute").size()-1).Valueof()+"\n");
+////					}
+//				}
+//				if(!user.usercardshow("SR", "cool").isEmpty()){
+////					for(int i=0; i<user.usercardshow("R", "cool").size(); i++){
+//					System.out.println("SRCool");cardlogbuffer.append(user.usercardshow("SR", "cool").get(user.usercardshow("SR", "cute").size()-1).Valueof()+"\n");
+////						}
+//				}
+//				if(!user.usercardshow("SR", "passion").isEmpty()){
+////					for(int i=0; i<user.usercardshow("R", "passion").size(); i++){
+//					System.out.println("SRPassion");cardlogbuffer.append(user.usercardshow("SR", "passion").get(user.usercardshow("SR", "cute").size()-1).Valueof()+"\n");
+////						}
+				}
+//			}
+			for(int i=0; i<user.usercardshow("R", "all").size(); i++){
+//				if(!user.usercardshow("R", "cute").isEmpty()){
+////					for(int i=0; i<user.usercardshow("R", "cute").size(); i++){
+//					System.out.println("RCute");cardlogbuffer.append(user.usercardshow("R", "cute").get(user.usercardshow("R", "cute").size()-1).Valueof()+"\n");
+////					}
+//				}
+//				if(!user.usercardshow("R", "cool").isEmpty()){
+////					for(int i=0; i<user.usercardshow("R", "cool").size(); i++){
+//					System.out.println("RCool");cardlogbuffer.append(user.usercardshow("R", "cool").get(user.usercardshow("R", "cute").size()-1).Valueof()+"\n");
+////						}
+//				}
+//				if(!user.usercardshow("R", "passion").isEmpty()){
+////					for(int i=0; i<user.usercardshow("R", "passion").size(); i++){
+//					System.out.println("RPassion");cardlogbuffer.append(user.usercardshow("R", "passion").get(user.usercardshow("R", "cute").size()-1).Valueof()+"\n");
+////						}
+//				}
 				cardlogbuffer.append(user.R.get(i).Valueof()+"\n");
 			}
 			cardlog=cardlogbuffer.toString();
@@ -572,14 +621,12 @@ public class MainMenu extends JFrame {
 				JOptionPane.showMessageDialog(a,searchresult,"검색 결과",JOptionPane.INFORMATION_MESSAGE);
 				}break;}break;}
 			case"무한":{
-				int warn=0;
 				int count=0;
 				resulttemp.clear();
 				result.setText("");
 				StringBuffer gachatext = new StringBuffer();
 				if(this.checkjewel(user, 250)){
 				do{
-					
 					if(!nojewelset){user.jewel-=250;}
 					this.refresh();
 					if(user.limited){
@@ -588,6 +635,7 @@ public class MainMenu extends JFrame {
 						else{gachatext.append(resultcard.Valueof()+"\n");}
 						resulttemp.add(resultcard);
 						count++;
+						this.refresh();
 						String gacharesult=gachatext.toString();
 						if(!this.checkjewel(user, 250)){
 							JOptionPane.showMessageDialog(a, "SSR을 뽑지 못했지만 쥬엘이 부족합니다", " 에러", JOptionPane.ERROR_MESSAGE);
@@ -606,6 +654,7 @@ public class MainMenu extends JFrame {
 						else{gachatext.append(resultcard.Valueof()+"\n");}
 						resulttemp.add(resultcard);
 						count++;
+						this.refresh();
 						String gacharesult=gachatext.toString();
 						if(!this.checkjewel(user, 250)){
 							JOptionPane.showMessageDialog(a, "SSR을 뽑지 못했지만 쥬엘이 부족합니다", " 에러", JOptionPane.ERROR_MESSAGE);

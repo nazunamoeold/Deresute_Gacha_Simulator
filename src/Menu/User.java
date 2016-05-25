@@ -57,6 +57,18 @@ public class User{
 		public int GachausedJewel=0;
 		
 		public int TypeGachaSetting=0;
+		
+		public ArrayList<Card> filteredlist = new ArrayList<Card>();
+		
+		public ArrayList<Card> listssrcute = new ArrayList<Card>();
+		public ArrayList<Card> listssrcool = new ArrayList<Card>();
+		public ArrayList<Card> listssrpassion = new ArrayList<Card>();
+		public ArrayList<Card> listsrcute = new ArrayList<Card>();
+		public ArrayList<Card> listsrcool = new ArrayList<Card>();
+		public ArrayList<Card> listsrpassion = new ArrayList<Card>();
+		public ArrayList<Card> listrcute = new ArrayList<Card>();
+		public ArrayList<Card> listrcool = new ArrayList<Card>();
+		public ArrayList<Card> listrpassion = new ArrayList<Card>();
 
 		
 		public void UserInfo(User user){
@@ -305,68 +317,57 @@ public class User{
 			
 		}
 		
-		public ArrayList<Card> usercardshow(User user, String type, String lev){
-			ArrayList<Card> filteredlist = new ArrayList<Card>();
+		public ArrayList<Card> usercardshow(String lev,String type){
 			switch(lev){
 			case"SSR":{
 				switch(type){
 				case"cute":{
 					for(int i=0; i<SSR.size(); i++){
 						if(SSR.get(i).gettype().equals("cute")){
-							filteredlist.add(SSR.get(i));
+							listssrcute.add(SSR.get(i));
 						}
-					}
+					}return listssrcute;
 				}
 				case"cool":{
 					for(int i=0; i<SSR.size(); i++){
 						if(SSR.get(i).gettype().equals("cool")){
-							filteredlist.add(SSR.get(i));
+							listssrcool.add(SSR.get(i));
 						}
-					}
+					}return listssrcool;
 				}
 				case"passion":{
 					for(int i=0; i<SSR.size(); i++){
 						if(SSR.get(i).gettype().equals("passion")){
-							filteredlist.add(SSR.get(i));
+							listssrpassion.add(SSR.get(i));
 						}
-					}
+					}return listssrpassion;
 				}
-				case"all":{
-					for(int i=0; i<SR.size(); i++){
-						filteredlist.add(SR.get(i));
-					}
 				}
-				}return filteredlist;
 			}
 			case"SR":{
 				switch(type){
 				case"cute":{
 					for(int i=0; i<SR.size(); i++){
 						if(SR.get(i).gettype().equals("cute")){
-							filteredlist.add(SR.get(i));
+							listsrcute.add(SR.get(i));
 						}	
-					}
+					}return listsrcute;
 				}
 				case"cool":{
 					for(int i=0; i<SR.size(); i++){
 						if(SR.get(i).gettype().equals("cool")){
-							filteredlist.add(SR.get(i));
+							listsrcool.add(SR.get(i));
 						}
-					}
+					}return listsrcool;
 				}
 				case"passion":{
 					for(int i=0; i<SR.size(); i++){
 						if(SR.get(i).gettype().equals("passion")){
-							filteredlist.add(SR.get(i));
+							listsrpassion.add(SR.get(i));
 						}
+					}return listsrpassion;
 					}
-					}
-				case"all":{
-					for(int i=0; i<SR.size(); i++){
-						filteredlist.add(SR.get(i));
-					}
-					}
-				}return filteredlist;
+				}
 			}
 			case"R":{
 				switch(type){
@@ -375,60 +376,25 @@ public class User{
 						if(R.get(i).gettype().equals("cute")){
 							filteredlist.add(R.get(i));
 						}
-					}
+					}return filteredlist;
 				}
 				case"cool":{
 					for(int i=0; i<R.size(); i++){
 						if(R.get(i).gettype().equals("cool")){
 							filteredlist.add(R.get(i));
 						}	
-					}
+					}return filteredlist;
 				}
 				case"passion":{
 					for(int i=0; i<R.size(); i++){
 						if(R.get(i).gettype().equals("passion")){
 							filteredlist.add(R.get(i));
 						}
-					}
-					}
-				case"all":{
-					for(int i=0; i<SR.size(); i++){
-						filteredlist.add(SR.get(i));
-					}
-					}
-				}return filteredlist;
-			}
-			case"All":{
-				switch(type){
-				case"cute":{
-					for(int i=0; i<SR.size(); i++){
-						if(SR.get(i).gettype().equals("cute")){
-							filteredlist.add(SR.get(i));
-						}	
-					}
+					}return filteredlist;
 				}
-				case"cool":{
-					for(int i=0; i<SR.size(); i++){
-						if(SR.get(i).gettype().equals("cool")){
-							filteredlist.add(SR.get(i));
-						}
-					}
 				}
-				case"passion":{
-					for(int i=0; i<SR.size(); i++){
-						if(SR.get(i).gettype().equals("passion")){
-							filteredlist.add(SR.get(i));
-						}
-					}
-					}
-				case"all":{
-					for(int i=0; i<SR.size(); i++){
-						filteredlist.add(SR.get(i));
-					}
-					}
-				}return filteredlist;
 			}
-			default:{return null;}
+			default:{return filteredlist;}
 			}
 		}
 		
