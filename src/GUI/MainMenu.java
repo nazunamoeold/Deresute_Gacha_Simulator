@@ -28,7 +28,8 @@ public class MainMenu extends JFrame {
 	JPanel info = new JPanel();
 	JPanel titlebar = new JPanel();
 	JPanel statbar = new JPanel();
-	
+
+	ArrayList<Card> filter = new ArrayList<Card>();
 	ArrayList<Card> resulttemp = new ArrayList<Card>();
 	
 	JRadioButton limited = new JRadioButton("한정");
@@ -51,10 +52,10 @@ public class MainMenu extends JFrame {
 	Iterator<Card> search = resulttemp.iterator();
 	
 	JTextArea result = new JTextArea(9,10);
-	
 	JTextArea usercard = new JTextArea(9,10);
     
 	JTextField searchtable = new JTextField(20);
+	JTextField usersearch = new JTextField(20);
 	
 	JButton exit = new JButton("종료");
 	
@@ -69,7 +70,7 @@ public class MainMenu extends JFrame {
 	
 	
 	boolean nojewelset;
-	
+
 	JComboBox jewellist = new JComboBox();
 	String select="";
 	
@@ -93,7 +94,7 @@ public class MainMenu extends JFrame {
 	boolean ssr=true;
 	boolean sr=true;
 	boolean r=true;
-	
+
 	MainMenu(){
 		
 
@@ -298,6 +299,7 @@ public class MainMenu extends JFrame {
 		JButton reset = new JButton("카드 초기화");
 		JButton resetjewel = new JButton("쥬엘 초기화");
 		JButton resetyen = new JButton("돈 초기화");
+		JButton usersearchbtn = new JButton("검색");
 		
 	    JScrollPane scrollPaneu = new JScrollPane(usercard);
 		
@@ -324,6 +326,8 @@ public class MainMenu extends JFrame {
 		info.add(filtercute);
 		info.add(filtercool);
 		info.add(filterpassion);
+		info.add(usersearch);
+		info.add(usersearchbtn);
 		
 		usedjewel.setLocation(123,3);
 		usedyen.setLocation(123,25);
@@ -346,6 +350,8 @@ public class MainMenu extends JFrame {
 		filtercute.setLocation(123,140);
 		filtercool.setLocation(123,160);
 		filterpassion.setLocation(123,180);
+		usersearch.setLocation(270,3);
+		usersearchbtn.setLocation(420,3);
 		
 	    usedjewel.setSize(210,18);
 	    usedyen.setSize(210,18);
@@ -368,6 +374,8 @@ public class MainMenu extends JFrame {
 	    filtercute.setSize(20,20);
 	    filtercool.setSize(20,20);
 	    filterpassion.setSize(20,20);
+	    usersearch.setSize(150,24);
+	    usersearchbtn.setSize(64,23);
 		
 		usedjewel.setFont(mainfont);
 		usedyen.setFont(mainfont);
@@ -382,6 +390,86 @@ public class MainMenu extends JFrame {
 		reset.setFont(mainfont);
 		resetjewel.setFont(mainfont);
 		resetyen.setFont(mainfont);
+		usersearch.setFont(mainfont);
+		usersearchbtn.setFont(mainfont);
+		
+		usersearchbtn.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				if(coolc){
+					if(ssr){
+						for(int i=0; i<user.listssrcool.size(); i++){
+							cardlogbuffer.append(user.listssrcool.get(i).Valueof()+"\n");
+							filter.add(user.listssrcool.get(i));
+							}
+						}
+					if(sr){
+						for(int i=0; i<user.listsrcool.size(); i++){
+							cardlogbuffer.append(user.listsrcool.get(i).Valueof()+"\n");
+							filter.add(user.listsrcool.get(i));
+							}
+						}
+					if(r){
+						for(int i=0; i<user.listrcool.size(); i++){
+							cardlogbuffer.append(user.listrcool.get(i).Valueof()+"\n");
+							filter.add(user.listrcool.get(i));
+							}
+						}
+				}
+				if(cutec){	
+					if(ssr){
+						for(int i=0; i<user.listssrcute.size(); i++){
+							cardlogbuffer.append(user.listssrcute.get(i).Valueof()+"\n");
+							filter.add(user.listssrcute.get(i));
+							}
+					}
+					if(sr){
+						for(int i=0; i<user.listsrcute.size(); i++){
+							cardlogbuffer.append(user.listsrcute.get(i).Valueof()+"\n");
+							filter.add(user.listsrcute.get(i));
+							}
+						}
+					if(r){
+						for(int i=0; i<user.listrcute.size(); i++){
+							cardlogbuffer.append(user.listrcute.get(i).Valueof()+"\n");
+							filter.add(user.listrcute.get(i));
+							}
+						}
+				}
+				if(passionc){
+					if(ssr){
+						for(int i=0; i<user.listssrpassion.size(); i++){
+							cardlogbuffer.append(user.listssrpassion.get(i).Valueof()+"\n");
+							filter.add(user.listssrpassion.get(i));
+							}
+						}
+					if(sr){
+						for(int i=0; i<user.listsrpassion.size(); i++){
+							cardlogbuffer.append(user.listsrpassion.get(i).Valueof()+"\n");
+							filter.add(user.listsrpassion.get(i));
+							}
+						}
+					if(r){
+						for(int i=0; i<user.listrpassion.size(); i++){
+							cardlogbuffer.append(user.listrpassion.get(i).Valueof()+"\n");
+							filter.add(user.listrpassion.get(i));
+							}
+						}
+				}
+				int count=0;
+				if(filter.isEmpty()){}else{
+				String searchtext = usersearch.getText();
+				String searchresult = "";
+				StringBuffer searchbuffer = new StringBuffer(searchresult);
+				for(int i=0;i<filter.size();i++){
+					if(filter.get(i).name.contains(searchtext)){
+						count++;
+						searchbuffer.append(filter.get(i).Valueof()+"\n");
+					}String countshow = "검색 결과 "+count+"개\n";
+					searchresult = countshow+searchbuffer.toString();
+				}if(count==0){JOptionPane.showMessageDialog(a,"검색 결과가 없습니다.","검색 결과",JOptionPane.INFORMATION_MESSAGE);}else{
+				JOptionPane.showMessageDialog(a,searchresult,"검색 결과",JOptionPane.INFORMATION_MESSAGE);
+			}
+		}}});
 		
 		usercard.setEditable(false);
 		
@@ -400,6 +488,7 @@ public class MainMenu extends JFrame {
 		
 		reset.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
+				filter.clear();
 				int result =JOptionPane.showConfirmDialog(a, "정말 초기화합니까?"," 초기화",JOptionPane.YES_OPTION);
 				if(result ==JOptionPane.YES_OPTION){
 				ArrayList<Card> empty = new ArrayList<Card>();
@@ -450,8 +539,7 @@ public class MainMenu extends JFrame {
 		
 	}
 	
-	public void refresh(){
-		ArrayList<Card> filter = new ArrayList<Card>();
+	public void refresh() {
 		moneystat3.setText("돈 : "+user.yen);
 		jewelstat3.setText("쥬엘 : "+user.jewel);
 		usedjewel.setText("사용한 쥬엘 : "+user.usedjewel);
