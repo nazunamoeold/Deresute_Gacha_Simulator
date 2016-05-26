@@ -67,7 +67,6 @@ public class MainMenu extends JFrame {
 	JRadioButton passion = new JRadioButton("Passion");
 	JRadioButton alltype = new JRadioButton("All");
 	
-	ArrayList<Card> filter = new ArrayList<Card>();
 	
 	boolean nojewelset;
 	
@@ -452,6 +451,7 @@ public class MainMenu extends JFrame {
 	}
 	
 	public void refresh(){
+		ArrayList<Card> filter = new ArrayList<Card>();
 		moneystat3.setText("µ· : "+user.yen);
 		jewelstat3.setText("Áê¿¤ : "+user.jewel);
 		usedjewel.setText("»ç¿ëÇÑ Áê¿¤ : "+user.usedjewel);
@@ -465,19 +465,64 @@ public class MainMenu extends JFrame {
 		cardlogbuffer.setLength(0);
 		cardlogbuffer=new StringBuffer(cardlog);
 		if(coolc){
-			if(ssr){for(int i=0; i<user.listssrcool.size(); i++){cardlogbuffer.append(user.listssrcool.get(i).Valueof()+"\n");}}
-			if(sr){for(int i=0; i<user.listsrcool.size(); i++){cardlogbuffer.append(user.listsrcool.get(i).Valueof()+"\n");}}
-			if(r){for(int i=0; i<user.listrcool.size(); i++){cardlogbuffer.append(user.listrcool.get(i).Valueof()+"\n");}}
+			if(ssr){
+				for(int i=0; i<user.listssrcool.size(); i++){
+					cardlogbuffer.append(user.listssrcool.get(i).Valueof()+"\n");
+					filter.add(user.listssrcool.get(i));
+					}
+				}
+			if(sr){
+				for(int i=0; i<user.listsrcool.size(); i++){
+					cardlogbuffer.append(user.listsrcool.get(i).Valueof()+"\n");
+					filter.add(user.listsrcool.get(i));
+					}
+				}
+			if(r){
+				for(int i=0; i<user.listrcool.size(); i++){
+					cardlogbuffer.append(user.listrcool.get(i).Valueof()+"\n");
+					filter.add(user.listrcool.get(i));
+					}
+				}
 		}
 		if(cutec){	
-			if(ssr){for(int i=0; i<user.listssrcute.size(); i++){cardlogbuffer.append(user.listssrcute.get(i).Valueof()+"\n");}}
-			if(sr){for(int i=0; i<user.listsrcute.size(); i++){cardlogbuffer.append(user.listsrcute.get(i).Valueof()+"\n");}}
-			if(r){for(int i=0; i<user.listrcute.size(); i++){cardlogbuffer.append(user.listrcute.get(i).Valueof()+"\n");}}
+			if(ssr){
+				for(int i=0; i<user.listssrcute.size(); i++){
+					cardlogbuffer.append(user.listssrcute.get(i).Valueof()+"\n");
+					filter.add(user.listssrcute.get(i));
+					}
+			}
+			if(sr){
+				for(int i=0; i<user.listsrcute.size(); i++){
+					cardlogbuffer.append(user.listsrcute.get(i).Valueof()+"\n");
+					filter.add(user.listsrcute.get(i));
+					}
+				}
+			if(r){
+				for(int i=0; i<user.listrcute.size(); i++){
+					cardlogbuffer.append(user.listrcute.get(i).Valueof()+"\n");
+					filter.add(user.listrcute.get(i));
+					}
+				}
 		}
 		if(passionc){
-			if(ssr){for(int i=0; i<user.listssrpassion.size(); i++){cardlogbuffer.append(user.listssrpassion.get(i).Valueof()+"\n");}}
-			if(sr){for(int i=0; i<user.listsrpassion.size(); i++){cardlogbuffer.append(user.listsrpassion.get(i).Valueof()+"\n");}}
-			if(r){for(int i=0; i<user.listrpassion.size(); i++){cardlogbuffer.append(user.listrpassion.get(i).Valueof()+"\n");}}
+			if(ssr){
+				for(int i=0; i<user.listssrpassion.size(); i++){
+					cardlogbuffer.append(user.listssrpassion.get(i).Valueof()+"\n");
+					filter.add(user.listssrpassion.get(i));
+					}
+				}
+			if(sr){
+				for(int i=0; i<user.listsrpassion.size(); i++){
+					cardlogbuffer.append(user.listsrpassion.get(i).Valueof()+"\n");
+					filter.add(user.listsrpassion.get(i));
+					}
+				}
+			if(r){
+				for(int i=0; i<user.listrpassion.size(); i++){
+					cardlogbuffer.append(user.listrpassion.get(i).Valueof()+"\n");
+					filter.add(user.listrpassion.get(i));
+					}
+				}
 		}
 		cardlog=cardlogbuffer.toString();
 		usercard.setText(cardlog);
@@ -485,6 +530,7 @@ public class MainMenu extends JFrame {
 	
 	public class filteraction implements ItemListener{
 		public void itemStateChanged(ItemEvent t){
+			
 			String a =t.getSource().toString();
 			StringBuffer b = new StringBuffer(a);
 			switch(b.substring(b.length()-4, b.length())){
