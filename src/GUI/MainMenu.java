@@ -110,7 +110,7 @@ public class MainMenu extends JFrame {
 		setTitle("데레스테 가챠 시뮬레이터");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		try{File sourceimage = new File("image/moneymenu/cihiro");
+		try{File sourceimage = new File("image/moneymenu/main");
 		moneyimage = ImageIO.read(sourceimage);}
 		catch(IOException e){}
 		try{File sourceimage2 = new File("image/cardimage/asukassr-before");
@@ -169,12 +169,12 @@ public class MainMenu extends JFrame {
 		money.add(jewelcharge);
 		money.add(jewellist);
 		
-		moneyimagee.setLocation(5,5);
+		moneyimagee.setLocation(5,3);
 		yengacha.setLocation(260,5);
 		jewelcharge.setLocation(260,75);
 		jewellist.setLocation(260,40);
 		
-		moneyimagee.setSize(250,160);
+		moneyimagee.setSize(250,208);
 		yengacha.setSize(225,30);
 		jewelcharge.setSize(225,30);
 		jewellist.setSize(225,30);
