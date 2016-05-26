@@ -88,8 +88,15 @@ public class MainMenu extends JFrame {
 	JLabel CoolInfo = new JLabel("Cool : "+user.cool);
 	JLabel PassionInfo = new JLabel("Passion : "+user.passion);
 
+	boolean coolc=true;
+	boolean cutec=true;
+	boolean passionc=true;
+	boolean ssr=true;
+	boolean sr=true;
+	boolean r=true;
 	
 	MainMenu(){
+		
 
 		nojewelset=false;
 		Image moneyimage =null;
@@ -312,7 +319,7 @@ public class MainMenu extends JFrame {
 		info.add(reset);
 		info.add(resetjewel);
 		info.add(resetyen);
-//		info.add(scrollPaneu);
+		info.add(scrollPaneu);
 		info.add(filterssr);
 		info.add(filtersr);
 		info.add(filterr);
@@ -380,12 +387,18 @@ public class MainMenu extends JFrame {
 		
 		usercard.setEditable(false);
 		
-		filterssr.addActionListener(new filteraction());
-		filtersr.addActionListener(new filteraction());
-		filterr.addActionListener(new filteraction());
-		filtercute.addActionListener(new filteraction());
-		filtercool.addActionListener(new filteraction());
-		filterpassion.addActionListener(new filteraction());
+		filterssr.addItemListener(new filteraction());
+		filtersr.addItemListener(new filteraction());
+		filterr.addItemListener(new filteraction());
+		filtercute.addItemListener(new filteraction());
+		filtercool.addItemListener(new filteraction());
+		filterpassion.addItemListener(new filteraction());
+		filterssr.setSelected(true);
+		filtersr.setSelected(true);
+		filterr.setSelected(true);
+		filtercute.setSelected(true);
+		filtercool.setSelected(true);
+		filterpassion.setSelected(true);
 		
 		reset.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -393,6 +406,15 @@ public class MainMenu extends JFrame {
 				if(result ==JOptionPane.YES_OPTION){
 				ArrayList<Card> empty = new ArrayList<Card>();
 				user.cardreset();
+				user.listrcool.clear();
+				user.listsrcool.clear();
+				user.listssrcool.clear();
+				user.listrcute.clear();
+				user.listsrcute.clear();
+				user.listssrcute.clear();
+				user.listrpassion.clear();
+				user.listsrpassion.clear();
+				user.listssrpassion.clear();
 				SSRInfo.setText("SSR : "+user.SSRNumber);
 				SRInfo.setText("SR : "+user.SRNumber);
 				RInfo.setText("R : "+user.RNumber);
@@ -430,26 +452,72 @@ public class MainMenu extends JFrame {
 		
 	}
 	
-	public class filteraction implements ActionListener{
-		public void actionPerformed (ActionEvent t){
+	public void refresh(){
+		System.out.println("refresh");
+		moneystat3.setText("µ· : "+user.yen);
+		jewelstat3.setText("Áê¿¤ : "+user.jewel);
+		usedjewel.setText("»ç¿ëÇÑ Áê¿¤ : "+user.usedjewel);
+		SSRInfo.setText("SSR : "+(user.returncards("SSR", "cute")+user.returncards("SSR", "cool")+user.returncards("SSR", "passion")));
+		SRInfo.setText("SR : "+(user.returncards("SR", "cute")+user.returncards("SR", "cool")+user.returncards("SR", "passion")));
+		RInfo.setText("R : "+(user.returncards("R", "cute")+user.returncards("R", "cool")+user.returncards("R", "passion")));
+		CuteInfo.setText("Cute : "+(user.returncards("SSR", "cute")+user.returncards("SR", "cute")+user.returncards("R", "cute")));
+		CoolInfo.setText("Cool : "+(user.returncards("SSR", "cool")+user.returncards("SR", "cool")+user.returncards("R", "cool")));
+		PassionInfo.setText("Passion : "+(user.returncards("SSR", "passion")+user.returncards("SR", "passion")+user.returncards("R", "passion")));
+		cardlog="";
+		cardlogbuffer.setLength(0);
+		cardlogbuffer=new StringBuffer(cardlog);
+		if(coolc){
+			for(int i=0; i<user.listssrcool.size(); i++){cardlogbuffer.append(user.listssrcool.get(i).Valueof()+"\n");}
+			for(int i=0; i<user.listsrcool.size(); i++){cardlogbuffer.append(user.listsrcool.get(i).Valueof()+"\n");}
+			for(int i=0; i<user.listrcool.size(); i++){cardlogbuffer.append(user.listrcool.get(i).Valueof()+"\n");}
+		}
+		if(cutec){	
+			for(int i=0; i<user.listssrcute.size(); i++){cardlogbuffer.append(user.listssrcute.get(i).Valueof()+"\n");}
+			for(int i=0; i<user.listsrcute.size(); i++){cardlogbuffer.append(user.listsrcute.get(i).Valueof()+"\n");}
+			for(int i=0; i<user.listrcute.size(); i++){cardlogbuffer.append(user.listrcute.get(i).Valueof()+"\n");}
+		}
+		if(passionc){
+			for(int i=0; i<user.listssrpassion.size(); i++){cardlogbuffer.append(user.listssrpassion.get(i).Valueof()+"\n");}
+			for(int i=0; i<user.listsrpassion.size(); i++){cardlogbuffer.append(user.listsrpassion.get(i).Valueof()+"\n");}
+			for(int i=0; i<user.listrpassion.size(); i++){cardlogbuffer.append(user.listrpassion.get(i).Valueof()+"\n");}
+		}
+		cardlog=cardlogbuffer.toString();
+		usercard.setText(cardlog);
+	}
+	
+	public class filteraction implements ItemListener{
+		public void itemStateChanged(ItemEvent t){
+//			System.out.println(t.getSource().toString());
 			switch(t.getSource().toString()){
 			case"SSR":{
-				
+				if(t.getStateChange() ==ItemEvent.DESELECTED){
+					ssr=false;refresh();break;
+				} else {ssr=true;refresh();break;}
 			}
 			case"SR":{
-				
+				if(t.getStateChange() ==ItemEvent.DESELECTED){
+					sr=false;refresh();break;
+				} else {sr=true;refresh();break;}
 			}
 			case"R":{
-				
+				if(t.getStateChange() ==ItemEvent.DESELECTED){
+					r=false;refresh();break;
+				} else {r=true;refresh();break;}
 			}
 			case"cute":{
-				
+				if(t.getStateChange() ==ItemEvent.DESELECTED){
+					cutec=false;refresh();break;
+				} else {cutec=true;refresh();break;}
 			}
 			case"cool":{
-				
+				if(t.getStateChange() ==ItemEvent.DESELECTED){
+					coolc=false;refresh();break;
+				} else {coolc=true;refresh();break;}
 			}
 			case"passion":{
-				
+				if(t.getStateChange() ==ItemEvent.DESELECTED){
+					passionc=false;refresh();break;
+				} else {passionc=true;refresh();break;}
 			}
 			}
 		}
@@ -480,7 +548,23 @@ public class MainMenu extends JFrame {
 			CoolInfo.setText("Cool : "+(user.returncards("SSR", "cool")+user.returncards("SR", "cool")+user.returncards("R", "cool")));
 			PassionInfo.setText("Passion : "+(user.returncards("SSR", "passion")+user.returncards("SR", "passion")+user.returncards("R", "passion")));
 			cardlog="";
+			cardlogbuffer.setLength(0);
 			cardlogbuffer=new StringBuffer(cardlog);
+			if(coolc){
+				for(int i=0; i<user.listssrcool.size(); i++){cardlogbuffer.append(user.listssrcool.get(i).Valueof()+"\n");}
+				for(int i=0; i<user.listsrcool.size(); i++){cardlogbuffer.append(user.listsrcool.get(i).Valueof()+"\n");}
+				for(int i=0; i<user.listrcool.size(); i++){cardlogbuffer.append(user.listrcool.get(i).Valueof()+"\n");}
+			}
+			if(cutec){	
+				for(int i=0; i<user.listssrcute.size(); i++){cardlogbuffer.append(user.listssrcute.get(i).Valueof()+"\n");}
+				for(int i=0; i<user.listsrcute.size(); i++){cardlogbuffer.append(user.listsrcute.get(i).Valueof()+"\n");}
+				for(int i=0; i<user.listrcute.size(); i++){cardlogbuffer.append(user.listrcute.get(i).Valueof()+"\n");}
+			}
+			if(passionc){
+				for(int i=0; i<user.listssrpassion.size(); i++){cardlogbuffer.append(user.listssrpassion.get(i).Valueof()+"\n");}
+				for(int i=0; i<user.listsrpassion.size(); i++){cardlogbuffer.append(user.listsrpassion.get(i).Valueof()+"\n");}
+				for(int i=0; i<user.listrpassion.size(); i++){cardlogbuffer.append(user.listrpassion.get(i).Valueof()+"\n");}
+			}
 			cardlog=cardlogbuffer.toString();
 			usercard.setText(cardlog);
 		}

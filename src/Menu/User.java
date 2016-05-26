@@ -278,6 +278,7 @@ public class User{
 			SR.clear();
 			LSSR.clear();
 			LSR.clear();
+			
 			cute=0;
 			cool=0;
 			passion=0;
