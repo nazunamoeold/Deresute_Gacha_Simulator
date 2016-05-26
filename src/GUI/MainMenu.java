@@ -101,6 +101,7 @@ public class MainMenu extends JFrame {
 		nojewelset=false;
 		Image moneyimage =null;
 		Image debugimage =null;
+		Image titleimage = null;
 		
 		user.limited=false;
 		
@@ -116,13 +117,16 @@ public class MainMenu extends JFrame {
 		try{File sourceimage2 = new File("image/cardimage/asukassr-before");
 		debugimage = ImageIO.read(sourceimage2);}
 		catch(IOException e){}
+		try{File sourceimage2 = new File("image/mainimage/title");
+		titleimage = ImageIO.read(sourceimage2);}
+		catch(IOException e){}
 		
-		JLabel Title = new JLabel (" µ¥·¹½ºÅ× °¡Ã­ ½Ã¹Ä·¹ÀÌÅÍ v2.0.0 Beta 6");
+		JLabel Title = new JLabel (new ImageIcon(titleimage));
 		titlebar.setLayout(new BorderLayout(50,50));
 		titlebar.add(Title,BorderLayout.WEST);
 		titlebar.add(exit,BorderLayout.EAST);
 		
-		Title.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,18));
+		Title.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,20));
 		
 		a.setLayout(new BorderLayout(5,5));
 		
@@ -351,7 +355,7 @@ public class MainMenu extends JFrame {
 		filtercool.setLocation(123,160);
 		filterpassion.setLocation(123,180);
 		usersearch.setLocation(270,3);
-		usersearchbtn.setLocation(420,3);
+		usersearchbtn.setLocation(500,3);
 		
 	    usedjewel.setSize(210,18);
 	    usedyen.setSize(210,18);
@@ -367,14 +371,14 @@ public class MainMenu extends JFrame {
 	    reset.setSize(116,20);
 	    resetjewel.setSize(116,20);
 	    resetyen.setSize(116,20);
-	    scrollPaneu.setSize(215,180);
+	    scrollPaneu.setSize(295,185);
 	    filterssr.setSize(20,20);
 	    filtersr.setSize(20,20);
 	    filterr.setSize(20,20);
 	    filtercute.setSize(20,20);
 	    filtercool.setSize(20,20);
 	    filterpassion.setSize(20,20);
-	    usersearch.setSize(150,24);
+	    usersearch.setSize(230,24);
 	    usersearchbtn.setSize(64,23);
 		
 		usedjewel.setFont(mainfont);
@@ -533,7 +537,7 @@ public class MainMenu extends JFrame {
 			}
 		});
 		
-		setSize(500,345);
+		setSize(580,365);
 		setVisible(true);
 		setResizable(false);
 		
