@@ -112,6 +112,10 @@ public class SSRCard extends Card {
 		ssrinfo[25].type="cool";
 		ssrinfo[25].name="[애비뉴 모드] 미야모토 프레데리카";
 		
+		ssrinfo[26]=new Card();
+		ssrinfo[26].type="passion";
+		ssrinfo[26].name="[해신의 인도자] 요리타 요시노";
+		
 		for(int i=0; i<super.SSRCardnumber; i++){
 			ssrinfo[i].lev="SSR"; 
 			ssrinfo[i].limited=false;

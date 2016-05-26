@@ -206,6 +206,9 @@ public class SRCard extends Card {
 		srinfo[49].type="passion";
 		srinfo[49].name="[고민할 나이] 야구치 미우";
 		
+		srinfo[50] = new Card();
+		srinfo[50].type="cool";
+		srinfo[50].name="[섹시 뷰티] 마츠모토 사리나 ";
 		for(int i=0; i<super.SRCardnumber; i++){
 			srinfo[i].lev="SR";
 			srinfo[i].limited=false;
