@@ -117,7 +117,6 @@ public class MainMenu extends JFrame {
 		debugimage = ImageIO.read(sourceimage2);}
 		catch(IOException e){}
 		
-		
 		JLabel Title = new JLabel (" µ¥·¹½ºÅ× °¡Ã­ ½Ã¹Ä·¹ÀÌÅÍ v2.0.0 Beta 6");
 		titlebar.setLayout(new BorderLayout(50,50));
 		titlebar.add(Title,BorderLayout.WEST);
@@ -453,7 +452,6 @@ public class MainMenu extends JFrame {
 	}
 	
 	public void refresh(){
-		System.out.println("refresh");
 		moneystat3.setText("µ· : "+user.yen);
 		jewelstat3.setText("Áê¿¤ : "+user.jewel);
 		usedjewel.setText("»ç¿ëÇÑ Áê¿¤ : "+user.usedjewel);
@@ -467,19 +465,19 @@ public class MainMenu extends JFrame {
 		cardlogbuffer.setLength(0);
 		cardlogbuffer=new StringBuffer(cardlog);
 		if(coolc){
-			for(int i=0; i<user.listssrcool.size(); i++){cardlogbuffer.append(user.listssrcool.get(i).Valueof()+"\n");}
-			for(int i=0; i<user.listsrcool.size(); i++){cardlogbuffer.append(user.listsrcool.get(i).Valueof()+"\n");}
-			for(int i=0; i<user.listrcool.size(); i++){cardlogbuffer.append(user.listrcool.get(i).Valueof()+"\n");}
+			if(ssr){for(int i=0; i<user.listssrcool.size(); i++){cardlogbuffer.append(user.listssrcool.get(i).Valueof()+"\n");}}
+			if(sr){for(int i=0; i<user.listsrcool.size(); i++){cardlogbuffer.append(user.listsrcool.get(i).Valueof()+"\n");}}
+			if(r){for(int i=0; i<user.listrcool.size(); i++){cardlogbuffer.append(user.listrcool.get(i).Valueof()+"\n");}}
 		}
 		if(cutec){	
-			for(int i=0; i<user.listssrcute.size(); i++){cardlogbuffer.append(user.listssrcute.get(i).Valueof()+"\n");}
-			for(int i=0; i<user.listsrcute.size(); i++){cardlogbuffer.append(user.listsrcute.get(i).Valueof()+"\n");}
-			for(int i=0; i<user.listrcute.size(); i++){cardlogbuffer.append(user.listrcute.get(i).Valueof()+"\n");}
+			if(ssr){for(int i=0; i<user.listssrcute.size(); i++){cardlogbuffer.append(user.listssrcute.get(i).Valueof()+"\n");}}
+			if(sr){for(int i=0; i<user.listsrcute.size(); i++){cardlogbuffer.append(user.listsrcute.get(i).Valueof()+"\n");}}
+			if(r){for(int i=0; i<user.listrcute.size(); i++){cardlogbuffer.append(user.listrcute.get(i).Valueof()+"\n");}}
 		}
 		if(passionc){
-			for(int i=0; i<user.listssrpassion.size(); i++){cardlogbuffer.append(user.listssrpassion.get(i).Valueof()+"\n");}
-			for(int i=0; i<user.listsrpassion.size(); i++){cardlogbuffer.append(user.listsrpassion.get(i).Valueof()+"\n");}
-			for(int i=0; i<user.listrpassion.size(); i++){cardlogbuffer.append(user.listrpassion.get(i).Valueof()+"\n");}
+			if(ssr){for(int i=0; i<user.listssrpassion.size(); i++){cardlogbuffer.append(user.listssrpassion.get(i).Valueof()+"\n");}}
+			if(sr){for(int i=0; i<user.listsrpassion.size(); i++){cardlogbuffer.append(user.listsrpassion.get(i).Valueof()+"\n");}}
+			if(r){for(int i=0; i<user.listrpassion.size(); i++){cardlogbuffer.append(user.listrpassion.get(i).Valueof()+"\n");}}
 		}
 		cardlog=cardlogbuffer.toString();
 		usercard.setText(cardlog);
@@ -487,34 +485,35 @@ public class MainMenu extends JFrame {
 	
 	public class filteraction implements ItemListener{
 		public void itemStateChanged(ItemEvent t){
-//			System.out.println(t.getSource().toString());
-			switch(t.getSource().toString()){
-			case"SSR":{
+			String a =t.getSource().toString();
+			StringBuffer b = new StringBuffer(a);
+			switch(b.substring(b.length()-4, b.length())){
+			case"ssr]":{
 				if(t.getStateChange() ==ItemEvent.DESELECTED){
 					ssr=false;refresh();break;
 				} else {ssr=true;refresh();break;}
 			}
-			case"SR":{
+			case"=sr]":{
 				if(t.getStateChange() ==ItemEvent.DESELECTED){
 					sr=false;refresh();break;
 				} else {sr=true;refresh();break;}
 			}
-			case"R":{
+			case"t=r]":{
 				if(t.getStateChange() ==ItemEvent.DESELECTED){
 					r=false;refresh();break;
 				} else {r=true;refresh();break;}
 			}
-			case"cute":{
+			case"ute]":{
 				if(t.getStateChange() ==ItemEvent.DESELECTED){
 					cutec=false;refresh();break;
 				} else {cutec=true;refresh();break;}
 			}
-			case"cool":{
+			case"ool]":{
 				if(t.getStateChange() ==ItemEvent.DESELECTED){
 					coolc=false;refresh();break;
 				} else {coolc=true;refresh();break;}
 			}
-			case"passion":{
+			case"ion]":{
 				if(t.getStateChange() ==ItemEvent.DESELECTED){
 					passionc=false;refresh();break;
 				} else {passionc=true;refresh();break;}
