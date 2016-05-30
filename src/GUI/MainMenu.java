@@ -124,7 +124,7 @@ public class MainMenu extends JFrame {
 		JLabel Title = new JLabel (new ImageIcon(titleimage));
 		titlebar.setLayout(new BorderLayout(50,50));
 		titlebar.add(Title,BorderLayout.WEST);
-		titlebar.add(exit,BorderLayout.EAST);
+//		titlebar.add(exit,BorderLayout.EAST);
 		
 		Title.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,20));
 		
@@ -146,14 +146,19 @@ public class MainMenu extends JFrame {
 		statbar.setLayout(new GridLayout(1,3,5,5));
 		
 		// »óÅÂ¹Ù Ç×¸ñ
+		JButton exit2 = new JButton("Á¾·á");
 		moneystat3.setText(yen+user.yen);
 		jewelstat3.setText("Áê¿¤ : "+user.jewel);
 		
 		statbar.add(jewelstat3);
 		statbar.add(moneystat3);
+		statbar.add(exit2);
 		
 		jewelstat3.setFont(mainfont);
 		moneystat3.setFont(mainfont);
+		exit2.setFont(mainfont);
+		
+		exit2.addActionListener(new gachaaction());
 		
 		// °ú±Ý ¸Þ´º Ç×¸ñ
 		JLabel moneyimagee = new JLabel(new ImageIcon(moneyimage));
@@ -173,10 +178,10 @@ public class MainMenu extends JFrame {
 		money.add(jewelcharge);
 		money.add(jewellist);
 		
-		moneyimagee.setLocation(5,3);
-		yengacha.setLocation(260,5);
-		jewelcharge.setLocation(260,75);
-		jewellist.setLocation(260,40);
+		moneyimagee.setLocation(5,0);
+		yengacha.setLocation(300,5);
+		jewelcharge.setLocation(300,75);
+		jewellist.setLocation(300,40);
 		
 		moneyimagee.setSize(250,208);
 		yengacha.setSize(225,30);
