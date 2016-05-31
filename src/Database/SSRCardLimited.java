@@ -64,11 +64,19 @@ public class SSRCardLimited extends Card {
 		
 		ssrinfo[14] = new Card();
 		ssrinfo[14].type="cool";
-		ssrinfo[14].name="[처음 짓는 표정] 타치바나 아리스 ";		
+		ssrinfo[14].name="[처음 짓는 표정] 타치바나 아리스";		
 		
 		ssrinfo[15] = new Card();
 		ssrinfo[15].type="passion";
-		ssrinfo[15].name="[이모셔널 비트] 키무라 나츠키 ";		
+		ssrinfo[15].name="[이모셔널 비트] 키무라 나츠키";	
+		
+		ssrinfo[16] = new Card();
+		ssrinfo[16].type="cool";
+		ssrinfo[16].name="[기다려지는 운명의 사람] 칸자키 란코";
+
+		ssrinfo[17] = new Card();
+		ssrinfo[17].type="cute";
+		ssrinfo[17].name="[드리밍 브라이드] 마에카와 미쿠";
 		
 		for(int i=0; i<super.SSRCardLimitednumber; i++){
 			ssrinfo[i].lev="SSR"; 

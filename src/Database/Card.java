@@ -16,9 +16,9 @@ public class Card {
 	
 	public final int SSRCardnumber = 27;
 	public final int SRCardnumber = 51;
-	public final int RCardnumber= 68;
-	public final int SRCardLimitednumber = 9;
-	public final int SSRCardLimitednumber = 16;
+	public final int RCardnumber= 69;
+	public final int SRCardLimitednumber = 11;
+	public final int SSRCardLimitednumber = 18;
 	
 //	public int life;
 //	public int dance;

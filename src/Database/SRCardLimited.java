@@ -40,12 +40,19 @@ public class SRCardLimited extends Card {
 		
 		srinfo[8] = new Card();
 		srinfo[8].type="cute";
-		srinfo[8].name="[자칭 귀요미] 코시미즈 사치코 ";
+		srinfo[8].name="[자칭 귀요미] 코시미즈 사치코";
 		
 		srinfo[8] = new Card();
 		srinfo[8].type="passion";
-		srinfo[8].name="[알레그로 기분] 마츠야마 쿠미코  ";
-
+		srinfo[8].name="[알레그로 기분] 마츠야마 쿠미코";
+		
+		srinfo[9] = new Card();
+		srinfo[9].type="passion";
+		srinfo[9].name="[해피 브라이덜] 나탈리아";
+		
+		srinfo[10] = new Card();
+		srinfo[10].type="passion";
+		srinfo[10].name="[아름다운 신부] 와쿠이 루미";
 		for(int i=0; i<super.SRCardLimitednumber; i++){
 			srinfo[i].lev="SR";
 			srinfo[i].limited=true;

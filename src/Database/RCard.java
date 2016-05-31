@@ -281,6 +281,9 @@ public class RCard extends Card {
 		rinfo[67].type="cool";
 		rinfo[67].name="타카하시 레이코";
 		
+		rinfo[68] = new Card();
+		rinfo[68].type="passion";
+		rinfo[68].name="마키하라 시호";
 		for(int i=0; i<super.RCardnumber; i++){
 			rinfo[i].lev="R";
 			rinfo[i].limited=false;
