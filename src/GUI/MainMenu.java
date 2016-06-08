@@ -14,6 +14,9 @@ import GachaChargeMenu.*;
 import Menu.*;
 
 public class MainMenu extends JFrame {
+	
+	Color back = Color.WHITE;
+	Color fore = Color.BLACK;
 
 	JLabel fcardimage = new JLabel();
 	
@@ -97,7 +100,7 @@ public class MainMenu extends JFrame {
 
 	MainMenu(){
 		
-
+		
 		nojewelset=false;
 		Image moneyimage =null;
 		Image debugimage =null;
@@ -107,7 +110,9 @@ public class MainMenu extends JFrame {
 		
 		Font mainfont = new Font("¸¼Àº °íµñ",0,15);
 		Font mainfont2 = new Font("¸¼Àº °íµñ",0,13);
-		
+		Container back = getContentPane();
+		back.setBackground(this.back);
+		back.setForeground(this.fore);
 		setTitle("µ¥·¹½ºÅ× °¡Ã­ ½Ã¹Ä·¹ÀÌÅÍ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -124,7 +129,8 @@ public class MainMenu extends JFrame {
 		JLabel Title = new JLabel (new ImageIcon(titleimage));
 		titlebar.setLayout(new BorderLayout(50,50));
 		titlebar.add(Title,BorderLayout.WEST);
-//		titlebar.add(exit,BorderLayout.EAST);
+		titlebar.setBackground(this.back);
+		titlebar.setForeground(this.fore);
 		
 		Title.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,20));
 		
@@ -135,7 +141,8 @@ public class MainMenu extends JFrame {
 		
 		exit.setFont(mainfont);
 		JTabbedPane tab = new JTabbedPane();
-		
+		tab.setBackground(this.back);
+		tab.setForeground(this.fore);
 		tab.add(money,"°ú±Ý");
 		tab.add(gacha,"°¡Ã­");
 		tab.add(info,"Á¤º¸");
@@ -144,6 +151,14 @@ public class MainMenu extends JFrame {
 		gacha.setLayout(null);
 		info.setLayout(null);
 		statbar.setLayout(new GridLayout(1,3,5,5));
+		money.setBackground(this.back);
+		gacha.setBackground(this.back);
+		info.setBackground(this.back);
+		statbar.setBackground(this.back);
+		money.setForeground(this.fore);
+		gacha.setForeground(this.fore);
+		info.setForeground(this.fore);
+		statbar.setForeground(this.fore);
 		
 		// »óÅÂ¹Ù Ç×¸ñ
 		JButton exit2 = new JButton("Á¾·á");
@@ -160,6 +175,10 @@ public class MainMenu extends JFrame {
 		
 		exit2.addActionListener(new gachaaction());
 		
+		exit2.setBackground(this.back);
+		exit2.setForeground(this.fore);
+		jewelstat3.setForeground(this.fore);
+		moneystat3.setForeground(this.fore);
 		// °ú±Ý ¸Þ´º Ç×¸ñ
 		JLabel moneyimagee = new JLabel(new ImageIcon(moneyimage));
 
@@ -191,6 +210,13 @@ public class MainMenu extends JFrame {
 		yengacha.setFont(mainfont);
 		jewelcharge.setFont(mainfont);
 		jewellist.setFont(mainfont);
+		
+		jewellist.setBackground(this.back);
+		yengacha.setBackground(this.back);
+		jewelcharge.setBackground(this.back);
+		jewellist.setForeground(this.fore);
+		yengacha.setForeground(this.fore);
+		jewelcharge.setForeground(this.fore);
 		
 		yengacha.addActionListener(new moneylistener());
 		jewelcharge.addActionListener(new moneylistener());
@@ -278,6 +304,37 @@ public class MainMenu extends JFrame {
 		infinite.setFont(mainfont2);
 		nojewel.setFont(mainfont2);
 		hawkryul.setFont(mainfont2);
+		
+		gachago.setBackground(this.back);
+		yunchago.setBackground(this.back);
+		yungumgo.setBackground(this.back);
+		searchtable.setBackground(this.back);
+		searchbtn.setBackground(this.back);
+		limited.setBackground(this.back);
+		gachatitle.setBackground(this.back);
+		cute.setBackground(this.back);
+		cool.setBackground(this.back);
+		passion.setBackground(this.back);
+		alltype.setBackground(this.back);
+		infinite.setBackground(this.back);
+		nojewel.setBackground(this.back);
+		typegacha.setBackground(this.back);
+		hawkryul.setBackground(this.back);
+		gachago.setForeground(this.fore);
+		yunchago.setForeground(this.fore);
+		yungumgo.setForeground(this.fore);
+		searchtable.setForeground(this.fore);
+		searchbtn.setForeground(this.fore);
+		limited.setForeground(this.fore);
+		gachatitle.setForeground(this.fore);
+		cute.setForeground(this.fore);
+		cool.setForeground(this.fore);
+		passion.setForeground(this.fore);
+		alltype.setForeground(this.fore);
+		infinite.setForeground(this.fore);
+		nojewel.setForeground(this.fore);
+		hawkryul.setForeground(this.fore);
+		typegacha.setForeground(this.fore);
 		
 		gachago.addActionListener(new gachaaction());
 		yunchago.addActionListener(new gachaaction());
@@ -401,6 +458,36 @@ public class MainMenu extends JFrame {
 		resetyen.setFont(mainfont);
 		usersearch.setFont(mainfont);
 		usersearchbtn.setFont(mainfont);
+		
+		filterssr.setBackground(this.back);
+		filtersr.setBackground(this.back);
+		filterr.setBackground(this.back);
+		filtercute.setBackground(this.back);
+		filtercool.setBackground(this.back);
+		filterpassion.setBackground(this.back);
+		reset.setBackground(this.back);
+		resetjewel.setBackground(this.back);
+		resetyen.setBackground(this.back);
+		
+		filterssr.setForeground(this.fore);
+		filtersr.setForeground(this.fore);
+		filterr.setForeground(this.fore);
+		filtercute.setForeground(this.fore);
+		filtercool.setForeground(this.fore);
+		filterpassion.setForeground(this.fore);
+		reset.setForeground(this.fore);
+		resetjewel.setForeground(this.fore);
+		resetyen.setForeground(this.fore);
+		
+		SSRInfo.setForeground(this.fore);
+		SRInfo.setForeground(this.fore);
+		RInfo.setForeground(this.fore);
+		CuteInfo.setForeground(this.fore);
+		CoolInfo.setForeground(this.fore);
+		PassionInfo.setForeground(this.fore);
+		usedjewel.setForeground(this.fore);
+		usedyen.setForeground(this.fore);
+		cardinfo.setForeground(this.fore);
 		
 		usersearchbtn.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -1053,6 +1140,8 @@ public class MainMenu extends JFrame {
 		}
 		
 		ProbabilityInfo(){
+			Color back = Color.WHITE;
+			Color fore = Color.BLACK;
 			Font info2 = new Font("¸¼Àº °íµñ",0,14);
 			
 			Gacha g = new Gacha();
@@ -1061,9 +1150,12 @@ public class MainMenu extends JFrame {
 			c.setLayout(new BorderLayout(2,2));
 			JLabel title = new JLabel(" °¡Ã­ È®·ü Á¶Á¤ ¸Þ´º");
 			JButton exit = new JButton("Á¾·á");
-			
+			c.setBackground(back);
+			c.setForeground(fore);
 			JPanel info = new JPanel();
+			info.setBackground(back);
 			JPanel titlebar = new JPanel();
+			titlebar.setBackground(back);
 			titlebar.setLayout(new BorderLayout(10,10));
 			
 			info.setLayout(null);
