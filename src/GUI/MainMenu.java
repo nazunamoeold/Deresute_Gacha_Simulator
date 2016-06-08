@@ -79,21 +79,8 @@ public class MainMenu extends JFrame {
 			"C: Áê¿¤ 760°³ - 960¿£","D: Áê¿¤ 1300°³ - 1600¿£","E: Áê¿¤ 2650°³ - 3200¿£",
 			"F: Áê¿¤ 4200°³ - 5000¿£","G: Áê¿¤ 8400°³ - 9800¿£"};
 	
-	int calcusedyen(int jewel){
-		int usedjewel=0;
-		if(jewel>9800)usedjewel+=(jewel&9800)*8400;else
-		if(jewel>5000)usedjewel+=(jewel&5000)*4200;else
-		if(jewel>3200)usedjewel+=(jewel&3200)*2650;else
-		if(jewel>1300)usedjewel+=(jewel&1300)*1600;else
-		if(jewel>760)usedjewel+=(jewel&760)*960;else
-		if(jewel>360)usedjewel+=(jewel&360)*480;else
-		if(jewel>60)usedjewel+=(jewel&60)*120;
-		return usedjewel;
-	}
-	
-	int usedyengacha = this.calcusedyen(user.usedjewel);
 	JLabel usedjewel = new JLabel("»ç¿ëÇÑ Áê¿¤ : "+user.usedjewel);
-	JLabel usedyen = new JLabel("»ç¿ëÇÑ µ· : "+this.calcusedyen(user.usedjewel));
+	JLabel usedyen = new JLabel("»ç¿ëÇÑ µ· : "+user.usedyen);
 	JLabel SSRInfo = new JLabel("SSR : "+user.SSRNumber);
 	JLabel SRInfo = new JLabel("SR : "+user.SRNumber);
 	JLabel RInfo = new JLabel("R : "+user.RNumber);
@@ -561,13 +548,10 @@ public class MainMenu extends JFrame {
 		
 	}
 	
-
-	
 	public void refresh() {
 		moneystat3.setText("µ· : "+user.yen);
 		jewelstat3.setText("Áê¿¤ : "+user.jewel);
 		usedjewel.setText("»ç¿ëÇÑ Áê¿¤ : "+user.usedjewel);
-		usedyen.setText("»ç¿ëÇÑ µ· : "+this.calcusedyen(user.usedjewel));
 		SSRInfo.setText("SSR : "+(user.returncards("SSR", "cute")+user.returncards("SSR", "cool")+user.returncards("SSR", "passion")));
 		SRInfo.setText("SR : "+(user.returncards("SR", "cute")+user.returncards("SR", "cool")+user.returncards("SR", "passion")));
 		RInfo.setText("R : "+(user.returncards("R", "cute")+user.returncards("R", "cool")+user.returncards("R", "passion")));
@@ -577,8 +561,6 @@ public class MainMenu extends JFrame {
 		cardlog="";
 		cardlogbuffer.setLength(0);
 		cardlogbuffer=new StringBuffer(cardlog);
-		
-		
 		
 		if(coolc){
 			if(ssr){
@@ -972,7 +954,7 @@ public class MainMenu extends JFrame {
 						user.yen+=yencharge;
 						user.usedyen+=yencharge;
 						moneystat3.setText("µ· : "+user.yen);
-//						usedyen.setText("»ç¿ëÇÑ µ· : "+user.usedyen);
+						usedyen.setText("»ç¿ëÇÑ µ· : "+user.usedyen);
 					}
 				}catch(Exception a){
 					break;

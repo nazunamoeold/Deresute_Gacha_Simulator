@@ -13,7 +13,6 @@ public class User{
 	    public int yen;
 	    public int giftcard;
 	    public int usedyen;
-	    public int usedyengacha;
 	    public int won;
 	    public int usedwon;
 	    public int usedjewel;
