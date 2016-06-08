@@ -566,7 +566,6 @@ public class MainMenu extends JFrame {
 			if(ssr){
 				for(int i=0; i<user.listssrcool.size(); i++){
 					cardlogbuffer.append(user.listssrcool.get(i).Valueof());
-					if(i==user.listssrcool.size()-1){break;}
 					cardlogbuffer.append("\n");
 					filter.add(user.listssrcool.get(i));
 					}
@@ -574,7 +573,6 @@ public class MainMenu extends JFrame {
 			if(sr){
 				for(int i=0; i<user.listsrcool.size(); i++){
 					cardlogbuffer.append(user.listsrcool.get(i).Valueof());
-					if(i==user.listsrcool.size()-1){break;}
 					cardlogbuffer.append("\n");
 					filter.add(user.listsrcool.get(i));
 					}
@@ -584,6 +582,7 @@ public class MainMenu extends JFrame {
 					cardlogbuffer.append(user.listrcool.get(i).Valueof());
 					if(i==user.listrcool.size()-1){break;}
 					cardlogbuffer.append("\n");
+					
 					filter.add(user.listrcool.get(i));
 					}
 				}
@@ -592,7 +591,6 @@ public class MainMenu extends JFrame {
 			if(ssr){
 				for(int i=0; i<user.listssrcute.size(); i++){
 					cardlogbuffer.append(user.listssrcute.get(i).Valueof());
-					if(i==user.listssrcute.size()-1){break;}
 					cardlogbuffer.append("\n");
 					filter.add(user.listssrcute.get(i));
 					}
@@ -600,7 +598,6 @@ public class MainMenu extends JFrame {
 			if(sr){
 				for(int i=0; i<user.listsrcute.size(); i++){
 					cardlogbuffer.append(user.listsrcute.get(i).Valueof());
-					if(i==user.listsrcute.size()-1){break;}
 					cardlogbuffer.append("\n");
 					filter.add(user.listsrcute.get(i));
 					}
@@ -618,7 +615,6 @@ public class MainMenu extends JFrame {
 			if(ssr){
 				for(int i=0; i<user.listssrpassion.size(); i++){
 					cardlogbuffer.append(user.listssrpassion.get(i).Valueof());
-					if(i==user.listssrpassion.size()-1){break;}
 					cardlogbuffer.append("\n");
 					filter.add(user.listssrpassion.get(i));
 					}
@@ -626,7 +622,6 @@ public class MainMenu extends JFrame {
 			if(sr){
 				for(int i=0; i<user.listsrpassion.size(); i++){
 					cardlogbuffer.append(user.listsrpassion.get(i).Valueof());
-					if(i==user.listsrpassion.size()-1){break;}
 					cardlogbuffer.append("\n");
 					filter.add(user.listsrpassion.get(i));
 					}
