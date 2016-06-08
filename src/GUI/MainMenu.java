@@ -86,7 +86,7 @@ public class MainMenu extends JFrame {
 			"F: Áê¿¤ 4200°³ - 5000¿£","G: Áê¿¤ 8400°³ - 9800¿£"};
 	
 	JLabel usedjewel = new JLabel("»ç¿ëÇÑ Áê¿¤ : "+user.usedjewel);
-	JLabel usedyen = new JLabel("»ç¿ëÇÑ µ· : "+user.usedyen);
+	JLabel usedyen = new JLabel("»ç¿ëÇÑ µ·   "+user.usedyen);
 	JLabel SSRInfo = new JLabel("SSR : "+user.SSRNumber);
 	JLabel SRInfo = new JLabel("SR : "+user.SRNumber);
 	JLabel RInfo = new JLabel("R : "+user.RNumber);
@@ -609,12 +609,12 @@ public class MainMenu extends JFrame {
 				user.listrpassion.clear();
 				user.listsrpassion.clear();
 				user.listssrpassion.clear();
-				SSRInfo.setText("SSR : "+user.SSRNumber);
-				SRInfo.setText("SR : "+user.SRNumber);
-				RInfo.setText("R : "+user.RNumber);
-				CuteInfo.setText("Cute : "+user.cute);
-				CoolInfo.setText("Cool : "+user.cool);
-				PassionInfo.setText("Passion : "+user.passion);
+				SSRInfo.setText("SSR  "+user.SSRNumber);
+				SRInfo.setText("SR  "+user.SRNumber);
+				RInfo.setText("R  "+user.RNumber);
+				CuteInfo.setText("Cute  "+user.cute);
+				CoolInfo.setText("Cool  "+user.cool);
+				PassionInfo.setText("Passion  "+user.passion);
 				cardlogbuffer=new StringBuffer("");
 				usercard.setText("");}
 			}
@@ -647,15 +647,21 @@ public class MainMenu extends JFrame {
 	}
 	
 	public void refresh() {
-		moneystat3.setText("µ· : "+user.yen);
-		jewelstat3.setText("Áê¿¤ : "+user.jewel);
-		usedjewel.setText("»ç¿ëÇÑ Áê¿¤ : "+user.usedjewel);
-		SSRInfo.setText("SSR : "+(user.returncards("SSR", "cute")+user.returncards("SSR", "cool")+user.returncards("SSR", "passion")));
-		SRInfo.setText("SR : "+(user.returncards("SR", "cute")+user.returncards("SR", "cool")+user.returncards("SR", "passion")));
-		RInfo.setText("R : "+(user.returncards("R", "cute")+user.returncards("R", "cool")+user.returncards("R", "passion")));
-		CuteInfo.setText("Cute : "+(user.returncards("SSR", "cute")+user.returncards("SR", "cute")+user.returncards("R", "cute")));
-		CoolInfo.setText("Cool : "+(user.returncards("SSR", "cool")+user.returncards("SR", "cool")+user.returncards("R", "cool")));
-		PassionInfo.setText("Passion : "+(user.returncards("SSR", "passion")+user.returncards("SR", "passion")+user.returncards("R", "passion")));
+		moneystat3.setText("µ·   "+user.yen);
+		jewelstat3.setText("Áê¿¤    "+user.jewel);
+		usedjewel.setText("»ç¿ëÇÑ Áê¿¤   "+user.usedjewel);
+		if(user.SSRNumber==0){SSRInfo.setText("SSR");}else{
+		SSRInfo.setText("SSR  "+(user.returncards("SSR", "cute")+user.returncards("SSR", "cool")+user.returncards("SSR", "passion")));}
+		if(user.SRNumber==0){SRInfo.setText("SR");}else{
+		SRInfo.setText("SR  "+(user.returncards("SR", "cute")+user.returncards("SR", "cool")+user.returncards("SR", "passion")));}
+		if(user.RNumber==0){RInfo.setText("R");}else{
+		RInfo.setText("R  "+(user.returncards("R", "cute")+user.returncards("R", "cool")+user.returncards("R", "passion")));}
+		if(user.cute==0){CuteInfo.setText("Cute");}else{
+		CuteInfo.setText("Cute  "+(user.returncards("SSR", "cute")+user.returncards("SR", "cute")+user.returncards("R", "cute")));}
+		if(user.cool==0){CoolInfo.setText("Cool");}else{
+		CoolInfo.setText("Cool  "+(user.returncards("SSR", "cool")+user.returncards("SR", "cool")+user.returncards("R", "cool")));}
+		if(user.passion==0){PassionInfo.setText("Passion");}else{
+		PassionInfo.setText("Passion  "+(user.returncards("SSR", "passion")+user.returncards("SR", "passion")+user.returncards("R", "passion")));}
 		cardlog="";
 		cardlogbuffer.setLength(0);
 		cardlogbuffer=new StringBuffer(cardlog);
@@ -792,15 +798,21 @@ public class MainMenu extends JFrame {
 		}
 		
 		public void refresh(){
-			moneystat3.setText("µ· : "+user.yen);
-			jewelstat3.setText("Áê¿¤ : "+user.jewel);
-			usedjewel.setText("»ç¿ëÇÑ Áê¿¤ : "+user.usedjewel);
-			SSRInfo.setText("SSR : "+(user.returncards("SSR", "cute")+user.returncards("SSR", "cool")+user.returncards("SSR", "passion")));
-			SRInfo.setText("SR : "+(user.returncards("SR", "cute")+user.returncards("SR", "cool")+user.returncards("SR", "passion")));
-			RInfo.setText("R : "+(user.returncards("R", "cute")+user.returncards("R", "cool")+user.returncards("R", "passion")));
-			CuteInfo.setText("Cute : "+(user.returncards("SSR", "cute")+user.returncards("SR", "cute")+user.returncards("R", "cute")));
-			CoolInfo.setText("Cool : "+(user.returncards("SSR", "cool")+user.returncards("SR", "cool")+user.returncards("R", "cool")));
-			PassionInfo.setText("Passion : "+(user.returncards("SSR", "passion")+user.returncards("SR", "passion")+user.returncards("R", "passion")));
+			moneystat3.setText("µ·   "+user.yen);
+			jewelstat3.setText("Áê¿¤   "+user.jewel);
+			usedjewel.setText("»ç¿ëÇÑ Áê¿¤   "+user.usedjewel);
+			if(user.SSRNumber==0){SSRInfo.setText("SSR");}else{
+			SSRInfo.setText("SSR  "+(user.returncards("SSR", "cute")+user.returncards("SSR", "cool")+user.returncards("SSR", "passion")));}
+			if(user.SRNumber==0){SRInfo.setText("SR");}else{
+			SRInfo.setText("SR  "+(user.returncards("SR", "cute")+user.returncards("SR", "cool")+user.returncards("SR", "passion")));}
+			if(user.RNumber==0){RInfo.setText("R");}else{
+			RInfo.setText("R  "+(user.returncards("R", "cute")+user.returncards("R", "cool")+user.returncards("R", "passion")));}
+			if(user.cute==0){CuteInfo.setText("Cute");}else{
+			CuteInfo.setText("Cute  "+(user.returncards("SSR", "cute")+user.returncards("SR", "cute")+user.returncards("R", "cute")));}
+			if(user.cool==0){CoolInfo.setText("Cool");}else{
+			CoolInfo.setText("Cool  "+(user.returncards("SSR", "cool")+user.returncards("SR", "cool")+user.returncards("R", "cool")));}
+			if(user.passion==0){PassionInfo.setText("Passion");}else{
+			PassionInfo.setText("Passion  "+(user.returncards("SSR", "passion")+user.returncards("SR", "passion")+user.returncards("R", "passion")));}
 			cardlog="";
 			cardlogbuffer.setLength(0);
 			cardlogbuffer=new StringBuffer(cardlog);
@@ -1051,8 +1063,8 @@ public class MainMenu extends JFrame {
 						}
 						user.yen+=yencharge;
 						user.usedyen+=yencharge;
-						moneystat3.setText("µ· : "+user.yen);
-						usedyen.setText("»ç¿ëÇÑ µ· : "+user.usedyen);
+						moneystat3.setText("µ·   "+user.yen);
+						usedyen.setText("»ç¿ëÇÑ µ·   "+user.usedyen);
 					}
 				}catch(Exception a){
 					break;
