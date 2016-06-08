@@ -9,6 +9,9 @@ import java.util.Iterator;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.plaf.basic.BasicTabbedPaneUI;
+
 import Database.*;
 import GachaChargeMenu.*;
 import Menu.*;
@@ -16,7 +19,7 @@ import Menu.*;
 public class MainMenu extends JFrame {
 	
 	Color back = Color.WHITE;
-	Color fore = Color.BLACK;
+	Color fore = Color.DARK_GRAY;
 
 	JLabel fcardimage = new JLabel();
 	
@@ -141,11 +144,13 @@ public class MainMenu extends JFrame {
 		
 		exit.setFont(mainfont);
 		JTabbedPane tab = new JTabbedPane();
+		tab.setUI(new AquaBarTabbedPaneUI());
 		tab.setBackground(this.back);
 		tab.setForeground(this.fore);
 		tab.add(money,"과금");
 		tab.add(gacha,"가챠");
 		tab.add(info,"정보");
+		
 	
 		money.setLayout(null);
 		gacha.setLayout(null);
@@ -320,6 +325,7 @@ public class MainMenu extends JFrame {
 		nojewel.setBackground(this.back);
 		typegacha.setBackground(this.back);
 		hawkryul.setBackground(this.back);
+		result.setBackground(this.back);
 		gachago.setForeground(this.fore);
 		yunchago.setForeground(this.fore);
 		yungumgo.setForeground(this.fore);
@@ -335,6 +341,7 @@ public class MainMenu extends JFrame {
 		nojewel.setForeground(this.fore);
 		hawkryul.setForeground(this.fore);
 		typegacha.setForeground(this.fore);
+		result.setForeground(this.fore);
 		
 		gachago.addActionListener(new gachaaction());
 		yunchago.addActionListener(new gachaaction());
@@ -468,6 +475,8 @@ public class MainMenu extends JFrame {
 		reset.setBackground(this.back);
 		resetjewel.setBackground(this.back);
 		resetyen.setBackground(this.back);
+		usersearch.setBackground(this.back);
+		usercard.setBackground(this.back);
 		
 		filterssr.setForeground(this.fore);
 		filtersr.setForeground(this.fore);
@@ -478,6 +487,8 @@ public class MainMenu extends JFrame {
 		reset.setForeground(this.fore);
 		resetjewel.setForeground(this.fore);
 		resetyen.setForeground(this.fore);
+		usersearch.setForeground(this.fore);
+		usercard.setForeground(this.fore);
 		
 		SSRInfo.setForeground(this.fore);
 		SRInfo.setForeground(this.fore);
