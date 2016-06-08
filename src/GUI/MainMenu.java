@@ -581,13 +581,13 @@ public class MainMenu extends JFrame {
 					}
 				}
 		}
-		if(cutec){	
+		if(cutec){
 			if(ssr){
 				for(int i=0; i<user.listssrcute.size(); i++){
 					cardlogbuffer.append(user.listssrcute.get(i).Valueof()+"\n");
 					filter.add(user.listssrcute.get(i));
 					}
-			}
+				}
 			if(sr){
 				for(int i=0; i<user.listsrcute.size(); i++){
 					cardlogbuffer.append(user.listsrcute.get(i).Valueof()+"\n");
@@ -616,7 +616,8 @@ public class MainMenu extends JFrame {
 				}
 			if(r){
 				for(int i=0; i<user.listrpassion.size(); i++){
-					cardlogbuffer.append(user.listrpassion.get(i).Valueof()+"\n");
+					if(i==user.listssrpassion.size()-1&&i>1){cardlogbuffer.append(user.listrpassion.get(i).Valueof());}else{
+					cardlogbuffer.append(user.listrpassion.get(i).Valueof()+"\n");}
 					filter.add(user.listrpassion.get(i));
 					}
 				}
@@ -693,19 +694,29 @@ public class MainMenu extends JFrame {
 			cardlogbuffer.setLength(0);
 			cardlogbuffer=new StringBuffer(cardlog);
 			if(coolc){
-				for(int i=0; i<user.listssrcool.size(); i++){cardlogbuffer.append(user.listssrcool.get(i).Valueof()+"\n");}
-				for(int i=0; i<user.listsrcool.size(); i++){cardlogbuffer.append(user.listsrcool.get(i).Valueof()+"\n");}
-				for(int i=0; i<user.listrcool.size(); i++){cardlogbuffer.append(user.listrcool.get(i).Valueof()+"\n");}
+				for(int i=0; i<user.listssrcool.size(); i++){
+					cardlogbuffer.append(user.listssrcool.get(i).Valueof()+"\n");}
+				for(int i=0; i<user.listsrcool.size(); i++){
+					cardlogbuffer.append(user.listsrcool.get(i).Valueof()+"\n");}
+				for(int i=0; i<user.listrcool.size(); i++){
+					cardlogbuffer.append(user.listrcool.get(i).Valueof()+"\n");}
 			}
-			if(cutec){	
-				for(int i=0; i<user.listssrcute.size(); i++){cardlogbuffer.append(user.listssrcute.get(i).Valueof()+"\n");}
-				for(int i=0; i<user.listsrcute.size(); i++){cardlogbuffer.append(user.listsrcute.get(i).Valueof()+"\n");}
-				for(int i=0; i<user.listrcute.size(); i++){cardlogbuffer.append(user.listrcute.get(i).Valueof()+"\n");}
+			if(cutec){
+				for(int i=0; i<user.listssrcute.size(); i++){
+					cardlogbuffer.append(user.listssrcute.get(i).Valueof()+"\n");}
+				for(int i=0; i<user.listsrcute.size(); i++){
+					cardlogbuffer.append(user.listsrcute.get(i).Valueof()+"\n");}
+				for(int i=0; i<user.listrcute.size(); i++){
+					cardlogbuffer.append(user.listrcute.get(i).Valueof()+"\n");}
 			}
 			if(passionc){
-				for(int i=0; i<user.listssrpassion.size(); i++){cardlogbuffer.append(user.listssrpassion.get(i).Valueof()+"\n");}
-				for(int i=0; i<user.listsrpassion.size(); i++){cardlogbuffer.append(user.listsrpassion.get(i).Valueof()+"\n");}
-				for(int i=0; i<user.listrpassion.size(); i++){cardlogbuffer.append(user.listrpassion.get(i).Valueof()+"\n");}
+				for(int i=0; i<user.listssrpassion.size(); i++){
+					cardlogbuffer.append(user.listssrpassion.get(i).Valueof()+"\n");}
+				for(int i=0; i<user.listsrpassion.size(); i++){
+					cardlogbuffer.append(user.listsrpassion.get(i).Valueof()+"\n");}
+				for(int i=0; i<user.listrpassion.size(); i++){
+					if(i==user.listrpassion.size()-1&&i>2){cardlogbuffer.append(user.listrpassion.get(i).Valueof());}else{
+					cardlogbuffer.append(user.listrpassion.get(i).Valueof()+"\n");}}
 			}
 			cardlog=cardlogbuffer.toString();
 			usercard.setText(cardlog);
