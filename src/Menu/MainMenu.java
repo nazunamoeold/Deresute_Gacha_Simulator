@@ -9,6 +9,8 @@ import java.util.Iterator;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 import Database.*;
 import GachaChargeMenu.*;
@@ -37,7 +39,7 @@ interface userthing{
  class Menu extends JFrame implements userthing {
 	Color back = Color.WHITE;
 	Color fore = Color.DARK_GRAY;
-
+	Border border = new LineBorder(this.back,3);
 	JLabel fcardimage = new JLabel();
 	
 	String jewel ="Áê¿¤ : ";
@@ -93,6 +95,7 @@ interface userthing{
 	boolean ssr=true;
 	boolean sr=true;
 	boolean r=true;
+
 
 }
 
@@ -175,6 +178,8 @@ public class MainMenu extends Menu implements userthing {
 		moneystat3.setFont(mainfont);
 		exit2.setFont(mainfont);
 		
+		exit2.setBorder(this.border);
+		
 		exit2.addActionListener(new GachaAction());
 		
 		exit2.setBackground(this.back);
@@ -219,6 +224,10 @@ public class MainMenu extends Menu implements userthing {
 		jewellist.setForeground(this.fore);
 		yengacha.setForeground(this.fore);
 		jewelcharge.setForeground(this.fore);
+		
+		jewellist.setBorder(this.border);
+		yengacha.setBorder(this.border);
+		jewelcharge.setBorder(this.border);
 		
 		yengacha.addActionListener(new moneylistener());
 		jewelcharge.addActionListener(new moneylistener());
