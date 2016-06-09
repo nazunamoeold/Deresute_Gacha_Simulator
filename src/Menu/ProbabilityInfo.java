@@ -56,7 +56,6 @@ public class ProbabilityInfo extends JFrame implements userthing{
 		Color fore = Color.BLACK;
 		Font info2 = new Font("¸¼Àº °íµñ",0,14);
 		
-		Gacha g = new Gacha();
 		setTitle("È®·ü Á¶Á¤");
 		Container c = getContentPane();
 		c.setLayout(new BorderLayout(2,2));
@@ -112,7 +111,7 @@ public class ProbabilityInfo extends JFrame implements userthing{
 			prolistarray.add(prolist[i]);
 		}
 		
-		prolists = new JComboBox(prolist);
+		prolists = new JComboBox<Object>(prolist);
 		prolists.addItemListener(new prolistaction());
 
 		info.add(prostat);

@@ -1,8 +1,5 @@
 package GachaChargeMenu;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
 import Menu.User;
@@ -111,7 +108,6 @@ public class Gacha extends Card{
 			Random random = new Random();
 			int temp;
 			int x=1;
-			int t=0;
 			
 			for(int j=0; j<i; j++){
     			temp=random.nextInt(999);

@@ -9,12 +9,9 @@ import java.util.Iterator;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.plaf.basic.BasicTabbedPaneUI;
 
 import Database.*;
 import GachaChargeMenu.*;
-import Menu.*;
 
 interface userthing{
 	User user = new User();
@@ -74,7 +71,6 @@ public class MainMenu extends JFrame implements userthing {
 	JRadioButton passion = new JRadioButton("Passion");
 	JRadioButton alltype = new JRadioButton("All");
 	
-	
 	boolean nojewelset;
 
 	JComboBox jewellist = new JComboBox();
@@ -102,7 +98,6 @@ public class MainMenu extends JFrame implements userthing {
 	boolean r=true;
 
 	MainMenu(){
-		
 		
 		nojewelset=false;
 		Image moneyimage =null;
@@ -195,7 +190,7 @@ public class MainMenu extends JFrame implements userthing {
 			jewels2.add(jewels[i]);
 		}
 		
-		jewellist = new JComboBox(jewels);
+		jewellist = new JComboBox<Object>(jewels);
 		
 		money.add(moneyimagee);
 		money.add(yengacha);
@@ -600,7 +595,6 @@ public class MainMenu extends JFrame implements userthing {
 				filter.clear();
 				int result =JOptionPane.showConfirmDialog(a, "정말 초기화합니까?"," 초기화",JOptionPane.YES_OPTION);
 				if(result ==JOptionPane.YES_OPTION){
-				ArrayList<Card> empty = new ArrayList<Card>();
 				user.cardreset();
 				user.listrcool.clear();
 				user.listsrcool.clear();

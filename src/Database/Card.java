@@ -2,10 +2,6 @@ package Database;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
-
-import Menu.User;
 
 public class Card {
 	private String type;
