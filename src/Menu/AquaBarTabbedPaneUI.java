@@ -1,4 +1,4 @@
-package GUI;
+package Menu;
 import javax.swing.*;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
