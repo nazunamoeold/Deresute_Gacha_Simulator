@@ -173,53 +173,5 @@ public class Card {
 		for(int i=0; i<SRCardLimited.srinforeturn().length; i++){UnitedLimitedCard.add(SRCardLimited.srinfo(i));}
 		return UnitedLimitedCard;}
 	}
-	
-	public void SearchIdol(User user){
-		SSRCard SSRCard = new SSRCard();
-        SRCard SRCard = new SRCard();
-	    RCard RCard = new RCard();
-	    SSRCardLimited SSRCardLimited  = new SSRCardLimited();
-        SRCardLimited SRCardLimited  = new SRCardLimited();
-		String name;
-        int t = 0;
-		System.out.print("아이돌 이름을 입력하세요 >> ");
-		Scanner scanner = new Scanner(System.in);
-		name=scanner.next();
-		for(int i=0;i<SSRCardLimitednumber;i++){
-			if(SSRCardLimited.ssrinfo(i).name.contains(name)){
-				System.out.println(SSRCardLimited.ssrinfo(i).Valueof());
-				t=1;
-			}
-		} 
-		
-		for(int i=0;i<SSRCardnumber;i++){
-			if(SSRCard.ssrinfo(i).name.contains(name)){
-				System.out.println(SSRCard.ssrinfo(i).Valueof());
-				t=1;
-			}
-		}
-		for(int i=0;i<SRCardLimitednumber;i++){
-			if(SRCardLimited.srinfo(i).name.contains(name)){
-				System.out.println(SRCardLimited.srinfo(i).Valueof());
-				t=1;
-			}
-		}
-		for(int i=0;i<SRCardnumber;i++){
-			if(SRCard.srinfo(i).name.contains(name)){
-				System.out.println(SRCard.srinfo(i).Valueof());
-				t=1;
-			}
-		}
-		for(int i=0;i<RCardnumber;i++){
-			if(RCard.rinfo(i).name.contains(name)){
-				System.out.println(RCard.rinfo(i).Valueof());
-				t=1;
-			}
-			if(!RCard.rinfo(i).name.contains(name)){
-				t=0;
-			}			
-		}
-		if(t=='0'){}
-	}
 }
 	

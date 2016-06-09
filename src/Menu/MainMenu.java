@@ -17,7 +17,6 @@ import GachaChargeMenu.*;
 import Menu.*;
 
 public class MainMenu extends JFrame {
-	
 	Color back = Color.WHITE;
 	Color fore = Color.DARK_GRAY;
 
@@ -102,8 +101,6 @@ public class MainMenu extends JFrame {
 	boolean r=true;
 
 	MainMenu(){
-		
-		
 		nojewelset=false;
 		Image moneyimage =null;
 		Image debugimage =null;
