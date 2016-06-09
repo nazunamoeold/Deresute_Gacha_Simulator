@@ -611,12 +611,12 @@ public class MainMenu extends JFrame {
 				user.listrpassion.clear();
 				user.listsrpassion.clear();
 				user.listssrpassion.clear();
-				SSRInfo.setText("SSR  "+user.SSRNumber);
-				SRInfo.setText("SR  "+user.SRNumber);
-				RInfo.setText("R  "+user.RNumber);
-				CuteInfo.setText("Cute  "+user.cute);
-				CoolInfo.setText("Cool  "+user.cool);
-				PassionInfo.setText("Passion  "+user.passion);
+				SSRInfo.setText("SSR  ");
+				SRInfo.setText("SR  ");
+				RInfo.setText("R  ");
+				CuteInfo.setText("Cute  ");
+				CoolInfo.setText("Cool  ");
+				PassionInfo.setText("Passion  ");
 				cardlogbuffer=new StringBuffer("");
 				usercard.setText("");}
 			}
@@ -627,7 +627,7 @@ public class MainMenu extends JFrame {
 				int result =JOptionPane.showConfirmDialog(a, "¡§∏ª √ ±‚»≠«’¥œ±Ó?"," √ ±‚»≠",JOptionPane.YES_OPTION);
 				if(result ==JOptionPane.YES_OPTION){
 				user.jewelreset();
-				jewelstat3.setText("¡Íø§ : "+user.jewel);
+				jewelstat3.setText("¡Íø§   ");
 				}
 			}
 		});
@@ -637,7 +637,7 @@ public class MainMenu extends JFrame {
 				int result =JOptionPane.showConfirmDialog(a, "¡§∏ª √ ±‚»≠«’¥œ±Ó?"," √ ±‚»≠",JOptionPane.YES_OPTION);
 				if(result ==JOptionPane.YES_OPTION){
 				user.moneyreset();
-				moneystat3.setText("µ∑ : "+user.yen);
+				moneystat3.setText("µ∑   ");
 				}
 			}
 		});

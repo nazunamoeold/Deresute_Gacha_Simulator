@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-import Menu.MainMenu;
 import Menu.User;
 
 public class Card {
@@ -222,31 +221,5 @@ public class Card {
 		}
 		if(t=='0'){}
 	}
-	
-	public void FCardSelect(User user){
-		SSRCard SSRCard = new SSRCard();
-        SSRCardLimited SSRCardLimited  = new SSRCardLimited();
-		Scanner scanner = new Scanner(System.in);
-		for(int i=0;i<SSRCardLimitednumber;i++){
-			char yesno='n';
-				System.out.print(SSRCardLimited.ssrinfo(i).name+"-> 선호 아이돌로 선택하시겠습니까? (y/n) >> ");
-				yesno=scanner.next().charAt(0);
-				switch(yesno){
-				case'Y': case'y':{user.FCard=SSRCardLimited.ssrinfo(i);MainMenu.mainmenu(user);}
-				case'N': case'n':{continue;}
-				default:{continue;}
-			}
-		}
-		for(int i=0;i<SSRCardnumber;i++){
-			char yesno='n';
-				System.out.print(SSRCard.ssrinfo(i).name+"-> 선호 아이돌로 선택하시겠습니까? (y/n) >> ");
-				yesno=scanner.next().charAt(0);
-				switch(yesno){
-				case'Y': case'y':{user.FCard=SSRCard.ssrinfo(i);MainMenu.mainmenu(user);}
-				case'N': case'n':{continue;}
-				default:{continue;}
-			}
-		}
-		System.out.println("선택하지 않았습니다");
-	}
 }
+	
