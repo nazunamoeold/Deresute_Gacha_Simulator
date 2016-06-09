@@ -26,11 +26,11 @@ public class AquaBarTabbedPaneUI extends BasicTabbedPaneUI {
 	public AquaBarTabbedPaneUI() {
 
 		selectedColorSet = new ColorSet();
-		selectedColorSet.topGradColor1 = new Color(233, 237, 248);
-		selectedColorSet.topGradColor2 = new Color(158, 199, 240);
+		selectedColorSet.topGradColor1 = new Color(248, 237, 233);
+		selectedColorSet.topGradColor2 = new Color(240, 199, 158);
 
-		selectedColorSet.bottomGradColor1 = new Color(112, 173, 239);
-		selectedColorSet.bottomGradColor2 = new Color(183, 244, 253);
+		selectedColorSet.bottomGradColor1 = new Color(239, 173, 112);
+		selectedColorSet.bottomGradColor2 = new Color(253, 244, 183);
 
 		defaultColorSet = new ColorSet();
 		defaultColorSet.topGradColor1 = new Color(253, 253, 253);
