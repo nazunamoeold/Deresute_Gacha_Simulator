@@ -62,6 +62,14 @@ public class Card {
 	public void setlimited(boolean limited){
 		this.limited=limited;
 	}
+	
+//	public Card(String lev, String type, String name, boolean limited){
+//		Card returncard = new Card();
+//		returncard.setname(name);
+//		returncard.settype(type);
+//		returncard.setlev(lev);
+//		returncard.setlimited(limited);
+//	}
 
 	public ArrayList<Card> CoolSSR = new ArrayList<Card>();
 	public ArrayList<Card> CuteSSR = new ArrayList<Card>();
@@ -152,9 +160,9 @@ public class Card {
 		SSRCard SSRCard = new SSRCard();
 		SRCard SRCard = new SRCard();
 		RCard RCard = new RCard();
-		for(int i=0; i<SSRCard.ssrinforeturn().length; i++){UnitedCard.add(SSRCard.ssrinfo(i));}
-		for(int i=0; i<SRCard.srinforeturn().length; i++){UnitedCard.add(SRCard.srinfo(i));}
-		for(int i=0; i<RCard.rinforeturn().length; i++){UnitedCard.add(RCard.rinfo(i));}
+		for(int i=0; i<SSRCard.inforeturn().length; i++){UnitedCard.add(SSRCard.info(i));}
+		for(int i=0; i<SRCard.inforeturn().length; i++){UnitedCard.add(SRCard.info(i));}
+		for(int i=0; i<RCard.inforeturn().length; i++){UnitedCard.add(RCard.info(i));}
 		return UnitedCard;}
 	}
 	
@@ -166,11 +174,11 @@ public class Card {
 		RCard RCard = new RCard();
 		SSRCardLimited SSRCardLimited = new SSRCardLimited();
 		SRCardLimited SRCardLimited = new SRCardLimited();
-		for(int i=0; i<SSRCard.ssrinforeturn().length; i++){UnitedLimitedCard.add(SSRCard.ssrinfo(i));}
-		for(int i=0; i<SRCard.srinforeturn().length; i++){UnitedLimitedCard.add(SRCard.srinfo(i));}
-		for(int i=0; i<RCard.rinforeturn().length; i++){UnitedLimitedCard.add(RCard.rinfo(i));}
-		for(int i=0; i<SSRCardLimited.ssrinforeturn().length; i++){UnitedLimitedCard.add(SSRCardLimited.ssrinfo(i));}
-		for(int i=0; i<SRCardLimited.srinforeturn().length; i++){UnitedLimitedCard.add(SRCardLimited.srinfo(i));}
+		for(int i=0; i<SSRCard.inforeturn().length; i++){UnitedLimitedCard.add(SSRCard.info(i));}
+		for(int i=0; i<SRCard.inforeturn().length; i++){UnitedLimitedCard.add(SRCard.info(i));}
+		for(int i=0; i<RCard.inforeturn().length; i++){UnitedLimitedCard.add(RCard.info(i));}
+		for(int i=0; i<SSRCardLimited.inforeturn().length; i++){UnitedLimitedCard.add(SSRCardLimited.info(i));}
+		for(int i=0; i<SRCardLimited.inforeturn().length; i++){UnitedLimitedCard.add(SRCardLimited.info(i));}
 		return UnitedLimitedCard;}
 	}
 }
