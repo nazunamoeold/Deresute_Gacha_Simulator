@@ -69,20 +69,6 @@ public class User{
 		public ArrayList<Card> listrcute = new ArrayList<Card>();
 		public ArrayList<Card> listrcool = new ArrayList<Card>();
 		public ArrayList<Card> listrpassion = new ArrayList<Card>();
-
-		
-
-		
-		
-	
-		
-		public void dialogshow(){
-			System.out.println("엔터를 눌러 메인메뉴로 이동합니다");
-			String temp;
-			Scanner scanner = new Scanner(System.in);
-			temp=scanner.nextLine();
-		}
-		
 		public void cardreset(){
 			SSR.clear();
 			R.clear();
