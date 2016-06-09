@@ -255,11 +255,4 @@ public class Gacha extends Card{
     		else if(card.gettype().equals("cool")){cool++;user.cool++;}
     		else if(card.gettype().equals("passion")){passion++;user.passion++;}
     	}
-    	
-    	public void debuginput(User user){
-    		Random random = new Random();
-    		int k=random.nextInt(CoolSSRList().size());
-    		System.out.println(CoolSSRList().get(k).Valueof());
-    	}    	
-    	
 }
