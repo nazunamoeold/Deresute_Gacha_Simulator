@@ -156,12 +156,12 @@ public class Gacha extends Card{
     		int k=0;
     		tempCardNumber[3]++; 
     		++user.LSSRNumber;
-    		lssr.ssrinfo(k);
+    		lssr.info(k);
     		if(j==0){
     			k = random.nextInt(SSRCardLimitednumber);
-        		user.SSR.add(lssr.ssrinfo(k));
-        		this.typecount(user, lssr.ssrinfo(k));
-        		returncard=lssr.ssrinfo(k);
+        		user.SSR.add(lssr.info(k));
+        		this.typecount(user, lssr.info(k));
+        		returncard=lssr.info(k);
     		}
     		else if(j==1){
     			k = random.nextInt(CuteSSRLimitedList().size());
@@ -187,13 +187,13 @@ public class Gacha extends Card{
     		Random random = new Random();
     		int k = 0;
     		tempCardNumber[0]++; 
-    		ssr.ssrinfo(k);
+    		ssr.info(k);
     		++user.SSRNumber;
     		if(j==0){
     			k = random.nextInt(SSRCardnumber);
-        		this.typecount(user, ssr.ssrinfo(k));
-        		user.SSR.add(ssr.ssrinfo(k));
-        		returncard=ssr.ssrinfo(k);
+        		this.typecount(user, ssr.info(k));
+        		user.SSR.add(ssr.info(k));
+        		returncard=ssr.info(k);
     		}
     		else if(j==1){
     			k = random.nextInt(CuteSSRList().size());
@@ -219,12 +219,12 @@ public class Gacha extends Card{
     		Random random = new Random();
     		int k = 0;
     		tempCardNumber[4]++;
-    		lsr.srinfo(k);
+    		lsr.info(k);
     		++user.LSRNumber;
     		k = random.nextInt(SRCardLimitednumber);
-       		this.typecount(user, lsr.srinfo(k));
-    		user.LSR.add(lsr.srinfo(k));
-    		returncard=lsr.srinfo(k);
+       		this.typecount(user, lsr.info(k));
+    		user.LSR.add(lsr.info(k));
+    		returncard=lsr.info(k);
     		this.counttype(user, returncard); 
     		return returncard;
     	}
@@ -232,12 +232,12 @@ public class Gacha extends Card{
     		Random random = new Random();
     		int k=0;
     		tempCardNumber[1]++;
-    		sr.srinfo(k);
+    		sr.info(k);
     		++user.SRNumber;
     		k = random.nextInt(sr.SRCardnumber);
-    		this.typecount(user, sr.srinfo(k));
-    		user.SR.add(sr.srinfo(k));
-    		returncard=sr.srinfo(k);
+    		this.typecount(user, sr.info(k));
+    		user.SR.add(sr.info(k));
+    		returncard=sr.info(k);
     		this.counttype(user, returncard); 
     		return returncard;
     	}
@@ -247,9 +247,9 @@ public class Gacha extends Card{
     		tempCardNumber[2]++; 
     		++user.RNumber;
     		k = random.nextInt(r.RCardnumber);
-    		this.typecount(user, r.rinfo(k));
-    		user.R.add(r.rinfo(k));
-    		returncard=r.rinfo(k);
+    		this.typecount(user, r.info(k));
+    		user.R.add(r.info(k));
+    		returncard=r.info(k);
     		this.counttype(user, returncard); 
     		return returncard;
     	}
