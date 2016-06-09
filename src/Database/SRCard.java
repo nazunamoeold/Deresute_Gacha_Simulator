@@ -208,7 +208,12 @@ public class SRCard extends Card {
 		
 		srinfo[50] = new Card();
 		srinfo[50].type="cool";
-		srinfo[50].name="[섹시 뷰티] 마츠모토 사리나 ";
+		srinfo[50].name="[섹시 뷰티] 마츠모토 사리나";
+		
+		srinfo[51] = new Card();
+		srinfo[51].type="cute";
+		srinfo[51].name="[비치 웨이브] 무라마츠 사쿠라";
+		
 		for(int i=0; i<super.SRCardnumber; i++){
 			srinfo[i].lev="SR";
 			srinfo[i].limited=false;

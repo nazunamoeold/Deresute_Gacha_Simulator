@@ -14,9 +14,9 @@ public class Card {
 	public String name;
 	public boolean limited;
 	
-	public final int SSRCardnumber = 27;
-	public final int SRCardnumber = 51;
-	public final int RCardnumber= 69;
+	public final int SSRCardnumber = 28;
+	public final int SRCardnumber = 52;
+	public final int RCardnumber= 70;
 	public final int SRCardLimitednumber = 11;
 	public final int SSRCardLimitednumber = 18;
 	

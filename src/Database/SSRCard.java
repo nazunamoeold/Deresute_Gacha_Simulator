@@ -116,6 +116,10 @@ public class SSRCard extends Card {
 		ssrinfo[26].type="passion";
 		ssrinfo[26].name="[해신의 인도자] 요리타 요시노";
 		
+		ssrinfo[27]=new Card();
+		ssrinfo[27].type="passion";
+		ssrinfo[27].name="[발랄 하베스트] 오이카와 시즈쿠 [1]";
+		
 		for(int i=0; i<super.SSRCardnumber; i++){
 			ssrinfo[i].lev="SSR"; 
 			ssrinfo[i].limited=false;
