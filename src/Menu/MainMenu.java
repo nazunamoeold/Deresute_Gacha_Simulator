@@ -39,7 +39,7 @@ interface userthing{
  class Menu extends JFrame implements userthing {
 	Color back = Color.WHITE;
 	Color fore = Color.DARK_GRAY;
-	Border border = new LineBorder(this.back,3);
+	Border border = new LineBorder(Color.GRAY,1);
 	JLabel fcardimage = new JLabel();
 	
 	String jewel ="Áê¿¤ : ";
@@ -268,7 +268,7 @@ public class MainMenu extends Menu implements userthing {
 		gachago.setSize(64,30);
 		yunchago.setSize(64,30);
 		yungumgo.setSize(64,30);
-		scrollPane.setSize(352,185);
+		scrollPane.setSize(352,189);
 		searchtable.setSize(224,20);
 		searchbtn.setSize(65,18);
 		limited.setSize(60,20);
@@ -348,7 +348,8 @@ public class MainMenu extends Menu implements userthing {
 		hawkryul.setForeground(this.fore);
 		typegacha.setForeground(this.fore);
 		result.setForeground(this.fore);
-		
+		scrollPane.setBorder(new LineBorder(Color.WHITE,3));
+
 		gachago.addActionListener(new GachaAction());
 		yunchago.addActionListener(new GachaAction());
 		yungumgo.addActionListener(new GachaAction());
