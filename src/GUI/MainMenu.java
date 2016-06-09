@@ -477,6 +477,7 @@ public class MainMenu extends JFrame {
 		resetyen.setBackground(this.back);
 		usersearch.setBackground(this.back);
 		usercard.setBackground(this.back);
+		usersearchbtn.setBackground(this.back);
 		
 		filterssr.setForeground(this.fore);
 		filtersr.setForeground(this.fore);
@@ -489,6 +490,7 @@ public class MainMenu extends JFrame {
 		resetyen.setForeground(this.fore);
 		usersearch.setForeground(this.fore);
 		usercard.setForeground(this.fore);
+		usersearchbtn.setForeground(this.fore);
 		
 		SSRInfo.setForeground(this.fore);
 		SRInfo.setForeground(this.fore);
