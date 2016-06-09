@@ -34,7 +34,7 @@ interface userthing{
 	ArrayList<Card> resulttemp = new ArrayList<Card>();
 }
 
-public class MainMenu extends JFrame implements userthing {
+ class Menu extends JFrame implements userthing {
 	Color back = Color.WHITE;
 	Color fore = Color.DARK_GRAY;
 
@@ -43,8 +43,7 @@ public class MainMenu extends JFrame implements userthing {
 	String jewel ="¡Íø§ : ";
 	String yen = "µ∑ : ";
 	
-	JLabel moneystat3 = new JLabel();
-	JLabel jewelstat3 = new JLabel();
+	
 	
 	JPanel gacha = new JPanel();
 	JPanel money = new JPanel();
@@ -66,7 +65,8 @@ public class MainMenu extends JFrame implements userthing {
 	JRadioButton filtercute = new JRadioButton("cute");	
 	JRadioButton filtercool = new JRadioButton("cool");
 	JRadioButton filterpassion = new JRadioButton("passion");	
-	<Card> search = resulttemp.iterator();
+
+	Iterator<Card> search = resulttemp.iterator();
 
 	JButton exit = new JButton("¡æ∑·");
 	
@@ -94,6 +94,11 @@ public class MainMenu extends JFrame implements userthing {
 	boolean sr=true;
 	boolean r=true;
 
+}
+
+public class MainMenu extends Menu implements userthing {
+	JLabel moneystat3 = new JLabel();
+	JLabel jewelstat3 = new JLabel();
 	MainMenu(){
 		
 		nojewelset=false;
@@ -170,7 +175,7 @@ public class MainMenu extends JFrame implements userthing {
 		moneystat3.setFont(mainfont);
 		exit2.setFont(mainfont);
 		
-		exit2.addActionListener(new gachaaction());
+		exit2.addActionListener(new GachaAction());
 		
 		exit2.setBackground(this.back);
 		exit2.setForeground(this.fore);
@@ -335,19 +340,19 @@ public class MainMenu extends JFrame implements userthing {
 		typegacha.setForeground(this.fore);
 		result.setForeground(this.fore);
 		
-		gachago.addActionListener(new gachaaction());
-		yunchago.addActionListener(new gachaaction());
-		yungumgo.addActionListener(new gachaaction());
-		infinite.addActionListener(new gachaaction());
-		searchbtn.addActionListener(new gachaaction());
-		exit.addActionListener(new gachaaction());
+		gachago.addActionListener(new GachaAction());
+		yunchago.addActionListener(new GachaAction());
+		yungumgo.addActionListener(new GachaAction());
+		infinite.addActionListener(new GachaAction());
+		searchbtn.addActionListener(new GachaAction());
+		exit.addActionListener(new GachaAction());
 		limited.addItemListener(new limitedconfigbutton());
 		cute.addItemListener(new typebutton());
 		cool.addItemListener(new typebutton());
 		passion.addItemListener(new typebutton());
 		alltype.addItemListener(new typebutton());
 		nojewel.addItemListener(new nojewelbutton());
-		hawkryul.addActionListener(new gachaaction());
+		hawkryul.addActionListener(new GachaAction());
 	
 		alltype.setSelected(true);
 		result.setEditable(false);
@@ -776,7 +781,7 @@ public class MainMenu extends JFrame implements userthing {
 		}
 	}
 	
-	public class gachaaction implements ActionListener{
+	public class GachaAction implements ActionListener{
 		
 		public void showerror(){
 			JOptionPane.showMessageDialog(a, "¡Íø§¿Ã ∫Œ¡∑«’¥œ¥Ÿ"," ¡Íø§ ∫Œ¡∑",JOptionPane.ERROR_MESSAGE);
