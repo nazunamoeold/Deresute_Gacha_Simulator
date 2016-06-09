@@ -9,10 +9,10 @@ import Menu.MainMenu;
 import Menu.User;
 
 public class Card {
-	public String type;
-	public String lev;
-	public String name;
-	public boolean limited;
+	private String type;
+	private String lev;
+	private String name;
+	private boolean limited;
 	
 	public final int SSRCardnumber = 28;
 	public final int SRCardnumber = 52;
@@ -48,6 +48,22 @@ public class Card {
 	public String gettype(){
 		return type;
 	}
+	public boolean getlimited(){
+		return limited;
+	}
+	public void setlev(String lev){
+		this.lev=lev;
+	}
+	public void setname(String name){
+		this.name=name;
+	}
+	public void settype(String type){
+		this.type=type;
+	}
+	public void setlimited(boolean limited){
+		this.limited=limited;
+	}
+
 	public ArrayList<Card> CoolSSR = new ArrayList<Card>();
 	public ArrayList<Card> CuteSSR = new ArrayList<Card>();
 	public ArrayList<Card> PassionSSR = new ArrayList<Card>();

@@ -374,9 +374,9 @@ public class Gacha{
 		}
 		
 		public void counttype(User user,Card card){
-			switch(card.type){
+			switch(card.gettype()){
 			case"cute":{
-				switch(card.lev){
+				switch(card.getlev()){
 				case"SSR":{user.listssrcute.add(card);break;}
 				case"SR":{user.listsrcute.add(card);break;}
 				case"R":{user.listrcute.add(card);break;}
@@ -384,7 +384,7 @@ public class Gacha{
 				break;
 				}
 			case"cool":{
-				switch(card.lev){
+				switch(card.getlev()){
 				case"SSR":{user.listssrcool.add(card);break;}
 				case"SR":{user.listsrcool.add(card);break;}
 				case"R":{user.listrcool.add(card);break;}
@@ -392,7 +392,7 @@ public class Gacha{
 				break;
 				}
 			case"passion":{
-				switch(card.lev){
+				switch(card.getlev()){
 				case"SSR":{user.listssrpassion.add(card);break;}
 				case"SR":{user.listsrpassion.add(card);break;}
 				case"R":{user.listrpassion.add(card);break;}
@@ -550,9 +550,9 @@ public class Gacha{
     	}
     	
     	public void typecount(User user, Card card){
-    		if(card.type.equals("cute")){cute++;user.cute++;}
-    		else if(card.type.equals("cool")){cool++;user.cool++;}
-    		else if(card.type.equals("passion")){passion++;user.passion++;}
+    		if(card.gettype().equals("cute")){cute++;user.cute++;}
+    		else if(card.gettype().equals("cool")){cool++;user.cool++;}
+    		else if(card.gettype().equals("passion")){passion++;user.passion++;}
     	}
     	
     	public void debuginput(User user){

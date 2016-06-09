@@ -570,7 +570,7 @@ public class MainMenu extends JFrame {
 				String searchresult = "";
 				StringBuffer searchbuffer = new StringBuffer(searchresult);
 				for(int i=0;i<filter.size();i++){
-					if(filter.get(i).name.contains(searchtext)){
+					if(filter.get(i).getname().contains(searchtext)){
 						count++;
 						searchbuffer.append(filter.get(i).Valueof()+"\n");
 					}String countshow = "검색 결과 "+count+"개\n";
@@ -919,7 +919,7 @@ public class MainMenu extends JFrame {
 				String searchresult = "";
 				StringBuffer searchbuffer = new StringBuffer(searchresult);
 				for(int i=0;i<resulttemp.size();i++){
-					if(resulttemp.get(i).name.contains(searchtext)){
+					if(resulttemp.get(i).getname().contains(searchtext)){
 						count++;
 						searchbuffer.append(resulttemp.get(i).Valueof()+"\n");
 					}String countshow = "검색 결과 "+count+"개\n";
@@ -938,7 +938,7 @@ public class MainMenu extends JFrame {
 					this.refresh();
 					if(user.limited){
 						resultcard=g.ReturnToGUIUnlimited(user, 0);
-						if(resultcard.lev.equals("SSR")){gachatext.append(resultcard.Valueof());}
+						if(resultcard.getlev().equals("SSR")){gachatext.append(resultcard.Valueof());}
 						else{gachatext.append(resultcard.Valueof()+"\n");}
 						resulttemp.add(resultcard);
 						count++;
@@ -949,7 +949,7 @@ public class MainMenu extends JFrame {
 							result.setText(result.getText()+gacharesult);
 							break;
 						}
-						if(resultcard.lev.equals("SSR")){
+						if(resultcard.getlev().equals("SSR")){
 							result.setText(result.getText()+gacharesult);
 							JOptionPane.showMessageDialog(a,count+"번 만에 SSR이 나왔습니다.","무한 가챠",JOptionPane.INFORMATION_MESSAGE);
 							break;
@@ -957,7 +957,7 @@ public class MainMenu extends JFrame {
 						}
 					else {
 						resultcard=g.ReturnToGUILimited(user, 0);
-						if(resultcard.lev.equals("SSR")){gachatext.append(resultcard.Valueof());}
+						if(resultcard.getlev().equals("SSR")){gachatext.append(resultcard.Valueof());}
 						else{gachatext.append(resultcard.Valueof()+"\n");}
 						resulttemp.add(resultcard);
 						count++;
@@ -968,7 +968,7 @@ public class MainMenu extends JFrame {
 							result.setText(result.getText()+gacharesult);
 							break;
 						}
-						if(resultcard.lev.equals("SSR")){				
+						if(resultcard.getlev().equals("SSR")){				
 							result.setText(result.getText()+gacharesult);
 							JOptionPane.showMessageDialog(a,count+"번 만에 SSR이 나왔습니다.","무한 가챠",JOptionPane.INFORMATION_MESSAGE);
 							break;
