@@ -1,4 +1,4 @@
-# 데레스테 가챠 시뮬레이터 (CUI/GUI 통합)
+# 데레스테 가챠 시뮬레이터
 
 Deresute Gacha Simulator
 
