@@ -16,6 +16,22 @@ import GachaChargeMenu.*;
 interface userthing{
 	User user = new User();
 	Gacha g = new Gacha();
+	JLabel moneystat3 = new JLabel();
+	JLabel jewelstat3 = new JLabel();
+	JLabel usedjewel = new JLabel("»ç¿ëÇÑ Áê¿¤ : "+user.usedjewel);
+	JLabel usedyen = new JLabel("»ç¿ëÇÑ µ·   "+user.usedyen);
+	JLabel SSRInfo = new JLabel("SSR : "+user.SSRNumber);
+	JLabel SRInfo = new JLabel("SR : "+user.SRNumber);
+	JLabel RInfo = new JLabel("R : "+user.RNumber);
+	JLabel CuteInfo = new JLabel("Cute : "+user.cute);
+	JLabel CoolInfo = new JLabel("Cool : "+user.cool);
+	JLabel PassionInfo = new JLabel("Passion : "+user.passion);
+	JTextArea result = new JTextArea(9,10);
+	JTextArea usercard = new JTextArea(9,10);
+	JTextField searchtable = new JTextField(20);
+	JTextField usersearch = new JTextField(20);
+	ArrayList<Card> filter = new ArrayList<Card>();
+	ArrayList<Card> resulttemp = new ArrayList<Card>();
 }
 
 public class MainMenu extends JFrame implements userthing {
@@ -36,9 +52,8 @@ public class MainMenu extends JFrame implements userthing {
 	JPanel titlebar = new JPanel();
 	JPanel statbar = new JPanel();
 
-	ArrayList<Card> filter = new ArrayList<Card>();
-	ArrayList<Card> resulttemp = new ArrayList<Card>();
 	
+	Card resultcard = new Card();
 	JRadioButton limited = new JRadioButton("ÇÑÁ¤");
 	JRadioButton nojewel = new JRadioButton("³ëÁê¿¤");
 	
@@ -51,17 +66,8 @@ public class MainMenu extends JFrame implements userthing {
 	JRadioButton filtercute = new JRadioButton("cute");	
 	JRadioButton filtercool = new JRadioButton("cool");
 	JRadioButton filterpassion = new JRadioButton("passion");	
-	
-	Card resultcard = new Card();
+	<Card> search = resulttemp.iterator();
 
-	Iterator<Card> search = resulttemp.iterator();
-	
-	JTextArea result = new JTextArea(9,10);
-	JTextArea usercard = new JTextArea(9,10);
-    
-	JTextField searchtable = new JTextField(20);
-	JTextField usersearch = new JTextField(20);
-	
 	JButton exit = new JButton("Á¾·á");
 	
 	public Container a = getContentPane();
@@ -81,15 +87,6 @@ public class MainMenu extends JFrame implements userthing {
 			"C: Áê¿¤ 760°³ - 960¿£","D: Áê¿¤ 1300°³ - 1600¿£","E: Áê¿¤ 2650°³ - 3200¿£",
 			"F: Áê¿¤ 4200°³ - 5000¿£","G: Áê¿¤ 8400°³ - 9800¿£"};
 	
-	JLabel usedjewel = new JLabel("»ç¿ëÇÑ Áê¿¤ : "+user.usedjewel);
-	JLabel usedyen = new JLabel("»ç¿ëÇÑ µ·   "+user.usedyen);
-	JLabel SSRInfo = new JLabel("SSR : "+user.SSRNumber);
-	JLabel SRInfo = new JLabel("SR : "+user.SRNumber);
-	JLabel RInfo = new JLabel("R : "+user.RNumber);
-	JLabel CuteInfo = new JLabel("Cute : "+user.cute);
-	JLabel CoolInfo = new JLabel("Cool : "+user.cool);
-	JLabel PassionInfo = new JLabel("Passion : "+user.passion);
-
 	boolean coolc=true;
 	boolean cutec=true;
 	boolean passionc=true;
