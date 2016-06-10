@@ -276,7 +276,7 @@ public class MainMenu extends Menu implements userthing {
 		gachago.setSize(94,30);
 		yunchago.setSize(94,30);
 		yungumgo.setSize(94,30);
-		scrollPane.setSize(352,189);
+		scrollPane.setSize(352,192);
 		searchtable.setSize(224,20);
 		searchbtn.setSize(65,25);
 		limited.setSize(60,20);
