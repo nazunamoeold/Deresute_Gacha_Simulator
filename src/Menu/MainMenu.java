@@ -1120,17 +1120,17 @@ public class MainMenu extends Menu implements userthing {
 			if(jewellist.getSelectedIndex()==0){
 				this.checkmoney(user, 120, 60);
 			}else if(jewellist.getSelectedIndex()==1){
-				this.checkmoney(user, 360, 480);
+				this.checkmoney(user, 480, 360);
 			}else if(jewellist.getSelectedIndex()==2){
-				this.checkmoney(user, 760, 960);
+				this.checkmoney(user, 960, 760);
 			}else if(jewellist.getSelectedIndex()==3){
-				this.checkmoney(user, 1300, 1600);
+				this.checkmoney(user, 1600, 1300);
 			}else if(jewellist.getSelectedIndex()==4){
-				this.checkmoney(user, 2650, 3200);
+				this.checkmoney(user, 3200, 2650);
 			}else if(jewellist.getSelectedIndex()==5){
-				this.checkmoney(user, 4200, 5000);
+				this.checkmoney(user, 5000, 4200);
 			}else if(jewellist.getSelectedIndex()==6){
-				this.checkmoney(user, 8400, 9800);
+				this.checkmoney(user, 9800, 8400);
 			}
 		}
 	}
