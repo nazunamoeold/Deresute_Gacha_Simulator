@@ -1079,6 +1079,7 @@ public class MainMenu extends Menu implements userthing {
 						try{yencharge=Integer.valueOf(yen);}
 						catch(NumberFormatException i){
 							JOptionPane.showMessageDialog(a,"잘못 입력하셨습니다. 정수를 입력하세요"," 에러 발생",JOptionPane.ERROR_MESSAGE);
+							yenchargefield.setText("");
 							continue;
 						}
 						user.yen+=yencharge;
