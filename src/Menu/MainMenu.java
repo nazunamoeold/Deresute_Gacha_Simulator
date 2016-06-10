@@ -14,6 +14,7 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.plaf.ListUI;
 
 import Database.*;
 import GachaChargeMenu.*;
@@ -156,7 +157,7 @@ public class MainMenu extends Menu implements userthing {
 		money.setLayout(null);
 		gacha.setLayout(null);
 		info.setLayout(null);
-		statbar.setLayout(new GridLayout(1,3,5,5));
+		statbar.setLayout(new GridLayout(1,3,50,5));
 		money.setBackground(this.back);
 		gacha.setBackground(this.back);
 		info.setBackground(this.back);
@@ -199,6 +200,9 @@ public class MainMenu extends Menu implements userthing {
 		}
 		
 		jewellist = new JList<Object>(jewels);
+		jewellist.setDragEnabled(false);
+		jewellist.setSelectionMode(JList.VERTICAL);
+		jewellist.setSelectedIndex(0);
 		
 		money.add(moneyimagee);
 		money.add(yengacha);
@@ -1097,7 +1101,7 @@ public class MainMenu extends Menu implements userthing {
 		}
 	}
 	public class jewelcharge implements ActionListener{
-		public void checkmoney (User user, int jewel, int money){
+		public void checkmoney (User user, int money, int jewel){
 			if(user.yen<money){
 				JOptionPane.showMessageDialog(a, "돈이 부족합니다"," 충전 요망",JOptionPane.ERROR_MESSAGE);
 			} else{
@@ -1112,19 +1116,20 @@ public class MainMenu extends Menu implements userthing {
 		}
 		
 		public void actionPerformed(ActionEvent e){
-			if(select==jewels2.get(1)){
+			jewellist.getSelectedIndex();
+			if(jewellist.getSelectedIndex()==0){
 				this.checkmoney(user, 120, 60);
-			}else if(select==jewels2.get(2)){
+			}else if(jewellist.getSelectedIndex()==1){
 				this.checkmoney(user, 360, 480);
-			}else if(select==jewels2.get(3)){
+			}else if(jewellist.getSelectedIndex()==2){
 				this.checkmoney(user, 760, 960);
-			}else if(select==jewels2.get(4)){
+			}else if(jewellist.getSelectedIndex()==3){
 				this.checkmoney(user, 1300, 1600);
-			}else if(select==jewels2.get(5)){
+			}else if(jewellist.getSelectedIndex()==4){
 				this.checkmoney(user, 2650, 3200);
-			}else if(select==jewels2.get(6)){
+			}else if(jewellist.getSelectedIndex()==5){
 				this.checkmoney(user, 4200, 5000);
-			}else if(select==jewels2.get(7)){
+			}else if(jewellist.getSelectedIndex()==6){
 				this.checkmoney(user, 8400, 9800);
 			}
 		}
