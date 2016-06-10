@@ -1,4 +1,4 @@
-package GachaChargeMenu;
+package Gacha;
 
 import java.util.ArrayList;
 import java.util.Calendar;

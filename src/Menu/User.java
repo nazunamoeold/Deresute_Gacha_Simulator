@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import Database.Card;
-import GachaChargeMenu.TXTSave;
+import Gacha.TXTSave;
 
 public class User{
 	    public int jewel;

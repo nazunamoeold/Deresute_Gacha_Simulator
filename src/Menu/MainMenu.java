@@ -17,7 +17,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.plaf.ListUI;
 
 import Database.*;
-import GachaChargeMenu.*;
+import Gacha.*;
 
 interface userthing{
 	User user = new User();

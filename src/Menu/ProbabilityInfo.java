@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import GachaChargeMenu.Gacha;
+import Gacha.Gacha;
 public class ProbabilityInfo extends JFrame implements userthing{
 	JTextField SSRP = new JTextField(4);
 	JTextField SRP = new JTextField(4);

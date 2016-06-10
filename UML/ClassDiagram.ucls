@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.1.9" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
-  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+<class-diagram version="1.1.9" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="Database.SRCardLimited" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Database/SRCardLimited.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="124" width="131" x="704" y="2158"/>    
+    <position height="124" width="131" x="1848" y="1577"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,21 +12,21 @@
   </class>  
   <class id="2" language="java" name="Menu.MainMenu.jewelcharge" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Menu/MainMenu.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="142" width="223" x="2129" y="2158"/>    
+    <position height="142" width="223" x="3526" y="1577"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="3" language="java" name="GachaChargeMenu" project="DeresuteGacha" 
-    file="/DeresuteGacha/src/GachaChargeMenu" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="55" width="161" x="226" y="22"/>    
+  <package id="3" language="java" name="Gacha" project="DeresuteGacha" file="/DeresuteGacha/src/Gacha" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="55" width="161" x="771" y="37"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <interface id="4" language="java" name="Menu.userthing" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Menu/MainMenu.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="394" width="189" x="1900" y="2158"/>    
+    <position height="394" width="189" x="4844" y="1577"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -35,7 +35,7 @@
   </interface>  
   <class id="5" language="java" name="Database.SRCard" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Database/SRCard.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="124" width="126" x="875" y="2158"/>    
+    <position height="124" width="126" x="1516" y="1577"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -44,7 +44,7 @@
   </class>  
   <class id="6" language="java" name="Database.RCard" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Database/RCard.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="124" width="126" x="1041" y="2158"/>    
+    <position height="124" width="126" x="2019" y="1577"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -53,7 +53,7 @@
   </class>  
   <class id="7" language="java" name="Menu.MainMenu" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Menu/MainMenu.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="160" width="139" x="2837" y="1484"/>    
+    <position height="160" width="139" x="3789" y="903"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -62,16 +62,16 @@
   </class>  
   <class id="8" language="java" name="Menu.MainMenu.typebutton" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Menu/MainMenu.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="106" width="224" x="2392" y="2158"/>    
+    <position height="106" width="224" x="3789" y="1577"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="GachaChargeMenu.TXTSave" project="DeresuteGacha" 
-    file="/DeresuteGacha/src/GachaChargeMenu/TXTSave.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="124" width="366" x="427" y="22"/>    
+  <class id="9" language="java" name="Gacha.TXTSave" project="DeresuteGacha" 
+    file="/DeresuteGacha/src/Gacha/TXTSave.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="124" width="366" x="42" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -80,7 +80,7 @@
   </class>  
   <class id="10" language="java" name="Database.SSRCard" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Database/SSRCard.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="124" width="126" x="1207" y="2158"/>    
+    <position height="124" width="126" x="1682" y="1577"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -89,7 +89,7 @@
   </class>  
   <class id="11" language="java" name="Menu.MainMenu.GachaAction" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Menu/MainMenu.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="160" width="223" x="2656" y="2158"/>    
+    <position height="160" width="223" x="2999" y="1577"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -98,7 +98,7 @@
   </class>  
   <class id="12" language="java" name="Menu.MainMenu.jewellist" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Menu/MainMenu.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="106" width="247" x="2919" y="2158"/>    
+    <position height="106" width="247" x="2712" y="1577"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -107,12 +107,12 @@
   </class>  
   <package id="13" language="java" name="Menu" project="DeresuteGacha" file="/DeresuteGacha/src/Menu" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="55" width="122" x="833" y="22"/>    
+    <position height="55" width="122" x="609" y="37"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <class id="14" language="java" name="Menu.AquaBarTabbedPaneUI" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Menu/AquaBarTabbedPaneUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="556" width="504" x="1497" y="22"/>    
+    <position height="556" width="504" x="972" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -121,7 +121,7 @@
   </class>  
   <class id="15" language="java" name="Menu.MainMenu.moneylistener" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Menu/MainMenu.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="106" width="223" x="3206" y="2158"/>    
+    <position height="106" width="223" x="4317" y="1577"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -130,7 +130,7 @@
   </class>  
   <class id="16" language="java" name="Menu.ProbabilityInfo" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Menu/ProbabilityInfo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1405" y="1725"/>    
+    <position height="214" width="146" x="2448" y="903"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -139,7 +139,7 @@
   </class>  
   <class id="17" language="java" name="Database.SRCardEvent" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Database/SRCardEvent.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="106" width="121" x="995" y="22"/>    
+    <position height="106" width="121" x="448" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -148,7 +148,7 @@
   </class>  
   <class id="18" language="java" name="Database.Card" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Database/Card.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="685" y="1799"/>    
+    <position height="574" width="270" x="1516" y="903"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -157,7 +157,7 @@
   </class>  
   <class id="19" language="java" name="Database.SSRCardLimited" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Database/SSRCardLimited.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="124" width="141" x="973" y="618"/>    
+    <position height="124" width="141" x="1335" y="1577"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -166,7 +166,7 @@
   </class>  
   <class id="20" language="java" name="Menu.AquaBarTabbedPaneUI.ColorSet" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Menu/AquaBarTabbedPaneUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="160" width="169" x="1497" y="618"/>    
+    <position height="160" width="169" x="972" y="903"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -175,7 +175,7 @@
   </class>  
   <class id="21" language="java" name="Menu.User" project="DeresuteGacha" file="/DeresuteGacha/src/Menu/User.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="718" width="189" x="744" y="618"/>    
+    <position height="718" width="189" x="1516" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -184,7 +184,7 @@
   </class>  
   <class id="22" language="java" name="Menu.MainMenu.limitedconfigbutton" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Menu/MainMenu.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="106" width="224" x="3469" y="2158"/>    
+    <position height="106" width="224" x="3262" y="1577"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -193,7 +193,7 @@
   </class>  
   <class id="23" language="java" name="Menu.ProbabilityInfo.OKaction" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Menu/ProbabilityInfo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="124" width="223" x="1373" y="2158"/>    
+    <position height="124" width="223" x="2185" y="1577"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -202,7 +202,7 @@
   </class>  
   <class id="24" language="java" name="Menu.MainMenu.nojewelbutton" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Menu/MainMenu.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="106" width="224" x="3733" y="2158"/>    
+    <position height="106" width="224" x="4053" y="1577"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -211,7 +211,7 @@
   </class>  
   <class id="25" language="java" name="Menu.ProbabilityInfo.prolistaction" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Menu/ProbabilityInfo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="106" width="224" x="1636" y="2158"/>    
+    <position height="106" width="224" x="2448" y="1577"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -220,7 +220,7 @@
   </class>  
   <class id="26" language="java" name="Menu.AquaBarTabbedPaneUI.RollOverListener" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Menu/AquaBarTabbedPaneUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="232" width="224" x="1706" y="618"/>    
+    <position height="232" width="224" x="708" y="903"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -229,16 +229,16 @@
   </class>  
   <class id="27" language="java" name="Menu.Menu" project="DeresuteGacha" file="/DeresuteGacha/src/Menu/MainMenu.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="826" width="180" x="1970" y="618"/>    
+    <position height="826" width="180" x="3789" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="28" language="java" name="GachaChargeMenu.Gacha" project="DeresuteGacha" 
-    file="/DeresuteGacha/src/GachaChargeMenu/Gacha.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="448" width="301" x="1156" y="22"/>    
+  <class id="28" language="java" name="Gacha.Gacha" project="DeresuteGacha" file="/DeresuteGacha/src/Gacha/Gacha.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2122" y="514"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -247,7 +247,7 @@
   </class>  
   <class id="29" language="java" name="Menu.MainMenu.filteraction" project="DeresuteGacha" 
     file="/DeresuteGacha/src/Menu/MainMenu.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="106" width="224" x="3997" y="2158"/>    
+    <position height="106" width="224" x="4580" y="1577"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -263,7 +263,6 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="33">    
-    <bendpoint x="1144" y="618"/>    
     <end type="SOURCE" refId="28" navigable="false">      
       <attribute id="34" name="returncard"/>      
       <multiplicity id="35" minimum="0" maximum="1"/>    
@@ -328,13 +327,12 @@
     <end type="TARGET" refId="29"/>  
   </nesting>  
   <realization id="56">    
-    <bendpoint x="1944" y="1484"/>    
+    <bendpoint x="4325" y="903"/>    
     <end type="SOURCE" refId="27"/>    
     <end type="TARGET" refId="4"/>  
   </realization>  
   <association id="57">    
-    <bendpoint x="1207" y="618"/>    
-    <bendpoint x="1207" y="1484"/>    
+    <bendpoint x="1963" y="903"/>    
     <end type="SOURCE" refId="28" navigable="false">      
       <attribute id="58" name="r"/>      
       <multiplicity id="59" minimum="0" maximum="1"/>    
@@ -351,6 +349,7 @@
     <end type="TARGET" refId="22"/>  
   </nesting>  
   <association id="62">    
+    <bendpoint x="1876" y="903"/>    
     <end type="SOURCE" refId="28" navigable="false">      
       <attribute id="63" name="lssr"/>      
       <multiplicity id="64" minimum="0" maximum="1"/>    
@@ -459,8 +458,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="99">    
-    <bendpoint x="1186" y="618"/>    
-    <bendpoint x="1186" y="1484"/>    
+    <bendpoint x="1897" y="903"/>    
     <end type="SOURCE" refId="28" navigable="false">      
       <attribute id="100" name="sr"/>      
       <multiplicity id="101" minimum="0" maximum="1"/>    
@@ -545,8 +543,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="129">    
-    <bendpoint x="713" y="618"/>    
-    <bendpoint x="713" y="1484"/>    
+    <bendpoint x="1939" y="903"/>    
     <end type="SOURCE" refId="28" navigable="false">      
       <attribute id="130" name="lsr"/>      
       <multiplicity id="131" minimum="0" maximum="1"/>    
@@ -579,7 +576,6 @@
     <end type="TARGET" refId="18"/>  
   </generalization>  
   <generalization id="140">    
-    <bendpoint x="1165" y="618"/>    
     <end type="SOURCE" refId="28"/>    
     <end type="TARGET" refId="18"/>  
   </generalization>  
@@ -624,8 +620,7 @@
     <end type="TARGET" refId="11"/>  
   </nesting>  
   <association id="155">    
-    <bendpoint x="1228" y="618"/>    
-    <bendpoint x="1228" y="1484"/>    
+    <bendpoint x="1918" y="903"/>    
     <end type="SOURCE" refId="28" navigable="false">      
       <attribute id="156" name="ssr"/>      
       <multiplicity id="157" minimum="0" maximum="1"/>    
