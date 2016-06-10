@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -11,6 +12,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import Database.*;
 import GachaChargeMenu.*;
@@ -44,15 +47,13 @@ interface userthing{
 	
 	String jewel ="Áê¿¤ : ";
 	String yen = "µ· : ";
-	
-	
-	
+	JLabel jewellists = new JLabel("Áê¿¤ ¸ñ·Ï");
 	JPanel gacha = new JPanel();
 	JPanel money = new JPanel();
 	JPanel info = new JPanel();
 	JPanel titlebar = new JPanel();
 	JPanel statbar = new JPanel();
-
+	JTextField yenchargefield = new JTextField();
 	
 	Card resultcard = new Card();
 	JRadioButton limited = new JRadioButton("ÇÑÁ¤");
@@ -81,14 +82,14 @@ interface userthing{
 	
 	boolean nojewelset;
 
-	JComboBox jewellist = new JComboBox();
+//	JComboBox jewellist = new JComboBox();
 	String select="";
 	
 	ArrayList<String> jewels2 = new ArrayList<String>();
-	String [] jewels ={"¼±ÅÃ ¾ÈÇÔ","A: Áê¿¤ 60°³ - 120¿£","B: Áê¿¤ 360°³ - 480¿£",
+	String [] jewels ={"A: Áê¿¤ 60°³ - 120¿£","B: Áê¿¤ 360°³ - 480¿£",
 			"C: Áê¿¤ 760°³ - 960¿£","D: Áê¿¤ 1300°³ - 1600¿£","E: Áê¿¤ 2650°³ - 3200¿£",
 			"F: Áê¿¤ 4200°³ - 5000¿£","G: Áê¿¤ 8400°³ - 9800¿£"};
-	
+	JList jewellist = new JList(jewels);
 	boolean coolc=true;
 	boolean cutec=true;
 	boolean passionc=true;
@@ -197,26 +198,34 @@ public class MainMenu extends Menu implements userthing {
 			jewels2.add(jewels[i]);
 		}
 		
-		jewellist = new JComboBox<Object>(jewels);
+		jewellist = new JList<Object>(jewels);
 		
 		money.add(moneyimagee);
 		money.add(yengacha);
 		money.add(jewelcharge);
 		money.add(jewellist);
+		money.add(yenchargefield);
+		money.add(jewellists);
 		
-		moneyimagee.setLocation(5,8);
-		yengacha.setLocation(300,13);
-		jewelcharge.setLocation(300,83);
-		jewellist.setLocation(300,48);
+		moneyimagee.setLocation(0,8);
+		yengacha.setLocation(450,58);
+		jewelcharge.setLocation(450,96);
+		jewellist.setLocation(256,48);
+		yenchargefield.setLocation(450,23);
+		jewellists.setLocation(256,18);
 		
 		moneyimagee.setSize(250,208);
-		yengacha.setSize(225,30);
-		jewelcharge.setSize(225,30);
-		jewellist.setSize(225,30);
+		yengacha.setSize(105,30);
+		jewelcharge.setSize(105,30);
+		jewellist.setSize(180,190);
+		yenchargefield.setSize(105,30);
+		jewellists.setSize(115,30);
 
 		yengacha.setFont(mainfont);
 		jewelcharge.setFont(mainfont);
 		jewellist.setFont(mainfont);
+		yenchargefield.setFont(mainfont);
+		jewellists.setFont(new Font("¸¼Àº °íµñ",Font.PLAIN,24));
 		
 		jewellist.setBackground(this.back);
 		yengacha.setBackground(this.back);
@@ -225,24 +234,23 @@ public class MainMenu extends Menu implements userthing {
 		yengacha.setForeground(this.fore);
 		jewelcharge.setForeground(this.fore);
 		
-		jewellist.setBorder(this.border);
+		jewellist.setBorder(new LineBorder(Color.WHITE,3));
 		yengacha.setBorder(this.border);
 		jewelcharge.setBorder(this.border);
 		
 		yengacha.addActionListener(new moneylistener());
-		jewelcharge.addActionListener(new moneylistener());
-		jewellist.addActionListener(new listaction());
 		jewelcharge.addActionListener(new jewelcharge());
+		jewellist.addListSelectionListener(new jewellist());
 		
 		//°¡Ã­ ¸Þ´º Ç×¸ñ
 		JLabel typegacha = new JLabel("¼Ó¼ºº° °¡Ã­");
 		JLabel gachatitle = new JLabel("°¡Ã­ °á°ú");
 		
-		JButton gachago = new JButton("´ÜÃ­");
-		JButton yunchago = new JButton("¿¬Ã­");
-		JButton yungumgo = new JButton("¿¬±Ý");
+		JButton gachago = new JButton("1È¸ °¡Ã­");
+		JButton yunchago = new JButton("10È¸ °¡Ã­");
+		JButton yungumgo = new JButton("¿¬±Ý °¡Ã­");
 		JButton searchbtn = new JButton("°Ë»ö");
-		JButton infinite = new JButton("¹«ÇÑ");
+		JButton infinite = new JButton("¹«ÇÑ °¡Ã­");
 		JButton hawkryul = new JButton("È®·ü Á¶Á¤");
 		
 	    JScrollPane scrollPane = new JScrollPane(result);
@@ -265,12 +273,12 @@ public class MainMenu extends Menu implements userthing {
 		gacha.add(nojewel);
 		gacha.add(hawkryul);
 		
-		gachago.setSize(64,30);
-		yunchago.setSize(64,30);
-		yungumgo.setSize(64,30);
+		gachago.setSize(94,30);
+		yunchago.setSize(94,30);
+		yungumgo.setSize(94,30);
 		scrollPane.setSize(352,189);
 		searchtable.setSize(224,20);
-		searchbtn.setSize(65,18);
+		searchbtn.setSize(65,25);
 		limited.setSize(60,20);
 		gachatitle.setSize(365,20);
 		cute.setSize(60,20);
@@ -278,25 +286,25 @@ public class MainMenu extends Menu implements userthing {
 		passion.setSize(110,20);
 		typegacha.setSize(110,20);
 		alltype.setSize(60,20);
-		infinite.setSize(64,30);
+		infinite.setSize(94,30);
 		nojewel.setSize(65,20);
-		hawkryul.setSize(130,26);
+		hawkryul.setSize(94,30);
 		
 		gachago.setLocation(2,10);
-		yunchago.setLocation(68,10);
+		yunchago.setLocation(98,10);
 		yungumgo.setLocation(2,42);
-		scrollPane.setLocation(136,33);
-		searchtable.setLocation(196,10);
-		searchbtn.setLocation(420,10);
-		limited.setLocation(2,103);
-		gachatitle.setLocation(136,8);
+		scrollPane.setLocation(196,33);
+		searchtable.setLocation(266,10);
+		searchbtn.setLocation(500,6);
+		limited.setLocation(2,107);
+		gachatitle.setLocation(196,8);
 		cute.setLocation(2,150);
 		cool.setLocation(2,172);
 		passion.setLocation(2,194);
 		typegacha.setLocation(2,128);
 		alltype.setLocation(62,150);
-		infinite.setLocation(68,42);
-		nojewel.setLocation(62,103);
+		infinite.setLocation(98,42);
+		nojewel.setLocation(62,107);
 		hawkryul.setLocation(2,74);
 		
 		gachago.setFont(mainfont2);
@@ -349,7 +357,8 @@ public class MainMenu extends Menu implements userthing {
 		typegacha.setForeground(this.fore);
 		result.setForeground(this.fore);
 		scrollPane.setBorder(new LineBorder(Color.WHITE,3));
-
+		searchbtn.setBorder(new LineBorder(Color.WHITE,3));
+		
 		gachago.addActionListener(new GachaAction());
 		yunchago.addActionListener(new GachaAction());
 		yungumgo.addActionListener(new GachaAction());
@@ -498,6 +507,9 @@ public class MainMenu extends Menu implements userthing {
 		usersearch.setForeground(this.fore);
 		usercard.setForeground(this.fore);
 		usersearchbtn.setForeground(this.fore);
+		
+		scrollPaneu.setBorder(new LineBorder(Color.WHITE,3));
+		usersearchbtn.setBorder(new LineBorder(Color.WHITE,3));
 		
 		SSRInfo.setForeground(this.fore);
 		SRInfo.setForeground(this.fore);
@@ -856,7 +868,7 @@ public class MainMenu extends Menu implements userthing {
 		public void actionPerformed(ActionEvent e){
 			String menu = e.getActionCommand();
 			switch(menu){
-			case"´ÜÃ­":{
+			case"1È¸ °¡Ã­":{
 				if(this.checkjewel(user, 250)){
 				resulttemp.clear();
 				result.setText("");
@@ -874,7 +886,7 @@ public class MainMenu extends Menu implements userthing {
 				result.setText(result.getText()+gacharesult);
 				this.refresh();
 				break;}else{this.showerror();break;}}
-			case"¿¬Ã­":{
+			case"10È¸ °¡Ã­":{
 				if(this.checkjewel(user, 2500)){
 				resulttemp.clear();
 				result.setText("");
@@ -900,7 +912,7 @@ public class MainMenu extends Menu implements userthing {
 				result.setText(result.getText()+gacharesult);
 				this.refresh();
 				break;}else{this.showerror();break;}}
-			case"¿¬±Ý":{
+			case"¿¬±Ý °¡Ã­":{
 				if(this.checkjewel(user, 60)){
 				resulttemp.clear();
 				result.setText("");
@@ -933,7 +945,7 @@ public class MainMenu extends Menu implements userthing {
 				}if(count==0){JOptionPane.showMessageDialog(a,"°Ë»ö °á°ú°¡ ¾ø½À´Ï´Ù.","°Ë»ö °á°ú",JOptionPane.INFORMATION_MESSAGE);}else{
 				JOptionPane.showMessageDialog(a,searchresult,"°Ë»ö °á°ú",JOptionPane.INFORMATION_MESSAGE);
 				}break;}break;}
-			case"¹«ÇÑ":{
+			case"¹«ÇÑ °¡Ã­":{
 				int count=0;
 				resulttemp.clear();
 				result.setText("");
@@ -1058,7 +1070,7 @@ public class MainMenu extends Menu implements userthing {
 				String yen;
 				int yencharge;
 				do{
-				yen=JOptionPane.showInputDialog(a,"ÃæÀüÇÒ ¿£À» ÀÔ·ÂÇÏ¼¼¿ä");
+				yen=yenchargefield.getText();
 				try{
 					if(yen.equals("")){
 						break;
@@ -1083,21 +1095,7 @@ public class MainMenu extends Menu implements userthing {
 			}
 		}
 	}
-	
-	public class listaction implements ActionListener{
-		public void actionPerformed(ActionEvent e){
-			if(e.getSource()==jewellist){
-				select = (String)jewellist.getSelectedItem();
-			}
-		}
-	}
-	
 	public class jewelcharge implements ActionListener{
-		public void refresh(){
-			moneystat3.setText("µ· : "+user.yen);
-			jewelstat3.setText("Áê¿¤ : "+user.jewel);
-		}
-		
 		public void checkmoney (User user, int jewel, int money){
 			if(user.yen<money){
 				JOptionPane.showMessageDialog(a, "µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù"," ÃæÀü ¿ä¸Á",JOptionPane.ERROR_MESSAGE);
@@ -1107,26 +1105,43 @@ public class MainMenu extends Menu implements userthing {
 				this.refresh();
 				}
 		}
+		public void refresh(){
+			moneystat3.setText("µ· : "+user.yen);
+			jewelstat3.setText("Áê¿¤ : "+user.jewel);
+		}
+		
 		public void actionPerformed(ActionEvent e){
-			String jewelselect=(String)jewellist.getSelectedItem();
-			if(jewelselect==jewels2.get(0)){
-				JOptionPane.showMessageDialog(a, "±¸ÀÔÇÒ Áê¿¤À» ¼±ÅÃÇØÁÖ¼¼¿ä"," °í¸£½Ã¿À",JOptionPane.INFORMATION_MESSAGE);
-			}else if(jewelselect==jewels2.get(1)){
+			if(select==jewels2.get(1)){
 				this.checkmoney(user, 120, 60);
-			}else if(jewelselect==jewels2.get(2)){
+			}else if(select==jewels2.get(2)){
 				this.checkmoney(user, 360, 480);
-			}else if(jewelselect==jewels2.get(3)){
+			}else if(select==jewels2.get(3)){
 				this.checkmoney(user, 760, 960);
-			}else if(jewelselect==jewels2.get(4)){
+			}else if(select==jewels2.get(4)){
 				this.checkmoney(user, 1300, 1600);
-			}else if(jewelselect==jewels2.get(5)){
+			}else if(select==jewels2.get(5)){
 				this.checkmoney(user, 2650, 3200);
-			}else if(jewelselect==jewels2.get(6)){
+			}else if(select==jewels2.get(6)){
 				this.checkmoney(user, 4200, 5000);
-			}else if(jewelselect==jewels2.get(7)){
+			}else if(select==jewels2.get(7)){
 				this.checkmoney(user, 8400, 9800);
 			}
-			
+		}
+	}
+	
+	public class jewellist implements ListSelectionListener{
+
+		public void valueChanged(ListSelectionEvent e) {
+			select = String.valueOf(e.getLastIndex());
+			switch(e.getLastIndex()){
+			case 0:{select=jewels2.get(0);break;}
+			case 1:{select=jewels2.get(1);break;}
+			case 2:{select=jewels2.get(2);break;}
+			case 3:{select=jewels2.get(3);break;}
+			case 4:{select=jewels2.get(4);break;}
+			case 5:{select=jewels2.get(5);break;}
+			case 6:{select=jewels2.get(6);break;}
+			}
 		}
 	}
 	
