@@ -675,17 +675,17 @@ public class MainMenu extends Menu implements userthing {
 		jewelstat3.setText("Áê¿¤    "+user.jewel);
 		usedjewel.setText("»ç¿ëÇÑ Áê¿¤   "+user.usedjewel);
 		if(user.SSRNumber==0){SSRInfo.setText("SSR");}else{
-		SSRInfo.setText("SSR  "+(user.returncards("SSR", "cute")+user.returncards("SSR", "cool")+user.returncards("SSR", "passion")));}
+		SSRInfo.setText("SSR  "+user.SSRNumber);}
 		if(user.SRNumber==0){SRInfo.setText("SR");}else{
-		SRInfo.setText("SR  "+(user.returncards("SR", "cute")+user.returncards("SR", "cool")+user.returncards("SR", "passion")));}
+		SRInfo.setText("SR  "+user.SRNumber);}
 		if(user.RNumber==0){RInfo.setText("R");}else{
-		RInfo.setText("R  "+(user.returncards("R", "cute")+user.returncards("R", "cool")+user.returncards("R", "passion")));}
+		RInfo.setText("R  "+user.RNumber);}
 		if(user.cute==0){CuteInfo.setText("Cute");}else{
-		CuteInfo.setText("Cute  "+(user.returncards("SSR", "cute")+user.returncards("SR", "cute")+user.returncards("R", "cute")));}
+		CuteInfo.setText("Cute  "+user.cute);}
 		if(user.cool==0){CoolInfo.setText("Cool");}else{
-		CoolInfo.setText("Cool  "+(user.returncards("SSR", "cool")+user.returncards("SR", "cool")+user.returncards("R", "cool")));}
+		CoolInfo.setText("Cute  "+user.cool);}
 		if(user.passion==0){PassionInfo.setText("Passion");}else{
-		PassionInfo.setText("Passion  "+(user.returncards("SSR", "passion")+user.returncards("SR", "passion")+user.returncards("R", "passion")));}
+		PassionInfo.setText("Cute  "+user.passion);}
 		cardlog="";
 		cardlogbuffer.setLength(0);
 		cardlogbuffer=new StringBuffer(cardlog);
@@ -710,7 +710,6 @@ public class MainMenu extends Menu implements userthing {
 					cardlogbuffer.append(user.listrcool.get(i).Valueof());
 					if(i==user.listrcool.size()-1){break;}
 					cardlogbuffer.append("\n");
-					
 					filter.add(user.listrcool.get(i));
 					}
 				}
@@ -823,20 +822,20 @@ public class MainMenu extends Menu implements userthing {
 		
 		public void refresh(){
 			moneystat3.setText("µ·   "+user.yen);
-			jewelstat3.setText("Áê¿¤   "+user.jewel);
+			jewelstat3.setText("Áê¿¤    "+user.jewel);
 			usedjewel.setText("»ç¿ëÇÑ Áê¿¤   "+user.usedjewel);
 			if(user.SSRNumber==0){SSRInfo.setText("SSR");}else{
-			SSRInfo.setText("SSR  "+(user.returncards("SSR", "cute")+user.returncards("SSR", "cool")+user.returncards("SSR", "passion")));}
+			SSRInfo.setText("SSR  "+user.SSRNumber);}
 			if(user.SRNumber==0){SRInfo.setText("SR");}else{
-			SRInfo.setText("SR  "+(user.returncards("SR", "cute")+user.returncards("SR", "cool")+user.returncards("SR", "passion")));}
+			SRInfo.setText("SR  "+user.SRNumber);}
 			if(user.RNumber==0){RInfo.setText("R");}else{
-			RInfo.setText("R  "+(user.returncards("R", "cute")+user.returncards("R", "cool")+user.returncards("R", "passion")));}
+			RInfo.setText("R  "+user.RNumber);}
 			if(user.cute==0){CuteInfo.setText("Cute");}else{
-			CuteInfo.setText("Cute  "+(user.returncards("SSR", "cute")+user.returncards("SR", "cute")+user.returncards("R", "cute")));}
+			CuteInfo.setText("Cute  "+user.cute);}
 			if(user.cool==0){CoolInfo.setText("Cool");}else{
-			CoolInfo.setText("Cool  "+(user.returncards("SSR", "cool")+user.returncards("SR", "cool")+user.returncards("R", "cool")));}
+			CoolInfo.setText("Cute  "+user.cool);}
 			if(user.passion==0){PassionInfo.setText("Passion");}else{
-			PassionInfo.setText("Passion  "+(user.returncards("SSR", "passion")+user.returncards("SR", "passion")+user.returncards("R", "passion")));}
+			PassionInfo.setText("Cute  "+user.passion);}
 			cardlog="";
 			cardlogbuffer.setLength(0);
 			cardlogbuffer=new StringBuffer(cardlog);
