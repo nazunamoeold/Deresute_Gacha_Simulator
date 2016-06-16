@@ -22,8 +22,14 @@ import Gacha.*;
 interface userthing{
 	User user = new User();
 	Gacha g = new Gacha();
-	JLabel moneystat3 = new JLabel();
-	JLabel jewelstat3 = new JLabel();
+}
+
+ class Menu extends JFrame implements userthing {
+	 
+	Color back = Color.WHITE;
+	Color fore = Color.DARK_GRAY;
+	Border border = new LineBorder(Color.GRAY,1);
+	JLabel fcardimage = new JLabel();
 	JLabel usedjewel = new JLabel("»ç¿ëÇÑ Áê¿¤ : "+user.usedjewel);
 	JLabel usedyen = new JLabel("»ç¿ëÇÑ µ·   "+user.usedyen);
 	JLabel SSRInfo = new JLabel("SSR : "+user.SSRNumber);
@@ -38,14 +44,9 @@ interface userthing{
 	JTextField usersearch = new JTextField(20);
 	ArrayList<Card> filter = new ArrayList<Card>();
 	ArrayList<Card> resulttemp = new ArrayList<Card>();
-}
+	JLabel moneystat3 = new JLabel();
+	JLabel jewelstat3 = new JLabel();
 
- class Menu extends JFrame implements userthing {
-	Color back = Color.WHITE;
-	Color fore = Color.DARK_GRAY;
-	Border border = new LineBorder(Color.GRAY,1);
-	JLabel fcardimage = new JLabel();
-	
 	String jewel ="Áê¿¤ : ";
 	String yen = "µ· : ";
 	JLabel jewellists = new JLabel("Áê¿¤ ¸ñ·Ï");
