@@ -22,6 +22,7 @@ import Gacha.*;
 interface userthing{
 	User user = new User();
 	Gacha g = new Gacha();
+	CardList lists = new CardList();
 }
 
  class Menu extends JFrame implements userthing {
@@ -44,13 +45,16 @@ interface userthing{
 	JTextArea usercard = new JTextArea(9,10);
 	JTextField searchtable = new JTextField(20);
 	JTextField usersearch = new JTextField(20);
-	JTextArea cardinfolist = new JTextArea(9,10);
+	
 	
 	ArrayList<Card> filter = new ArrayList<Card>();
 	ArrayList<Card> resulttemp = new ArrayList<Card>();
 	
 	JLabel moneystat3 = new JLabel();
 	JLabel jewelstat3 = new JLabel();
+	JLabel infoname = new JLabel("ÀÌ¸§ : ");
+	JLabel infotype = new JLabel("¼Ó¼º : ");
+	JLabel infolev = new JLabel("µî±Þ : ");
 
 	String jewel ="Áê¿¤ : ";
 	String yen = "µ· : ";
@@ -100,6 +104,8 @@ interface userthing{
 			"C: Áê¿¤ 760°³ - 960¿£","D: Áê¿¤ 1300°³ - 1600¿£","E: Áê¿¤ 2650°³ - 3200¿£",
 			"F: Áê¿¤ 4200°³ - 5000¿£","G: Áê¿¤ 8400°³ - 9800¿£"};
 	JList jewellist = new JList(jewels);
+	JList cardinfolist = new JList(lists.returncardinfo("All","All").toArray());
+	JScrollPane cardinfolistpane = new JScrollPane(cardinfolist);
 	boolean coolc=true;
 	boolean cutec=true;
 	boolean passionc=true;
@@ -122,6 +128,7 @@ public class MainMenu extends Menu implements userthing {
 		
 		Font mainfont = new Font("¸¼Àº °íµñ",0,15);
 		Font mainfont2 = new Font("¸¼Àº °íµñ",0,13);
+		Font mainfont3 = new Font("¸¼Àº °íµñ",0,11);
 		Container back = getContentPane();
 		back.setBackground(this.back);
 		back.setForeground(this.fore);
@@ -197,7 +204,6 @@ public class MainMenu extends Menu implements userthing {
 		moneystat3.setForeground(this.fore);
 		
 		// Ä«µå Á¤º¸ ¸Þ´º Ç×¸ñ
-		JScrollPane cardinfolistpane = new JScrollPane(cardinfolist);
 		cardinfo.setBackground(this.back);
 		
 		JLabel cardinfoname = new JLabel("Ä«µå Á¤º¸ ÀÏ¶÷");
@@ -207,17 +213,35 @@ public class MainMenu extends Menu implements userthing {
 		
 		cardinfo.add(cardinfoname);
 		cardinfo.add(cardinfolistpane);
+		cardinfo.add(infoname);
+		cardinfo.add(infotype);
+		cardinfo.add(infolev);
 		
-		cardinfoname.setLocation(60, 6);
-		cardinfolistpane.setLocation(6,30);
+		cardinfoname.setLocation(65, 6);
+		cardinfolistpane.setLocation(6,35);
+		infotype.setLocation(297,91);
+		infolev.setLocation(297,110);
+		infoname.setLocation(297,129);
 		
 		cardinfoname.setSize(150,20);
-		cardinfolistpane.setSize(260,140);
+		cardinfolistpane.setSize(285,195);
+		infotype.setSize(150,15);
+		infolev.setSize(150,15);
+		infoname.setSize(290,15);
 		
-		CardList lists = new CardList();
-		for(int i=0; i<lists.limitedinfo().size();i++){
-			cardinfolist.setText((lists.limitedinfo().get(i).Valueof()+"\n"));
-		}
+		cardinfolist.setFont(mainfont3);
+		infotype.setFont(mainfont3);
+		infolev.setFont(mainfont3);
+		infoname.setFont(mainfont3);
+		
+		cardinfolist.addListSelectionListener(new ListSelectionListener(){
+			public void valueChanged(ListSelectionEvent e) {
+				JList source = (JList)e.getSource();
+				int a=source.getSelectedIndex();
+				infoname.setText("ÀÌ¸§ : "+lists.unlimitedinfo().get(a).getname());
+				infotype.setText("¼Ó¼º : "+lists.unlimitedinfo().get(a).gettype());
+				infolev.setText("µî±Þ : "+lists.unlimitedinfo().get(a).getlev());}
+		});
 		
 		// °ú±Ý ¸Þ´º Ç×¸ñ
 		JLabel moneyimagee = new JLabel(new ImageIcon(moneyimage));
@@ -1168,8 +1192,9 @@ public class MainMenu extends Menu implements userthing {
 	public class jewellist implements ListSelectionListener{
 
 		public void valueChanged(ListSelectionEvent e) {
-			select = String.valueOf(e.getLastIndex());
-			switch(e.getLastIndex()){
+			JList source = (JList)e.getSource();
+			select = String.valueOf(source.getSelectedIndex());
+			switch(source.getSelectedIndex()){
 			case 0:{select=jewels2.get(0);break;}
 			case 1:{select=jewels2.get(1);break;}
 			case 2:{select=jewels2.get(2);break;}
