@@ -39,11 +39,11 @@ interface userthing{
 	JLabel CoolInfo = new JLabel("Cool : "+user.cool);
 	JLabel PassionInfo = new JLabel("Passion : "+user.passion);
 	
+	JTextArea skillstr = new JTextArea("스킬 : ");
 	JTextArea result = new JTextArea(9,10);
 	JTextArea usercard = new JTextArea(9,10);
 	JTextField searchtable = new JTextField(20);
 	JTextField usersearch = new JTextField(20);
-	
 	
 	ArrayList<Card> filter = new ArrayList<Card>();
 	ArrayList<Card> resulttemp = new ArrayList<Card>();
@@ -53,6 +53,13 @@ interface userthing{
 	JLabel infoname = new JLabel("이름 : ");
 	JLabel infotype = new JLabel("속성 : ");
 	JLabel infolev = new JLabel("등급 : ");
+	JLabel skilltitle = new JLabel("스킬 이름 : ");
+	JLabel appealtitle = new JLabel("특훈 전        특훈 후");
+	JLabel vocal = new JLabel("보컬 : ");
+	JLabel dance = new JLabel("댄스 : ");
+	JLabel visual = new JLabel("비쥬얼 : ");
+	JLabel centertitle = new JLabel("센터 스킬  : ");
+	JLabel centerstr = new JLabel("");
 
 	String jewel ="쥬엘 : ";
 	String yen = "돈 : ";
@@ -214,24 +221,58 @@ public class MainMenu extends Menu implements userthing {
 		cardinfo.add(infoname);
 		cardinfo.add(infotype);
 		cardinfo.add(infolev);
+		cardinfo.add(skillstr);
+		cardinfo.add(skilltitle);
+		cardinfo.add(appealtitle);
+		cardinfo.add(vocal);
+		cardinfo.add(visual);
+		cardinfo.add(dance);
+		cardinfo.add(centerstr);
+		cardinfo.add(centertitle);
 		
 		cardinfoname.setLocation(65, 6);
 		cardinfolistpane.setLocation(6,35);
-		infotype.setLocation(297,91);
-		infolev.setLocation(297,110);
-		infoname.setLocation(297,129);
+		infotype.setLocation(297,76);
+		infolev.setLocation(297,96);
+		infoname.setLocation(297,115);
+		skillstr.setLocation(297,152);
+		skilltitle.setLocation(297,133);
+		centertitle.setLocation(297,194);
+		centerstr.setLocation(297,210);
+		appealtitle.setLocation(425,6);
+		vocal.setLocation(375,24);
+		dance.setLocation(375,42);
+		visual.setLocation(375,60);
 		
 		cardinfoname.setSize(150,20);
 		cardinfolistpane.setSize(284,195);
 		infotype.setSize(150,15);
 		infolev.setSize(150,15);
 		infoname.setSize(290,15);
-		
+		skillstr.setSize(270,45);
+		skilltitle.setSize(150,15);
+		centertitle.setSize(150,15);
+		centerstr.setSize(290,15);
+		appealtitle.setSize(140,15);
+		vocal.setSize(150,15);
+		dance.setSize(150,15);
+		visual.setSize(150,15);
+
 		cardinfolist.setFont(mainfont3);
 		infotype.setFont(mainfont3);
 		infolev.setFont(mainfont3);
 		infoname.setFont(mainfont3);
+		skilltitle.setFont(mainfont3);
+		appealtitle.setFont(mainfont3);
+		vocal.setFont(mainfont3);
+		dance.setFont(mainfont3);
+		visual.setFont(mainfont3);
+		centerstr.setFont(mainfont3);
+		centertitle.setFont(mainfont3);
 		
+		skillstr.setLineWrap(true);
+		skillstr.setFont(mainfont3);
+
 		cardinfolistpane.setBorder(new LineBorder(Color.WHITE,0));
 		cardinfolistpane.setBackground(this.back);
 		cardinfolistpane.setForeground(this.fore);
@@ -242,7 +283,15 @@ public class MainMenu extends Menu implements userthing {
 				int a=source.getSelectedIndex();
 				infoname.setText("이름 : "+lists.unlimitedinfo().get(a).getname());
 				infotype.setText("속성 : "+lists.unlimitedinfo().get(a).gettype());
-				infolev.setText("등급 : "+lists.unlimitedinfo().get(a).getlev());}
+				infolev.setText("등급 : "+lists.unlimitedinfo().get(a).getlev());
+				vocal.setText("보컬 :     "+lists.unlimitedinfo().get(a).getvocal()+"            "+lists.unlimitedinfo().get(a).gettvocal());
+				dance.setText("댄스 :     "+lists.unlimitedinfo().get(a).getdance()+"            "+lists.unlimitedinfo().get(a).gettdance());
+				visual.setText("비쥬얼 :   "+lists.unlimitedinfo().get(a).getvisual()+"            "+lists.unlimitedinfo().get(a).getvisual());
+				skilltitle.setText("스킬 이름 : "+lists.unlimitedinfo().get(a).getskilltitle());
+				skillstr.setText("스킬 : "+lists.unlimitedinfo().get(a).getskillstr());
+				centertitle.setText("센터 스킬 : "+lists.unlimitedinfo().get(a).getcentertitle());
+				centerstr.setText(lists.unlimitedinfo().get(a).getcenter());
+			}
 		});
 		
 		// 과금 메뉴 항목

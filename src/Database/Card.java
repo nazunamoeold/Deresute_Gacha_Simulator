@@ -55,10 +55,10 @@ public class Card{
 	public int getvocal(){return vocal;}
 	public int getdance(){return dance;}
 	public int getvisual(){return visual;}
-	public int gettlife(){return life;}
-	public int gettvocal(){return vocal;}
-	public int gettdance(){return dance;}
-	public int gettvisual(){return visual;}
+	public int gettlife(){return tlife;}
+	public int gettvocal(){return tvocal;}
+	public int gettdance(){return tdance;}
+	public int gettvisual(){return tvisual;}
 	public String getskillstr(){return skillstr;}
 	public String getskilltitle (){return skilltitle;}
 	public String getcenter(){return centerstr;}
@@ -74,7 +74,7 @@ public class Card{
 	public Card(String lev, String type, String name, boolean limited,int life, int vocal, 
 			int dance,int visual,int tlife, int tvocal, int tdance,int tvisual,String skill,
 			String skilltitle,String center,int intervaltime, double pro, 
-			int term, int effect, int centereffect, int overload){
+			int term, int effect, int overload,int centereffect){
 		this.setlev(lev);
 		this.settype(type);
 		this.setname(name);
@@ -100,7 +100,7 @@ public class Card{
 			}break;
 		}
 		case"c":{
-			this.setskillstr(intervaltime+"초 마다 "+pro+"% 확률로 "+term+"초 동안, COMBO 보너스"+effect+"% 상승");
+			this.setskillstr(intervaltime+"초 마다 "+pro+"% 확률로 "+term+"초 동안, COMBO 보너스 "+effect+"% 상승");
 			break;
 			}
 		case"p":{
@@ -112,11 +112,11 @@ public class Card{
 			break;
 			}
 		case"m":{
-			this.setskillstr(intervaltime+" 초 마다"+term+"초 동안 라이프가 감소하지 않음");
+			this.setskillstr(intervaltime+" 초 마다 "+term+"초 동안 라이프가 감소하지 않음");
 			break;
 		}
 		case"h":{
-			this.setskillstr(intervaltime+" 초 마다"+term+"초 동안 PERFECT로 라이프 "+effect+" 회복");
+			this.setskillstr(intervaltime+" 초 마다 "+term+"초 동안 PERFECT로 라이프 "+effect+" 회복");
 			break;
 		}
 		}
