@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -14,7 +13,6 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.plaf.ListUI;
 
 import Database.*;
 import Gacha.*;
@@ -224,7 +222,7 @@ public class MainMenu extends Menu implements userthing {
 		infoname.setLocation(297,129);
 		
 		cardinfoname.setSize(150,20);
-		cardinfolistpane.setSize(285,195);
+		cardinfolistpane.setSize(284,195);
 		infotype.setSize(150,15);
 		infolev.setSize(150,15);
 		infoname.setSize(290,15);
@@ -233,6 +231,10 @@ public class MainMenu extends Menu implements userthing {
 		infotype.setFont(mainfont3);
 		infolev.setFont(mainfont3);
 		infoname.setFont(mainfont3);
+		
+		cardinfolistpane.setBorder(new LineBorder(Color.WHITE,0));
+		cardinfolistpane.setBackground(this.back);
+		cardinfolistpane.setForeground(this.fore);
 		
 		cardinfolist.addListSelectionListener(new ListSelectionListener(){
 			public void valueChanged(ListSelectionEvent e) {
