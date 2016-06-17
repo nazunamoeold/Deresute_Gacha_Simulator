@@ -3,7 +3,7 @@ package Database;
 import java.io.File;
 import java.util.ArrayList;
 
-public class Card {
+public class Card{
 	private String type;
 	private String lev;
 	private String name;
@@ -25,44 +25,22 @@ public class Card {
 		File returnimage = new File(path);
 		return returnimage;
 	}
-	public String Valueof() {
-		return "[" + this.getlev() + "] [" + this.gettype() + "] " + this.getname() ;
-	}
-	public String getlev(){
-		return lev;
-	}
-	public String getname(){
-		return name;
-	}
-	public String gettype(){
-		return type;
-	}
-	public boolean getlimited(){
-		return limited;
-	}
-	public void setlev(String lev){
-		this.lev=lev;
-	}
-	public void setname(String name){
-		this.name=name;
-	}
-	public void settype(String type){
-		this.type=type;
-	}
-	public void setlimited(boolean limited){
-		this.limited=limited;
-	}
-	
+	public String Valueof() {return "[" + this.getlev() + "] [" + this.gettype() + "] " + this.getname() ;}
+	public String getlev(){return lev;}
+	public String getname(){return name;}
+	public String gettype(){return type;}
+	public boolean getlimited(){return limited;}
+	public void setlev(String lev){this.lev=lev;}
+	public void setname(String name){this.name=name;}
+	public void settype(String type){this.type=type;}
+	public void setlimited(boolean limited){this.limited=limited;}
 	public Card(String lev, String type, String name, boolean limited){
 		this.setlev(lev);
 		this.settype(type);
 		this.setname(name);
 		this.setlimited(limited);
 	}
-	
-	public Card(){
-		
-	}
+	public Card(){}
 
 	public ArrayList<Card> CoolSSR = new ArrayList<Card>();
 	public ArrayList<Card> CuteSSR = new ArrayList<Card>();

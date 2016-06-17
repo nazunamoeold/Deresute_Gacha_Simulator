@@ -25,10 +25,11 @@ interface userthing{
 }
 
  class Menu extends JFrame implements userthing {
-	 
 	Color back = Color.WHITE;
 	Color fore = Color.DARK_GRAY;
+	
 	Border border = new LineBorder(Color.GRAY,1);
+	
 	JLabel fcardimage = new JLabel();
 	JLabel usedjewel = new JLabel("»ç¿ëÇÑ Áê¿¤ : "+user.usedjewel);
 	JLabel usedyen = new JLabel("»ç¿ëÇÑ µ·   "+user.usedyen);
@@ -38,23 +39,30 @@ interface userthing{
 	JLabel CuteInfo = new JLabel("Cute : "+user.cute);
 	JLabel CoolInfo = new JLabel("Cool : "+user.cool);
 	JLabel PassionInfo = new JLabel("Passion : "+user.passion);
+	
 	JTextArea result = new JTextArea(9,10);
 	JTextArea usercard = new JTextArea(9,10);
 	JTextField searchtable = new JTextField(20);
 	JTextField usersearch = new JTextField(20);
+	JTextArea cardinfolist = new JTextArea(9,10);
+	
 	ArrayList<Card> filter = new ArrayList<Card>();
 	ArrayList<Card> resulttemp = new ArrayList<Card>();
+	
 	JLabel moneystat3 = new JLabel();
 	JLabel jewelstat3 = new JLabel();
 
 	String jewel ="Áê¿¤ : ";
 	String yen = "µ· : ";
 	JLabel jewellists = new JLabel("Áê¿¤ ¸ñ·Ï");
+	
 	JPanel gacha = new JPanel();
 	JPanel money = new JPanel();
 	JPanel info = new JPanel();
 	JPanel titlebar = new JPanel();
 	JPanel statbar = new JPanel();
+	JPanel cardinfo = new JPanel();
+	
 	JTextField yenchargefield = new JTextField();
 	
 	Card resultcard = new Card();
@@ -98,8 +106,6 @@ interface userthing{
 	boolean ssr=true;
 	boolean sr=true;
 	boolean r=true;
-
-
 }
 
 public class MainMenu extends Menu implements userthing {
@@ -153,7 +159,7 @@ public class MainMenu extends Menu implements userthing {
 		tab.add(money,"°ú±Ý");
 		tab.add(gacha,"°¡Ã­");
 		tab.add(info,"Á¤º¸");
-		
+		tab.add(cardinfo, "Ä«µåÁ¤º¸");
 	
 		money.setLayout(null);
 		gacha.setLayout(null);
@@ -189,6 +195,30 @@ public class MainMenu extends Menu implements userthing {
 		exit2.setForeground(this.fore);
 		jewelstat3.setForeground(this.fore);
 		moneystat3.setForeground(this.fore);
+		
+		// Ä«µå Á¤º¸ ¸Þ´º Ç×¸ñ
+		JScrollPane cardinfolistpane = new JScrollPane(cardinfolist);
+		cardinfo.setBackground(this.back);
+		
+		JLabel cardinfoname = new JLabel("Ä«µå Á¤º¸ ÀÏ¶÷");
+		cardinfoname.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,20));
+		
+		cardinfo.setLayout(null);
+		
+		cardinfo.add(cardinfoname);
+		cardinfo.add(cardinfolistpane);
+		
+		cardinfoname.setLocation(60, 6);
+		cardinfolistpane.setLocation(6,30);
+		
+		cardinfoname.setSize(150,20);
+		cardinfolistpane.setSize(260,140);
+		
+		CardList lists = new CardList();
+		for(int i=0; i<lists.limitedinfo().size();i++){
+			cardinfolist.setText((lists.limitedinfo().get(i).Valueof()+"\n"));
+		}
+		
 		// °ú±Ý ¸Þ´º Ç×¸ñ
 		JLabel moneyimagee = new JLabel(new ImageIcon(moneyimage));
 

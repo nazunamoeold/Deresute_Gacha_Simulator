@@ -1,11 +1,12 @@
 package Gacha;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 import Menu.User;
 import Database.*;
 public class Gacha extends Card{
-	
+	CardList lists = new CardList();
 	int tempCardNumber[] = new int[5];
     Scanner scanner = new Scanner(System.in);
     SSRCard ssr = new SSRCard();
@@ -254,5 +255,9 @@ public class Gacha extends Card{
     		if(card.gettype().equals("Cute")){cute++;user.cute++;}
     		else if(card.gettype().equals("Cool")){cool++;user.cool++;}
     		else if(card.gettype().equals("Passion")){passion++;user.passion++;}
+    	}
+    	
+    	public ArrayList<Card> returnUnitedCard(){
+    		return super.UnitedCardList();
     	}
 }
