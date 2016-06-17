@@ -154,7 +154,7 @@ public class Gacha extends Card{
     		++user.LSSRNumber;
     		lssr.info().get(k);
     		if(j==0){
-    			k = random.nextInt(SSRCardLimitednumber);
+    			k = random.nextInt(lssr.info().size());
         		user.SSR.add(lssr.info().get(k));
         		this.typecount(user, lssr.info().get(k));
         		returncard=lssr.info().get(k);
@@ -186,7 +186,7 @@ public class Gacha extends Card{
     		ssr.info().get(k);
     		++user.SSRNumber;
     		if(j==0){
-    			k = random.nextInt(SSRCardnumber);
+    			k = random.nextInt(ssr.info().size());
         		this.typecount(user, ssr.info().get(k));
         		user.SSR.add(ssr.info().get(k));
         		returncard=ssr.info().get(k);
@@ -217,7 +217,7 @@ public class Gacha extends Card{
     		tempCardNumber[4]++;
     		lsr.info().get(k);
     		++user.LSRNumber;
-    		k = random.nextInt(SRCardLimitednumber);
+    		k = random.nextInt(lsr.info().size());
        		this.typecount(user, lsr.info().get(k));
     		user.LSR.add(lsr.info().get(k));
     		returncard=lsr.info().get(k);
@@ -230,7 +230,7 @@ public class Gacha extends Card{
     		tempCardNumber[1]++;
     		sr.info().get(k);
     		++user.SRNumber;
-    		k = random.nextInt(sr.SRCardnumber);
+    		k = random.nextInt(sr.info().size());
     		this.typecount(user, sr.info().get(k));
     		user.SR.add(sr.info().get(k));
     		returncard=sr.info().get(k);
@@ -242,7 +242,7 @@ public class Gacha extends Card{
     		int k=0;
     		tempCardNumber[2]++; 
     		++user.RNumber;
-    		k = random.nextInt(r.RCardnumber);
+    		k = random.nextInt(r.info().size());
     		this.typecount(user, r.info().get(k));
     		user.R.add(r.info().get(k));
     		returncard=r.info().get(k);

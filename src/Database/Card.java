@@ -9,12 +9,6 @@ public class Card {
 	private String name;
 	private boolean limited;
 	
-	public final int SSRCardnumber = 28;
-	public final int SRCardnumber = 52;
-	public final int RCardnumber= 70;
-	public final int SRCardLimitednumber = 11;
-	public final int SSRCardLimitednumber = 18;
-	
 //	public int life;
 //	public int dance;
 //	public int vocal;
