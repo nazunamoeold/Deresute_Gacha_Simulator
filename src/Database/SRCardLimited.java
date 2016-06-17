@@ -4,11 +4,6 @@ import java.util.ArrayList;
 
 public class SRCardLimited extends Card {
 	ArrayList<Card> info = new ArrayList<Card>();
-	public SRCardLimited() {
-	}
-	public SRCardLimited(String lev, String type, String name, boolean limited) {
-		super(lev,type,name,limited);
-	}
 	public ArrayList<Card> info(){
 		info.add(new Card("SR","큐트","[프리티 파티쉐] 나카노 유카",true));
 		info.add(new Card("SR","큐트","[모범생/고냥이] 마에카와 미쿠",true));

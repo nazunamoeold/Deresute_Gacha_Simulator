@@ -4,11 +4,6 @@ import java.util.ArrayList;
 
 public class RCard extends Card {
 	ArrayList<Card> info = new ArrayList<Card>();
-	public RCard() {
-	}
-	public RCard(String lev, String type, String name, boolean limited) {
-		super(lev,type,name,limited);
-	}
 	public ArrayList<Card> info(){
 		info.add(new Card("R","큐트","하야사카 미레이",false,27,2914,2905,2964,29,3623,3612,3685,"p","할퀴어 버릴거야","a",13,30,6,0,0,10));
 		info.add(new Card("R","큐트","오카자키 야스하",false,30,2896,2552,2610,32,3600,3173,3245,"h","이노센트 보이스","l",9,30,4,2,0,10));

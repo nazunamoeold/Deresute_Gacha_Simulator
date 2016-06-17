@@ -244,7 +244,7 @@ public class Card{
 		if(!UnitedCard.isEmpty()){return UnitedCard;}else{
 		SSRCard SSRCard = new SSRCard();
 		SRCard SRCard = new SRCard();
-		RCard RCard = new RCard(lev, lev, lev, limited);
+		RCard RCard = new RCard();
 		for(int i=0; i<SSRCard.info().size(); i++){UnitedCard.add(SSRCard.info.get(i));}
 		for(int i=0; i<SRCard.info().size(); i++){UnitedCard.add(SRCard.info.get(i));}
 		for(int i=0; i<RCard.info().size(); i++){UnitedCard.add(RCard.info.get(i));}
@@ -256,7 +256,7 @@ public class Card{
 		if(!UnitedLimitedCard.isEmpty()){return UnitedLimitedCard;}else{
 		SSRCard SSRCard = new SSRCard();
 		SRCard SRCard = new SRCard();
-		RCard RCard = new RCard(lev, lev, lev, limited);
+		RCard RCard = new RCard();
 		SSRCardLimited SSRCardLimited = new SSRCardLimited();
 		SRCardLimited SRCardLimited = new SRCardLimited();
 		for(int i=0; i<SSRCard.info().size(); i++){UnitedLimitedCard.add(SSRCard.info.get(i));}
