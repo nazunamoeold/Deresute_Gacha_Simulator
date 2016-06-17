@@ -9,10 +9,10 @@ public class Card{
 	private String name;
 	private boolean limited;
 	
-//	public int life;
-//	public int dance;
-//	public int vocal;
-//	public int visual;
+	public int life;
+	public int dance;
+	public int vocal;
+	public int visual;
 //	public int sum=dance+vocal+visual;
 //	
 //	public String CenterSkill;
@@ -35,6 +35,12 @@ public class Card{
 	public void settype(String type){this.type=type;}
 	public void setlimited(boolean limited){this.limited=limited;}
 	public Card(String lev, String type, String name, boolean limited){
+		this.setlev(lev);
+		this.settype(type);
+		this.setname(name);
+		this.setlimited(limited);
+	}
+	public Card(String lev, String type, String name, boolean limited,int life, int dance, int vocal, int visual){
 		this.setlev(lev);
 		this.settype(type);
 		this.setname(name);
