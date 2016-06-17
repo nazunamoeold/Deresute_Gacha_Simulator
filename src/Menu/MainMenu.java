@@ -236,9 +236,6 @@ public class MainMenu extends Menu implements userthing {
 		cardinfolistpane.setBackground(this.back);
 		cardinfolistpane.setForeground(this.fore);
 		
-		RCard r2 = new RCard();
-		System.out.println(r2.info().get(3).getcentertitle());
-		
 		cardinfolist.addListSelectionListener(new ListSelectionListener(){
 			public void valueChanged(ListSelectionEvent e) {
 				JList source = (JList)e.getSource();

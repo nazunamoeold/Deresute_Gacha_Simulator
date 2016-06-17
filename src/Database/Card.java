@@ -143,7 +143,7 @@ public class Card{
 		}
 		case"s":{
 			this.setcentertitle(type+" 어빌리티");
-			this.setcenter(type+"아이돌의 스킬 발동율 "+(centereffect*(1.5))+"% 상승");
+			this.setcenter(type+"아이돌의 스킬 발동율 "+centereffect+"% 상승");
 			break;
 		}
 		case"l":{
