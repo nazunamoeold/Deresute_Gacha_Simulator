@@ -28,6 +28,7 @@ public class SSRCard extends Card {
 		info.add(new Card("SSR","Cool","[스테이지 오브 매직] 시부야 린",false));
 		info.add(new Card("SSR","Cool","[《우상》의 프래그먼트] 니노미야 아스카",false));
 		info.add(new Card("SSR","Cool","[전율의 밤] 시라사카 코우메",false));
+		info.add(new Card("SSR","Cool","[야경의 새벽바람] 시오미 슈코 ",false));
 		info.add(new Card("SSR","Passion","[매쉬업★볼테이지] 호시 쇼코",false));
 		info.add(new Card("SSR","Passion","[손으로 만드는 행복] 타카모리 아이코",false));
 		info.add(new Card("SSR","Passion","[풀스윙☆엘] 히메카와 유키",false));
