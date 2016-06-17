@@ -236,6 +236,9 @@ public class MainMenu extends Menu implements userthing {
 		cardinfolistpane.setBackground(this.back);
 		cardinfolistpane.setForeground(this.fore);
 		
+		RCard r2 = new RCard();
+		System.out.println(r2.info().get(3).getcentertitle());
+		
 		cardinfolist.addListSelectionListener(new ListSelectionListener(){
 			public void valueChanged(ListSelectionEvent e) {
 				JList source = (JList)e.getSource();
@@ -740,9 +743,9 @@ public class MainMenu extends Menu implements userthing {
 		if(user.cute==0){CuteInfo.setText("Cute");}else{
 		CuteInfo.setText("Cute  "+user.cute);}
 		if(user.cool==0){CoolInfo.setText("Cool");}else{
-		CoolInfo.setText("Cute  "+user.cool);}
+		CoolInfo.setText("Cool  "+user.cool);}
 		if(user.passion==0){PassionInfo.setText("Passion");}else{
-		PassionInfo.setText("Cute  "+user.passion);}
+		PassionInfo.setText("Passion  "+user.passion);}
 		cardlog="";
 		cardlogbuffer.setLength(0);
 		cardlogbuffer=new StringBuffer(cardlog);
@@ -890,9 +893,9 @@ public class MainMenu extends Menu implements userthing {
 			if(user.cute==0){CuteInfo.setText("Cute");}else{
 			CuteInfo.setText("Cute  "+user.cute);}
 			if(user.cool==0){CoolInfo.setText("Cool");}else{
-			CoolInfo.setText("Cute  "+user.cool);}
+			CoolInfo.setText("Cool  "+user.cool);}
 			if(user.passion==0){PassionInfo.setText("Passion");}else{
-			PassionInfo.setText("Cute  "+user.passion);}
+			PassionInfo.setText("Passion  "+user.passion);}
 			cardlog="";
 			cardlogbuffer.setLength(0);
 			cardlogbuffer=new StringBuffer(cardlog);
