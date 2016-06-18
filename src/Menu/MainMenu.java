@@ -280,7 +280,7 @@ public class MainMenu extends Menu implements userthing {
 		infolev.setSize(150,15);
 		infoname.setSize(290,15);
 		skillstr.setSize(270,45);
-		skilltitle.setSize(150,15);
+		skilltitle.setSize(190,15);
 		centertitle.setSize(150,15);
 		centerstr.setSize(290,15);
 		appealtitleb.setSize(140,15);

@@ -90,7 +90,7 @@ public class Card{
 		this.setskilltitle(skilltitle);
 		switch(skill){
 		case"o":{
-			this.setskillstr(intervaltime+" 초 마다 "+(int)pro+"% 확률로 라이프를"+overload+"만큼 소모하여 "+term+"초 동안  PERFECT 스코어가"+effect+"% 상승, NICE/BAD여도 COMBO가 끊기지 않음");
+			this.setskillstr(intervaltime+" 초 마다 "+(int)pro+"% 확률로 라이프를"+overload+"만큼 소모하여, "+term+"초 동안  PERFECT 스코어가"+effect+"% 상승, NICE/BAD여도 COMBO가 끊기지 않음");
 			break;
 		}
 		case"s":{
@@ -104,21 +104,21 @@ public class Card{
 			break;
 			}
 		case"p":{
-			if(panjung){this.setskillstr(intervaltime+"초 마다 "+(int)pro+"% 확률로 "+term+"초 동안 NICE여도 콤보가 끊기지 않음");}else if(!panjung){
+			if(panjung){this.setskillstr(intervaltime+"초 마다 "+(int)pro+"% 확률로 "+term+"초 동안, NICE여도 콤보가 끊기지 않음");}else if(!panjung){
 			switch(lev){
-			case"SSR":{this.setskillstr(intervaltime+"초 마다 "+(int)pro+"% 확률로 "+term+"초 동안 GREAT/NICE/BAD를 PERFECT로 만듬");break;}
-			case"SR":{this.setskillstr(intervaltime+"초 마다 "+(int)pro+"% 확률로 "+term+"초 동안 GREAT/NICE를 PERFECT로 만듬");break;}
-			case"R":{this.setskillstr(intervaltime+"초 마다 "+(int)pro+"% 확률로 "+term+"초 동안 GREAT를 PERFECT로 만듬");break;}
+			case"SSR":{this.setskillstr(intervaltime+"초 마다 "+(int)pro+"% 확률로 "+term+"초 동안 , GREAT/NICE/BAD를 PERFECT로 만듬");break;}
+			case"SR":{this.setskillstr(intervaltime+"초 마다 "+(int)pro+"% 확률로 "+term+"초 동안, GREAT/NICE를 PERFECT로 만듬");break;}
+			case"R":{this.setskillstr(intervaltime+"초 마다 "+(int)pro+"% 확률로 "+term+"초 동안, GREAT를 PERFECT로 만듬");break;}
 			}
 			}
 			}
 			break;
 		case"m":{
-			this.setskillstr(intervaltime+" 초 마다 "+(int)pro+"% 확률로 "+term+"초 동안 라이프가 감소하지 않음");
+			this.setskillstr(intervaltime+"초 마다 "+(int)pro+"% 확률로 "+term+"초 동안, 라이프가 감소하지 않음");
 			break;
 		}
 		case"h":{
-			this.setskillstr(intervaltime+" 초 마다 "+(int)pro+"% 확률로 "+term+"초 동안 PERFECT로 라이프 "+effect+" 회복");
+			this.setskillstr(intervaltime+"초 마다 "+(int)pro+"% 확률로 "+term+"초 동안, PERFECT로 라이프 "+effect+" 회복");
 			break;
 		}
 		}
