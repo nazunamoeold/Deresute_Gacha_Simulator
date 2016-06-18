@@ -73,7 +73,7 @@ public class Card{
 	}
 	public Card(String lev, String type, String name, boolean limited,int life, int vocal, 
 			int dance,int visual,int tlife, int tvocal, int tdance,int tvisual,String skill,
-			String skilltitle,String center,int intervaltime, double pro, 
+			String skilltitle,boolean panjung,String center,int intervaltime, double pro, 
 			int term, int effect, int overload,int centereffect){
 		this.setlev(lev);
 		this.settype(type);
@@ -90,65 +90,67 @@ public class Card{
 		this.setskilltitle(skilltitle);
 		switch(skill){
 		case"o":{
-			this.setskillstr(intervaltime+" 초 마다 "+pro+"% 확률로 라이프를"+overload+"만큼 소모하여"+term+"초 동안  PERFECT 스코어가"+effect+"% 상승, NICE/BAD여도 COMBO가 끊기지 않음");
+			this.setskillstr(intervaltime+" 초 마다 "+(int)pro+"% 확률로 라이프를"+overload+"만큼 소모하여 "+term+"초 동안  PERFECT 스코어가"+effect+"% 상승, NICE/BAD여도 COMBO가 끊기지 않음");
 			break;
 		}
 		case"s":{
 			switch(lev){
-			case"SSR":{this.setskillstr(intervaltime+"초 마다 "+pro+"% 확률로 "+term+"초 동안, PERFECT/GREAT 스코어가 "+effect+"% 상승");break;}
-			default:{this.setskillstr(intervaltime+"초 마다 "+pro+"% 확률로 "+term+"초 동안, PERFECT 스코어가 "+effect+"% 상승");break;}
+			case"SSR":{this.setskillstr(intervaltime+"초 마다 "+(int)pro+"% 확률로 "+term+" 초 동안, PERFECT/GREAT 스코어가 "+effect+"% 상승");break;}
+			default:{this.setskillstr(intervaltime+"초 마다 "+(int)pro+"% 확률로 "+term+" 초 동안, PERFECT 스코어가 "+effect+"% 상승");break;}
 			}break;
 		}
 		case"c":{
-			this.setskillstr(intervaltime+"초 마다 "+pro+"% 확률로 "+term+"초 동안, COMBO 보너스 "+effect+"% 상승");
+			this.setskillstr(intervaltime+"초 마다 "+(int)pro+"% 확률로 "+term+"초 동안, COMBO 보너스 "+effect+"% 상승");
 			break;
 			}
 		case"p":{
+			if(panjung){this.setskillstr(intervaltime+"초 마다 "+(int)pro+"% 확률로 "+term+"초 동안 NICE여도 콤보가 끊기지 않음");}else if(!panjung){
 			switch(lev){
-			case"SSR":{this.setskillstr(intervaltime+"초 마다 "+pro+"% 확률로"+term+"초 동안 GREAT/NICE/BAD를 PERFECT로 만듬");break;}
-			case"SR":{this.setskillstr(intervaltime+"초 마다 "+pro+"% 확률로"+term+"초 동안 GREAT/NICE를 PERFECT로 만듬");break;}
-			case"R":{this.setskillstr(intervaltime+"초 마다 "+pro+"% 확률로"+term+"초 동안 GREAT를 PERFECT로 만듬");break;}
+			case"SSR":{this.setskillstr(intervaltime+"초 마다 "+(int)pro+"% 확률로 "+term+"초 동안 GREAT/NICE/BAD를 PERFECT로 만듬");break;}
+			case"SR":{this.setskillstr(intervaltime+"초 마다 "+(int)pro+"% 확률로 "+term+"초 동안 GREAT/NICE를 PERFECT로 만듬");break;}
+			case"R":{this.setskillstr(intervaltime+"초 마다 "+(int)pro+"% 확률로 "+term+"초 동안 GREAT를 PERFECT로 만듬");break;}
+			}
+			}
 			}
 			break;
-			}
 		case"m":{
-			this.setskillstr(intervaltime+" 초 마다 "+term+"초 동안 라이프가 감소하지 않음");
+			this.setskillstr(intervaltime+" 초 마다 "+(int)pro+"% 확률로 "+term+"초 동안 라이프가 감소하지 않음");
 			break;
 		}
 		case"h":{
-			this.setskillstr(intervaltime+" 초 마다 "+term+"초 동안 PERFECT로 라이프 "+effect+" 회복");
+			this.setskillstr(intervaltime+" 초 마다 "+(int)pro+"% 확률로 "+term+"초 동안 PERFECT로 라이프 "+effect+" 회복");
 			break;
 		}
 		}
 		switch(center){
 		case"a":{
 			this.setcentertitle(type+" 브릴리언스");
-			this.setcenter(type+"아이돌의 모든 어필 수치 "+centereffect+"% 상승");
+			this.setcenter(type+" 아이돌의 모든 어필 수치 "+centereffect+"% 상승");
 			break;
 		}
 		case"v":{
 			this.setcentertitle(type+" 보이스");
-			this.setcenter(type+"아이돌의 보컬 어필 수치 "+centereffect+"% 상승");
+			this.setcenter(type+" 아이돌의 보컬 어필 수치 "+centereffect+"% 상승");
 			break;
 		}
 		case"d":{
 			this.setcentertitle(type+" 스텝");
-			this.setcenter(type+"아이돌의 댄스 어필 수치 "+centereffect+"% 상승");
+			this.setcenter(type+" 아이돌의 댄스 어필 수치 "+centereffect+"% 상승");
 			break;
 		}
 		case"i":{
 			this.setcentertitle(type+" 메이크");
-			this.setcenter(type+"아이돌의 비쥬얼 어필 수치 "+centereffect+"% 상승");
+			this.setcenter(type+" 아이돌의 비쥬얼 어필 수치 "+centereffect+"% 상승");
 			break;
 		}
 		case"s":{
 			this.setcentertitle(type+" 어빌리티");
-			this.setcenter(type+"아이돌의 스킬 발동율 "+centereffect+"% 상승");
+			this.setcenter(type+" 아이돌의 스킬 발동율 "+centereffect+"% 상승");
 			break;
 		}
 		case"l":{
 			this.setcentertitle(type+" 에너지");
-			this.setcenter(type+"아이돌의 라이프 "+centereffect+"% 상승");
+			this.setcenter(type+" 아이돌의 라이프 "+centereffect+"% 상승");
 			break;
 		}
 		}
