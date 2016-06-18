@@ -275,7 +275,7 @@ public class MainMenu extends Menu implements userthing {
 		lifea.setLocation(495,65);
 		
 		cardinfoname.setSize(150,20);
-		cardinfolistpane.setSize(284,195);
+		cardinfolistpane.setSize(284,190);
 		infotype.setSize(150,15);
 		infolev.setSize(150,15);
 		infoname.setSize(290,15);
@@ -827,7 +827,7 @@ public class MainMenu extends Menu implements userthing {
 			}
 		});
 		
-		setSize(580,365);
+		setSize(580,380);
 		setVisible(true);
 		setResizable(false);
 		

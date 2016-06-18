@@ -12,6 +12,7 @@ public class Gacha extends Card{
     SSRCard ssr = new SSRCard();
     SRCard sr = new SRCard();
     RCard r = new RCard();
+    CardList r2 = new CardList();
     SSRCardLimited lssr = new SSRCardLimited();
     SRCardLimited lsr = new SRCardLimited();
     Card returncard = null;
