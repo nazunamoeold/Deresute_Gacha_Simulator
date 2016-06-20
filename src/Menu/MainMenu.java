@@ -198,8 +198,8 @@ public class MainMenu extends Menu implements userthing {
 		
 		// »óÅÂ¹Ù Ç×¸ñ
 		JButton exit2 = new JButton("Á¾·á");
-		moneystat3.setText(yen+user.yen);
-		jewelstat3.setText("Áê¿¤ : "+user.jewel);
+		moneystat3.setText(yen);
+		jewelstat3.setText("Áê¿¤ : ");
 		
 		statbar.add(jewelstat3);
 		statbar.add(moneystat3);
@@ -212,7 +212,7 @@ public class MainMenu extends Menu implements userthing {
 		exit2.setBorder(this.border);
 		
 		exit2.addActionListener(new GachaAction());
-		
+		exit2.setBorder(new LineBorder(Color.WHITE,1));
 		exit2.setBackground(this.back);
 		exit2.setForeground(this.fore);
 		jewelstat3.setForeground(this.fore);
@@ -644,9 +644,9 @@ public class MainMenu extends Menu implements userthing {
 		CoolInfo.setFont(mainfont);
 		PassionInfo.setFont(mainfont);
 		fcardtitle.setFont(mainfont);
-		reset.setFont(mainfont);
-		resetjewel.setFont(mainfont);
-		resetyen.setFont(mainfont);
+		reset.setFont(mainfont2);
+		resetjewel.setFont(mainfont2);
+		resetyen.setFont(mainfont2);
 		usersearch.setFont(mainfont);
 		usersearchbtn.setFont(mainfont);
 		usercard.setFont(mainfont2);
@@ -679,6 +679,9 @@ public class MainMenu extends Menu implements userthing {
 		
 		scrollPaneu.setBorder(new LineBorder(Color.WHITE,3));
 		usersearchbtn.setBorder(new LineBorder(Color.WHITE,3));
+		reset.setBorder(new LineBorder(Color.WHITE,1));
+		resetjewel.setBorder(new LineBorder(Color.WHITE,1));
+		resetyen.setBorder(new LineBorder(Color.WHITE,1));
 		
 		SSRInfo.setForeground(this.fore);
 		SRInfo.setForeground(this.fore);

@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 
 import Gacha.Gacha;
 public class ProbabilityInfo extends JFrame implements userthing{
@@ -55,7 +56,7 @@ public class ProbabilityInfo extends JFrame implements userthing{
 		Color back = Color.WHITE;
 		Color fore = Color.BLACK;
 		Font info2 = new Font("¸¼Àº °íµñ",0,14);
-		
+		Font info3 = new Font("¸¼Àº °íµñ",0,12);
 		setTitle("È®·ü Á¶Á¤");
 		Container c = getContentPane();
 		c.setLayout(new BorderLayout(2,2));
@@ -86,7 +87,9 @@ public class ProbabilityInfo extends JFrame implements userthing{
 		
 		title.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,20));
 		exit.setFont(new Font("¸¼Àº °íµñ",0,15));
-		
+		exit.setBorder(new LineBorder(Color.WHITE,1));
+		exit.setBackground(Color.WHITE);
+		exit.setForeground(Color.BLACK);
 		exit.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -136,7 +139,7 @@ public class ProbabilityInfo extends JFrame implements userthing{
 		SRP.setSize(35,30);
 		RP.setSize(35,30);
 		OK.setSize(95,20);
-		prolists.setSize(95,20);
+		prolists.setSize(105,25);
 		
 		prostat.setLocation(20,0);
 		warning.setLocation(10,2);
@@ -159,11 +162,18 @@ public class ProbabilityInfo extends JFrame implements userthing{
 		SRP.setFont(info2);
 		RP.setFont(info2);
 		OK.setFont(info2);
-		prolists.setFont(info2);
+		prolists.setFont(info3);
 		warning2.setFont(info2);
 		
 		OK.addActionListener(new OKaction());
 		
+		OK.setBorder(new LineBorder(Color.WHITE,1));
+		OK.setBackground(Color.WHITE);
+		OK.setForeground(Color.BLACK);
+		
+		prolists.setBackground(Color.WHITE);
+		prolists.setForeground(Color.BLACK);
+		prolists.setBorder(new LineBorder(Color.WHITE));
 		setSize(300,200);
 		setResizable(false);
 		setVisible(true);	
