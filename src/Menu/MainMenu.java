@@ -211,7 +211,14 @@ public class MainMenu extends Menu implements userthing {
 		
 		exit2.setBorder(this.border);
 		
-		exit2.addActionListener(new GachaAction());
+		exit2.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+			int result =JOptionPane.showConfirmDialog(a, "종료하시겠습니까?","종료",JOptionPane.YES_OPTION);
+			if(result ==JOptionPane.YES_OPTION){
+			System.exit(0);
+			}
+			}
+		});
 		exit2.setBorder(new LineBorder(Color.WHITE,1));
 		exit2.setBackground(this.back);
 		exit2.setForeground(this.fore);
@@ -407,7 +414,21 @@ public class MainMenu extends Menu implements userthing {
 		
 		yengacha.addActionListener(new moneylistener());
 		jewelcharge.addActionListener(new jewelcharge());
-		jewellist.addListSelectionListener(new jewellist());
+		jewellist.addListSelectionListener(new ListSelectionListener(){
+			public void valueChanged(ListSelectionEvent e) {
+				JList source = (JList)e.getSource();
+				select = String.valueOf(source.getSelectedIndex());
+				switch(source.getSelectedIndex()){
+				case 0:{select=jewels2.get(0);break;}
+				case 1:{select=jewels2.get(1);break;}
+				case 2:{select=jewels2.get(2);break;}
+				case 3:{select=jewels2.get(3);break;}
+				case 4:{select=jewels2.get(4);break;}
+				case 5:{select=jewels2.get(5);break;}
+				case 6:{select=jewels2.get(6);break;}
+				}
+			}
+		});
 		
 		//가챠 메뉴 항목
 		JLabel typegacha = new JLabel("속성별 가챠");
@@ -538,7 +559,13 @@ public class MainMenu extends Menu implements userthing {
 		cool.addItemListener(new typebutton());
 		passion.addItemListener(new typebutton());
 		alltype.addItemListener(new typebutton());
-		nojewel.addItemListener(new nojewelbutton());
+		nojewel.addItemListener(new ItemListener(){
+			public void itemStateChanged(ItemEvent e) {
+				if(e.getStateChange() ==ItemEvent.SELECTED){
+					nojewelset=true;
+				} else {nojewelset=false;}
+			}
+		});
 		hawkryul.addActionListener(new GachaAction());
 	
 		alltype.setSelected(true);
@@ -1167,10 +1194,6 @@ public class MainMenu extends Menu implements userthing {
 			case"확률 조정":{
 				new ProbabilityInfo();
 				break;
-			}
-			case"종료":{int result =JOptionPane.showConfirmDialog(a, "종료하시겠습니까?","종료",JOptionPane.YES_OPTION);
-			if(result ==JOptionPane.YES_OPTION){
-			System.exit(0);}
 			}}
 		}
 	}
@@ -1299,31 +1322,5 @@ public class MainMenu extends Menu implements userthing {
 			}
 		}
 	}
-	
-	public class jewellist implements ListSelectionListener{
-
-		public void valueChanged(ListSelectionEvent e) {
-			JList source = (JList)e.getSource();
-			select = String.valueOf(source.getSelectedIndex());
-			switch(source.getSelectedIndex()){
-			case 0:{select=jewels2.get(0);break;}
-			case 1:{select=jewels2.get(1);break;}
-			case 2:{select=jewels2.get(2);break;}
-			case 3:{select=jewels2.get(3);break;}
-			case 4:{select=jewels2.get(4);break;}
-			case 5:{select=jewels2.get(5);break;}
-			case 6:{select=jewels2.get(6);break;}
-			}
-		}
-	}
-	
-	public class nojewelbutton implements ItemListener{
-		public void itemStateChanged(ItemEvent e) {
-			if(e.getStateChange() ==ItemEvent.SELECTED){
-				nojewelset=true;
-			} else {nojewelset=false;}
-		}
-	}
-
 	
 	public static void main(String[] args){new MainMenu();}}
