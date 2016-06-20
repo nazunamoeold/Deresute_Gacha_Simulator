@@ -443,7 +443,7 @@ public class MainMenu extends Menu implements userthing {
 		gachago.setSize(94,30);
 		yunchago.setSize(94,30);
 		yungumgo.setSize(94,30);
-		scrollPane.setSize(352,192);
+		scrollPane.setSize(352,199);
 		searchtable.setSize(224,20);
 		searchbtn.setSize(65,25);
 		limited.setSize(60,20);
@@ -490,6 +490,7 @@ public class MainMenu extends Menu implements userthing {
 		infinite.setFont(mainfont2);
 		nojewel.setFont(mainfont2);
 		hawkryul.setFont(mainfont2);
+		result.setFont(mainfont2);
 		
 		gachago.setBackground(this.back);
 		yunchago.setBackground(this.back);
@@ -599,7 +600,7 @@ public class MainMenu extends Menu implements userthing {
 		reset.setLocation(8,148);
 		resetjewel.setLocation(8,171);
 		resetyen.setLocation(8,194);
-		scrollPaneu.setLocation(275,38);
+		scrollPaneu.setLocation(265,38);
 		filterssr.setLocation(128,88);
 		filtersr.setLocation(128,108);
 		filterr.setLocation(128,128);
@@ -623,7 +624,7 @@ public class MainMenu extends Menu implements userthing {
 	    reset.setSize(116,20);
 	    resetjewel.setSize(116,20);
 	    resetyen.setSize(116,20);
-	    scrollPaneu.setSize(295,185);
+	    scrollPaneu.setSize(310,185);
 	    filterssr.setSize(20,20);
 	    filtersr.setSize(20,20);
 	    filterr.setSize(20,20);
@@ -648,6 +649,7 @@ public class MainMenu extends Menu implements userthing {
 		resetyen.setFont(mainfont);
 		usersearch.setFont(mainfont);
 		usersearchbtn.setFont(mainfont);
+		usercard.setFont(mainfont2);
 		
 		filterssr.setBackground(this.back);
 		filtersr.setBackground(this.back);
@@ -871,7 +873,6 @@ public class MainMenu extends Menu implements userthing {
 			if(r){
 				for(int i=0; i<user.listrcool.size(); i++){
 					cardlogbuffer.append(user.listrcool.get(i).Valueof());
-					if(i==user.listrcool.size()-1){break;}
 					cardlogbuffer.append("\n");
 					filter.add(user.listrcool.get(i));
 					}
@@ -1024,8 +1025,7 @@ public class MainMenu extends Menu implements userthing {
 				for(int i=0; i<user.listsrpassion.size(); i++){
 					cardlogbuffer.append(user.listsrpassion.get(i).Valueof()+"\n");}
 				for(int i=0; i<user.listrpassion.size(); i++){
-					if(i==user.listrpassion.size()-1&&i>2){cardlogbuffer.append(user.listrpassion.get(i).Valueof());}else{
-					cardlogbuffer.append(user.listrpassion.get(i).Valueof()+"\n");}}
+					cardlogbuffer.append(user.listrpassion.get(i).Valueof()+"\n");}
 			}
 			cardlog=cardlogbuffer.toString();
 			usercard.setText(cardlog);
