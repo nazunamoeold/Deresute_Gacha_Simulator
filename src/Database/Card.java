@@ -1,7 +1,11 @@
 package Database;
 
+import java.awt.Image;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 
 public class Card{
 	private String type;
@@ -21,13 +25,26 @@ public class Card{
 	private String skilltitle;
 	private String centerstr;
 	private String centertitle;
-//	public String ImagePath;
-//	public File CardImage = new File(ImagePath);
+	private Image imageb=null;
+	private Image imagea=null;
 	
-	public File getImage(String path){
-		File returnimage = new File(path);
-		return returnimage;
+	public void setImageb(String path){
+		try{File CardImage = new File(path);
+		this.imageb = ImageIO.read(CardImage);}
+		catch(IOException e){}
 	}
+	public Image getImageb(){
+		return imageb;
+	}
+	public void setImagea(String path){
+		try{File CardImage = new File(path);
+		this.imagea = ImageIO.read(CardImage);}
+		catch(IOException e){System.out.println(path);}
+	}
+	public Image getImagea(){
+		return imagea;
+	}
+
 	public String Valueof() {return "[" + this.getlev() + "] [" + this.gettype() + "] " + this.getname() ;}
 	public String getlev(){return lev;}
 	public String getname(){return name;}
@@ -74,7 +91,7 @@ public class Card{
 	public Card(String lev, String type, String name, boolean limited,int life, int vocal, 
 			int dance,int visual,int tlife, int tvocal, int tdance,int tvisual,String skill,
 			String skilltitle,boolean panjung,String center,int intervaltime, double pro, 
-			int term, int effect, int overload,int centereffect){
+			int term, int effect, int overload,int centereffect, String pathb, String patha){
 		this.setlev(lev);
 		this.settype(type);
 		this.setname(name);
@@ -88,6 +105,8 @@ public class Card{
 		this.settdance(tdance);
 		this.settvisual(tvisual);
 		this.setskilltitle(skilltitle);
+		this.setImageb(pathb);
+		this.setImagea(patha);
 		switch(skill){
 		case"o":{
 			this.setskillstr(intervaltime+" 초 마다 "+(int)pro+"% 확률로 라이프를"+overload+"만큼 소모하여, \n"+term+"초 동안  PERFECT 스코어가"+effect+"% 상승, \nNICE/BAD여도 COMBO가 끊기지 않음");
@@ -155,6 +174,7 @@ public class Card{
 		}
 		}
 	}
+
 	public Card(){}
 
 

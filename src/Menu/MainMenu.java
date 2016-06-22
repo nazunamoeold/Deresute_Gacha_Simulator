@@ -24,6 +24,8 @@ interface userthing{
 }
 
  class Menu extends JFrame implements userthing {
+	 
+	int tempCardNumber[] = new int[6];
 	Color back = Color.WHITE;
 	Color fore = Color.DARK_GRAY;
 	
@@ -70,6 +72,12 @@ interface userthing{
 	JLabel lifea = new JLabel();
 	JLabel centertitle = new JLabel("¼¾ÅÍ ½ºÅ³  : ");
 	JLabel centerstr = new JLabel("");
+	JLabel resultssr = new JLabel("SSR : ");
+	JLabel resultsr = new JLabel("SR : ");
+	JLabel resultr = new JLabel("R : ");
+	JLabel resultcute = new JLabel("Cute : ");
+	JLabel resultcool = new JLabel("Cool : ");
+	JLabel resultpassion = new JLabel("Passion : ");
 
 	String jewel ="Áê¿¤ : ";
 	String yen = "µ· : ";
@@ -132,13 +140,14 @@ interface userthing{
 public class MainMenu extends Menu implements userthing {
 	JLabel moneystat3 = new JLabel();
 	JLabel jewelstat3 = new JLabel();
+
 	MainMenu(){
 		
 		nojewelset=false;
 		Image moneyimage =null;
 		Image debugimage =null;
 		Image titleimage = null;
-		
+		Image titleimage2 = null;
 		user.limited=false;
 		
 		Font mainfont = new Font("¸¼Àº °íµñ",0,15);
@@ -150,14 +159,17 @@ public class MainMenu extends Menu implements userthing {
 		setTitle("µ¥·¹½ºÅ× °¡Ã­ ½Ã¹Ä·¹ÀÌÅÍ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		try{File sourceimage = new File("image/moneymenu/main");
+		try{File sourceimage = new File("Image/moneymenu/main");
 		moneyimage = ImageIO.read(sourceimage);}
 		catch(IOException e){}
-		try{File sourceimage2 = new File("image/cardimage/asukassr-before");
+		try{File sourceimage2 = new File("Image/cardimage/asukassr-before");
 		debugimage = ImageIO.read(sourceimage2);}
 		catch(IOException e){}
-		try{File sourceimage2 = new File("image/mainimage/title");
+		try{File sourceimage2 = new File("Image/mainimage/title");
 		titleimage = ImageIO.read(sourceimage2);}
+		catch(IOException e){}
+		try{File sourceimage2 = new File("Image/cardimage/test");
+		titleimage2 = ImageIO.read(sourceimage2);}
 		catch(IOException e){}
 		
 		JLabel Title = new JLabel (new ImageIcon(titleimage));
@@ -230,9 +242,9 @@ public class MainMenu extends Menu implements userthing {
 		
 		JLabel cardinfoname = new JLabel("Ä«µå Á¤º¸ ÀÏ¶÷");
 		cardinfoname.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,20));
-		
+		JLabel testimage = new JLabel(new ImageIcon(titleimage2));
 		cardinfo.setLayout(null);
-		
+		cardinfo.add(testimage);
 		cardinfo.add(cardinfoname);
 		cardinfo.add(cardinfolistpane);
 		cardinfo.add(infoname);
@@ -257,6 +269,7 @@ public class MainMenu extends Menu implements userthing {
 		cardinfo.add(centerstr);
 		cardinfo.add(centertitle);
 		
+		testimage.setLocation(303,6);
 		cardinfoname.setLocation(65, 6);
 		cardinfolistpane.setLocation(6,35);
 		infotype.setLocation(297,76);
@@ -281,6 +294,7 @@ public class MainMenu extends Menu implements userthing {
 		visuala.setLocation(495,49);
 		lifea.setLocation(495,65);
 		
+		testimage.setSize(66,66);
 		cardinfoname.setSize(150,20);
 		cardinfolistpane.setSize(284,190);
 		infotype.setSize(150,15);
@@ -438,16 +452,27 @@ public class MainMenu extends Menu implements userthing {
 		JButton yunchago = new JButton("10È¸ °¡Ã­");
 		JButton yungumgo = new JButton("¿¬±Ý °¡Ã­");
 		JButton searchbtn = new JButton("°Ë»ö");
-		JButton infinite = new JButton("¹«ÇÑ °¡Ã­");
+		final JButton infinite = new JButton("¹«ÇÑ °¡Ã­");
 		JButton hawkryul = new JButton("È®·ü Á¶Á¤");
 		
-	    JScrollPane scrollPane = new JScrollPane(result);
+		JRadioButton image = new JRadioButton("ÀÌ¹ÌÁö ¸ðµå");
 		
+	    final JScrollPane scrollPane= new JScrollPane(result);
+	    final JPanel gacharesult = new JPanel ();
+	    gacharesult.setLayout(new GridLayout(2,5,5,5));
+	    JScrollPane a2 = new JScrollPane(gacharesult, ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+	    a2.setPreferredSize(new Dimension(32,199));
+	    a2.setBorder(new LineBorder(Color.WHITE,1));
+	    a2.setBackground(this.back);
+	    a2.setForeground(this.fore);
+	    gacharesult.setBackground(this.back);
+	    
 		gacha.setLayout(null);
 		gacha.add(gachago);
 		gacha.add(yunchago);
 		gacha.add(yungumgo);
 		gacha.add(scrollPane);
+		gacha.add(a2);
 		gacha.add(searchtable);
 		gacha.add(searchbtn);
 		gacha.add(limited);
@@ -460,23 +485,41 @@ public class MainMenu extends Menu implements userthing {
 		gacha.add(infinite);
 		gacha.add(nojewel);
 		gacha.add(hawkryul);
+		gacha.add(resultssr);
+		gacha.add(resultsr);
+		gacha.add(resultr);
+		gacha.add(resultcute);
+		gacha.add(resultcool);
+		gacha.add(resultpassion);
+		gacha.add(image);
 		
+		a2.setVisible(true);
+		a2.setSize(372,189);
+		a2.setLocation(196,33);
+
 		gachago.setSize(94,30);
 		yunchago.setSize(94,30);
 		yungumgo.setSize(94,30);
-		scrollPane.setSize(352,199);
+		scrollPane.setSize(372,199);
 		searchtable.setSize(224,20);
 		searchbtn.setSize(65,25);
 		limited.setSize(60,20);
 		gachatitle.setSize(365,20);
 		cute.setSize(60,20);
-		cool.setSize(110,20);
-		passion.setSize(110,20);
+		cool.setSize(90,20);
+		passion.setSize(90,20);
 		typegacha.setSize(110,20);
 		alltype.setSize(60,20);
 		infinite.setSize(94,30);
 		nojewel.setSize(65,20);
 		hawkryul.setSize(94,30);
+		resultssr.setSize(60,15);
+		resultsr.setSize(60,15);
+		resultr.setSize(60,15);
+		resultcute.setSize(60,15);
+		resultcool.setSize(60,15);
+		resultpassion.setSize(60,15);
+		image.setSize(96,15);
 		
 		gachago.setLocation(2,10);
 		yunchago.setLocation(98,10);
@@ -493,12 +536,19 @@ public class MainMenu extends Menu implements userthing {
 		alltype.setLocation(62,150);
 		infinite.setLocation(98,42);
 		nojewel.setLocation(62,107);
-		hawkryul.setLocation(2,74);
+		hawkryul.setLocation(100,182);
+		resultssr.setLocation(2,76);
+		resultsr.setLocation(60,76);
+		resultr.setLocation(118,76);
+		resultcute.setLocation(2,90);
+		resultcool.setLocation(60,90);
+		resultpassion.setLocation(118,90);
+		image.setLocation(102,133);
 		
 		gachago.setFont(mainfont2);
 		yunchago.setFont(mainfont2);
 		yungumgo.setFont(mainfont2);
-		scrollPane.setFont(mainfont);
+		scrollPane.setFont(mainfont3);
 		searchtable.setFont(mainfont2);
 		searchbtn.setFont(mainfont2);
 		limited.setFont(mainfont2);
@@ -512,6 +562,13 @@ public class MainMenu extends Menu implements userthing {
 		nojewel.setFont(mainfont2);
 		hawkryul.setFont(mainfont2);
 		result.setFont(mainfont2);
+		resultssr.setFont(mainfont3);
+		resultsr.setFont(mainfont3);
+		resultr.setFont(mainfont3);
+		resultcute.setFont(mainfont3);
+		resultcool.setFont(mainfont3);
+		resultpassion.setFont(mainfont3);
+		image.setFont(mainfont2);
 		
 		gachago.setBackground(this.back);
 		yunchago.setBackground(this.back);
@@ -529,6 +586,7 @@ public class MainMenu extends Menu implements userthing {
 		typegacha.setBackground(this.back);
 		hawkryul.setBackground(this.back);
 		result.setBackground(this.back);
+		image.setBackground(this.back);
 		gachago.setForeground(this.fore);
 		yunchago.setForeground(this.fore);
 		yungumgo.setForeground(this.fore);
@@ -545,6 +603,7 @@ public class MainMenu extends Menu implements userthing {
 		hawkryul.setForeground(this.fore);
 		typegacha.setForeground(this.fore);
 		result.setForeground(this.fore);
+		image.setForeground(this.fore);
 		scrollPane.setBorder(new LineBorder(Color.WHITE,3));
 		searchbtn.setBorder(new LineBorder(Color.WHITE,3));
 		
@@ -567,6 +626,19 @@ public class MainMenu extends Menu implements userthing {
 			}
 		});
 		hawkryul.addActionListener(new GachaAction());
+		image.addItemListener(new ItemListener(){
+			public void itemStateChanged(ItemEvent e){
+				if(e.getStateChange()==ItemEvent.SELECTED){
+					scrollPane.setVisible(false);
+					gacharesult.setVisible(true);
+					infinite.setEnabled(false);
+				}else if(e.getStateChange()==ItemEvent.DESELECTED){
+					gacharesult.setVisible(false);
+					scrollPane.setVisible(true);
+					infinite.setEnabled(true);
+				}
+			}
+		});
 	
 		alltype.setSelected(true);
 		result.setEditable(false);
@@ -866,6 +938,12 @@ public class MainMenu extends Menu implements userthing {
 	}
 	
 	public void refresh() {
+		resultssr.setText("SSR : "+tempCardNumber[0]);
+		resultsr.setText("SR : "+tempCardNumber[1]);
+		resultr.setText("R : "+tempCardNumber[2]);
+		resultcute.setText("Cute : ");
+		resultcool.setText("Cool : ");
+		resultpassion.setText("Passion : ");
 		moneystat3.setText("µ·   "+user.yen);
 		jewelstat3.setText("Áê¿¤    "+user.jewel);
 		usedjewel.setText("»ç¿ëÇÑ Áê¿¤   "+user.usedjewel);
@@ -1002,6 +1080,36 @@ public class MainMenu extends Menu implements userthing {
 	
 	public class GachaAction implements ActionListener{
 		
+		public void checkcard(Card card){
+			
+			switch(card.gettype()){
+			case"Å¥Æ®":{tempCardNumber[3]++;
+				switch(card.getlev()){
+				case"SSR":{tempCardNumber[0]++;break;}
+				case"SR":{tempCardNumber[1]++;break;}
+				case"R":{tempCardNumber[2]++;break;}
+				}
+				break;
+				}
+			case"Äð":{tempCardNumber[4]++;
+				switch(card.getlev()){
+				case"SSR":{tempCardNumber[0]++;break;}
+				case"SR":{tempCardNumber[1]++;break;}
+				case"R":{tempCardNumber[2]++;break;}
+				}
+				break;
+				}
+			case"ÆÐ¼Ç":{tempCardNumber[5]++;
+				switch(card.getlev()){
+				case"SSR":{tempCardNumber[0]++;break;}
+				case"SR":{tempCardNumber[1]++;break;}
+				case"R":{tempCardNumber[2]++;break;}
+				}
+				break;
+				}
+			}
+		}
+		
 		public void showerror(){
 			JOptionPane.showMessageDialog(a, "Áê¿¤ÀÌ ºÎÁ·ÇÕ´Ï´Ù"," Áê¿¤ ºÎÁ·",JOptionPane.ERROR_MESSAGE);
 		}
@@ -1015,6 +1123,13 @@ public class MainMenu extends Menu implements userthing {
 		}
 		
 		public void refresh(){
+			resultssr.setText("SSR : "+tempCardNumber[0]);
+			resultsr.setText("SR : "+tempCardNumber[1]);
+			resultr.setText("R : "+tempCardNumber[2]);
+			resultcute.setText("Cute : "+tempCardNumber[3]);
+			resultcool.setText("Cool : "+tempCardNumber[4]);
+			resultpassion.setText("Passion : "+tempCardNumber[5]);
+			
 			moneystat3.setText("µ·   "+user.yen);
 			jewelstat3.setText("Áê¿¤    "+user.jewel);
 			usedjewel.setText("»ç¿ëÇÑ Áê¿¤   "+user.usedjewel);
@@ -1065,6 +1180,9 @@ public class MainMenu extends Menu implements userthing {
 			String menu = e.getActionCommand();
 			switch(menu){
 			case"1È¸ °¡Ã­":{
+				for(int i=0; i<6; i++){
+					tempCardNumber[i]=0;
+				}
 				if(this.checkjewel(user, 250)){
 				resulttemp.clear();
 				result.setText("");
@@ -1072,10 +1190,12 @@ public class MainMenu extends Menu implements userthing {
 				StringBuffer gachatext = new StringBuffer();
 				if(user.limited){
 					resultcard=g.ReturnToGUIUnlimited(user, 0);
+					this.checkcard(resultcard);
 					gachatext.append(resultcard.Valueof()+"\n");
 					resulttemp.add(resultcard);}
 				else {
 					resultcard=g.ReturnToGUILimited(user, 0);
+					this.checkcard(resultcard);
 					gachatext.append(resultcard.Valueof()+"\n");
 					resulttemp.add(resultcard);}
 				String gacharesult=gachatext.toString();
@@ -1083,6 +1203,9 @@ public class MainMenu extends Menu implements userthing {
 				this.refresh();
 				break;}else{this.showerror();break;}}
 			case"10È¸ °¡Ã­":{
+				for(int i=0; i<6; i++){
+					tempCardNumber[i]=0;
+				}
 				if(this.checkjewel(user, 2500)){
 				resulttemp.clear();
 				result.setText("");
@@ -1091,16 +1214,20 @@ public class MainMenu extends Menu implements userthing {
 				if(user.limited){
 				for(int i=0; i<9; i++){
 					resultcard=g.ReturnToGUIUnlimited(user, 0);
+					this.checkcard(resultcard);
 					gachatext.append(resultcard.Valueof()+"\n");
 					resulttemp.add(resultcard);
 					}resultcard=g.ReturnToGUIUnlimited(user, 1);
+					this.checkcard(resultcard);
 					gachatext.append(resultcard.Valueof());
 					resulttemp.add(resultcard);
 				} else {for(int i=0; i<9; i++){
 					resultcard=g.ReturnToGUILimited(user, 0);
+					this.checkcard(resultcard);
 					gachatext.append(resultcard.Valueof()+"\n");
 					resulttemp.add(resultcard);
 					}resultcard=g.ReturnToGUILimited(user, 1);
+					this.checkcard(resultcard);
 					gachatext.append(resultcard.Valueof());
 					resulttemp.add(resultcard);
 				}
@@ -1109,6 +1236,9 @@ public class MainMenu extends Menu implements userthing {
 				this.refresh();
 				break;}else{this.showerror();break;}}
 			case"¿¬±Ý °¡Ã­":{
+				for(int i=0; i<6; i++){
+					tempCardNumber[i]=0;
+				}
 				if(this.checkjewel(user, 60)){
 				resulttemp.clear();
 				result.setText("");
@@ -1116,10 +1246,12 @@ public class MainMenu extends Menu implements userthing {
 				StringBuffer gachatext = new StringBuffer();
 				if(user.limited){
 					resultcard=g.ReturnToGUILimited(user, 0);
+					this.checkcard(resultcard);
 					gachatext.append(resultcard.Valueof()+"\n");
 					resulttemp.add(resultcard);}
 				else {
 					resultcard=g.ReturnToGUIUnlimited(user, 0);
+					this.checkcard(resultcard);
 					gachatext.append(resultcard.Valueof()+"\n");
 					resulttemp.add(resultcard);}
 				String gacharesult=gachatext.toString();
@@ -1142,6 +1274,10 @@ public class MainMenu extends Menu implements userthing {
 				JOptionPane.showMessageDialog(a,searchresult,"°Ë»ö °á°ú",JOptionPane.INFORMATION_MESSAGE);
 				}break;}break;}
 			case"¹«ÇÑ °¡Ã­":{
+				for(int i=0; i<6; i++){
+					tempCardNumber[i]=0;
+				}
+				
 				int count=0;
 				resulttemp.clear();
 				result.setText("");
@@ -1152,6 +1288,7 @@ public class MainMenu extends Menu implements userthing {
 					this.refresh();
 					if(user.limited){
 						resultcard=g.ReturnToGUIUnlimited(user, 0);
+						this.checkcard(resultcard);
 						if(resultcard.getlev().equals("SSR")){gachatext.append(resultcard.Valueof());}
 						else{gachatext.append(resultcard.Valueof()+"\n");}
 						resulttemp.add(resultcard);
@@ -1171,6 +1308,7 @@ public class MainMenu extends Menu implements userthing {
 						}
 					else {
 						resultcard=g.ReturnToGUILimited(user, 0);
+						this.checkcard(resultcard);
 						if(resultcard.getlev().equals("SSR")){gachatext.append(resultcard.Valueof());}
 						else{gachatext.append(resultcard.Valueof()+"\n");}
 						resulttemp.add(resultcard);

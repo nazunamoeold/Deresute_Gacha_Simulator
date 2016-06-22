@@ -7,7 +7,6 @@ import Menu.User;
 import Database.*;
 public class Gacha extends Card{
 	CardList lists = new CardList();
-	int tempCardNumber[] = new int[5];
     Scanner scanner = new Scanner(System.in);
     SSRCard ssr = new SSRCard();
     SRCard sr = new SRCard();
@@ -152,7 +151,6 @@ public class Gacha extends Card{
 	   	public Card LSSRadd(User user, int j){
     		Random random = new Random();
     		int k=0;
-    		tempCardNumber[3]++; 
     		++user.LSSRNumber;
     		lssr.info().get(k);
     		if(j==0){
@@ -182,8 +180,7 @@ public class Gacha extends Card{
     	}
     	public Card SSRadd(User user, int j){
     		Random random = new Random();
-    		int k = 0;
-    		tempCardNumber[0]++; 
+    		int k = 0; 
     		ssr.info().get(k);
     		++user.SSRNumber;
     		if(j==0){
@@ -214,7 +211,6 @@ public class Gacha extends Card{
     	public Card LSRadd(User user){
     		Random random = new Random();
     		int k = 0;
-    		tempCardNumber[4]++;
     		lsr.info().get(k);
     		++user.LSRNumber;
     		k = random.nextInt(lsr.info().size());
@@ -226,7 +222,6 @@ public class Gacha extends Card{
     	public Card SRadd(User user){
     		Random random = new Random();
     		int k=0;
-    		tempCardNumber[1]++;
     		sr.info().get(k);
     		++user.SRNumber;
     		k = random.nextInt(sr.info().size());
@@ -238,7 +233,6 @@ public class Gacha extends Card{
     	public Card Radd(User user){
     		Random random = new Random();
     		int k=0;
-    		tempCardNumber[2]++; 
     		++user.RNumber;
     		k = random.nextInt(r.info().size());
     		user.R.add(r.info().get(k));
