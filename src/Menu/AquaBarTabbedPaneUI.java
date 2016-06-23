@@ -27,10 +27,10 @@ public class AquaBarTabbedPaneUI extends BasicTabbedPaneUI {
 
 		selectedColorSet = new ColorSet();
 		selectedColorSet.topGradColor1 = new Color(237, 248, 233);
-		selectedColorSet.topGradColor2 = new Color(158, 199, 240);
+		selectedColorSet.topGradColor2 = new Color(250, 105, 154);
 
-		selectedColorSet.bottomGradColor1 = new Color(112, 173, 239);
-		selectedColorSet.bottomGradColor2 = new Color(183, 244, 253);
+		selectedColorSet.bottomGradColor1 = new Color(250, 105, 154);
+		selectedColorSet.bottomGradColor2 = new Color(250, 105, 154);
 
 		defaultColorSet = new ColorSet();
 		defaultColorSet.topGradColor1 = new Color(253, 253, 253);
@@ -45,6 +45,29 @@ public class AquaBarTabbedPaneUI extends BasicTabbedPaneUI {
 
 		hoverColorSet.bottomGradColor1 = new Color(211, 211, 211);
 		hoverColorSet.bottomGradColor2 = new Color(255, 255, 255);
+		
+		/*
+		 * electedColorSet = new ColorSet();
+		selectedColorSet.topGradColor1 = new Color(237, 248, 233);
+		selectedColorSet.topGradColor2 = new Color(158, 199, 240);
+
+		selectedColorSet.bottomGradColor1 = new Color(112, 173, 239);
+		selectedColorSet.bottomGradColor2 = new Color(253, 244, 183);
+
+		defaultColorSet = new ColorSet();
+		defaultColorSet.topGradColor1 = new Color(253, 253, 253);
+		defaultColorSet.topGradColor2 = new Color(237, 237, 237);
+
+		defaultColorSet.bottomGradColor1 = new Color(222, 222, 222);
+		defaultColorSet.bottomGradColor2 = new Color(255, 255, 255);
+
+		hoverColorSet = new ColorSet();
+		hoverColorSet.topGradColor1 = new Color(244, 244, 244);
+		hoverColorSet.topGradColor2 = new Color(223, 223, 223);
+
+		hoverColorSet.bottomGradColor1 = new Color(211, 211, 211);
+		hoverColorSet.bottomGradColor2 = new Color(255, 255, 255);
+		 */
 
 		maxTabHeight = 20;
 

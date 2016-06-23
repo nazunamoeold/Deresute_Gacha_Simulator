@@ -148,6 +148,7 @@ public class MainMenu extends Menu implements userthing {
 		Image debugimage =null;
 		Image titleimage = null;
 		Image titleimage2 = null;
+		Image moneyimage2 = null;
 		user.limited=false;
 		
 		Font mainfont = new Font("¸¼Àº °íµñ",0,15);
@@ -170,6 +171,9 @@ public class MainMenu extends Menu implements userthing {
 		catch(IOException e){}
 		try{File sourceimage2 = new File("Image/cardimage/test");
 		titleimage2 = ImageIO.read(sourceimage2);}
+		catch(IOException e){}
+		try{File sourceimage2 = new File("Image/moneymenu/sign");
+		moneyimage2 = ImageIO.read(sourceimage2);}
 		catch(IOException e){}
 		
 		JLabel Title = new JLabel (new ImageIcon(titleimage));
@@ -350,6 +354,7 @@ public class MainMenu extends Menu implements userthing {
 		cardinfolistpane.setBackground(this.back);
 		cardinfolistpane.setForeground(this.fore);
 		
+		cardinfolist.setSelectionBackground(Color.pink);
 		cardinfolist.addListSelectionListener(new ListSelectionListener(){
 			public void valueChanged(ListSelectionEvent e) {
 				JList source = (JList)e.getSource();
@@ -388,13 +393,15 @@ public class MainMenu extends Menu implements userthing {
 		jewellist.setDragEnabled(false);
 		jewellist.setSelectionMode(JList.VERTICAL);
 		jewellist.setSelectedIndex(0);
-		
+		jewellist.setSelectionBackground(Color.PINK);
+		JLabel sign = new JLabel(new ImageIcon(moneyimage2));
 		money.add(moneyimagee);
 		money.add(yengacha);
 		money.add(jewelcharge);
 		money.add(jewellist);
 		money.add(yenchargefield);
 		money.add(jewellists);
+		money.add(sign);
 		
 		moneyimagee.setLocation(0,8);
 		yengacha.setLocation(450,58);
@@ -402,6 +409,7 @@ public class MainMenu extends Menu implements userthing {
 		jewellist.setLocation(256,48);
 		yenchargefield.setLocation(450,23);
 		jewellists.setLocation(256,18);
+		sign.setLocation(440,142);
 		
 		moneyimagee.setSize(250,208);
 		yengacha.setSize(105,30);
@@ -409,6 +417,7 @@ public class MainMenu extends Menu implements userthing {
 		jewellist.setSize(180,190);
 		yenchargefield.setSize(105,30);
 		jewellists.setSize(115,30);
+		sign.setSize(128,83);
 
 		yengacha.setFont(mainfont);
 		jewelcharge.setFont(mainfont);
