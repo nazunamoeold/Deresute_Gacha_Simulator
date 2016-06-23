@@ -1449,8 +1449,8 @@ public class MainMenu extends Menu implements userthing {
 				}
 		}
 		public void refresh(){
-			moneystat3.setText("µ· : "+user.yen);
-			jewelstat3.setText("Áê¿¤ : "+user.jewel);
+			moneystat3.setText("µ·   "+user.yen);
+			jewelstat3.setText("Áê¿¤   "+user.jewel);
 		}
 		
 		public void actionPerformed(ActionEvent e){
