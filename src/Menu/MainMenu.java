@@ -24,7 +24,6 @@ interface userthing{
 }
 
  class Menu extends JFrame implements userthing {
-	 
 	int tempCardNumber[] = new int[6];
 	Color back = Color.WHITE;
 	Color fore = Color.DARK_GRAY;
@@ -138,6 +137,7 @@ interface userthing{
 }
 
 public class MainMenu extends Menu implements userthing {
+	
 	JLabel moneystat3 = new JLabel();
 	JLabel jewelstat3 = new JLabel();
 
@@ -242,7 +242,7 @@ public class MainMenu extends Menu implements userthing {
 		
 		JLabel cardinfoname = new JLabel("카드 정보 일람");
 		cardinfoname.setFont(new Font("맑은 고딕",Font.BOLD,20));
-		JLabel testimage = new JLabel(new ImageIcon(titleimage2));
+		final JLabel testimage = new JLabel();
 		cardinfo.setLayout(null);
 		cardinfo.add(testimage);
 		cardinfo.add(cardinfoname);
@@ -354,6 +354,7 @@ public class MainMenu extends Menu implements userthing {
 			public void valueChanged(ListSelectionEvent e) {
 				JList source = (JList)e.getSource();
 				int a=source.getSelectedIndex();
+//				System.out.println(lists.unlimitedinfo().get(a).getImagea().toString());
 				infoname.setText("이름 : "+lists.unlimitedinfo().get(a).getname());
 				infotype.setText("속성 : "+lists.unlimitedinfo().get(a).gettype());
 				infolev.setText("등급 : "+lists.unlimitedinfo().get(a).getlev());
@@ -1461,4 +1462,6 @@ public class MainMenu extends Menu implements userthing {
 		}
 	}
 	
-	public static void main(String[] args){new MainMenu();}}
+	public static void main(String[] args){
+//		g.loadimages();
+		new MainMenu();}}

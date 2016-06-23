@@ -3,11 +3,12 @@ package Database;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
-public class Card{
+public class Card extends CardList{
 	private String type;
 	private String lev;
 	private String name;
@@ -25,25 +26,36 @@ public class Card{
 	private String skilltitle;
 	private String centerstr;
 	private String centertitle;
-	private Image imageb=null;
-	private Image imagea=null;
+	public Image imageb;
+	public Image imagea;
+	public File patha;
+	public File pathb;
 	
-	public void setImageb(String path){
-		try{File CardImage = new File(path);
-		this.imageb = ImageIO.read(CardImage);}
+	public void setImage(String path, Image i){
+		try{InputStream is = new BufferedInputStream(new FileInputStream(path));
+		i=ImageIO.read(is);}
 		catch(IOException e){}
 	}
 	public Image getImageb(){
 		return imageb;
 	}
-	public void setImagea(String path){
-		try{File CardImage = new File(path);
-		this.imagea = ImageIO.read(CardImage);}
-		catch(IOException e){System.out.println(path);}
-	}
 	public Image getImagea(){
 		return imagea;
 	}
+	public void loadimages(){
+		for(int i=0; i<unlimitedinfo().size(); i++){
+			try{
+				InputStream is = new BufferedInputStream(new FileInputStream(unlimitedinfo().get(i).patha));
+				this.imagea=ImageIO.read(is);
+				System.out.println(this.name);
+//				System.out.println(count);
+				count++;
+				is = new BufferedInputStream(new FileInputStream(unlimitedinfo().get(i).pathb));
+				this.imageb=ImageIO.read(is);}
+				catch(IOException e){}
+		}
+	}
+	
 
 	public String Valueof() {return "[" + this.getlev() + "] [" + this.gettype() + "] " + this.getname() ;}
 	public String getlev(){return lev;}
@@ -80,7 +92,7 @@ public class Card{
 	public String getskilltitle (){return skilltitle;}
 	public String getcenter(){return centerstr;}
 	public String getcentertitle(){return centertitle;}
-	
+	int count =0;
 	
 	public Card(String lev, String type, String name, boolean limited){
 		this.setlev(lev);
@@ -90,8 +102,8 @@ public class Card{
 	}
 	public Card(String lev, String type, String name, boolean limited,int life, int vocal, 
 			int dance,int visual,int tlife, int tvocal, int tdance,int tvisual,String skill,
-			String skilltitle,boolean panjung,String center,int intervaltime, double pro, 
-			int term, int effect, int overload,int centereffect, String pathb, String patha){
+			String skilltitle,boolean panjung,String center,int intervaltime, int pro, 
+			int term, int effect, int overload,int centereffect, File patha, File pathb){
 		this.setlev(lev);
 		this.settype(type);
 		this.setname(name);
@@ -105,8 +117,8 @@ public class Card{
 		this.settdance(tdance);
 		this.settvisual(tvisual);
 		this.setskilltitle(skilltitle);
-		this.setImageb(pathb);
-		this.setImagea(patha);
+		this.patha=patha;
+		this.pathb=pathb;
 		switch(skill){
 		case"o":{
 			this.setskillstr(intervaltime+" 초 마다 "+(int)pro+"% 확률로 라이프를"+overload+"만큼 소모하여, \n"+term+"초 동안  PERFECT 스코어가"+effect+"% 상승, \nNICE/BAD여도 COMBO가 끊기지 않음");

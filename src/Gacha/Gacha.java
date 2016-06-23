@@ -21,6 +21,10 @@ public class Gacha extends Card{
     
     public boolean TXT=true;
 	public String txt="Yes";
+	
+	public void loadimage(){
+		loadimages();
+	}
 		
 	public void ProbabilityChangeGUI(User user, Double ssrp, Double srp){
 		user.tempSSR=ssrp;
