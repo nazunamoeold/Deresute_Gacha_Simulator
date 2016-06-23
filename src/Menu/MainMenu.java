@@ -580,6 +580,8 @@ public class MainMenu extends Menu implements userthing {
 		resultpassion.setFont(mainfont3);
 		image.setFont(mainfont2);
 		
+		image.setEnabled(false);
+		
 		gachago.setBackground(this.back);
 		yunchago.setBackground(this.back);
 		yungumgo.setBackground(this.back);
