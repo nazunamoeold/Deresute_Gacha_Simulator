@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -140,6 +141,7 @@ public class MainMenu extends Menu implements userthing {
 	
 	JLabel moneystat3 = new JLabel();
 	JLabel jewelstat3 = new JLabel();
+	
 
 	MainMenu(){
 		
@@ -662,13 +664,17 @@ public class MainMenu extends Menu implements userthing {
 		
 		// 정보 메뉴 항목
 		fcardimage = new JLabel(new ImageIcon(debugimage));
-
+		JLabel resetmenu = new JLabel("초기화 메뉴");
+		JLabel nazunamoe = new JLabel("nazunamoe");
 		JLabel cardinfo = new JLabel("소지 카드 정보");
 		JLabel fcardtitle = new JLabel("선호 아이돌");
 		JButton reset = new JButton("카드 초기화");
 		JButton resetjewel = new JButton("쥬엘 초기화");
 		JButton resetyen = new JButton("돈 초기화");
 		JButton usersearchbtn = new JButton("검색");
+		JButton blog = new JButton("블로그");
+		JButton twitter = new JButton("트위터");
+		JButton github = new JButton("깃허브");
 		
 	    JScrollPane scrollPaneu = new JScrollPane(usercard);
 		
@@ -697,6 +703,11 @@ public class MainMenu extends Menu implements userthing {
 		info.add(filterpassion);
 		info.add(usersearch);
 		info.add(usersearchbtn);
+		info.add(blog);
+		info.add(twitter);
+		info.add(github);
+		info.add(nazunamoe);
+		info.add(resetmenu);
 		
 		usedjewel.setLocation(128,11);
 		usedyen.setLocation(128,33);
@@ -721,6 +732,11 @@ public class MainMenu extends Menu implements userthing {
 		filterpassion.setLocation(128,188);
 		usersearch.setLocation(275,11);
 		usersearchbtn.setLocation(505,11);
+		blog.setLocation(8,31);
+		twitter.setLocation(8,54);
+		github.setLocation(8,77);
+		nazunamoe.setLocation(30,6);
+		resetmenu.setLocation(30,118);
 		
 	    usedjewel.setSize(210,18);
 	    usedyen.setSize(210,18);
@@ -745,6 +761,11 @@ public class MainMenu extends Menu implements userthing {
 	    filterpassion.setSize(20,20);
 	    usersearch.setSize(230,24);
 	    usersearchbtn.setSize(64,23);
+	    blog.setSize(110,23);
+	    twitter.setSize(110,23);
+	    github.setSize(110,23);
+	    nazunamoe.setSize(110,23);
+	    resetmenu.setSize(110,23);
 		
 		usedjewel.setFont(mainfont);
 		usedyen.setFont(mainfont);
@@ -762,6 +783,11 @@ public class MainMenu extends Menu implements userthing {
 		usersearch.setFont(mainfont);
 		usersearchbtn.setFont(mainfont);
 		usercard.setFont(mainfont2);
+		blog.setFont(mainfont2);
+		twitter.setFont(mainfont2);
+		github.setFont(mainfont2);
+		nazunamoe.setFont(mainfont2);
+		resetmenu.setFont(mainfont2);
 		
 		filterssr.setBackground(this.back);
 		filtersr.setBackground(this.back);
@@ -775,6 +801,9 @@ public class MainMenu extends Menu implements userthing {
 		usersearch.setBackground(this.back);
 		usercard.setBackground(this.back);
 		usersearchbtn.setBackground(this.back);
+		blog.setBackground(this.back);
+		twitter.setBackground(this.back);
+		github.setBackground(this.back);
 		
 		filterssr.setForeground(this.fore);
 		filtersr.setForeground(this.fore);
@@ -788,12 +817,18 @@ public class MainMenu extends Menu implements userthing {
 		usersearch.setForeground(this.fore);
 		usercard.setForeground(this.fore);
 		usersearchbtn.setForeground(this.fore);
+		blog.setForeground(this.fore);
+		twitter.setForeground(this.fore);
+		github.setForeground(this.fore);
 		
 		scrollPaneu.setBorder(new LineBorder(Color.WHITE,3));
 		usersearchbtn.setBorder(new LineBorder(Color.WHITE,3));
 		reset.setBorder(new LineBorder(Color.WHITE,1));
 		resetjewel.setBorder(new LineBorder(Color.WHITE,1));
 		resetyen.setBorder(new LineBorder(Color.WHITE,1));
+		blog.setBorder(new LineBorder(Color.WHITE,1));
+		twitter.setBorder(new LineBorder(Color.WHITE,1));
+		github.setBorder(new LineBorder(Color.WHITE,1));
 		
 		SSRInfo.setForeground(this.fore);
 		SRInfo.setForeground(this.fore);
@@ -804,6 +839,61 @@ public class MainMenu extends Menu implements userthing {
 		usedjewel.setForeground(this.fore);
 		usedyen.setForeground(this.fore);
 		cardinfo.setForeground(this.fore);
+		
+		blog.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+		        if( !desktop.isSupported( java.awt.Desktop.Action.BROWSE ) ) {
+		            System.err.println( "Desktop doesn't support web browser action" );
+		        }
+		        try {
+		            java.net.URI uri = new java.net.URI("http://aoskp.tistory.com");
+		            desktop.browse(uri);
+		        }        
+		        catch (IOException _e) {
+		            System.err.println( _e.getMessage() );
+		        } 
+		        catch (URISyntaxException _e) {
+		            System.err.println( _e.getMessage() );
+		        }
+			}
+		});
+		twitter.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+		        if( !desktop.isSupported( java.awt.Desktop.Action.BROWSE ) ) {
+		            System.err.println( "Desktop doesn't support web browser action" );
+		        }
+		        try {
+		            java.net.URI uri = new java.net.URI("http://twitter.com/nazunamoe");
+		            desktop.browse(uri);
+		        }        
+		        catch (IOException _e) {
+		            System.err.println( _e.getMessage() );
+		        } 
+		        catch (URISyntaxException _e) {
+		            System.err.println( _e.getMessage() );
+		        }
+			}
+		});
+		github.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+		        if( !desktop.isSupported( java.awt.Desktop.Action.BROWSE ) ) {
+		            System.err.println( "Desktop doesn't support web browser action" );
+		        }
+		        try {
+		            java.net.URI uri = new java.net.URI("https://github.com/nazunamoe/Deresute_Gacha_Simulator");
+		            desktop.browse(uri);
+		        }        
+		        catch (IOException _e) {
+		            System.err.println( _e.getMessage() );
+		        } 
+		        catch (URISyntaxException _e) {
+		            System.err.println( _e.getMessage() );
+		        }
+			}
+		});
 		
 		usersearchbtn.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
