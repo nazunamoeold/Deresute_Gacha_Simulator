@@ -26,36 +26,6 @@ public class Card extends CardList{
 	private String skilltitle;
 	private String centerstr;
 	private String centertitle;
-	public Image imageb;
-	public Image imagea;
-	public File patha;
-	public File pathb;
-	
-	public void setImage(String path, Image i){
-		try{InputStream is = new BufferedInputStream(new FileInputStream(path));
-		i=ImageIO.read(is);}
-		catch(IOException e){}
-	}
-	public Image getImageb(){
-		return imageb;
-	}
-	public Image getImagea(){
-		return imagea;
-	}
-	public void loadimages(){
-		for(int i=0; i<unlimitedinfo().size(); i++){
-			try{
-				InputStream is = new BufferedInputStream(new FileInputStream(unlimitedinfo().get(i).patha));
-				this.imagea=ImageIO.read(is);
-				System.out.println(this.name);
-//				System.out.println(count);
-				count++;
-				is = new BufferedInputStream(new FileInputStream(unlimitedinfo().get(i).pathb));
-				this.imageb=ImageIO.read(is);}
-				catch(IOException e){}
-		}
-	}
-	
 
 	public String Valueof() {return "[" + this.getlev() + "] [" + this.gettype() + "] " + this.getname() ;}
 	public String getlev(){return lev;}
@@ -103,7 +73,7 @@ public class Card extends CardList{
 	public Card(String lev, String type, String name, boolean limited,int life, int vocal, 
 			int dance,int visual,int tlife, int tvocal, int tdance,int tvisual,String skill,
 			String skilltitle,boolean panjung,String center,int intervaltime, int pro, 
-			int term, int effect, int overload,int centereffect, File patha, File pathb){
+			int term, int effect, int overload,int centereffect){
 		this.setlev(lev);
 		this.settype(type);
 		this.setname(name);
@@ -117,8 +87,6 @@ public class Card extends CardList{
 		this.settdance(tdance);
 		this.settvisual(tvisual);
 		this.setskilltitle(skilltitle);
-		this.patha=patha;
-		this.pathb=pathb;
 		switch(skill){
 		case"o":{
 			this.setskillstr(intervaltime+" 초 마다 "+(int)pro+"% 확률로 라이프를"+overload+"만큼 소모하여, \n"+term+"초 동안  PERFECT 스코어가"+effect+"% 상승, \nNICE/BAD여도 COMBO가 끊기지 않음");
@@ -182,6 +150,23 @@ public class Card extends CardList{
 		case"l":{
 			this.setcentertitle(type+" 에너지");
 			this.setcenter(type+" 아이돌의 라이프 "+centereffect+"% 상승");
+			break;
+		}
+		case"q":{
+			switch(type){
+			case"큐트":{
+				this.setcentertitle("트리콜로르 메이크");
+				this.setcenter("3 타입 아이돌이 전부 편성되어 있을 경우、\n모두의 비쥬얼 어필 수치 100％ 상승 ");
+				}
+			case"쿨":{
+				this.setcentertitle("트리콜로르 보이스");
+				this.setcenter("3 타입 아이돌이 전부 편성되어 있을 경우、\n모두의 보컬 어필 수치 100％ 상승 ");
+				}
+			case"패션":{
+				this.setcentertitle("트리콜로르 스텝");
+				this.setcenter("3 타입 아이돌이 전부 편성되어 있을 경우、\n모두의 댄스 어필 수치 100％ 상승 ");
+				}
+			}
 			break;
 		}
 		}

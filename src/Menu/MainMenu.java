@@ -39,7 +39,7 @@ interface userthing{
 	JLabel CuteInfo = new JLabel("Cute : "+user.cute);
 	JLabel CoolInfo = new JLabel("Cool : "+user.cool);
 	JLabel PassionInfo = new JLabel("Passion : "+user.passion);
-	
+	JTextArea centerstr = new JTextArea("");
 	JTextArea skillstr = new JTextArea("");
 	JTextArea result = new JTextArea(9,10);
 	JTextArea usercard = new JTextArea(9,10);
@@ -70,7 +70,7 @@ interface userthing{
 	JLabel visuala = new JLabel();
 	JLabel lifea = new JLabel();
 	JLabel centertitle = new JLabel("센터 스킬  : ");
-	JLabel centerstr = new JLabel("");
+	
 	JLabel resultssr = new JLabel("SSR : ");
 	JLabel resultsr = new JLabel("SR : ");
 	JLabel resultr = new JLabel("R : ");
@@ -283,31 +283,31 @@ public class MainMenu extends Menu implements userthing {
 		skilltitle.setLocation(297,124);
 		centertitle.setLocation(297,190);
 		centerstr.setLocation(297,206);
-		appealtitleb.setLocation(425,3);
-		appealtitlea.setLocation(495,3);
-		vocal.setLocation(375,17);
-		dance.setLocation(375,33);
-		visual.setLocation(375,49);
-		life.setLocation(375,65);
-		vocalb.setLocation(425,17);
-		danceb.setLocation(425,33);
-		visualb.setLocation(425,49);
-		lifeb.setLocation(425,65);
-		vocala.setLocation(495,17);
-		dancea.setLocation(495,33);
-		visuala.setLocation(495,49);
-		lifea.setLocation(495,65);
+		appealtitleb.setLocation(365,0);
+		appealtitlea.setLocation(475,0);
+		vocal.setLocation(297,14);
+		dance.setLocation(297,29);
+		visual.setLocation(297,45);
+		life.setLocation(297,61);
+		vocalb.setLocation(365,14);
+		danceb.setLocation(365,29);
+		visualb.setLocation(365,45);
+		lifeb.setLocation(365,61);
+		vocala.setLocation(475,14);
+		dancea.setLocation(475,29);
+		visuala.setLocation(475,45);
+		lifea.setLocation(475,61);
 		
 		testimage.setSize(66,66);
 		cardinfoname.setSize(150,20);
-		cardinfolistpane.setSize(284,190);
+		cardinfolistpane.setSize(284,197);
 		infotype.setSize(150,15);
 		infolev.setSize(150,15);
 		infoname.setSize(290,15);
 		skillstr.setSize(270,45);
 		skilltitle.setSize(190,15);
 		centertitle.setSize(150,15);
-		centerstr.setSize(290,15);
+		centerstr.setSize(230,50);
 		appealtitleb.setSize(140,15);
 		appealtitlea.setSize(140,15);
 		vocal.setSize(90,15);
@@ -349,12 +349,13 @@ public class MainMenu extends Menu implements userthing {
 		skillstr.setFont(mainfont3);
 		skillstr.setEditable(false);
 		skillstr.setDragEnabled(false);
+		centerstr.setEditable(false);
 
 		cardinfolistpane.setBorder(new LineBorder(Color.WHITE,0));
 		cardinfolistpane.setBackground(this.back);
 		cardinfolistpane.setForeground(this.fore);
 		
-		cardinfolist.setSelectionBackground(Color.pink);
+		cardinfolist.setSelectionBackground(new Color(183, 220, 253));
 		cardinfolist.addListSelectionListener(new ListSelectionListener(){
 			public void valueChanged(ListSelectionEvent e) {
 				JList source = (JList)e.getSource();
@@ -393,7 +394,7 @@ public class MainMenu extends Menu implements userthing {
 		jewellist.setDragEnabled(false);
 		jewellist.setSelectionMode(JList.VERTICAL);
 		jewellist.setSelectedIndex(0);
-		jewellist.setSelectionBackground(Color.PINK);
+		jewellist.setSelectionBackground(new Color(183, 220, 253));
 		JLabel sign = new JLabel(new ImageIcon(moneyimage2));
 		money.add(moneyimagee);
 		money.add(yengacha);
@@ -682,8 +683,8 @@ public class MainMenu extends Menu implements userthing {
 		info.add(CuteInfo);
 		info.add(CoolInfo);
 		info.add(PassionInfo);
-		info.add(fcardimage);
-		info.add(fcardtitle);
+//		info.add(fcardimage);
+//		info.add(fcardtitle);
 		info.add(reset);
 		info.add(resetjewel);
 		info.add(resetyen);
@@ -943,7 +944,7 @@ public class MainMenu extends Menu implements userthing {
 			}
 		});
 		
-		setSize(580,380);
+		setSize(580,387);
 		setVisible(true);
 		setResizable(false);
 		
