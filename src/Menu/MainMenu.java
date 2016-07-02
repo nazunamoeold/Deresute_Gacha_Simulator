@@ -414,7 +414,7 @@ public class MainMenu extends Menu implements userthing {
 		jewellists.setLocation(256,18);
 		sign.setLocation(440,142);
 		
-		moneyimagee.setSize(250,208);
+		moneyimagee.setSize(260,225);
 		yengacha.setSize(105,30);
 		jewelcharge.setSize(105,30);
 		jewellist.setSize(180,190);
