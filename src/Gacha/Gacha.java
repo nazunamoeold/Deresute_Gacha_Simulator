@@ -241,9 +241,4 @@ public class Gacha extends Card{
     		this.counttype(user, returncard); 
     		return returncard;
     	}
-    	
-    	
-    	public ArrayList<Card> returnUnitedCard(){
-    		return super.UnitedCardList();
-    	}
 }

@@ -50,6 +50,8 @@ public class SSRCardLimited extends Card {
 				"c","울려퍼지는 열정",false,"i",13,40,6,15,0,90));
 		info.add(new Card("SSR","패션","[원더 엔터테이너] 혼다 미오",true,42,3089,6122,3812,44,3725,7381,4596,
 				"c","찬스를 붙잡아☆",false,"q",9,35,5,18,0,0));
+		info.add(new Card("SSR","패션","[섬머타임☆하이] 오오츠키 유이",true,42,3845,5858,3184,44,4637,7063,3839,
+				"c","어퍼 튠",false,"d",7,40,3,15,0,90));
 		return info;
 	}
 }
