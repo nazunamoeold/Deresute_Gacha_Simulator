@@ -7,11 +7,9 @@ import Menu.User;
 import Database.*;
 public class Gacha extends Card{
 	CardList lists = new CardList();
-    Scanner scanner = new Scanner(System.in);
     SSRCard ssr = new SSRCard();
     SRCard sr = new SRCard();
     RCard r = new RCard();
-    CardList r2 = new CardList();
     SSRCardLimited lssr = new SSRCardLimited();
     SRCardLimited lsr = new SRCardLimited();
     Card returncard = null;
@@ -22,7 +20,6 @@ public class Gacha extends Card{
     public boolean TXT=true;
 	public String txt="Yes";
 
-		
 	public void ProbabilityChangeGUI(User user, Double ssrp, Double srp){
 		user.tempSSR=ssrp;
 		user.tempSR=srp;
@@ -126,7 +123,6 @@ public class Gacha extends Card{
     			else if(temp<=user.LSRp){System.out.println(this.LSRadd(user).Valueof());}
     			else if(temp<=user.SRp){System.out.println(this.SRadd(user).Valueof());}
     			x++;}
-//			TXTSave.GachaResultSave(tempGachaCard, i, tempCardNumber[0], tempCardNumber[1], tempCardNumber[2], tempCardNumber[3], tempCardNumber[4]);
 			}    				
 		}
 		
@@ -145,7 +141,6 @@ public class Gacha extends Card{
     			if(temp<=user.SSRp){System.out.println(this.SSRadd(user,user.TypeGachaSetting).Valueof());}
     			else if(temp<=user.SRp){System.out.println(this.SRadd(user).Valueof());}
     		x++;}
-//    		TXTSave.GachaResultSave(tempGachaCard, i, tempCardNumber[0], tempCardNumber[1], tempCardNumber[2], tempCardNumber[3], tempCardNumber[4]);
 		}		
 
     }
