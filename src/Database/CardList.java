@@ -1,6 +1,5 @@
 package Database;
 
-import java.io.File;
 import java.util.ArrayList;
 
 public class CardList{
@@ -422,115 +421,8 @@ public class CardList{
 		return info;
 	}
 	public ArrayList<String> returncardinfo(String type, String lev){
-		switch(lev){
-		case"All":{
 			for(int i=0; i<204;i++){
-					cardinfo.add(this.unlimitedinfo().get(i).Valueof());}
-			break;
-		}
-		case"SSR":{
-			switch(type){
-			case"Cute":{
-				for(int i=0; i<183;i++){
-					if(this.unlimitedinfo().get(i).gettype().equals("Cute")){
-						if(this.unlimitedinfo().get(i).getlev().equals("SSR")){
-							cardinfo.add(this.unlimitedinfo().get(i).Valueof());
-						}
-					}
-				}
-				break;
-			}
-			case"Cool":{
-				for(int i=0; i<183;i++){
-					if(this.unlimitedinfo().get(i).gettype().equals("Cool")){
-						if(this.unlimitedinfo().get(i).getlev().equals("SSR")){
-							cardinfo.add(this.unlimitedinfo().get(i).Valueof());
-						}
-					}
-				}
-				break;
-			}
-			case"Passion":{
-				for(int i=0; i<183;i++){
-					if(this.unlimitedinfo().get(i).gettype().equals("Passion")){
-						if(this.unlimitedinfo().get(i).getlev().equals("SSR")){
-							cardinfo.add(this.unlimitedinfo().get(i).Valueof());
-						}
-					}
-				}
-				break;
-			}
-			}break;
-		}
-		case"SR":{
-			switch(type){
-			case"Cute":{
-				for(int i=0; i<183;i++){
-					if(this.unlimitedinfo().get(i).gettype().equals("Cute")){
-						if(this.unlimitedinfo().get(i).getlev().equals("SR")){
-							cardinfo.add(this.unlimitedinfo().get(i).Valueof());
-						}
-					}
-				}
-				break;
-			}
-			case"Cool":{
-				for(int i=0; i<183;i++){
-					if(this.unlimitedinfo().get(i).gettype().equals("Cool")){
-						if(this.unlimitedinfo().get(i).getlev().equals("SR")){
-							cardinfo.add(this.unlimitedinfo().get(i).Valueof());
-						}
-					}
-				}
-				break;
-			}
-			case"Passion":{
-				for(int i=0; i<183;i++){
-					if(this.unlimitedinfo().get(i).gettype().equals("Passion")){
-						if(this.unlimitedinfo().get(i).getlev().equals("SR")){
-							cardinfo.add(this.unlimitedinfo().get(i).Valueof());
-						}
-					}
-				}
-				break;
-			}
-			}break;
-		}
-		case"R":{
-			switch(type){
-			case"Cute":{
-				for(int i=0; i<183;i++){
-					if(this.unlimitedinfo().get(i).gettype().equals("Cute")){
-						if(this.unlimitedinfo().get(i).getlev().equals("R")){
-							cardinfo.add(this.unlimitedinfo().get(i).Valueof());
-						}
-					}
-				}
-				break;
-			}
-			case"Cool":{
-				for(int i=0; i<183;i++){
-					if(this.unlimitedinfo().get(i).gettype().equals("Cool")){
-						if(this.unlimitedinfo().get(i).getlev().equals("R")){
-							cardinfo.add(this.unlimitedinfo().get(i).Valueof());
-						}
-					}
-				}
-				break;
-			}
-			case"Passion":{
-				for(int i=0; i<183;i++){
-					if(this.unlimitedinfo().get(i).gettype().equals("Passion")){
-						if(this.unlimitedinfo().get(i).getlev().equals("R")){
-							cardinfo.add(this.unlimitedinfo().get(i).Valueof());
-						}
-					}
-				}
-				break;
-			}
-		}
-		}break;
+					cardinfo.add(this.unlimitedinfo().get(i).Valueof());}return cardinfo;
 	}
-		return cardinfo;
-	}
+	
 }
